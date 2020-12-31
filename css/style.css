@@ -181,10 +181,10 @@ body {
 }
 
 .navbar-center {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-  }
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+}
 
 .nav-link {
 	font-family: Roboto;
