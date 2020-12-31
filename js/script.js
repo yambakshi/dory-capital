@@ -103,6 +103,7 @@ function turnRight(el) {
   $(".item1").removeClass("active");
   el.classList.add("active");
   var currentClick = el.getAttribute("data-val");
+  carousels[currentCarousel] = currentClick;
   //	$("#slide_"+currentClick).addClass("active");	
 
   var holder = [];
@@ -149,6 +150,7 @@ function turnRight2(el) {
   $(".item2").removeClass("active");
   el.classList.add("active");
   var currentClick = el.getAttribute("data-val");
+  carousels[currentCarousel] = currentClick;
   //	$("#slide_"+currentClick).addClass("active");	
 
   var holder = [];
@@ -190,6 +192,7 @@ function turnRight3(el) {
   $(".item3").removeClass("active");
   el.classList.add("active");
   var currentClick = el.getAttribute("data-val");
+  carousels[currentCarousel] = currentClick;
   //	$("#slide_"+currentClick).addClass("active");	
 
   var holder = [];
@@ -231,6 +234,7 @@ function turnRight4(el) {
   $(".item4").removeClass("active");
   el.classList.add("active");
   var currentClick = el.getAttribute("data-val");
+  carousels[currentCarousel] = currentClick;
   //	$("#slide_"+currentClick).addClass("active");	
 
   var holder = [];
@@ -274,6 +278,7 @@ function turnRight5(el) {
   $(".item5").removeClass("active");
   el.classList.add("active");
   var currentClick = el.getAttribute("data-val");
+  carousels[currentCarousel] = currentClick;
   //	$("#slide_"+currentClick).addClass("active");	
 
   var holder = [];

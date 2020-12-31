@@ -64,56 +64,59 @@
             </div>
 
             <!--
-		<div class="text-center position-relative slider-container">
-			<div class="controls selection-off">
-			  <div class="slide-num selection-off active" onclick="turnRight(this)" data-val="0">I</div>
-			  <div class="slide-num selection-off" onclick="turnRight(this)" data-val="1">II</div>
-			  <div class="slide-num selection-off" onclick="turnRight(this)" data-val="2">III</div>
-			  <div class="slide-num selection-off" onclick="turnRight(this)" data-val="3">IV</div>
-			  <div class="slide-num selection-off" onclick="turnRight(this)" data-val="4">V</div>
-			</div>
-			<div class="circle-slide">
-				<div class="item active" id="slide_0" onclick="turnRight(this)" data-val="0">
-					<img src="images/_Augmented-_-Virtual-Reality-_Converted_ 1.png" class="img-fluid" alt="image" />
-					<p>Augmented &amp; Virtual Reality</p> </div>
-				<div class="item" id="slide_1" onclick="turnRight(this)" data-val="1">
-					<img src="images/NLP-_Converted_ 1.png" class="img-fluid" alt="image" />
-					<p>Neuro-Linguistic Programming (NLP)</p></div>
-				<div class="item" id="slide_2" onclick="turnRight(this)" data-val="2">
-					<img src="images/AI-_Converted_ 1.png" class="img-fluid" alt="image" />
-					<p>Artificial intelligent(AI)</p></div>
-				<div class="item" id="slide_3" onclick="turnRight(this)" data-val="3">
-					<img src="images/Profiling.png" class="img-fluid" alt="image" />
-					<p>Profiling</p></div>
-				<div class="item" id="slide_4" onclick="turnRight(this)" data-val="4">
-					<img src="images/Facial-recognition.png" class="img-fluid" alt="image" />
-					<p>Facial recognition</p></div>
-			</div>
-			
-		</div>
--->
+            <div class="text-center position-relative slider-container">
+                <div class="controls selection-off">
+                <div class="slide-num selection-off active" onclick="turnRight(this)" data-val="0">I</div>
+                <div class="slide-num selection-off" onclick="turnRight(this)" data-val="1">II</div>
+                <div class="slide-num selection-off" onclick="turnRight(this)" data-val="2">III</div>
+                <div class="slide-num selection-off" onclick="turnRight(this)" data-val="3">IV</div>
+                <div class="slide-num selection-off" onclick="turnRight(this)" data-val="4">V</div>
+                </div>
+                <div class="circle-slide">
+                    <div class="item active" id="slide_0" onclick="turnRight(this)" data-val="0">
+                        <img src="images/_Augmented-_-Virtual-Reality-_Converted_ 1.png" class="img-fluid" alt="image" />
+                        <p>Augmented &amp; Virtual Reality</p> </div>
+                    <div class="item" id="slide_1" onclick="turnRight(this)" data-val="1">
+                        <img src="images/NLP-_Converted_ 1.png" class="img-fluid" alt="image" />
+                        <p>Neuro-Linguistic Programming (NLP)</p></div>
+                    <div class="item" id="slide_2" onclick="turnRight(this)" data-val="2">
+                        <img src="images/AI-_Converted_ 1.png" class="img-fluid" alt="image" />
+                        <p>Artificial intelligent(AI)</p></div>
+                    <div class="item" id="slide_3" onclick="turnRight(this)" data-val="3">
+                        <img src="images/Profiling.png" class="img-fluid" alt="image" />
+                        <p>Profiling</p></div>
+                    <div class="item" id="slide_4" onclick="turnRight(this)" data-val="4">
+                        <img src="images/Facial-recognition.png" class="img-fluid" alt="image" />
+                        <p>Facial recognition</p></div>
+                </div>
+            </div>
+            -->
 
             <div class="position-relative container carousel">
-                <ul class="nav nav-pills mb-3 justify-content-center circle-tab" id="pills-tab" role="tablist">
-                    <li class="nav-item">
+                <ul class="nav nav-pills mb-3 justify-content-center circle-tab carousel-picker" id="pills-tab" role="tablist">
+                    <li class="nav-item carousel-option">
                         <a class="nav-link active slide-num" id="pills-one-tab" data-toggle="pill" href="#pills-one"
-                            role="tab" aria-controls="pills-one" aria-selected="true" onclick="updateCurrentCarousel(1)">I</a>
+                            role="tab" aria-controls="pills-one" aria-selected="true"
+                            onclick="updateCurrentCarousel(0)">I</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item carousel-option">
                         <a class="nav-link slide-num" id="pills-two-tab" data-toggle="pill" href="#pills-two" role="tab"
-                            aria-controls="pills-two" aria-selected="false" onclick="updateCurrentCarousel(2)">II</a>
+                            aria-controls="pills-two" aria-selected="false" onclick="updateCurrentCarousel(1)">II</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item carousel-option">
                         <a class="nav-link slide-num" id="pills-three-tab" data-toggle="pill" href="#pills-three"
-                            role="tab" aria-controls="pills-three" aria-selected="false" onclick="updateCurrentCarousel(3)">III</a>
+                            role="tab" aria-controls="pills-three" aria-selected="false"
+                            onclick="updateCurrentCarousel(2)">III</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item carousel-option">
                         <a class="nav-link slide-num" id="pills-four-tab" data-toggle="pill" href="#pills-four"
-                            role="tab" aria-controls="pills-four" aria-selected="false" onclick="updateCurrentCarousel(4)">IV</a>
+                            role="tab" aria-controls="pills-four" aria-selected="false"
+                            onclick="updateCurrentCarousel(3)">IV</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item carousel-option">
                         <a class="nav-link slide-num" id="pills-five-tab" data-toggle="pill" href="#pills-five"
-                            role="tab" aria-controls="pills-five" aria-selected="false" onclick="updateCurrentCarousel(5)">V</a>
+                            role="tab" aria-controls="pills-five" aria-selected="false"
+                            onclick="updateCurrentCarousel(4)">V</a>
                     </li>
                 </ul>
                 <div class="tab-content" id="pills-tabContent">

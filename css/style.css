@@ -978,18 +978,32 @@ padding: 136px 0;
 
 .controls {	
 	text-align: center;	
-	
 }
+
 .slide-num {
 	font-family: "Merriweather";
 	font-size: 32px;
 	line-height: 40px;
 	padding: 5px 56px;
-	border-right: 1px solid rgba(255,255,255,0.1);
 	display: inline-block;
 	color: rgba(255,255,255,0.2) !important;
 	font-weight: normal;
 }
+
+.carousel-picker {
+	position: relative;
+}
+
+.carousel-option:not(:last-of-type)::after {
+	content: "";
+	position: absolute;
+	width: 1px;
+	height: 100%;
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%);
+	background-color: white;
+}
+
 .circle-tab .nav-item:last-child .slide-num {
 	border-right: none;	
 }
@@ -1022,12 +1036,9 @@ padding: 136px 0;
   
 }
 
-
-
-.contact-form ::placeholder{
+.contact-form ::placeholder {
 	color: #CBCBCB;
 }
-
 
 .circle-menu{
 	position: fixed;
@@ -1037,28 +1048,32 @@ padding: 136px 0;
 	z-index: 9999;
 	transition: all 0.5s;
 }
+
 video::-webkit-media-controls {
 	opacity: 0;
 }
 
-.video-Popup{
-	
+.video-Popup {
+
 }
-@media (min-width: 576px){
+
+@media (min-width: 576px) {
 	#video-Popup .modal-dialog {
 		max-width: 640px;
 		margin: 1.75rem auto;
 	}
-	.opn-video{
-	width: 600px;
-	margin: 0 auto;
-	display: block;
+
+	.opn-video {
+		width: 600px;
+		margin: 0 auto;
+		display: block;
+	}
 }
 
-}
-.modal-backdrop.show{
+.modal-backdrop.show {
 	display: none;
 }
+
 #video-Popup .modal-dialog .close {
 	position: absolute;
     right: -17px;
