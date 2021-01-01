@@ -41,12 +41,12 @@ body {
 	/* filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#0f49db', GradientType=0 ); */
 }
 
-.video-wrapper-about-us {
+/* .video-wrapper-about-us {
 	position: absolute;
 	z-index: -1;
 	right: 21%;
 	left: 21%;
-}
+} */
 
 .video-wrapper-why-us {
 	position: absolute;
@@ -155,7 +155,7 @@ body {
 	background: radial-gradient(rgba(15, 73, 219, .7) 0%, rgba(15, 73, 219, 1) 49%, rgba(15,73,219,1) 100%);
 }
 
-.video-wrapper-about-us::after {
+/* .video-wrapper-about-us::after {
 	content: "";
 	width: 100%;
 	height: 100%;
@@ -170,7 +170,7 @@ body {
 	background: -o-radial-gradient(rgba(15, 73, 219, .7) 0%, rgba(15, 73, 219, 1) 65%, rgba(15,73,219,1) 100%);
 	background: -ms-radial-gradient(rgba(15, 73, 219, .7) 0%, rgba(15, 73, 219, 1) 65%, rgba(15,73,219,1) 100%);
 	background: radial-gradient(rgba(15, 73, 219, .7) 0%, rgba(15, 73, 219, 1) 65%, rgba(15,73,219,1) 100%);
-}
+} */
 
 .dory-video {
 	width: 100%;	
