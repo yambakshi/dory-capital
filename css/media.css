@@ -33,31 +33,36 @@
 		top: 0;
 		left: 0;
 		background: transparent;
-		background: -moz-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 65%, rgba(15,73,219,1) 100%);
+		background: -moz-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 45%, rgba(15,73,219,1) 100%);
 		background: -webkit-gradient(left top, left bottom, color-stop(0%, transparent), color-stop(90%, rgba(15, 73, 219, 1)), color-stop(100%, rgba(15, 73, 219, 1)));
-		background: -webkit-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 65%, rgba(15,73,219,1) 100%);
-		background: -o-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 65%, rgba(15,73,219,1) 100%);
-		background: -ms-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 65%, rgba(15,73,219,1) 100%);
-		background: radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 65%, rgba(15,73,219,1) 100%);
+		background: -webkit-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 45%, rgba(15,73,219,1) 100%);
+		background: -o-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 45%, rgba(15,73,219,1) 100%);
+		background: -ms-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 45%, rgba(15,73,219,1) 100%);
+		background: radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 45%, rgba(15,73,219,1) 100%);
 	}
-}
 
-@media (min-width: 320px) and (max-width: 480px) {
 	/* WHY US */
 
 	.video-wrapper-why-us {
 		position: absolute;
 		z-index: 0;
-		right: -20% !important;
-		left: -20% !important;
-		height: 23%;
+		right: 0;
+		left: 0;
+		top: 0;
+		height: 35%;
 		overflow: hidden;
+	}
+
+	.video-outer-wrapper-why-us {
+		position: relative;
+		height: 100%;
 	}
 
 	.video-inner-wrapper-why-us {
 		position: absolute;
-		left: -83% !important;
-		top: -24% !important;
+		left: 50%;
+		width: 100%;
+		transform: translate(-50%, -4vw);
 	}
 
 	.video-wrapper-why-us::after {
@@ -69,14 +74,16 @@
 		top: 0;
 		left: 0;
 		background: transparent;
-		background: -moz-radial-gradient(rgba(15, 73, 219, .2) 0%, rgba(15, 73, 219, 1) 65%, rgba(15,73,219,1) 100%);
+		background: -moz-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 45%, rgba(15,73,219,1) 100%);
 		background: -webkit-gradient(left top, left bottom, color-stop(0%, transparent), color-stop(90%, rgba(15, 73, 219, 1)), color-stop(100%, rgba(15, 73, 219, 1)));
-		background: -webkit-radial-gradient(rgba(15, 73, 219, .2) 0%, rgba(15, 73, 219, 1) 65%, rgba(15,73,219,1) 100%);
-		background: -o-radial-gradient(rgba(15, 73, 219, .2) 0%, rgba(15, 73, 219, 1) 65%, rgba(15,73,219,1) 100%);
-		background: -ms-radial-gradient(rgba(15, 73, 219, .2) 0%, rgba(15, 73, 219, 1) 65%, rgba(15,73,219,1) 100%);
-		background: radial-gradient(rgba(15, 73, 219, .2) 0%, rgba(15, 73, 219, 1) 65%, rgba(15,73,219,1) 100%);
+		background: -webkit-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 45%, rgba(15,73,219,1) 100%);
+		background: -o-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 45%, rgba(15,73,219,1) 100%);
+		background: -ms-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 45%, rgba(15,73,219,1) 100%);
+		background: radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 45%, rgba(15,73,219,1) 100%);
 	}
+}
 
+@media (min-width: 320px) and (max-width: 480px) {
 	.dory-video {
 		width: auto;
 		height: auto;
@@ -339,12 +346,57 @@
 		top: 0;
 		left: 0;
 		background: transparent;
-		background: -moz-radial-gradient(rgba(15, 73, 219, .6) 0%, rgba(15, 73, 219, 1) 65%, rgba(15,73,219,1) 100%);
+		background: -moz-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 45%, rgba(15,73,219,1) 100%);
 		background: -webkit-gradient(left top, left bottom, color-stop(0%, transparent), color-stop(90%, rgba(15, 73, 219, 1)), color-stop(100%, rgba(15, 73, 219, 1)));
-		background: -webkit-radial-gradient(rgba(15, 73, 219, .6) 0%, rgba(15, 73, 219, 1) 65%, rgba(15,73,219,1) 100%);
-		background: -o-radial-gradient(rgba(15, 73, 219, .6) 0%, rgba(15, 73, 219, 1) 65%, rgba(15,73,219,1) 100%);
-		background: -ms-radial-gradient(rgba(15, 73, 219, .6) 0%, rgba(15, 73, 219, 1) 65%, rgba(15,73,219,1) 100%);
-		background: radial-gradient(rgba(15, 73, 219, .6) 0%, rgba(15, 73, 219, 1) 65%, rgba(15,73,219,1) 100%);
+		background: -webkit-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 45%, rgba(15,73,219,1) 100%);
+		background: -o-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 45%, rgba(15,73,219,1) 100%);
+		background: -ms-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 45%, rgba(15,73,219,1) 100%);
+		background: radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 45%, rgba(15,73,219,1) 100%);
+	}
+
+	/* WHY US */
+
+	.video-wrapper-why-us {
+		position: absolute;
+		z-index: 0;
+		right: 0;
+		left: 0;
+		top: 0;
+		height: 35%;
+		overflow: hidden;
+	}
+
+	.video-outer-wrapper-why-us {
+		position: relative;
+		height: 100%;
+	}
+
+	.video-inner-wrapper-why-us {
+		position: absolute;
+		left: 50%;
+		width: 100%;
+    	transform: translate(-50%, -7vw);
+	}
+
+	.why-us-dory-video {
+		width: 100% !important;
+	}
+
+	.video-wrapper-why-us::after {
+		content: "";
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		z-index: 9;
+		top: 0;
+		left: 0;
+		background: transparent;
+		background: -moz-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 45%, rgba(15,73,219,1) 100%);
+		background: -webkit-gradient(left top, left bottom, color-stop(0%, transparent), color-stop(90%, rgba(15, 73, 219, 1)), color-stop(100%, rgba(15, 73, 219, 1)));
+		background: -webkit-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 45%, rgba(15,73,219,1) 100%);
+		background: -o-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 45%, rgba(15,73,219,1) 100%);
+		background: -ms-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 45%, rgba(15,73,219,1) 100%);
+		background: radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 45%, rgba(15,73,219,1) 100%);
 	}
 
 	.dory-video {
@@ -409,7 +461,7 @@
 		right: 0;
 		left: 0;
 		top: 0;
-		height: 30%;
+		height: 35%;
 		overflow: hidden;
 	}
 
@@ -420,11 +472,13 @@
 
 	.video-inner-wrapper-why-us {
 		position: absolute;
-		transform: translate(-50%, -7vw);
+		left: 50%;
+		width: 220%;
+		transform: translate(-54%, -7vw);
 	}
-	
+
 	.why-us-dory-video {
-		width: 180% !important;
+		width: 100% !important;
 	}
 
 	.video-wrapper-why-us::after {
@@ -501,6 +555,7 @@
 }
 
 @media(min-width: 1600px) and (max-width: 2800px) {
+
 	/* ABOUT US */
 
 	.video-wrapper-about-us {
@@ -540,6 +595,47 @@
 		background: -o-radial-gradient(rgba(15, 73, 219, .7) 0%, rgba(15, 73, 219, 1) 65%, rgba(15,73,219,1) 100%);
 		background: -ms-radial-gradient(rgba(15, 73, 219, .7) 0%, rgba(15, 73, 219, 1) 65%, rgba(15,73,219,1) 100%);
 		background: radial-gradient(rgba(15, 73, 219, .7) 0%, rgba(15, 73, 219, 1) 65%, rgba(15,73,219,1) 100%);
+	}
+
+	/* WHY US */
+
+	.video-wrapper-why-us {
+		position: absolute;
+		z-index: 0;
+		right: 0;
+		left: 0;
+		top: 0%;
+    	height: 44%;
+		overflow: hidden;
+	}
+
+	.video-outer-wrapper-why-us {
+		position: relative;
+		height: 100%;
+	}
+
+	.video-inner-wrapper-why-us {
+		position: absolute;
+		left: 50%;
+		width: 100%;
+		transform: translate(-50%, -7vw);
+	}
+
+	.video-wrapper-why-us::after {
+		content: "";
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		z-index: 9;
+		top: 0;
+		left: 0;
+		background: transparent;
+		background: -moz-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 30%, rgba(15,73,219,1) 100%);
+		background: -webkit-gradient(left top, left bottom, color-stop(0%, transparent), color-stop(90%, rgba(15, 73, 219, 1)), color-stop(100%, rgba(15, 73, 219, 1)));
+		background: -webkit-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 30%, rgba(15,73,219,1) 100%);
+		background: -o-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 30%, rgba(15,73,219,1) 100%);
+		background: -ms-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 30%, rgba(15,73,219,1) 100%);
+		background: radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 30%, rgba(15,73,219,1) 100%);
 	}
 
 	.container-set {
@@ -662,15 +758,24 @@
 		right: 0;
 		left: 0;
 		top: 0;
-		height: 23%;
+		height: 25%;
 		overflow: hidden;
+	}
+
+	.video-outer-wrapper-why-us {
+		position: relative;
+		height: 100%;
 	}
 
 	.video-inner-wrapper-why-us {
 		position: absolute;
-		right: -86%;
-		left: -107%;
-		top: -61%;
+		left: 50%;
+		width: 305%;
+		transform: translate(-50%, 0vw);
+	}
+
+	.why-us-dory-video {
+		width: 100%;
 	}
 
 	.video-wrapper-why-us::after {
