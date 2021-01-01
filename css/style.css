@@ -1,4 +1,4 @@
-/*.back-video{
+/*.back-video {
 	background: url(../images/dory_video_1.mov);
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -55,7 +55,7 @@ body {
     left: 13%;
 } */
 
-.video-wrapper-process {
+/* .video-wrapper-process {
 	position: absolute;
 	z-index: 0;
 }
@@ -69,7 +69,7 @@ body {
     right: 40%;
     left: -35%;
     top: 40%;
-}
+} */
 
 .video-wrapper-faq {
 	position: absolute;
@@ -121,7 +121,7 @@ body {
 	background: radial-gradient(rgba(15, 73, 219, .7) 0%, rgba(15, 73, 219, 1) 49%, rgba(15,73,219,1) 100%);
 }
 
-.video-wrapper-process::after {
+/* .video-wrapper-process::after {
 	content: "";
 	width: 100%;
 	height: 100%;
@@ -136,7 +136,7 @@ body {
 	background: -o-radial-gradient(rgba(15, 73, 219, .7) 0%, rgba(15, 73, 219, 1) 49%, rgba(15,73,219,1) 100%);
 	background: -ms-radial-gradient(rgba(15, 73, 219, .7) 0%, rgba(15, 73, 219, 1) 49%, rgba(15,73,219,1) 100%);
 	background: radial-gradient(rgba(15, 73, 219, .7) 0%, rgba(15, 73, 219, 1) 49%, rgba(15,73,219,1) 100%);
-}
+} */
 
 /* .video-wrapper-why-us::after {
 	content: "";

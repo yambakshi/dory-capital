@@ -81,6 +81,51 @@
 		background: -ms-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 45%, rgba(15,73,219,1) 100%);
 		background: radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 45%, rgba(15,73,219,1) 100%);
 	}
+
+	/* PROCESS 1 */
+
+	.video-wrapper-process-1 {
+		position: absolute;
+		z-index: 0;
+		left: 50%;
+		top: 0;
+		height: 30%;
+		width: 100%;
+		overflow: hidden;
+	}
+
+	.video-outer-wrapper-process-1 {
+		position: relative;
+		height: 100%;
+	}
+
+	.video-inner-wrapper-process-1 {
+		position: absolute;
+		left: 0;
+		width: 200%;
+		transform: translate(-30%, 0vw);
+	}
+
+	.process-1-dory-video {
+		width: 100% !important;
+	}
+
+	.video-wrapper-process-1::after {
+		content: "";
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		z-index: 9;
+		top: 0;
+		left: 0;
+		background: transparent;
+		background: -moz-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 65%, rgba(15,73,219,1) 100%);
+		background: -webkit-gradient(left top, left bottom, color-stop(0%, transparent), color-stop(90%, rgba(15, 73, 219, 1)), color-stop(100%, rgba(15, 73, 219, 1)));
+		background: -webkit-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 65%, rgba(15,73,219,1) 100%);
+		background: -o-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 65%, rgba(15,73,219,1) 100%);
+		background: -ms-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 65%, rgba(15,73,219,1) 100%);
+		background: radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 65%, rgba(15,73,219,1) 100%);
+	}
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
@@ -399,6 +444,52 @@
 		background: radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 45%, rgba(15,73,219,1) 100%);
 	}
 
+	/* PROCESS 1 */
+
+	.video-wrapper-process-1 {
+		position: absolute;
+		z-index: 0;
+		left: 50%;
+		top: 0;
+		height: 30%;
+		width: 100%;
+		overflow: hidden;
+	}
+
+	.video-outer-wrapper-process-1 {
+		position: relative;
+		height: 100%;
+	}
+
+	.video-inner-wrapper-process-1 {
+		position: absolute;
+		left: 50%;
+		width: 200%;
+		transform: translate(-50%, 0vw);
+	}
+
+	.process-1-dory-video {
+		height: 100% !important;
+		width: 100% !important;
+	}
+
+	.video-wrapper-process-1::after {
+		content: "";
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		z-index: 9;
+		top: 0;
+		left: 0;
+		background: transparent;
+		background: -moz-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 65%, rgba(15,73,219,1) 100%);
+		background: -webkit-gradient(left top, left bottom, color-stop(0%, transparent), color-stop(90%, rgba(15, 73, 219, 1)), color-stop(100%, rgba(15, 73, 219, 1)));
+		background: -webkit-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 65%, rgba(15,73,219,1) 100%);
+		background: -o-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 65%, rgba(15,73,219,1) 100%);
+		background: -ms-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 65%, rgba(15,73,219,1) 100%);
+		background: radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 65%, rgba(15,73,219,1) 100%);
+	}
+
 	.dory-video {
 		width: auto;   
 		height: 100vh;
@@ -482,6 +573,51 @@
 	}
 
 	.video-wrapper-why-us::after {
+		content: "";
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		z-index: 9;
+		top: 0;
+		left: 0;
+		background: transparent;
+		background: -moz-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 65%, rgba(15,73,219,1) 100%);
+		background: -webkit-gradient(left top, left bottom, color-stop(0%, transparent), color-stop(90%, rgba(15, 73, 219, 1)), color-stop(100%, rgba(15, 73, 219, 1)));
+		background: -webkit-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 65%, rgba(15,73,219,1) 100%);
+		background: -o-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 65%, rgba(15,73,219,1) 100%);
+		background: -ms-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 65%, rgba(15,73,219,1) 100%);
+		background: radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 65%, rgba(15,73,219,1) 100%);
+	}
+
+	/* PROCESS 1 */
+
+	.video-wrapper-process-1 {
+		position: absolute;
+		z-index: 0;
+		left: 50%;
+		top: 0;
+		height: 20%;
+		width: 100%;
+		overflow: hidden;
+	}
+
+	.video-outer-wrapper-process-1 {
+		position: relative;
+		height: 100%;
+	}
+
+	.video-inner-wrapper-process-1 {
+		position: absolute;
+		left: 0;
+		width: 200%;
+		transform: translate(-30%, 0vw);
+	}
+
+	.process-1-dory-video {
+		width: 100% !important;
+	}
+
+	.video-wrapper-process-1::after {
 		content: "";
 		width: 100%;
 		height: 100%;
@@ -638,6 +774,51 @@
 		background: radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 30%, rgba(15,73,219,1) 100%);
 	}
 
+	/* PROCESS 1 */
+
+	.video-wrapper-process-1 {
+		position: absolute;
+		z-index: 0;
+		left: 50%;
+		top: 0;
+		height: 30%;
+		width: 100%;
+		overflow: hidden;
+	}
+
+	.video-outer-wrapper-process-1 {
+		position: relative;
+		height: 100%;
+	}
+
+	.video-inner-wrapper-process-1 {
+		position: absolute;
+		left: 0;
+		width: 165%;
+		transform: translate(-30%, 0vw);
+	}
+
+	.process-1-dory-video {
+		width: 100% !important;
+	}
+
+	.video-wrapper-process-1::after {
+		content: "";
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		z-index: 9;
+		top: 0;
+		left: 0;
+		background: transparent;
+		background: -moz-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 65%, rgba(15,73,219,1) 100%);
+		background: -webkit-gradient(left top, left bottom, color-stop(0%, transparent), color-stop(90%, rgba(15, 73, 219, 1)), color-stop(100%, rgba(15, 73, 219, 1)));
+		background: -webkit-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 65%, rgba(15,73,219,1) 100%);
+		background: -o-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 65%, rgba(15,73,219,1) 100%);
+		background: -ms-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 65%, rgba(15,73,219,1) 100%);
+		background: radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 65%, rgba(15,73,219,1) 100%);
+	}
+
 	.container-set {
 	   margin: auto;
    }
@@ -779,6 +960,97 @@
 	}
 
 	.video-wrapper-why-us::after {
+		content: "";
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		z-index: 9;
+		top: 0;
+		left: 0;
+		background: transparent;
+		background: -moz-radial-gradient(rgba(15, 73, 219, .2) 0%, rgba(15, 73, 219, 1) 65%, rgba(15,73,219,1) 100%);
+		background: -webkit-gradient(left top, left bottom, color-stop(0%, transparent), color-stop(90%, rgba(15, 73, 219, 1)), color-stop(100%, rgba(15, 73, 219, 1)));
+		background: -webkit-radial-gradient(rgba(15, 73, 219, .2) 0%, rgba(15, 73, 219, 1) 65%, rgba(15,73,219,1) 100%);
+		background: -o-radial-gradient(rgba(15, 73, 219, .2) 0%, rgba(15, 73, 219, 1) 65%, rgba(15,73,219,1) 100%);
+		background: -ms-radial-gradient(rgba(15, 73, 219, .2) 0%, rgba(15, 73, 219, 1) 65%, rgba(15,73,219,1) 100%);
+		background: radial-gradient(rgba(15, 73, 219, .2) 0%, rgba(15, 73, 219, 1) 65%, rgba(15,73,219,1) 100%);
+	}
+
+	/* PROCESS 1 */
+
+	.video-wrapper-process-1 {
+		position: absolute;
+		z-index: 0;
+		right: 0;
+		left: 50%;
+		top: 0;
+		height: 35vh;
+		width: 100%;
+		overflow: hidden;
+	}
+
+	.video-outer-wrapper-process-1 {
+		position: relative;
+		height: 100%;
+	}
+
+	.video-inner-wrapper-process-1 {
+		position: absolute;
+		left: 0;
+		width: 250%;
+		transform: translate(-27%, -9vw);
+	}
+
+	.process-1-dory-video {
+		width: 100%;
+	}
+
+	.video-wrapper-process-1::after {
+		content: "";
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		z-index: 9;
+		top: 0;
+		left: 0;
+		background: transparent;
+		background: -moz-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 65%, rgba(15,73,219,1) 100%);
+		background: -webkit-gradient(left top, left bottom, color-stop(0%, transparent), color-stop(90%, rgba(15, 73, 219, 1)), color-stop(100%, rgba(15, 73, 219, 1)));
+		background: -webkit-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 65%, rgba(15,73,219,1) 100%);
+		background: -o-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 65%, rgba(15,73,219,1) 100%);
+		background: -ms-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 65%, rgba(15,73,219,1) 100%);
+		background: radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 65%, rgba(15,73,219,1) 100%);
+	}
+
+	/* PROCESS 3 */
+
+	.video-wrapper-process-3 {
+		position: absolute;
+		z-index: 0;
+		right: 0;
+		left: 0;
+		top: 0;
+		height: 25%;
+		overflow: hidden;
+	}
+
+	.video-outer-wrapper-process-3 {
+		position: relative;
+		height: 100%;
+	}
+
+	.video-inner-wrapper-process-3 {
+		position: absolute;
+		left: 50%;
+		width: 305%;
+		transform: translate(-50%, 0vw);
+	}
+
+	.process-3-dory-video {
+		width: 100%;
+	}
+
+	.video-wrapper-process-3::after {
 		content: "";
 		width: 100%;
 		height: 100%;
