@@ -174,6 +174,88 @@
 		background: -ms-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
 		background: radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
 	}
+
+	/* FAQ */
+
+	.video-wrapper-faq {
+		position: absolute;
+		z-index: 0;
+		right: 0;
+		left: 0;
+		top: 0;
+		height: 35%;
+		overflow: hidden;
+	}
+
+	.video-outer-wrapper-faq {
+		position: relative;
+		height: 100%;
+	}
+
+	.video-inner-wrapper-faq {
+		position: absolute;
+		left: 50%;
+		width: 190%;
+		transform: translate(-50%, -22vw);
+	}
+
+	.video-wrapper-faq::after {
+		content: "";
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		z-index: 9;
+		top: 0;
+		left: 0;
+		background: transparent;
+		background: -moz-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
+		background: -webkit-gradient(left top, left bottom, color-stop(0%, transparent), color-stop(90%, rgba(15, 73, 219, 1)), color-stop(100%, rgba(15, 73, 219, 1)));
+		background: -webkit-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
+		background: -o-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
+		background: -ms-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
+		background: radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
+	}
+
+	/* CONTACT */
+
+	.video-wrapper-contact {
+		position: absolute;
+		z-index: 0;
+		right: 0;
+		left: 0;
+		top: 0;
+		height: 35%;
+		overflow: hidden;
+	}
+
+	.video-outer-wrapper-contact {
+		position: relative;
+		height: 100%;
+	}
+
+	.video-inner-wrapper-contact {
+		position: absolute;
+		left: 50%;
+		width: 190%;
+		transform: translate(-50%, -22vw);
+	}
+
+	.video-wrapper-contact::after {
+		content: "";
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		z-index: 9;
+		top: 0;
+		left: 0;
+		background: transparent;
+		background: -moz-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
+		background: -webkit-gradient(left top, left bottom, color-stop(0%, transparent), color-stop(90%, rgba(15, 73, 219, 1)), color-stop(100%, rgba(15, 73, 219, 1)));
+		background: -webkit-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
+		background: -o-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
+		background: -ms-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
+		background: radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
+	}
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
@@ -587,6 +669,98 @@
 		background: radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
 	}
 
+	/* FAQ */
+
+	.video-wrapper-faq {
+		position: absolute;
+		z-index: 0;
+		right: 0;
+		left: 0;
+		top: 0;
+		height: 35%;
+		overflow: hidden;
+	}
+
+	.video-outer-wrapper-faq {
+		position: relative;
+		height: 100%;
+	}
+
+	.video-inner-wrapper-faq {
+		position: absolute;
+		left: 50%;
+		width: 190%;
+    	transform: translate(-50%, -22vw);
+	}
+
+	.faq-dory-video {
+		width: 100% !important;
+		height: 100% !important;
+	}
+
+	.video-wrapper-faq::after {
+		content: "";
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		z-index: 9;
+		top: 0;
+		left: 0;
+		background: transparent;
+		background: -moz-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
+		background: -webkit-gradient(left top, left bottom, color-stop(0%, transparent), color-stop(90%, rgba(15, 73, 219, 1)), color-stop(100%, rgba(15, 73, 219, 1)));
+		background: -webkit-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
+		background: -o-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
+		background: -ms-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
+		background: radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
+	}
+
+	/* CONTACT */
+
+	.video-wrapper-contact {
+		position: absolute;
+		z-index: 0;
+		right: 0;
+		left: 0;
+		top: 0;
+		height: 35%;
+		overflow: hidden;
+	}
+
+	.video-outer-wrapper-contact {
+		position: relative;
+		height: 100%;
+	}
+
+	.video-inner-wrapper-contact {
+		position: absolute;
+		left: 50%;
+		width: 190%;
+    	transform: translate(-50%, -22vw);
+	}
+
+	.contact-dory-video {
+		width: 100% !important;
+		height: 100% !important;
+	}
+
+	.video-wrapper-contact::after {
+		content: "";
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		z-index: 9;
+		top: 0;
+		left: 0;
+		background: transparent;
+		background: -moz-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
+		background: -webkit-gradient(left top, left bottom, color-stop(0%, transparent), color-stop(90%, rgba(15, 73, 219, 1)), color-stop(100%, rgba(15, 73, 219, 1)));
+		background: -webkit-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
+		background: -o-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
+		background: -ms-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
+		background: radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
+	}
+
 	.dory-video {
 		width: auto;   
 		height: 100vh;
@@ -765,6 +939,98 @@
 	}
 
 	.video-wrapper-process-3::after {
+		content: "";
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		z-index: 9;
+		top: 0;
+		left: 0;
+		background: transparent;
+		background: -moz-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
+		background: -webkit-gradient(left top, left bottom, color-stop(0%, transparent), color-stop(90%, rgba(15, 73, 219, 1)), color-stop(100%, rgba(15, 73, 219, 1)));
+		background: -webkit-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
+		background: -o-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
+		background: -ms-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
+		background: radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
+	}
+
+	/* FAQ */
+
+	.video-wrapper-faq {
+		position: absolute;
+		z-index: 0;
+		right: 0;
+		left: 0;
+		top: 0;
+		height: 35%;
+		overflow: hidden;
+	}
+
+	.video-outer-wrapper-faq {
+		position: relative;
+		height: 100%;
+	}
+
+	.video-inner-wrapper-faq {
+		position: absolute;
+		left: 50%;
+		width: 190%;
+		transform: translate(-50%, -22vw);
+	}
+
+	.faq-dory-video {
+		width: 100% !important;
+		height: 100% !important;
+	}
+
+	.video-wrapper-faq::after {
+		content: "";
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		z-index: 9;
+		top: 0;
+		left: 0;
+		background: transparent;
+		background: -moz-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
+		background: -webkit-gradient(left top, left bottom, color-stop(0%, transparent), color-stop(90%, rgba(15, 73, 219, 1)), color-stop(100%, rgba(15, 73, 219, 1)));
+		background: -webkit-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
+		background: -o-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
+		background: -ms-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
+		background: radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
+	}
+
+	/* CONTACT */
+
+	.video-wrapper-contact {
+		position: absolute;
+		z-index: 0;
+		right: 0;
+		left: 0;
+		top: 0;
+		height: 35%;
+		overflow: hidden;
+	}
+
+	.video-outer-wrapper-contact {
+		position: relative;
+		height: 100%;
+	}
+
+	.video-inner-wrapper-contact {
+		position: absolute;
+		left: 50%;
+		width: 190%;
+		transform: translate(-50%, -22vw);
+	}
+
+	.contact-dory-video {
+		width: 100% !important;
+		height: 100% !important;
+	}
+
+	.video-wrapper-contact::after {
 		content: "";
 		width: 100%;
 		height: 100%;
@@ -998,6 +1264,88 @@
 	}
 
 	.video-wrapper-process-3::after {
+		content: "";
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		z-index: 9;
+		top: 0;
+		left: 0;
+		background: transparent;
+		background: -moz-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
+		background: -webkit-gradient(left top, left bottom, color-stop(0%, transparent), color-stop(90%, rgba(15, 73, 219, 1)), color-stop(100%, rgba(15, 73, 219, 1)));
+		background: -webkit-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
+		background: -o-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
+		background: -ms-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
+		background: radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
+	}
+
+	/* FAQ */
+
+	.video-wrapper-faq {
+		position: absolute;
+		z-index: 0;
+		right: 0;
+		left: 0;
+		top: 0%;
+    	height: 44%;
+		overflow: hidden;
+	}
+
+	.video-outer-wrapper-faq {
+		position: relative;
+		height: 100%;
+	}
+
+	.video-inner-wrapper-faq {
+		position: absolute;
+		left: 50%;
+		width: 190%;
+		transform: translate(-50%, -22vw);
+	}
+
+	.video-wrapper-faq::after {
+		content: "";
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		z-index: 9;
+		top: 0;
+		left: 0;
+		background: transparent;
+		background: -moz-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
+		background: -webkit-gradient(left top, left bottom, color-stop(0%, transparent), color-stop(90%, rgba(15, 73, 219, 1)), color-stop(100%, rgba(15, 73, 219, 1)));
+		background: -webkit-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
+		background: -o-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
+		background: -ms-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
+		background: radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
+	}
+
+	/* CONTACT */
+
+	.video-wrapper-contact {
+		position: absolute;
+		z-index: 0;
+		right: 0;
+		left: 0;
+		top: 0%;
+    	height: 44%;
+		overflow: hidden;
+	}
+
+	.video-outer-wrapper-contact {
+		position: relative;
+		height: 100%;
+	}
+
+	.video-inner-wrapper-contact {
+		position: absolute;
+		left: 50%;
+		width: 190%;
+		transform: translate(-50%, -22vw);
+	}
+
+	.video-wrapper-contact::after {
 		content: "";
 		width: 100%;
 		height: 100%;
@@ -1248,6 +1596,96 @@
 	}
 
 	.video-wrapper-process-3::after {
+		content: "";
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		z-index: 9;
+		top: 0;
+		left: 0;
+		background: transparent;
+		background: -moz-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
+		background: -webkit-gradient(left top, left bottom, color-stop(0%, transparent), color-stop(90%, rgba(15, 73, 219, 1)), color-stop(100%, rgba(15, 73, 219, 1)));
+		background: -webkit-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
+		background: -o-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
+		background: -ms-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
+		background: radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
+	}
+
+	/* FAQ */
+
+	.video-wrapper-faq {
+		position: absolute;
+		z-index: 0;
+		right: 0;
+		left: 0;
+		top: 0;
+		height: 25%;
+		overflow: hidden;
+	}
+
+	.video-outer-wrapper-faq {
+		position: relative;
+		height: 100%;
+	}
+
+	.video-inner-wrapper-faq {
+		position: absolute;
+		left: 50%;
+		width: 300%;
+		transform: translate(-50%, -15vw);
+	}
+
+	.faq-dory-video {
+		width: 100%;
+	}
+
+	.video-wrapper-faq::after {
+		content: "";
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		z-index: 9;
+		top: 0;
+		left: 0;
+		background: transparent;
+		background: -moz-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
+		background: -webkit-gradient(left top, left bottom, color-stop(0%, transparent), color-stop(90%, rgba(15, 73, 219, 1)), color-stop(100%, rgba(15, 73, 219, 1)));
+		background: -webkit-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
+		background: -o-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
+		background: -ms-radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
+		background: radial-gradient(rgba(15, 73, 219, .5) 0%, rgba(15, 73, 219, 1) 57%, rgba(15,73,219,1) 100%);
+	}
+
+	/* CONTACT */
+
+	.video-wrapper-contact {
+		position: absolute;
+		z-index: 0;
+		right: 0;
+		left: 0;
+		top: 0;
+		height: 25%;
+		overflow: hidden;
+	}
+
+	.video-outer-wrapper-contact {
+		position: relative;
+		height: 100%;
+	}
+
+	.video-inner-wrapper-contact {
+		position: absolute;
+		left: 50%;
+		width: 300%;
+		transform: translate(-50%, -15vw);
+	}
+
+	.contact-dory-video {
+		width: 100%;
+	}
+
+	.video-wrapper-contact::after {
 		content: "";
 		width: 100%;
 		height: 100%;
