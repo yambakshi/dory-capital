@@ -51,51 +51,56 @@
                 <h1>Bit2Atom Technologies <br /> and Innovations</h1>
                 <h6>We are looking for Advanced Technologies in the following fields</h6>
             </div>
-            <div class="position-relative container">
-                <ul class="nav nav-pills mb-3 justify-content-center circle-tab" id="pills-tab" role="tablist">
-                    <li class="nav-item">
+            <div class="position-relative container carousel">
+                <ul class="nav nav-pills carousel-picker" id="pills-tab" role="tablist">
+                    <li class="nav-item carousel-option">
                         <a class="nav-link active slide-num" id="pills-one-tab" data-toggle="pill" href="#pills-one"
-                            role="tab" aria-controls="pills-one" aria-selected="true">I</a>
+                            role="tab" aria-controls="pills-one" aria-selected="true"
+                            onclick="updateCurrentCarousel(0)">I</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item carousel-option">
                         <a class="nav-link slide-num" id="pills-two-tab" data-toggle="pill" href="#pills-two" role="tab"
-                            aria-controls="pills-two" aria-selected="false">II</a>
+                            aria-controls="pills-two" aria-selected="false" onclick="updateCurrentCarousel(1)">II</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item carousel-option">
                         <a class="nav-link slide-num" id="pills-three-tab" data-toggle="pill" href="#pills-three"
-                            role="tab" aria-controls="pills-three" aria-selected="false">III</a>
+                            role="tab" aria-controls="pills-three" aria-selected="false"
+                            onclick="updateCurrentCarousel(2)">III</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item carousel-option">
                         <a class="nav-link slide-num" id="pills-four-tab" data-toggle="pill" href="#pills-four"
-                            role="tab" aria-controls="pills-four" aria-selected="false">IV</a>
+                            role="tab" aria-controls="pills-four" aria-selected="false"
+                            onclick="updateCurrentCarousel(3)">IV</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item carousel-option">
                         <a class="nav-link slide-num" id="pills-five-tab" data-toggle="pill" href="#pills-five"
-                            role="tab" aria-controls="pills-five" aria-selected="false">V</a>
+                            role="tab" aria-controls="pills-five" aria-selected="false"
+                            onclick="updateCurrentCarousel(4)">V</a>
                     </li>
                 </ul>
                 <div class="tab-content" id="pills-tabContent">
+                    <div class="carousel-rotator" onclick="rotateCarousel()">Rotate</div>
                     <div class="tab-pane fade show active" id="pills-one" role="tabpanel"
                         aria-labelledby="pills-one-tab">
                         <div class="text-center position-relative slider-container">
                             <div class="circle-slide slide1">
-                                <div class="item item1 active" id="slide_0" onclick="turnRight(this)" data-val="0">
+                                <div class="item item1 active" id="slide_10" onclick="turnRight(this)" data-val="0">
                                     <img src="images/1/Big_Data.png" class="img-fluid" alt="image" />
-                                    <p> Big Data</p>
+                                    <p>Big Data</p>
                                 </div>
-                                <div class="item item1" id="slide_1" onclick="turnRight(this)" data-val="1">
+                                <div class="item item1" id="slide_11" onclick="turnRight(this)" data-val="1">
                                     <img src="images/1/Data_Sciences.png" class="img-fluid" alt="image" />
                                     <p>Data Sciences</p>
                                 </div>
-                                <div class="item item1" id="slide_2" onclick="turnRight(this)" data-val="2">
+                                <div class="item item1" id="slide_12" onclick="turnRight(this)" data-val="2">
                                     <img src="images/1/Data_Tech.png" class="img-fluid" alt="image" />
                                     <p>Data Tech</p>
                                 </div>
-                                <div class="item item1" id="slide_3" onclick="turnRight(this)" data-val="3">
+                                <div class="item item1" id="slide_13" onclick="turnRight(this)" data-val="3">
                                     <img src="images/1/Fintech.png" class="img-fluid" alt="image" />
                                     <p>Fintech</p>
                                 </div>
-                                <div class="item item1" id="slide_4" onclick="turnRight(this)" data-val="4">
+                                <div class="item item1" id="slide_14" onclick="turnRight(this)" data-val="4">
                                     <img src="images/1/Smart_City_Tech.png" class="img-fluid" alt="image" />
                                     <p>Smart City Tech</p>
                                 </div>
@@ -107,7 +112,7 @@
                             <div class="circle-slide slide2">
                                 <div class="item item2 active" id="slide_20" onclick="turnRight2(this)" data-val="0">
                                     <img src="images/2/AI.png" class="img-fluid" alt="image" />
-                                    <p> Artifitial Intellince</p>
+                                    <p>Artifitial Intellince</p>
                                 </div>
                                 <div class="item item2" id="slide_21" onclick="turnRight2(this)" data-val="1">
                                     <img src="images/2/AR_VR.png" class="img-fluid" alt="image" />
@@ -135,7 +140,6 @@
                                     <img src="images/3/Blockchain_acceleration.png" class="img-fluid" alt="image" />
                                     <p>Blockchain acceleration</p>
                                 </div>
-
                                 <div class="item item3" id="slide_31" onclick="turnRight3(this)" data-val="1">
                                     <img src="images/3/Blockchain_scalability.png" class="img-fluid" alt="image" />
                                     <p>Blockchain scalability</p>
@@ -367,7 +371,6 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6 border-left-set"></div>
-
                     <div class="col-md-6 mb-md-4 border-m-set dep-set">
                         <div class="step mt-0">
                             <span class="stp-squre">STEP 2</span>
@@ -390,7 +393,6 @@
                         <div class="step">
                             <span>STEP 3</span>
                             <h1>Moving forward</h1>
-
                             <div class="media mb-4">
                                 <img src="images/team.png" alt="team" class="img-fluid co-founding-img" />
                                 <div class="media-body">
@@ -416,7 +418,6 @@
                                         and financial aspects; and,</p>
                                     <p class="make"><small></small> Commercial viability, business potential and
                                         proposed modus operandi.</p>
-
                                 </div>
                             </div>
                             <div class="media">
@@ -465,7 +466,6 @@
                                             Capital be willing to help me build the company and develop it?
                                         </a>
                                     </h4>
-
                                 </div>
                                 <div id="collapseOne" class="panel-collapse collapse in show" role="tabpanel"
                                     aria-labelledby="headingOne">
@@ -724,7 +724,6 @@
         $('#video-Popup').on('hidden.bs.modal', function () {
             $('.train-video1')[0].pause();
         });
-
     </script>
 </body>
 

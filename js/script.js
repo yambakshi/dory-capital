@@ -1,3 +1,32 @@
+// YAM BAKSHI'S CODE ////////////////////////////////////////////////////////////////////
+
+var currentCarousel = 0;
+var carousels = [0, 0, 0, 0, 0];
+function updateCurrentCarousel(i) {
+  currentCarousel = i;
+}
+
+function rotateCarousel() {
+  $(`.item${currentCarousel + 1}`).removeClass("active");
+  carousels[currentCarousel] = (carousels[currentCarousel] > 0) ? carousels[currentCarousel] - 1 : 4;
+  $(`#slide_${currentCarousel + 1}${carousels[currentCarousel]}`)[0].classList.add("active");
+
+  let selectedItem = carousels[currentCarousel];
+  for (let i = 0; i < 5; i++) {
+
+    // Clockwise
+    $(`.item${currentCarousel + 1}`)[i].style.top = radiusLength * Math.sin((radianSectionDeg * (selectedItem - i)) - 1.5708) + 'px';
+    $(`.item${currentCarousel + 1}`)[i].style.left = radiusLength * Math.cos((radianSectionDeg * (selectedItem - i)) + 1.5708) + 'px';
+
+    // Counter Clockwise
+    // $(`.item${currentCarousel}`)[i].style.top = radiusLength * Math.sin((radianSectionDeg * (selectedItem + i)) - 1.5708) + 'px';
+    // $(`.item${currentCarousel}`)[i].style.left = radiusLength * Math.cos((radianSectionDeg * (selectedItem + i)) - 1.5708) + 'px';
+  }
+}
+
+
+// FIVER CODE ///////////////////////////////////////////////////////////////////////////
+
 var slide1;
 $(".circle-slide").each(function (index) {
   slide1 = document.getElementsByClassName('item1');
@@ -30,6 +59,7 @@ function turnRight(el) {
   $(".item1").removeClass("active");
   el.classList.add("active");
   var currentClick = el.getAttribute("data-val");
+  carousels[currentCarousel] = currentClick;
 
   var holder = [];
   for (var j = 0; j < currentClick; j++) {
@@ -64,6 +94,7 @@ function turnRight2(el) {
   $(".item2").removeClass("active");
   el.classList.add("active");
   var currentClick = el.getAttribute("data-val");
+  carousels[currentCarousel] = currentClick;
 
   var holder = [];
   for (var j = 0; j < currentClick; j++) {
@@ -98,14 +129,15 @@ function turnRight3(el) {
   $(".item3").removeClass("active");
   el.classList.add("active");
   var currentClick = el.getAttribute("data-val");
+  carousels[currentCarousel] = currentClick;
 
   var holder = [];
   for (var j = 0; j < currentClick; j++) {
     var getEl = itemsId3.shift();
     holder.push(getEl);
   }
-  itemsId3 = itemsId3.concat(holder);
 
+  itemsId3 = itemsId3.concat(holder);
   makeATurn3();
   itemsId3 = Array.from(slide3);
 }
@@ -132,6 +164,7 @@ function turnRight4(el) {
   $(".item4").removeClass("active");
   el.classList.add("active");
   var currentClick = el.getAttribute("data-val");
+  carousels[currentCarousel] = currentClick;
 
   var holder = [];
   for (var j = 0; j < currentClick; j++) {
@@ -166,14 +199,15 @@ function turnRight5(el) {
   $(".item5").removeClass("active");
   el.classList.add("active");
   var currentClick = el.getAttribute("data-val");
+  carousels[currentCarousel] = currentClick;
 
   var holder = [];
   for (var j = 0; j < currentClick; j++) {
     var getEl = itemsId5.shift();
     holder.push(getEl);
   }
-  itemsId5 = itemsId5.concat(holder);
 
+  itemsId5 = itemsId5.concat(holder);
   makeATurn5();
   itemsId5 = Array.from(slide5);
 }

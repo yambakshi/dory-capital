@@ -881,6 +881,27 @@ body {
 	height: 650px;
 }
 
+.carousel {
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.carousel-rotator {
+	position: absolute;
+	z-index: 1;
+	right: 50%;
+	top: 50%;
+	transform: translate(50%, 50%);
+	padding: 30px;
+	background-color: red;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
 .circle-slide {
 	position: absolute;
 	top: calc(50% - 50px);
@@ -914,10 +935,32 @@ body {
 	font-size: 32px;
 	line-height: 40px;
 	padding: 5px 56px;
-	border-right: 1px solid rgba(255, 255, 255, 0.1);
-	display: inline-block;
+	display: flex;
 	color: rgba(255, 255, 255, 0.2) !important;
 	font-weight: normal;
+}
+
+.carousel-picker {
+	list-style-type: none;
+	display: flex;
+	margin: 50px 0px 20px;
+	padding: 0;
+}
+
+.carousel-option {
+	position: relative;
+	width: 20%;
+	display: flex;
+	justify-content: center;
+}
+
+.carousel-option:not(:last-of-type)::after {
+	content: "";
+	position: absolute;
+	width: 1px;
+	height: 100%;
+	right: 0;
+	background-color: white;
 }
 
 .circle-tab .nav-item:last-child .slide-num {

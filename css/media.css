@@ -227,6 +227,9 @@
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
+	.slide-num {
+		font-size: 24px !important;
+	}
 	.dory-video {
 		width: auto;
 		height: auto;
@@ -1469,12 +1472,40 @@
 		font-size: 10px;
 	}
 	.slide-num {
-		font-size: 20px;
+		font-size: 30px;
 		line-height: 26px;
-		padding: 5px 15px !important;
-		border-right: 1px solid rgba(255, 255, 255, 0.1);
-		display: inline-block;
+		padding: 5px 0px !important;
+		display: flex;
 		color: rgba(255, 255, 255, 0.2);
+	}
+	.carousel {
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		user-select: none;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.carousel-picker {
+		list-style-type: none;
+		display: flex;
+		margin: 50px 0px 0px;
+		padding: 0;
+		width: 100%;
+	}
+	.carousel-option {
+		position: relative;
+		width: 20%;
+		display: flex;
+		justify-content: center;
+	}
+	.carousel-option:not(:last-of-type)::after {
+		content: "";
+		position: absolute;
+		width: 1px;
+		height: 100%;
+		background-color: white;
+		right: 0;
 	}
 	.slider-container {
 		width: 100%;
