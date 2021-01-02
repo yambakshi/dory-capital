@@ -292,6 +292,7 @@ body {
 }
 
 .ellipse {
+	position: relative;
 	text-align: center;
 	display: block;
 	padding-top: 160px;
@@ -395,6 +396,7 @@ body {
 }
 
 .process {
+	position: relative;
 	font-family: Merriweather;
 	font-style: normal;
 	font-weight: normal;
@@ -488,6 +490,7 @@ body {
 }
 
 .faq {
+	position: relative;
 	display: block;
 	margin: 0 auto;
 	text-align: center;
@@ -1076,7 +1079,6 @@ video-Popup video:focus {
 
 #contact::after {
 	content: "";
-	background-image: url("../images/contact_us_background.png");
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -1095,7 +1097,6 @@ video-Popup video:focus {
 
 #about::after {
 	content: "";
-	background-image: url("../images/empowering_background.png");
 	background-position: center;
 	background-size: contain;
 	background-repeat: no-repeat;
@@ -1110,7 +1111,6 @@ video-Popup video:focus {
 
 #faq::after {
 	content: "";
-	background-image: url("../images/faq_background.png");
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -1126,7 +1126,6 @@ video-Popup video:focus {
 
 #whyus::after {
 	content: "";
-	background-image: url("../images/why_us_background.png");
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -1146,7 +1145,6 @@ video-Popup video:focus {
 
 .step1::after {
 	content: "";
-	background: linear-gradient(180deg, #0F49DB 9.59%, rgba(15, 73, 219, 0) 39.22%), url("../images/step_1_background.png");
 	mix-blend-mode: lighten;
 	opacity: 0.7;
 	background-position: right;
@@ -1161,7 +1159,6 @@ video-Popup video:focus {
 
 .step3::after {
 	content: "";
-	background: linear-gradient(180deg, #0F49DB 9.59%, rgba(15, 73, 219, 0) 39.22%), url("../images/step_3_background.png");
 	mix-blend-mode: lighten;
 	opacity: 0.7;
 	background-position: left center;
