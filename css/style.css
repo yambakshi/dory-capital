@@ -882,6 +882,9 @@ body {
 	-moz-user-select: none;
 	-webkit-user-select: none;
 	user-select: none;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .carousel-rotator {
@@ -929,13 +932,23 @@ body {
 	font-size: 32px;
 	line-height: 40px;
 	padding: 5px 56px;
-	display: inline-block;
+	display: flex;
 	color: rgba(255, 255, 255, 0.2) !important;
 	font-weight: normal;
 }
 
 .carousel-picker {
+	list-style-type: none;
+	display: flex;
+	margin: 50px 0px 20px;
+	padding: 0;
+}
+
+.carousel-option {
 	position: relative;
+	width: 20%;
+	display: flex;
+	justify-content: center;
 }
 
 .carousel-option:not(:last-of-type)::after {
@@ -943,8 +956,7 @@ body {
 	position: absolute;
 	width: 1px;
 	height: 100%;
-	-webkit-transform: translateX(-50%);
-	transform: translateX(-50%);
+	right: 0;
 	background-color: white;
 }
 
