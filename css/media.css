@@ -315,38 +315,62 @@
 }
 
 @media screen and (max-width: 767px) {
-  .item{
-    width: 90px;
-    height: 60px;
-    font-size: 10px;
-  }	
-	.slide-num {    
-    font-size: 20px;
-    line-height: 26px;
-    padding: 5px 15px !important;
-    border-right: 1px solid rgba(255,255,255,0.1);
-    display: inline-block;
-    color: rgba(255,255,255,0.2);
-}
-	.slider-container {
-		width: 99%;
-		height: 400px;
-/*		margin-top: 65px;*/
+  	.item {
+		width: 90px;
+		height: 60px;
+		font-size: 10px;
 	}
+
+	.slide-num {
+		font-size: 30px;
+		line-height: 26px;
+		padding: 5px 19px !important;
+		display: inline-block;
+		color: rgba(255,255,255,0.2);
+	}
+
+	.carousel-picker {
+		position: relative;
+	}
+
+	.carousel-option:not(:last-of-type)::after {
+		content: "";
+		position: absolute;
+		width: 1px;
+		height: 100%;
+		background-color: white;
+		-webkit-transform: translateX(-50%);
+		transform: translateX(-50%);
+	}
+
+	.slider-container {
+		width: 100%;
+		height: 400px;
+		/* margin-top: 65px; */
+	}
+
+	.carousel-rotator {
+		transform: translate(50%, 0);
+	}
+
   	.circle-slide {
-    position: absolute;    
-	top: 180px;
-    left: calc(50% - 50px);
-}
+		position: absolute;    
+		top: 180px;
+		left: calc(50% - 50px);
+	}
+
 	.process, .ellipse img, .footer-top {    
     	margin-top: 50px;    
 	}
-	.enable-dis h1, .scope-header{
+
+	.enable-dis h1, .scope-header {
 		padding-top: 50px;
 	}
-	.copyright {   
-    padding: 50px 0 15px;
-}
+
+	.copyright {
+    	padding: 50px 0 15px;
+	}
+
 	.step1::after,#faq::after, .step3::after, #contact::after, #about::after, #whyus::after{
 		width: 100% !important;
 		height: 20%;
