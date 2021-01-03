@@ -3,7 +3,7 @@ html {
 }
 
 body {
-	color: #fff;
+    color: #fff;
 }
 
 .content-set {
@@ -201,8 +201,6 @@ body {
 	display: block;
 	margin: 0 auto;
 }
-
-.send-email {}
 
 .send-email:hover {
 	color: #FFFFFF;
@@ -536,7 +534,7 @@ body {
 	width: 23px;
 	height: 23px;
 	padding-left: 4px;
-	background-image: url("../images/minus.svg");
+	background-image: url("../assets/minus.svg");
 	background-repeat: no-repeat;
 	background-size: contain;
 }
@@ -544,7 +542,7 @@ body {
 .panel-title>a.collapsed:before {
 	float: right !important;
 	content: "";
-	background-image: url("../images/plus.svg");
+	background-image: url("../assets/plus.svg");
 }
 
 .panel-title a {
@@ -1019,10 +1017,8 @@ video::-webkit-media-controls {
 	opacity: 0;
 }
 
-.video-Popup {}
-
 @media (min-width: 576px) {
-	#video-Popup .modal-dialog {
+	#video-popup .modal-dialog {
 		max-width: 640px;
 		margin: 1.75rem auto;
 	}
@@ -1037,7 +1033,7 @@ video::-webkit-media-controls {
 	display: none;
 }
 
-#video-Popup .modal-dialog .close {
+#video-popup .modal-dialog .close {
 	position: absolute;
 	right: -17px;
 	background: #FFFFFF;
@@ -1052,17 +1048,17 @@ video::-webkit-media-controls {
 	top: -17px;
 }
 
-#video-Popup .modal-dialog .modal-content {
+#video-popup .modal-dialog .modal-content {
 	border: 0;
 	min-height: 20px;
 	background: transparent;
 }
 
-video-Popup video:focus {
+video-popup video:focus {
 	outline: none;
 }
 
-#video-Popup .modal-dialog {
+#video-popup .modal-dialog {
 	position: absolute;
 	top: 50%;
 	left: 50%;
