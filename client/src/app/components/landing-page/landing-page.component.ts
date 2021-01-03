@@ -95,7 +95,7 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
     let innerImgElement = innerDivElement.firstElementChild;
 
     innerDivElement.classList.add("box-hover");
-    innerImgElement.setAttribute('src', 'assets/grid.png');
+    innerImgElement.setAttribute('src', 'assets/media/grid.png');
     pageNavigatorElement.style.bottom = '0';
   }
 
@@ -105,7 +105,7 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
     let innerImgElement = innerDivElement.firstElementChild;
 
     innerDivElement.classList.remove("box-hover");
-    innerImgElement.setAttribute('src', 'assets/ellipse.png');
+    innerImgElement.setAttribute('src', 'assets/media/ellipse.png');
     pageNavigatorElement.style.bottom = '-50px';
   }
 }

@@ -534,7 +534,7 @@ body {
 	width: 23px;
 	height: 23px;
 	padding-left: 4px;
-	background-image: url("../assets/minus.svg");
+	background-image: url("../assets/media/minus.svg");
 	background-repeat: no-repeat;
 	background-size: contain;
 }
@@ -542,7 +542,7 @@ body {
 .panel-title>a.collapsed:before {
 	float: right !important;
 	content: "";
-	background-image: url("../assets/plus.svg");
+	background-image: url("../assets/media/plus.svg");
 }
 
 .panel-title a {
