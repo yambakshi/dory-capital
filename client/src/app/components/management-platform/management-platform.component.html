@@ -7,27 +7,27 @@
             <div class="management-about-title-container">
                 <h2 class="management-about-title">About Us</h2>
             </div>
-            <div class="about-title-container">
-                <div class="section-title-container">
-                    <h3 class="section-title">Title</h3>
-                </div>
-                <textarea class="about-title">{{data.about.title}}</textarea>
-                <input class="submit-button" type="submit" value="Submit">
-            </div>
-            <div class="about-text-1-container">
+            <form class="about-title-container" (ngSubmit)="submit($event, 'about/title')">
                 <div class="section-title-container">
                     <h3 class="section-title">Text 1</h3>
                 </div>
-                <textarea class="about-text-1">{{data.about.text1}}</textarea>
+                <textarea class="about-title" name="value" rows="2" [(ngModel)]="data.about.title" required></textarea>
                 <input class="submit-button" type="submit" value="Submit">
-            </div>
-            <div class="about-text-2-container">
+            </form>
+            <form class="about-text-1-container" (ngSubmit)="submit($event, 'about/text-1')">
+                <div class="section-title-container">
+                    <h3 class="section-title">Text 1</h3>
+                </div>
+                <textarea class="about-text-1" name="value" rows="5" [(ngModel)]="data.about.text1" required></textarea>
+                <input class="submit-button" type="submit" value="Submit">
+            </form>
+            <form class="about-text-2-container" (ngSubmit)="submit($event, 'about/text-2')">
                 <div class="section-title-container">
                     <h3 class="section-title">Text 2</h3>
                 </div>
-                <textarea class="about-text-2">{{data.about.text2}}</textarea>
+                <textarea class="about-text-2" name="value" rows="5" [(ngModel)]="data.about.text2" required></textarea>
                 <input class="submit-button" type="submit" value="Submit">
-            </div>
+            </form>
         </div>
     </div>
 </div>
