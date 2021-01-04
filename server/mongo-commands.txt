@@ -1,0 +1,10 @@
+Initial Login URI
+mongodb://127.0.0.1:27017
+
+Create DB:
+use dory-capital
+
+
+
+Create 'dbAdmin' User
+db.createUser({ user: "admin", pwd: "1234", roles: [{ role: "dbAdmin", db: "dory-capital" }]})
