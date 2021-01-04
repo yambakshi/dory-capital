@@ -247,7 +247,7 @@ body {
 	font-weight: normal !important;
 	font-size: 16px !important;
 	line-height: 32px !important;
-	text-align: center !important;
+	text-align: justify !important;
 	color: #FFFFFF !important;
 	padding-top: 34px !important;
 }
@@ -258,7 +258,7 @@ body {
 	font-weight: bold !important;
 	font-size: 16px !important;
 	font-size: 16px !important;
-	line-height: 32px !important;
+	line-height: 24px !important;
 	text-align: center !important;
 	color: #FFFFFF !important;
 	max-width: 577px !important;
@@ -333,7 +333,7 @@ body {
 	font-style: normal;
 	font-weight: normal;
 	font-size: 16px;
-	line-height: 32px;
+	line-height: 28px;
 	text-align: center;
 	letter-spacing: 0.2em;
 	text-transform: capitalize;
@@ -384,6 +384,7 @@ body {
 }
 
 .fair-approch p {
+	text-align: justify;
 	width: 381px;
 	font-family: Roboto;
 	font-style: normal;
@@ -656,7 +657,11 @@ body {
 	text-align: center;
 	color: #FFFFFF;
 	display: block;
-	padding: 136px 0;
+	padding: 136px 0 0;
+}
+
+.under-copyright {
+	padding: 8px 0 136px;
 }
 
 .footer-top {
