@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild, AfterViewInit, HostListener, PLATFORM_ID, Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { WindowRefService } from '@services/window-ref.service';
+import { ApiService } from '@root/app/services/api.service';
 
 @Component({
   selector: 'app-landing-page',
@@ -17,10 +18,28 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
   currentCarouselIndex = 0;
   carousels = [0, 0, 0, 0, 0];
   radiusLength: number;
+  data: {
+    about: {
+      title: { _id: string, text: string },
+      paragraph1: { _id: string, text: string },
+      paragraph2: { _id: string, text: string }
+    }
+  } = {
+      about: {
+        title: { _id: '', text: '' },
+        paragraph1: { _id: '', text: '' },
+        paragraph2: { _id: '', text: '' }
+      }
+    }
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
-    private windowRefService: WindowRefService) { }
+    private windowRefService: WindowRefService,
+    private apiService: ApiService) {
+    this.apiService.getParagraphs([]).subscribe(data => {
+      this.data = data;
+    });
+  }
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {

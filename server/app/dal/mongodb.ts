@@ -1,4 +1,5 @@
 import { MongoClient } from 'mongodb';
+import { ObjectID } from 'mongodb';
 import { strict as assert } from 'assert';
 
 
@@ -12,18 +13,18 @@ import { strict as assert } from 'assert';
 // assert.ok(mongodbHost, `MONGODB_HOST environment variable can not be empty`);
 // assert.ok(mongodbPort, `MONGODB_PORT environment variable can not be empty`);
 
-const mongodbUsername = 'fuck';
-const mongodbPassword = 'fuckyou';
+const mongodbUsername = 'admin';
+const mongodbPassword = '1234';
 const mongodbPort = '27017';
 const mongodbHost = 'localhost';
+const mongodbAuthSource = 'dory-capital'
 
 export class MongoDB {
     mongoClient: MongoClient;
 
     async connect() {
         try {
-            // const uri = `mongodb://${mongodbUsername}:${mongodbPassword}@${mongodbHost}:${mongodbPort}/?authSource=dorycapital&authMechanism=SCRAM-SHA-256&readPreference=primary&appname=MongoDB%20Compass&ssl=false`;
-            const uri = `mongodb://${mongodbUsername}:${mongodbPassword}@${mongodbHost}:${mongodbPort}/?authSource=dorycapital`;
+            const uri = `mongodb://${mongodbUsername}:${mongodbPassword}@${mongodbHost}:${mongodbPort}/?authSource=${mongodbAuthSource}`;
             this.mongoClient = await MongoClient.connect(uri, { useUnifiedTopology: true });
             // this.mongoClient = await MongoClient.connect(uri, {
             //     ssl: true,
@@ -31,7 +32,7 @@ export class MongoDB {
             //     checkServerIdentity: false,
             //     useUnifiedTopology: true
             // });
-            console.error(`Connected to MongoDB`);
+            console.log('Connected to MongoDB');
         } catch (error) {
             console.error(`Failed to connect to MongoDB: ${error}`);
         }
@@ -51,10 +52,12 @@ export class MongoDB {
         return output;
     }
 
-    async delete(dbName: string, collectionName: string, filter: {}) {
+    async update(dbName: string, collectionName: string, document: { _id: string, text: string }) {
         const db = this.mongoClient.db(dbName);
         const collection = db.collection(collectionName);
-        const output = collection.deleteMany(filter);
+        const output = collection.update(
+            { _id: { $eq: new ObjectID(document._id) } },
+            { $set: { text: document.text } });
 
         return output;
     }

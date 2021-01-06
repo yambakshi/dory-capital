@@ -4,7 +4,8 @@ import * as compression from "compression";
 import { router } from './routes'
 
 
-export function configApp(app, port) {
+export function configApp(app, port, io) {
+    app.io = io;
     app.use(compression({ threshold: 512 }));
     app.use(cors({ origin: '*' }));
     app.use(bodyParser.json({ limit: "50mb" }));

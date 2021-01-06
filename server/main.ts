@@ -1,14 +1,16 @@
 import * as express from "express";
 import * as http from "http";
-import { configApp } from './config';
+import { configApp, socket } from './config';
 import { mongoDb } from './app/dal';
 
 
 const port = 3000;
 const app = express();
 const server = http.createServer(app);
+socket.initSocket(server, '/reports/socket.io');
+socket.configNsp('/test-reports');
 
-configApp(app, port);
+configApp(app, port, socket.io);
 
 mongoDb.connect().then(() => {
     server.listen(port);

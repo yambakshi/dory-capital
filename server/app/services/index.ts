@@ -1,1 +1,1 @@
-export { updateText } from './update-text'
+export * from './paragraphs';
