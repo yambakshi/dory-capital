@@ -1,4 +1,4 @@
-import * as socketIo from 'socket.io';
+import { Server } from 'socket.io';
 
 
 class SocketIO {
@@ -6,7 +6,13 @@ class SocketIO {
     nsp: any;
 
     initSocket(server: any, path: string): void {
-        this.io = socketIo(server, { path });
+        this.io = new Server(server, {
+            path,
+            cors: {
+                origin: "http://localhost:4200"
+            }
+        });
+
         this.io.on('connection', () => {
             console.log('Socket connection established');
         });

@@ -55,7 +55,7 @@ export class MongoDB {
     async update(dbName: string, collectionName: string, document: { _id: string, text: string }) {
         const db = this.mongoClient.db(dbName);
         const collection = db.collection(collectionName);
-        const output = collection.update(
+        const output = collection.updateOne(
             { _id: { $eq: new ObjectID(document._id) } },
             { $set: { text: document.text } });
 

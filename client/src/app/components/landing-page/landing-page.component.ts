@@ -1,7 +1,9 @@
 import { Component, ElementRef, OnInit, ViewChild, AfterViewInit, HostListener, PLATFORM_ID, Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { WindowRefService } from '@services/window-ref.service';
-import { ApiService } from '@root/app/services/api.service';
+import { ApiService } from '@services/api.service';
+import { SocketIoService } from '@services/socket-io.service';
+
 
 @Component({
   selector: 'app-landing-page',
@@ -35,7 +37,8 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
     private windowRefService: WindowRefService,
-    private apiService: ApiService) {
+    private apiService: ApiService,
+    private socketIoService: SocketIoService) {
     this.apiService.getParagraphs([]).subscribe(data => {
       this.data = data;
     });
@@ -44,6 +47,13 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
       this.calcCarouselRadius();
+
+      this.socketIoService.connect();
+      this.socketIoService.listen('paragraphs-changed').subscribe(() => {
+        this.apiService.getParagraphs([]).subscribe(data => {
+          this.data = data;
+        });
+      })
     }
   }
 
