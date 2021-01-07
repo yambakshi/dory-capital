@@ -7,8 +7,8 @@ import { io } from 'socket.io-client';
 })
 export class SocketIoService {
     socket;
-    readonly uri: string = 'http://localhost:3000/test-reports';
-    readonly path: string = '/reports/socket.io';
+    readonly uri: string = 'http://localhost:3000/paragraphs';
+    readonly path: string = '/page-content/socket.io';
     constructor() { }
 
     connect() {

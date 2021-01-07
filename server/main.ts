@@ -7,8 +7,8 @@ import { mongoDb } from './app/dal';
 const port = 3000;
 const app = express();
 const server = http.createServer(app);
-socket.initSocket(server, '/reports/socket.io');
-socket.configNsp('/test-reports');
+socket.initSocket(server, '/page-content/socket.io');
+socket.configNsp('/paragraphs');
 
 configApp(app, port, socket.io);
 
