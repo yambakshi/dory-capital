@@ -8,12 +8,14 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { ManagementPlatformComponent } from './components/management-platform/management-platform.component';
+import { VideoElementComponent } from './components/video-element/video-element.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingPageComponent,
-    ManagementPlatformComponent
+    ManagementPlatformComponent,
+    VideoElementComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

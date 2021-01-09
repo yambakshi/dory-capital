@@ -6,7 +6,7 @@ import { ManagementPlatformComponent } from '@components/management-platform/man
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
-  { path: 'admin', component: ManagementPlatformComponent },
+  { path: 'management-platform', component: ManagementPlatformComponent },
   { path: "**", redirectTo: "" }
 ];
 

@@ -1,11 +1,13 @@
 export class Paragraph {
+    section: string;
     name: string;
-    date: Date;
     text: string;
+    lastModified: Date;
 
-    constructor({ name, date, text }: Paragraph) {
+    constructor({ section, name, text }: Paragraph) {
+        this.section = section;
         this.name = name;
-        this.date = new Date(date);
         this.text = text;
+        this.lastModified = new Date();
     }
 }

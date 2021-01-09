@@ -2,14 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { environment } from "@environments/environment";
 
 @Injectable()
 export class ApiService {
-    api: string = 'http://localhost:3000/api';
+    readonly api: string = `${environment.apiUrl}/api`;
     httpOptions: any = {
-        headers: {
-            // 'Access-Control-Allow-Origin': 'https://www.yambakshimusic.com'
-        },
+        headers: {},
         responseType: 'json'
     }
 

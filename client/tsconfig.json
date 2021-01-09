@@ -19,7 +19,8 @@
       "@root/*": ["./*"],
       "@services/*": ["app/services/*"],
       "@components/*": ["app/components/*"],
-      "@providers/*": ["app/providers/*"]
+      "@providers/*": ["app/providers/*"],
+      "@environments/*": ["environments/*"]
     }
   },
   "angularCompilerOptions": {

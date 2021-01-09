@@ -1,10 +1,10 @@
 import * as express from "express";
 import * as http from "http";
-import { configApp, socket } from './config';
+import { apiPort, configApp, socket } from './config';
 import { mongoDb } from './app/dal';
 
 
-const port = 3000;
+const port = apiPort || 3000;
 const app = express();
 const server = http.createServer(app);
 socket.initSocket(server, '/page-content/socket.io');

@@ -8,4 +8,7 @@ Create Collection
 db.createCollection("paragraphs")
 
 Create 'dbAdmin' User
-db.createUser({ user: "admin", pwd: "1234", roles: [{ role: "dbAdmin", db: "dory-capital" }]})
+db.createUser({ user: "yambakshi", pwd: "1234", roles: [{ role: "dbAdmin", db: "dory-capital" }]})
+
+Drop user
+db.dropUser("yambakshi")
