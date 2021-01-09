@@ -1,0 +1,16 @@
+@import "../../../scss/global/index.scss";
+
+@include media("screen", "<mobile") {
+    .login-page-container {
+        font-size: 16px;
+        > .login-form-container {
+            > .login-form {
+                > .login-title-container {
+                    > .login-title {
+                        font-size: 24px;
+                    }
+                }
+            }
+        }
+    }
+}

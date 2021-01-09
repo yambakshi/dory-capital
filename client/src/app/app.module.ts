@@ -9,13 +9,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { ManagementPlatformComponent } from './components/management-platform/management-platform.component';
 import { VideoElementComponent } from './components/video-element/video-element.component';
+import { LoginPageComponent } from './components/login-page/login-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingPageComponent,
     ManagementPlatformComponent,
-    VideoElementComponent
+    VideoElementComponent,
+    LoginPageComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
