@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LandingPageComponent } from '@components/landing-page/landing-page.component';
-import { ManagementPlatformComponent } from '@components/management-platform/management-platform.component';
-import { LoginPageComponent } from './components/login-page/login-page.component';
+import { AdminComponent } from '@components/admin/admin.component';
+import { LoginPageComponent } from '@components/login-page/login-page.component';
 
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
   { path: 'login', component: LoginPageComponent },
-  { path: 'management-platform', component: ManagementPlatformComponent },
+  { path: 'admin', component: AdminComponent },
   { path: "**", redirectTo: "" }
 ];
 

@@ -2,15 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '@root/app/services/api.service';
 
 @Component({
-  selector: 'app-management-platform',
-  templateUrl: './management-platform.component.html',
+  selector: 'admin',
+  templateUrl: './admin.component.html',
   styleUrls: [
-    './management-platform.component.common.scss',
-    './management-platform.component.desktop.scss',
-    './management-platform.component.mobile.scss'
+    './admin.component.common.scss',
+    './admin.component.desktop.scss',
+    './admin.component.mobile.scss'
   ]
 })
-export class ManagementPlatformComponent implements OnInit {
+export class AdminComponent implements OnInit {
   data: {
     about: {
       title: { _id: string, text: string },

@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
-import { ManagementPlatformComponent } from './components/management-platform/management-platform.component';
+import { AdminComponent } from './components/admin/admin.component';
 import { VideoElementComponent } from './components/video-element/video-element.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 
@@ -15,7 +15,7 @@ import { LoginPageComponent } from './components/login-page/login-page.component
   declarations: [
     AppComponent,
     LandingPageComponent,
-    ManagementPlatformComponent,
+    AdminComponent,
     VideoElementComponent,
     LoginPageComponent
   ],
