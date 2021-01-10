@@ -1,17 +1,17 @@
 <div class="login-page-container">
     <div class="login-form-container">
-        <div class="login-form">
+        <form class="login-form" (ngSubmit)="submit()">
             <div class="login-title-container">
                 <div class="login-title">Login</div>
             </div>
             <div class="login-inputs">
                 <div class=input-container>
                     <div class="input-title">Username</div>
-                    <input class="username-input" type="text" [(ngModel)]="username">
+                    <input class="username-input" name="username" type="text" [(ngModel)]="username">
                 </div>
                 <div class=input-container>
                     <div class="input-title">Password</div>
-                    <input class="password-input" type="password" [(ngModel)]="password">
+                    <input class="password-input" name="password" type="password" [(ngModel)]="password">
                 </div>
             </div>
             <div class="forgot-my-password-container">
@@ -20,6 +20,6 @@
             <div class="login-button-container">
                 <input class="login-button" type="submit" value="Submit">
             </div>
-        </div>
+        </form>
     </div>
 </div>

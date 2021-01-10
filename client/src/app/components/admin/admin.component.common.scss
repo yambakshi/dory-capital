@@ -25,6 +25,18 @@
             border-radius: 20px;
             padding: 20px;
 
+            & .submit-button {
+                outline: none;
+                padding: 5px;
+                border: white 1px solid;
+                border-radius: 10px;
+                color: white;
+                background-color: rgba(15, 73, 219, 1);
+                cursor: pointer;
+                font-size: 16px;
+                user-select: none;
+            }
+
             > .management-about-title-container {
                 > .management-about-title {
                     text-align: center;
