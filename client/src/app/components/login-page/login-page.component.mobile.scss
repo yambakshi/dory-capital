@@ -2,12 +2,39 @@
 
 @include media("screen", "<mobile") {
     .login-page-container {
-        font-size: 16px;
+        font-size: 18px;
+
         > .login-form-container {
             > .login-form {
+                padding: 10px;
+
                 > .login-title-container {
                     > .login-title {
-                        font-size: 24px;
+                        font-size: 26px;
+                    }
+                }
+
+                > .login-inputs {
+                    margin-bottom: 2px;
+
+                    > .input-container {
+                        &:not(:last-of-type) {
+                        }
+    
+                        > .input-title {
+                        }
+                    }
+                }
+    
+                > .forgot-my-password-container {
+                    > .forgot-my-password {
+                        font-size: 12px;
+                    }
+                }
+    
+                > .login-button-container {
+                    > .login-button {
+                        font-size: 18px;
                     }
                 }
             }

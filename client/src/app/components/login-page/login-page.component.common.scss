@@ -16,14 +16,17 @@
             > .login-title-container {
                 display: flex;
                 justify-content: center;
-                margin-bottom: 10px;
+                margin-bottom: 15px;
     
                 > .login-title {
+                    user-select: none;
                     font-size: 42px;
                 }
             }
     
             > .login-inputs {
+                margin-bottom: 5px;
+
                 > .input-container {
                     display: flex;
                     align-items: center;
@@ -35,7 +38,39 @@
                     > .input-title {
                         flex: 1;
                         margin-right: 10px;
+                        user-select: none;
                     }
+                }
+            }
+
+            > .forgot-my-password-container {
+                display: flex;
+                justify-content: flex-end;
+                margin-bottom: 20px;
+
+                > .forgot-my-password {
+                    cursor: pointer;
+                    text-decoration: underline;
+                    font-size: 16px;
+                    user-select: none;
+                }
+            }
+
+            > .login-button-container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                > .login-button {
+                    outline: none;
+                    padding: 12px;
+                    border: white 1px solid;
+                    border-radius: 15px;
+                    color: white;
+                    background-color: rgba(15, 73, 219, 1);
+                    cursor: pointer;
+                    font-size: 24px;
+                    user-select: none;
                 }
             }
         }        
