@@ -1,17 +1,25 @@
 <div class="login-page-container">
     <div class="login-form-container">
-        <form class="login-form" (ngSubmit)="submit()">
+        <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <div class="login-title-container">
                 <div class="login-title">Login</div>
             </div>
             <div class="login-inputs">
                 <div class=input-container>
-                    <div class="input-title">Email</div>
-                    <input class="email-input" name="email" type="text" [(ngModel)]="email">
+                    <input class="email-input" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+                        formControlName="email" type="text" [(ngModel)]="email" placeholder="Email">
+                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">Email is required</div>
+                        <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                    </div>
                 </div>
                 <div class=input-container>
-                    <div class="input-title">Password</div>
-                    <input class="password-input" name="password" type="password" [(ngModel)]="password">
+                    <input class="password-input" [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+                        formControlName="password" type="password" [(ngModel)]="password" placeholder="Password">
+                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                        <div *ngIf="f.password.errors.required">Password is required</div>
+                        <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                    </div>
                 </div>
             </div>
             <div class="forgot-my-password-container">

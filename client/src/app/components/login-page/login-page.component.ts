@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from '@services/login.service';
 
 @Component({
@@ -10,13 +11,39 @@ import { LoginService } from '@services/login.service';
         './login-page.component.mobile.scss'
     ]
 })
-export class LoginPageComponent {
+export class LoginPageComponent implements OnInit {
+    loginForm: FormGroup;
     email: string;
     password: string;
+    submitted = false;
 
-    constructor(private loginService: LoginService) { }
+    constructor(
+        private loginService: LoginService,
+        private formBuilder: FormBuilder) { }
 
-    submit(): void {
-        this.loginService.login({ email: this.email, password: this.password }).subscribe((res: any) => { });
+    ngOnInit(): void {
+        this.loginForm = this.formBuilder.group({
+            email: ['', [Validators.required, Validators.email]],
+            password: ['', [Validators.required, Validators.minLength(6)]]
+        });
+    }
+
+    get f() { return this.loginForm.controls; }
+
+    onSubmit(): void {
+        this.submitted = true;
+
+        if (this.loginForm.invalid) {
+            return;
+        }
+
+        this.loginService.login({ email: this.email, password: this.password }).subscribe((res: any) => {
+            console.log(res);
+        });
+    }
+
+    onReset() {
+        this.submitted = false;
+        this.loginForm.reset();
     }
 }

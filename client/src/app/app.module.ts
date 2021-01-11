@@ -4,7 +4,7 @@ import { APP_PROVIDERS } from './app.providers';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { AdminComponent } from './components/admin/admin.component';
@@ -21,7 +21,7 @@ import { LoginPageComponent } from './components/login-page/login-page.component
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
-    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule
   ],

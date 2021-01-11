@@ -8,6 +8,7 @@
     font-size: 34px;
 
     > .login-form-container {
+        width: 500px;
         border-radius: 30px;
         background-color: rgb(14, 63, 187);
 
@@ -32,7 +33,7 @@
 
                 > .input-container {
                     display: flex;
-                    align-items: center;
+                    flex-direction: column;
                     
                     &:not(:last-of-type) {
                         margin-bottom: 10px;
