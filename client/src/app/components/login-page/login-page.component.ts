@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { LoginService } from '@services/login.service';
 
 @Component({
     selector: 'login-page',
@@ -9,15 +10,13 @@ import { Component, OnInit } from '@angular/core';
         './login-page.component.mobile.scss'
     ]
 })
-export class LoginPageComponent implements OnInit {
-    username: string;
+export class LoginPageComponent {
+    email: string;
     password: string;
-    constructor() { }
 
-    ngOnInit(): void {
-    }
+    constructor(private loginService: LoginService) { }
 
     submit(): void {
-        console.log('login');
+        this.loginService.login({ email: this.email, password: this.password }).subscribe((res: any) => { });
     }
 }

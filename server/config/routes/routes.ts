@@ -16,7 +16,6 @@ router.route('/api/login')
                     try {
                         if (err || !user) {
                             const error = new Error('An error occurred.');
-
                             return next(error);
                         }
 
@@ -28,8 +27,8 @@ router.route('/api/login')
 
                                 const body = { _id: user._id, email: user.email };
                                 const token = jwt.sign({ user: body }, 'TOP_SECRET');
-
-                                return res.json({ token });
+                                res.cookie('token', token, { httpOnly: true });
+                                return res.json();
                             }
                         );
                     } catch (error) {

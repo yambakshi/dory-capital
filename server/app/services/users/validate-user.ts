@@ -7,14 +7,13 @@ import bcrypt from 'bcrypt';
 export async function validateUser(user: User) {
     const dbUser = await mongoDb.findOne(env.mongodb.dbName, 'users', { email: user.email });
     if (!dbUser) {
-        Promise.reject("User doesn't exist");
+        return Promise.reject("User doesn't exist");
     }
 
-    const result = bcrypt.compare(user.password, dbUser.password);
+    const result = bcrypt.compareSync(user.password, dbUser.password);
     if (!result) {
-        Promise.reject("Wrong password");
+        return Promise.reject("Wrong password");
     }
 
-    const output = mongoDb.insert(env.mongodb.dbName, 'users', [user]);
-    return output;
+    return result;
 }

@@ -2,6 +2,7 @@ import 'zone.js/dist/zone-node';
 
 import { ngExpressEngine } from '@nguniversal/express-engine';
 import * as express from 'express';
+import * as proxy from 'http-proxy-middleware'
 import { join } from 'path';
 
 import { AppServerModule } from './src/main.server';
@@ -33,6 +34,9 @@ export function app() {
   server.get('*', (req, res) => {
     res.render(indexHtml, { req, providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }] });
   });
+
+  const apiProxy = proxy('/api', { target: 'http://localhost:3000', secure: false });
+  server.use('/api', apiProxy)
 
   return server;
 }

@@ -23,6 +23,14 @@ export function configApp(app, port, socket) {
     }));
     app.use(passport.initialize());
     app.use(passport.session());
+    app.use((req, res, next) => {
+        passport.authenticate('jwt', { session: false }, (err, user, payload) => {
+            if (user)
+                req.user = user;
+            next();
+        })(req, res)
+    })
+
     app.set('port', port)
     app.use(router);
     // app.use('/admin', passport.authenticate('jwt', { session: false }), authenticatedRouter);
