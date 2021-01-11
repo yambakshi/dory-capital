@@ -1,15 +1,15 @@
-import * as express from "express";
-import * as http from "http";
-import { apiPort, configApp, socket } from './config';
+import express from "express";
+import http from "http";
 import { mongoDb } from './app/dal';
+import { configApp, configPassport, socket, env } from './config';
 
 
-const port = apiPort || 3000;
+const port = env.apiPort || 3000;
 const app = express();
 const server = http.createServer(app);
 socket.initSocket(server, '/page-content/socket.io');
 socket.configNsp('/paragraphs');
-
+configPassport();
 configApp(app, port, socket.io);
 
 mongoDb.connect().then(() => {

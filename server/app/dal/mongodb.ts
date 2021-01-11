@@ -1,12 +1,12 @@
 import { MongoClient, ObjectID } from 'mongodb';
-import { mongodbVars } from '../../config';
+import { env } from '../../config';
 
 export class MongoDB {
     mongoClient: MongoClient;
 
     async connect() {
         try {
-            const { uriPrefix, username, password, dbName, host } = mongodbVars;
+            const { uriPrefix, username, password, dbName, host } = env.mongodb;
             const uri = `${uriPrefix}://${username}:${password}@${host}/${dbName}`;
             this.mongoClient = await MongoClient.connect(uri, {
                 useUnifiedTopology: true,
@@ -23,6 +23,12 @@ export class MongoDB {
     async get(dbName: string, collectionName: string, filter: {}) {
         const db = this.mongoClient.db(dbName);
         const cursor = db.collection(collectionName).find(filter);
+        return cursor;
+    }
+
+    async findOne(dbName: string, collectionName: string, filter: {}) {
+        const db = this.mongoClient.db(dbName);
+        const cursor = db.collection(collectionName).findOne(filter);
         return cursor;
     }
 

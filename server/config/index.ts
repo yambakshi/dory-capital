@@ -1,3 +1,4 @@
-export { configApp } from './express';
+export { env } from './env';
 export { socket } from './socket';
-export { apiPort, mongodbVars } from './env-vars';
+export { configApp } from './express';
+export { configPassport } from './passport';
