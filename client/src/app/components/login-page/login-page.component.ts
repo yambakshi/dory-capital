@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { LoginService } from '@services/login.service';
 
 @Component({
@@ -13,18 +14,17 @@ import { LoginService } from '@services/login.service';
 })
 export class LoginPageComponent implements OnInit {
     loginForm: FormGroup;
-    email: string;
-    password: string;
     submitted = false;
 
     constructor(
         private loginService: LoginService,
-        private formBuilder: FormBuilder) { }
+        private formBuilder: FormBuilder,
+        private router: Router) { }
 
     ngOnInit(): void {
         this.loginForm = this.formBuilder.group({
             email: ['', [Validators.required, Validators.email]],
-            password: ['', [Validators.required, Validators.minLength(6)]]
+            password: ['', [Validators.required, Validators.minLength(3)]]
         });
     }
 
@@ -37,8 +37,11 @@ export class LoginPageComponent implements OnInit {
             return;
         }
 
-        this.loginService.login({ email: this.email, password: this.password }).subscribe((res: any) => {
-            console.log(res);
+        this.loginService.login({
+            email: this.loginForm.controls.email.value,
+            password: this.loginForm.controls.password.value
+        }).subscribe((res: any) => {
+            this.router.navigate(['/admin']);
         });
     }
 

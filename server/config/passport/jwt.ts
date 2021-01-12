@@ -1,23 +1,26 @@
 import passportJwt from "passport-jwt";
+import { ObjectID } from 'mongodb';
 import { mongoDb } from '../../app/dal';
 import { env } from '../../config';
 
+const cookieExtractor = req => {
+    const jwt = (req && req.cookies) ? req.cookies[`${env.cookiesPrefix}token`] : null;
+    return jwt;
+}
+
 const jwtOptions = {
-    jwtFromRequest: passportJwt.ExtractJwt.fromAuthHeaderAsBearerToken(),
-    secretOrKey: env.jwtToken.secret,
-    issuer: env.jwtToken.issuer,
-    audience: env.jwtToken.audience,
+    jwtFromRequest: cookieExtractor,
+    secretOrKey: env.jwt.secret,
+    issuer: env.jwt.issuer,
+    audience: env.jwt.audience,
 };
 
 export const jwtStrategy = new passportJwt.Strategy(jwtOptions, async (payload, done) => {
-    try {
-        const dbUser = await mongoDb.findOne(env.mongodb.dbName, 'users', { _id: payload.sub });
-        if (dbUser) {
-            return done(null, dbUser, payload);
-        }
-
-        done("User wasn't found");
-    } catch (error) {
-        done("JWT strategy failed");
+    const filter = { _id: new ObjectID(payload._id) };
+    const user = await mongoDb.findOne(env.mongodb.dbName, 'users', filter);
+    if (!user) {
+        done("User doesn't exist", false);
     }
+
+    done(null, user);
 })

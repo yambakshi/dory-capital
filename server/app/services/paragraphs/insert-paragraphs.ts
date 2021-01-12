@@ -3,6 +3,6 @@ import { mongoDb } from '../../dal';
 
 
 export async function insertParagraphs(paragraphs: any[]) {
-    const output = mongoDb.insert(env.mongodb.dbName, 'paragraphs', paragraphs);
+    const output = mongoDb.insertMany(env.mongodb.dbName, 'paragraphs', paragraphs);
     return output;
 }

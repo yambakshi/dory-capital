@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { environment } from "@environments/environment";
+import { environment } from '@environments/environment';
 
 @Injectable()
 export class ApiService {
@@ -20,7 +20,7 @@ export class ApiService {
     }
 
     updateParagraph(text: string): any {
-        const url = `${this.api}/update`;
+        const url = `${this.api}/admin`;
         return this.http.post(url, text, this.httpOptions)
             .pipe(catchError(this.handleError));
     }

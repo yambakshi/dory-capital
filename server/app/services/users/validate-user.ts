@@ -1,19 +1,20 @@
 import { env } from '../../../config';
 import { mongoDb } from '../../dal';
-import { User } from '../../models';
 import bcrypt from 'bcrypt';
 
 
-export async function validateUser(user: User) {
-    const dbUser = await mongoDb.findOne(env.mongodb.dbName, 'users', { email: user.email });
-    if (!dbUser) {
-        return Promise.reject("User doesn't exist");
+export async function validateUser(email: string, password: string) {
+    const inavlidUserMessage = "Incorrect username or password";
+    const user = await mongoDb.findOne(env.mongodb.dbName, 'users', { email });
+    
+    if (!user) {
+        return Promise.reject(inavlidUserMessage);
     }
 
-    const result = bcrypt.compareSync(user.password, dbUser.password);
-    if (!result) {
-        return Promise.reject("Wrong password");
+    const isPasswordMatch = bcrypt.compareSync(password, user.password);
+    if (!isPasswordMatch) {
+        return Promise.reject(inavlidUserMessage);
     }
 
-    return result;
+    return user;
 }

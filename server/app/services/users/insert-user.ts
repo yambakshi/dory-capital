@@ -5,7 +5,7 @@ import bcrypt from 'bcrypt';
 
 
 export async function insertUser(user: User) {
-    const dbUser = await mongoDb.findOne(env.mongodb.dbName, 'users', { email: user.email });
+    const dbUser = await mongoDb.find(env.mongodb.dbName, 'users', { email: user.email });
     if (dbUser) {
         Promise.reject('User already exist');
     }
@@ -16,6 +16,6 @@ export async function insertUser(user: User) {
         password: hash
     }
 
-    const output = mongoDb.insert(env.mongodb.dbName, 'users', [newUser]);
+    const output = mongoDb.insertMany(env.mongodb.dbName, 'users', [newUser]);
     return output;
 }

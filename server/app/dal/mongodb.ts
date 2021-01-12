@@ -20,7 +20,7 @@ export class MongoDB {
         }
     }
 
-    async get(dbName: string, collectionName: string, filter: {}) {
+    async find(dbName: string, collectionName: string, filter: {}) {
         const db = this.mongoClient.db(dbName);
         const cursor = db.collection(collectionName).find(filter);
         return cursor;
@@ -32,7 +32,7 @@ export class MongoDB {
         return cursor;
     }
 
-    async insert(dbName: string, collectionName: string, documents: any[]) {
+    async insertMany(dbName: string, collectionName: string, documents: any[]) {
         const db = this.mongoClient.db(dbName);
         const collection = db.collection(collectionName);
         const output = collection.insertMany(documents);
@@ -40,12 +40,20 @@ export class MongoDB {
         return output;
     }
 
-    async update(dbName: string, collectionName: string, document: { _id: string, text: string }) {
+    async updateOne(dbName: string, collectionName: string, document: { _id: string, text: string }) {
         const db = this.mongoClient.db(dbName);
         const collection = db.collection(collectionName);
         const output = collection.updateOne(
             { _id: { $eq: new ObjectID(document._id) } },
             { $set: { text: document.text } });
+
+        return output;
+    }
+
+    async deleteMany(dbName: string, collectionName: string, filter: {}) {
+        const db = this.mongoClient.db(dbName);
+        const collection = db.collection(collectionName);
+        const output = collection.deleteMany(filter);
 
         return output;
     }

@@ -7,9 +7,15 @@ import { configApp, configPassport, socket, env } from './config';
 const port = env.apiPort || 3000;
 const app = express();
 const server = http.createServer(app);
+
+// Init socket
 socket.initSocket(server, '/page-content/socket.io');
 socket.configNsp('/paragraphs');
+
+// Config passport
 configPassport();
+
+// Config app
 configApp(app, port, socket.io);
 
 mongoDb.connect().then(() => {

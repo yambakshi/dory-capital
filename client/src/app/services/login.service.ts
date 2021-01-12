@@ -6,17 +6,33 @@ import { environment } from "@environments/environment";
 
 @Injectable()
 export class LoginService {
-    readonly api: string = `${environment.apiUrl}/api/login`;
-    httpOptions: any = {
-        headers: {},
-        responseType: 'json',
-        withCredentials: true
-    }
+    readonly api: string = `${environment.apiUrl}/api`;
+
 
     constructor(private http: HttpClient) { }
 
+    logout(): void {
+
+    }
+
+    getLoginStatus(): any {
+        const httpOptions: any = {
+            headers: {},
+            responseType: 'json'
+        }
+
+        return this.http.get(`${this.api}/get-login-status`, httpOptions)
+            .pipe(catchError(this.handleError));
+    }
+
     login(creds: { email: string, password: string }): any {
-        return this.http.post(this.api, creds, this.httpOptions)
+        const httpOptions: any = {
+            headers: {},
+            responseType: 'json',
+            withCredentials: true
+        }
+
+        return this.http.post(`${this.api}/login`, creds, httpOptions)
             .pipe(catchError(this.handleError));
     }
 

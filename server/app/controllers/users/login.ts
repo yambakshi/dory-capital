@@ -1,24 +1,23 @@
 import { Request, Response } from 'express';
-import { validateUserLogin } from '../../validation-schemas';
-import { validateUser } from '../../services';
-import { User } from '../../models';
+import jwt from 'jsonwebtoken';
+import { env } from '../../../config';
 
-async function processLogin(user: any) {
-    const validationErrors = validateUserLogin(user);
-    if (validationErrors) {
-        const firstErr = validationErrors[0];
-        throw new Error(`Invalid request(${firstErr.keyword}): user ${firstErr.dataPath} ${firstErr.message}`);
-    }
-
-    const output = validateUser(new User(user));
-    return output;
-}
 
 export async function login(req: Request, res: Response) {
     try {
-        const user = req.body;
-        const output = await processLogin(user);
-        res.send(output);
+        const payload = {
+            _id: (req.user as any)._id
+        };
+
+        const jwtOptions = {
+            audience: env.jwt.audience,
+            issuer: env.jwt.issuer,
+            expiresIn: env.jwt.expiresIn
+        };
+
+        const token = jwt.sign(payload, env.jwt.secret, jwtOptions);
+        res.cookie(`${env.cookiesPrefix}token`, token, { httpOnly: true, secure: false });
+        res.send({ message: 'logged-in' });
     } catch (error) {
         console.error(error);
         res.status(500).send(error.message);
