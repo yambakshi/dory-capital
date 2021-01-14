@@ -6,31 +6,43 @@
     min-height: 100%;
     align-items: center;
 
-    > .management-platform {
-        width: 85%;
+    > .management-platform-header-container {
+        background-color: green;
+        height: 50px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 30px;
 
-        > .management-title-container {
+        > .management-platform-header {
             display: flex;
-            justify-content: center;
-            width: 100%;
-    
-            > .management-title {
-                text-align: center;
-                margin: 50px 0px;
+            background-color: yellowgreen;
+            width: 80%;
+            height: 100%;
+            padding: 0px 10px;
+            align-items: center;
+            justify-content: space-between;
+
+            > .management-platfotm-title {
+                margin: 0;
+            }
+
+            > .logout-button {
+                outline: none;
+                padding: 5px;
+                border: white 1px solid;
+                border-radius: 10px;
+                color: white;
+                background-color: rgba(15, 73, 219, 1);
+                cursor: pointer;
+                font-size: 16px;
+                user-select: none;
             }
         }
+    }
 
-        > .logout-button {
-            outline: none;
-            padding: 5px;
-            border: white 1px solid;
-            border-radius: 10px;
-            color: white;
-            background-color: rgba(15, 73, 219, 1);
-            cursor: pointer;
-            font-size: 16px;
-            user-select: none;
-        }
+    > .management-platform {
+        width: 80%;
 
         > .management-about {
             background-color: rgb(14, 63, 187);
