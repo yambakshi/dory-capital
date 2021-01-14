@@ -2,14 +2,14 @@ import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpResponse, Htt
 import { Observable } from 'rxjs';
 import { environment } from "@environments/environment";
 import { CookiesService } from './cookies.service';
-import { COOKIES_OPTIONS } from './constants';
+import { COOKIES } from './constants';
 
 
 export class HttpErrorInterceptor implements HttpInterceptor {
     constructor(private cookiesStorageService: CookiesService) { }
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        let token = this.cookiesStorageService.get(COOKIES_OPTIONS.TOKEN_COOKIE_KEY);
+        let token = this.cookiesStorageService.get(COOKIES.TOKEN_KEY);
         if (token) {
             const tokenParts = token.split('"');
             if (tokenParts.length > 1)

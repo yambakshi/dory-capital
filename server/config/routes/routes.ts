@@ -19,7 +19,7 @@ router.route('/api/login')
             }
 
             if (!user) {
-                return res.send({ status: false });
+                return res.send({ status: false, message: "User is not logged in" });
             }
 
             next();
@@ -36,7 +36,7 @@ router.route('/api/logout')
             }
 
             if (!user) {
-                return res.send({ status: false });
+                return res.send({ success: false, message: "User is not logged in" });
             }
 
             next();

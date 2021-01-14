@@ -5,9 +5,8 @@ import { env } from '../../../config';
 
 export async function login(req: Request, res: Response) {
     try {
-        const payload = {
-            _id: (req.user as any)._id
-        };
+        const _id = (req.user as any)._id;
+        const payload = { _id };
 
         const jwtOptions = {
             audience: env.jwt.audience,
@@ -16,7 +15,7 @@ export async function login(req: Request, res: Response) {
         };
 
         const token = jwt.sign(payload, env.jwt.secret, jwtOptions);
-        res.send({ user: req.user, token });
+        res.send({ user: _id, token });
     } catch (error) {
         console.error(error);
         res.status(500).send(error.message);

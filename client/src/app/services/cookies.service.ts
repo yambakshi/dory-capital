@@ -1,12 +1,10 @@
 import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
-import { COOKIES_OPTIONS } from './constants';
+import { COOKIES } from './constants';
 
 
 @Injectable()
 export class CookiesService {
-    prefix: string = 'dory_capital_';
-
     constructor(private cookieService: CookieService) { }
 
     set(key: string, value: any, expires?: number | Date) {
@@ -35,6 +33,6 @@ export class CookiesService {
     }
 
     private getKey(key): string {
-        return `${COOKIES_OPTIONS.PREFIX}${key}`;
+        return `${COOKIES.PREFIX}${key}`;
     }
 }

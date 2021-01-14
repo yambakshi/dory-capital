@@ -1,4 +1,4 @@
-export const COOKIES_OPTIONS = {
+export const COOKIES = {
     PREFIX: 'dory_dapital_',
-    TOKEN_COOKIE_KEY: 'token'
+    TOKEN_KEY: 'token'
 };

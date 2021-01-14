@@ -21,6 +21,6 @@ export async function register(req: Request, res: Response) {
         res.send(output);
     } catch (error) {
         console.error(error);
-        res.status(500).send(error.message);
+        res.status(500).send({ success: false, message: error.message });
     }
 }

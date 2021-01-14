@@ -6,7 +6,7 @@ const userSchema = {
     type: 'object',
     properties: {
         email: { type: 'string', format: 'non-empty-string' },
-        password: { type: 'string', format: 'non-empty-string' }
+        password: { type: 'string', minLength: 6, format: 'non-empty-string' }
     },
 };
 

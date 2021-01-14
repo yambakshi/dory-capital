@@ -3,7 +3,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { throwError } from 'rxjs';
 import { catchError, finalize, map } from 'rxjs/operators';
 import { CookiesService } from './cookies.service';
-import { COOKIES_OPTIONS } from './constants';
+import { COOKIES } from './constants';
 import { Router } from '@angular/router';
 
 @Injectable()
@@ -23,7 +23,7 @@ export class LoginService {
             finalize(() => {
                 this.router.navigate(['']);
             }), catchError(this.handleError)).subscribe(res => {
-                this.cookiesService.remove(COOKIES_OPTIONS.TOKEN_COOKIE_KEY);
+                this.cookiesService.remove(COOKIES.TOKEN_KEY);
             });
     }
 
@@ -35,7 +35,7 @@ export class LoginService {
     login(creds: { email: string, password: string }): any {
         return this.http.post('/api/login', creds, this.httpOptions).pipe(map(
             (res: any) => {
-                this.cookiesService.set(COOKIES_OPTIONS.TOKEN_COOKIE_KEY, res.token);
+                this.cookiesService.set(COOKIES.TOKEN_KEY, res.token);
             }),
             catchError(this.handleError));
     }
