@@ -44,51 +44,92 @@
     > .management-platform {
         width: 80%;
 
-        > .management-about {
+        & .submit-button {
+            outline: none;
+            padding: 5px;
+            border: white 1px solid;
+            border-radius: 10px;
+            color: white;
+            background-color: rgba(15, 73, 219, 1);
+            cursor: pointer;
+            font-size: 16px;
+            user-select: none;
+        }
+
+        > .management-scope-container {
             background-color: rgb(14, 63, 187);
             border-radius: 20px;
             padding: 20px;
+            margin-bottom: 30px;
 
-            & .submit-button {
-                outline: none;
-                padding: 5px;
-                border: white 1px solid;
-                border-radius: 10px;
-                color: white;
-                background-color: rgba(15, 73, 219, 1);
-                cursor: pointer;
-                font-size: 16px;
-                user-select: none;
-            }
-
-            > .management-about-title-container {
-                > .management-about-title {
+            > .management-scope-title-container {
+                > .management-scope-title {
                     text-align: center;
                 }
             }
 
-            > .about-title-container {
+            > .scope-title-container {
                 margin-bottom: 30px;
 
-                > .about-title {
+                > .scope-title {
                     display: flex;
                     width: 100%;
                     margin-bottom: 10px;
                 }
             }
 
-            > .about-text-1-container {
+            > .scope-paragraph-1-container {
                 margin-bottom: 30px;
 
-                > .about-text-1 {
+                > .scope-paragraph-1 {
                     display: flex;
                     width: 100%;
                     margin-bottom: 10px;
                 }
             }
 
-            > .about-text-2-container {
-                > .about-text-2 {
+            > .scope-paragraph-2-container {
+                > .scope-paragraph-2 {
+                    display: flex;
+                    width: 100%;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+
+        > .management-about-us-container {
+            background-color: rgb(14, 63, 187);
+            border-radius: 20px;
+            padding: 20px;
+
+            > .management-about-us-title-container {
+                > .management-about-us-title {
+                    text-align: center;
+                }
+            }
+
+            > .about-us-title-container {
+                margin-bottom: 30px;
+
+                > .about-us-title {
+                    display: flex;
+                    width: 100%;
+                    margin-bottom: 10px;
+                }
+            }
+
+            > .about-us-paragraph-1-container {
+                margin-bottom: 30px;
+
+                > .about-us-paragraph-1 {
+                    display: flex;
+                    width: 100%;
+                    margin-bottom: 10px;
+                }
+            }
+
+            > .about-us-paragraph-2-container {
+                > .about-us-paragraph-2 {
                     display: flex;
                     width: 100%;
                     margin-bottom: 10px;

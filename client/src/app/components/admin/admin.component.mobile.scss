@@ -3,6 +3,8 @@
 @include media("screen", "<mobile") {
     .management-platform-container {    
         > .management-platform-header-container {    
+            margin-bottom: 20px;
+
             > .management-platform-header {
                 padding: 0px 10px;
                 width: 100%;
@@ -22,7 +24,11 @@
         > .management-platform {
             width: 100%;
 
-            > .management-about {
+            > .management-scope-container {
+                margin: 0px 10px 20px;
+            }
+
+            > .management-about-us-container {
                 margin: 0px 10px;
             }
         }

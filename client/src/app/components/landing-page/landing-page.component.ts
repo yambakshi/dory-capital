@@ -21,13 +21,23 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
   carousels = [0, 0, 0, 0, 0];
   radiusLength: number;
   data: {
-    about: {
+    scope: {
+      title: { _id: string, text: string },
+      paragraph1: { _id: string, text: string },
+      paragraph2: { _id: string, text: string }
+    },
+    aboutUs: {
       title: { _id: string, text: string },
       paragraph1: { _id: string, text: string },
       paragraph2: { _id: string, text: string }
     }
   } = {
-      about: {
+      scope: {
+        title: { _id: '', text: '' },
+        paragraph1: { _id: '', text: '' },
+        paragraph2: { _id: '', text: '' }
+      },
+      aboutUs: {
         title: { _id: '', text: '' },
         paragraph1: { _id: '', text: '' },
         paragraph2: { _id: '', text: '' }

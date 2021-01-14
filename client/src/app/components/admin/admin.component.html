@@ -7,31 +7,60 @@
         </div>
     </div>
     <div class="management-platform">
-        <div class="management-about">
-            <div class="management-about-title-container">
-                <h2 class="management-about-title">About Us</h2>
+        <div class="management-scope-container">
+            <div class="management-scope-title-container">
+                <h2 class="management-scope-title">Scope</h2>
             </div>
-            <form class="about-title-container" (ngSubmit)="submit($event, 'about', 'title')">
+            <form class="scope-title-container" (ngSubmit)="submit($event, 'scope', 'title')">
                 <div class="section-title-container">
                     <h3 class="section-title">Title</h3>
                 </div>
-                <textarea class="about-title" name="value" rows="2" [(ngModel)]="data.about.title.text"
+                <textarea class="scope-title" name="value" rows="2" [(ngModel)]="data.scope.title.text"
                     required></textarea>
                 <input class="submit-button" type="submit" value="Submit">
             </form>
-            <form class="about-text-1-container" (ngSubmit)="submit($event, 'about', 'paragraph1')">
+            <form class="scope-paragraph-1-container" (ngSubmit)="submit($event, 'scope', 'paragraph1')">
                 <div class="section-title-container">
                     <h3 class="section-title">Paragraph 1</h3>
                 </div>
-                <textarea class="about-text-1" name="value" rows="5" [(ngModel)]="data.about.paragraph1.text"
+                <textarea class="scope-paragraph-1" name="value" rows="5" [(ngModel)]="data.scope.paragraph1.text"
                     required></textarea>
                 <input class="submit-button" type="submit" value="Submit">
             </form>
-            <form class="about-text-2-container" (ngSubmit)="submit($event, 'about', 'paragraph2')">
+            <form class="scope-paragraph-2-container" (ngSubmit)="submit($event, 'scope', 'paragraph2')">
                 <div class="section-title-container">
                     <h3 class="section-title">Paragraph 2</h3>
                 </div>
-                <textarea class="about-text-2" name="value" rows="5" [(ngModel)]="data.about.paragraph2.text"
+                <textarea class="scope-paragraph-2" name="value" rows="5" [(ngModel)]="data.scope.paragraph2.text"
+                    required></textarea>
+                <input class="submit-button" type="submit" value="Submit">
+            </form>
+        </div>
+        <div class="management-about-us-container">
+            <div class="management-about-us-title-container">
+                <h2 class="management-about-us-title">About Us</h2>
+            </div>
+            <form class="about-us-title-container" (ngSubmit)="submit($event, 'aboutUs', 'title')">
+                <div class="section-title-container">
+                    <h3 class="section-title">Title</h3>
+                </div>
+                <textarea class="about-us-title" name="value" rows="2" [(ngModel)]="data.aboutUs.title.text"
+                    required></textarea>
+                <input class="submit-button" type="submit" value="Submit">
+            </form>
+            <form class="about-us-paragraph-1-container" (ngSubmit)="submit($event, 'aboutUs', 'paragraph1')">
+                <div class="section-title-container">
+                    <h3 class="section-title">Paragraph 1</h3>
+                </div>
+                <textarea class="about-us-paragraph-1" name="value" rows="5" [(ngModel)]="data.aboutUs.paragraph1.text"
+                    required></textarea>
+                <input class="submit-button" type="submit" value="Submit">
+            </form>
+            <form class="about-us-paragraph-2-container" (ngSubmit)="submit($event, 'aboutUs', 'paragraph2')">
+                <div class="section-title-container">
+                    <h3 class="section-title">Paragraph 2</h3>
+                </div>
+                <textarea class="about-us-paragraph-2" name="value" rows="5" [(ngModel)]="data.aboutUs.paragraph2.text"
                     required></textarea>
                 <input class="submit-button" type="submit" value="Submit">
             </form>
