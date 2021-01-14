@@ -14,6 +14,6 @@ export function configApp(app, port, socket) {
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(cookieParser());
     app.use(passport.initialize());
-    app.set('port', port)
+    app.set('port', port);
     app.use(router);
 }

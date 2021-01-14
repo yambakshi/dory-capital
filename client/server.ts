@@ -35,9 +35,6 @@ export function app() {
     res.render(indexHtml, { req, providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }] });
   });
 
-  const apiProxy = proxy('/api', { target: 'http://localhost:9356', secure: false });
-  server.use('/api', apiProxy)
-
   return server;
 }
 

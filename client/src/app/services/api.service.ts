@@ -2,11 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { environment } from '@environments/environment';
 
 @Injectable()
 export class ApiService {
-    readonly api: string = `${environment.apiUrl}/api`;
     httpOptions: any = {
         headers: {},
         responseType: 'json'
@@ -15,13 +13,12 @@ export class ApiService {
     constructor(private http: HttpClient) { }
 
     getParagraphs(ids: string[]): any {
-        return this.http.post(this.api, ids, this.httpOptions)
+        return this.http.post('/api', ids, this.httpOptions)
             .pipe(catchError(this.handleError));
     }
 
     updateParagraph(text: string): any {
-        const url = `${this.api}/admin`;
-        return this.http.post(url, text, this.httpOptions)
+        return this.http.post('/api/admin', text, this.httpOptions)
             .pipe(catchError(this.handleError));
     }
 

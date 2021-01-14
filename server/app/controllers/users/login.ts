@@ -16,8 +16,7 @@ export async function login(req: Request, res: Response) {
         };
 
         const token = jwt.sign(payload, env.jwt.secret, jwtOptions);
-        res.cookie(`${env.cookiesPrefix}token`, token, { httpOnly: true, secure: false });
-        res.send({ message: 'logged-in' });
+        res.send({ user: req.user, token });
     } catch (error) {
         console.error(error);
         res.status(500).send(error.message);

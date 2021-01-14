@@ -20,6 +20,18 @@
             }
         }
 
+        > .logout-button {
+            outline: none;
+            padding: 5px;
+            border: white 1px solid;
+            border-radius: 10px;
+            color: white;
+            background-color: rgba(15, 73, 219, 1);
+            cursor: pointer;
+            font-size: 16px;
+            user-select: none;
+        }
+
         > .management-about {
             background-color: rgb(14, 63, 187);
             border-radius: 20px;

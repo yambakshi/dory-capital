@@ -14,7 +14,9 @@ import { LoginService } from '@services/login.service';
 })
 export class LoginPageComponent implements OnInit {
     loginForm: FormGroup;
-    submitted = false;
+    submitted: boolean = false;
+    wrongCreds: boolean = false;
+    passwordMinLength: number = 6;
 
     constructor(
         private loginService: LoginService,
@@ -24,7 +26,7 @@ export class LoginPageComponent implements OnInit {
     ngOnInit(): void {
         this.loginForm = this.formBuilder.group({
             email: ['', [Validators.required, Validators.email]],
-            password: ['', [Validators.required, Validators.minLength(3)]]
+            password: ['', [Validators.required, Validators.minLength(this.passwordMinLength)]]
         });
     }
 
@@ -40,9 +42,17 @@ export class LoginPageComponent implements OnInit {
         this.loginService.login({
             email: this.loginForm.controls.email.value,
             password: this.loginForm.controls.password.value
-        }).subscribe((res: any) => {
-            this.router.navigate(['/admin']);
-        });
+        }).subscribe(
+            res => {
+                this.router.navigate(['/admin']);
+            },
+            err => {
+                this.wrongCreds = true;
+            });
+    }
+
+    inputChanged(): void {
+        this.wrongCreds = false;
     }
 
     onReset() {

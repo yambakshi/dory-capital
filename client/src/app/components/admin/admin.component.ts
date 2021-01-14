@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '@services/api.service';
+import { LoginService } from '@services/login.service';
 
 @Component({
   selector: 'admin',
@@ -25,7 +26,9 @@ export class AdminComponent implements OnInit {
       }
     }
 
-  constructor(private apiService: ApiService) {
+  constructor(
+    private apiService: ApiService,
+    private loginService: LoginService) {
     this.apiService.getParagraphs([]).subscribe(data => {
       this.data = data;
     });
@@ -36,8 +39,10 @@ export class AdminComponent implements OnInit {
 
   submit($event, section: string, name: string): void {
     this.data[section][name].text = $event.target['value'].value;
-    this.apiService.updateParagraph(this.data[section][name]).subscribe((data: any) => {
-      console.log(data);
-    })
+    this.apiService.updateParagraph(this.data[section][name]).subscribe((data: any) => { })
+  }
+
+  logout(): void {
+    this.loginService.logout();
   }
 }

@@ -3,11 +3,8 @@
 @include media("screen", "<mobile") {
     .login-page-container {
         font-size: 18px;
-
-        > .login-form-container {
-            width: 300px;
-
             > .login-form {
+                width: 300px;
                 padding: 10px;
 
                 > .login-title-container {
@@ -40,6 +37,5 @@
                     }
                 }
             }
-        }
     }
 }

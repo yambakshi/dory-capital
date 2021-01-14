@@ -60,7 +60,6 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
   @HostListener('window:resize', ['$event'])
   onResize(event?) {
     this.calcCarouselRadius();
-    console.log(this.radiusLength);
   }
 
   calcCarouselRadius(): void {

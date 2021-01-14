@@ -1,39 +1,43 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
-import { environment } from "@environments/environment";
+import { catchError, finalize, map } from 'rxjs/operators';
+import { CookiesService } from './cookies.service';
+import { COOKIES_OPTIONS } from './constants';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class LoginService {
-    readonly api: string = `${environment.apiUrl}/api`;
+    httpOptions: any = {
+        headers: {},
+        responseType: 'json'
+    }
 
+    constructor(
+        private http: HttpClient,
+        private cookiesService: CookiesService,
+        private router: Router) { }
 
-    constructor(private http: HttpClient) { }
-
-    logout(): void {
-
+    logout(): any {
+        return this.http.get('/api/logout', this.httpOptions).pipe(map(res => res),
+            finalize(() => {
+                this.router.navigate(['']);
+            }), catchError(this.handleError)).subscribe(res => {
+                this.cookiesService.remove(COOKIES_OPTIONS.TOKEN_COOKIE_KEY);
+            });
     }
 
     getLoginStatus(): any {
-        const httpOptions: any = {
-            headers: {},
-            responseType: 'json'
-        }
-
-        return this.http.get(`${this.api}/get-login-status`, httpOptions)
+        return this.http.get('/api/login', this.httpOptions)
             .pipe(catchError(this.handleError));
     }
 
     login(creds: { email: string, password: string }): any {
-        const httpOptions: any = {
-            headers: {},
-            responseType: 'json',
-            withCredentials: true
-        }
-
-        return this.http.post(`${this.api}/login`, creds, httpOptions)
-            .pipe(catchError(this.handleError));
+        return this.http.post('/api/login', creds, this.httpOptions).pipe(map(
+            (res: any) => {
+                this.cookiesService.set(COOKIES_OPTIONS.TOKEN_COOKIE_KEY, res.token);
+            }),
+            catchError(this.handleError));
     }
 
     private handleError(error: HttpErrorResponse) {

@@ -10,7 +10,7 @@ const userSchema = {
     },
 };
 
-export function validateUserLogin(user: { email: string, password: string }) {
+export function validateUserRegistration(user: { email: string, password: string }) {
     const ajv = new Ajv({
         formats: {
             'non-empty-string': {
