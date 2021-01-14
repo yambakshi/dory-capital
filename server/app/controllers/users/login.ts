@@ -15,7 +15,7 @@ export async function login(req: Request, res: Response) {
         };
 
         const token = jwt.sign(payload, env.jwt.secret, jwtOptions);
-        res.send({ user: _id, token });
+        res.send({ success: true, user: _id, token });
     } catch (error) {
         console.error(error);
         res.status(500).send(error.message);
