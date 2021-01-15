@@ -17,17 +17,28 @@ export class ParagraphSectionComponent {
         title: string,
         paragraphs: { text: string }[]
     };
-
+    @Input() dataRetrieved: boolean = false;
     collapsed: boolean = false;
+    dataBackup: any = null;
 
-    constructor(private apiService: ApiService) { }
+    constructor(private apiService: ApiService) {
+        console.log(this.data);
+    }
+
+    ngOnChanges(): void {
+        if (this.dataRetrieved) {
+            this.dataBackup = JSON.parse(JSON.stringify(this.data));
+        }
+    }
 
     onSubmit($event, pathParts: any[]): void {
         const { _id } = this;
         const name = this.formatName();
         const path = `${name}.${pathParts.join('.')}`;
         const text = $event.target['value'].value;
-        this.apiService.updateParagraph({ _id, path, text }).subscribe((res: any) => { })
+        this.apiService.updateParagraph({ _id, path, text }).subscribe((res: any) => { 
+            this.dataBackup = JSON.parse(JSON.stringify(this.data));
+        })
     }
 
     formatName(): string {
@@ -44,7 +55,13 @@ export class ParagraphSectionComponent {
         this.collapsed = !this.collapsed;
     }
 
-    reset(): void {
+    reset(pathParts: any[]): void {
+        const [type, i, subtype] = pathParts;
+        const resetter = {
+            'title': ({ type }) => this.data[type] = this.dataBackup[type],
+            'paragraphs': ({ type, i, subtype }) => this.data[type][i][subtype] = this.dataBackup[type][i][subtype]
+        }
 
+        resetter[type]({ type, i, subtype });
     }
 }

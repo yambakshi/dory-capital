@@ -15,7 +15,7 @@
                 <input class="submit-button" type="submit" value="Submit">
             </div>
             <div class="reset-input-container">
-                <div class="reset-button" (click)="reset()">Reset</div>
+                <div class="reset-button" (click)="reset(['title'])">Reset</div>
             </div>
         </div>
     </form>
@@ -36,7 +36,7 @@
                         <input class="submit-button" type="submit" value="Submit">
                     </div>
                     <div class="reset-input-container">
-                        <div class="reset-button" (click)="reset()">Reset</div>
+                        <div class="reset-button" (click)="reset(['paragraphs', i, 'title'])">Reset</div>
                     </div>
                 </div>
             </form>
@@ -51,7 +51,7 @@
                         <input class="submit-button" type="submit" value="Submit">
                     </div>
                     <div class="reset-input-container">
-                        <div class="reset-button" (click)="reset()">Reset</div>
+                        <div class="reset-button" (click)="reset(['paragraphs', i, 'text'])">Reset</div>
                     </div>
                 </div>
             </form>

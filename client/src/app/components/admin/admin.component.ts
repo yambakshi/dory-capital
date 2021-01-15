@@ -12,6 +12,7 @@ import { LoginService } from '@services/login.service';
   ]
 })
 export class AdminComponent {
+  dataRetrieved: boolean = false;
   data: {
     _id: string,
     scope: {
@@ -86,6 +87,7 @@ export class AdminComponent {
     private loginService: LoginService) {
     this.apiService.getParagraphs([]).subscribe(data => {
       this.data = data;
+      this.dataRetrieved = true;
     });
   }
 
