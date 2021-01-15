@@ -4,13 +4,16 @@
     .management-platform-container {    
         > .management-platform-header-container {    
             margin-bottom: 20px;
+            position: fixed;
+            top: 0;
+            z-index: 1;
 
             > .management-platform-header {
                 padding: 0px 10px;
                 width: 100%;
 
                 > .hello-message {
-                    font-size: 14px;
+                    font-size: 12px;
                 }
 
                 > .management-platfotm-title {
@@ -18,19 +21,16 @@
                     font-size: 16px;
                     margin: 0px 20px;
                 }
+
+                > .logout-button {
+                    font-size: 12px;
+                }
             }
         }
 
         > .management-platform {
             width: 100%;
-
-            > .management-scope-container {
-                margin: 0px 10px 20px;
-            }
-
-            > .management-about-us-container {
-                margin: 0px 10px;
-            }
+            margin-top: 84px;
         }
     }
 }

@@ -1,12 +1,13 @@
 import { Router } from "express";
 import passport from 'passport';
-import { getParagraphs, updateParagraph } from '../../app/controllers/paragraphs';
+import { createParagraphs, getParagraphs, updateParagraph } from '../../app/controllers/paragraphs';
 import { register, login, logout, getLoginStatus } from '../../app/controllers/users';
 import { loginMiddleware, loginStatusMiddleware, logoutMiddleware } from "../middlewares";
 
 
 export const router = Router();
 router.route('/api')
+    .put(createParagraphs)
     .post(getParagraphs);
 
 router.route('/api/register')

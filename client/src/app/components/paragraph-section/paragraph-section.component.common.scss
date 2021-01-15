@@ -1,0 +1,133 @@
+.section-container {
+    background-color: rgb(14, 63, 187);
+    border-radius: 20px;
+    padding: 5px 20px 20px;
+    margin-bottom: 30px;
+    overflow: hidden;
+    border: white 1px solid;
+
+    &.collapsed {
+        height: 57px;
+    }
+
+    & .submit-button, .reset-button {
+        outline: none;
+        padding: 5px;
+        border: white 1px solid;
+        border-radius: 10px;
+        color: white;
+        background-color: rgba(15, 73, 219, 1);
+        cursor: pointer;
+        font-size: 16px;
+        user-select: none;
+    }
+
+    & .submit-button {
+        margin-right: 10px;
+    }
+
+    & .form-buttons {
+        display: flex;
+    }
+
+    > .section-header-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: white 1px solid;
+        margin-bottom: 10px;
+        padding-bottom: 0px;
+        cursor: pointer;
+
+        &.collapsed {
+            margin-bottom: 4px;
+            padding-bottom: 6px;
+        }
+
+        > .section-title {
+            flex: 1;
+            text-align: center;
+        }
+
+        > .chevron-container {
+            transform: rotate(0deg);
+            transition: transform 0.30s;
+
+            &.collapsed {
+                transform: rotate(180deg);
+                transition: transform 0.30s;
+            }
+
+            > i[class^="icon-"] {
+                font-size: 20px;
+                font-weight: 400;
+            }
+        }
+    }
+
+    > .section-title-form {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 30px;
+
+        &.remove-margin{
+            margin-bottom: 0px
+        }
+
+        > .title-form-title-container {
+            display: flex;
+        }
+
+        > .title-form-field {
+            margin-bottom: 10px;
+        }
+    }
+
+    > .section-paragraph-forms {
+        &:not(:last-of-type) {
+            margin-bottom: 30px;
+        }
+
+        > .paragraph-title-form {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 10px;
+
+            > .paragraph-form-title-container {
+                display: flex;
+                margin-bottom: 10px;
+    
+                > .paragraph-form-title {
+                    font-style: italic;
+                }
+            }
+
+            > .paragraph-title-field-title-container {
+                > .paragraph-title-field {
+                    display: flex;
+                    margin-bottom: 10px;
+                }
+            }
+
+            > .paragraph-title-field {
+                margin-bottom: 10px;
+            }
+        }
+
+        > .paragraph-text-form {
+            display: flex;
+            flex-direction: column;
+
+            > .paragraph-text-field-title-container {
+                > .paragraph-text-field {
+                    display: flex;
+                    margin-bottom: 10px;
+                }
+            }
+
+            > .paragraph-text-field {
+                margin-bottom: 10px;
+            }
+        }
+    }
+}

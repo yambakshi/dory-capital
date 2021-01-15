@@ -40,12 +40,20 @@ export class MongoDB {
         return output;
     }
 
-    async updateOne(dbName: string, collectionName: string, document: { _id: string, text: string }) {
+    async insertOne(dbName: string, collectionName: string, documents: any[]) {
+        const db = this.mongoClient.db(dbName);
+        const collection = db.collection(collectionName);
+        const output = collection.insertOne(documents);
+
+        return output;
+    }
+
+    async updateOne(dbName: string, collectionName: string, document: { _id: string, path: string, text: string }) {
         const db = this.mongoClient.db(dbName);
         const collection = db.collection(collectionName);
         const output = collection.updateOne(
             { _id: { $eq: new ObjectID(document._id) } },
-            { $set: { text: document.text } });
+            { $set: { [document.path]: document.text } });
 
         return output;
     }

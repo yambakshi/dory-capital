@@ -1,11 +1,12 @@
 import Ajv from 'ajv';
 
 const paragraphSchema = {
-    required: ['_id', 'text'],
+    required: ['_id', 'path', 'text'],
     title: 'paragraph',
     type: 'object',
     properties: {
         _id: { type: 'string', format: 'non-empty-string' },
+        path: { type: 'string', format: 'non-empty-string' },
         text: { type: 'string', format: 'non-empty-string' }
     },
 };

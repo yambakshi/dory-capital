@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ApiService } from '@services/api.service';
 import { LoginService } from '@services/login.service';
 
@@ -11,28 +11,73 @@ import { LoginService } from '@services/login.service';
     './admin.component.mobile.scss'
   ]
 })
-export class AdminComponent implements OnInit {
+export class AdminComponent {
   data: {
+    _id: string,
     scope: {
-      title: { _id: string, text: string },
-      paragraph1: { _id: string, text: string },
-      paragraph2: { _id: string, text: string }
+      title: string,
+      paragraphs: { text: string }[]
     },
     aboutUs: {
-      title: { _id: string, text: string },
-      paragraph1: { _id: string, text: string },
-      paragraph2: { _id: string, text: string }
+      title: string,
+      paragraphs: { text: string }[],
+    },
+    whyUs: {
+      title: string,
+      paragraphs: { text: string, title: string }[]
+    },
+    faq: {
+      title: string,
+      paragraphs: { text: string, title: string }[]
+    }
+    contactUs: {
+      title: string
     }
   } = {
+      _id: '',
       scope: {
-        title: { _id: '', text: '' },
-        paragraph1: { _id: '', text: '' },
-        paragraph2: { _id: '', text: '' }
+        title: '',
+        paragraphs: [
+          { text: '' },
+          { text: '' }
+        ],
       },
       aboutUs: {
-        title: { _id: '', text: '' },
-        paragraph1: { _id: '', text: '' },
-        paragraph2: { _id: '', text: '' }
+        title: '',
+        paragraphs: [
+          { text: '' },
+          { text: '' }
+        ]
+      },
+      whyUs: {
+        title: '',
+        paragraphs: [
+          { text: '', title: '' },
+          { text: '', title: '' },
+          { text: '', title: '' },
+          { text: '', title: '' },
+          { text: '', title: '' },
+          { text: '', title: '' }
+        ]
+      },
+      faq: {
+        title: '',
+        paragraphs: [
+          { text: '', title: '' },
+          { text: '', title: '' },
+          { text: '', title: '' },
+          { text: '', title: '' },
+          { text: '', title: '' },
+          { text: '', title: '' },
+          { text: '', title: '' },
+          { text: '', title: '' },
+          { text: '', title: '' },
+          { text: '', title: '' },
+          { text: '', title: '' }
+        ]
+      },
+      contactUs: {
+        title: '',
       }
     }
 
@@ -42,14 +87,6 @@ export class AdminComponent implements OnInit {
     this.apiService.getParagraphs([]).subscribe(data => {
       this.data = data;
     });
-  }
-
-  ngOnInit(): void {
-  }
-
-  submit($event, section: string, name: string): void {
-    this.data[section][name].text = $event.target['value'].value;
-    this.apiService.updateParagraph(this.data[section][name]).subscribe((data: any) => { })
   }
 
   logout(): void {

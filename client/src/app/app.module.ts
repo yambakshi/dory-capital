@@ -10,6 +10,7 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
 import { AdminComponent } from './components/admin/admin.component';
 import { VideoElementComponent } from './components/video-element/video-element.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
+import { ParagraphSectionComponent } from '@components/paragraph-section/paragraph-section.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { LoginPageComponent } from './components/login-page/login-page.component
     LandingPageComponent,
     AdminComponent,
     VideoElementComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    ParagraphSectionComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

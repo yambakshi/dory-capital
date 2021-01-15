@@ -31,6 +31,9 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
       paragraph1: { _id: string, text: string },
       paragraph2: { _id: string, text: string }
     }
+    whyUs: {
+      title: { _id: string, text: string },
+    }
   } = {
       scope: {
         title: { _id: '', text: '' },
@@ -41,6 +44,9 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
         title: { _id: '', text: '' },
         paragraph1: { _id: '', text: '' },
         paragraph2: { _id: '', text: '' }
+      },
+      whyUs: {
+        title: { _id: '', text: '' },
       }
     }
 

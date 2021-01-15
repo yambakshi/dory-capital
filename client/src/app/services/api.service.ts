@@ -17,8 +17,8 @@ export class ApiService {
             .pipe(catchError(this.handleError));
     }
 
-    updateParagraph(text: string): any {
-        return this.http.post('/api/admin', text, this.httpOptions)
+    updateParagraph(newParagraph: { _id: string, path: string, text: string }): any {
+        return this.http.post('/api/admin', newParagraph, this.httpOptions)
             .pipe(catchError(this.handleError));
     }
 
