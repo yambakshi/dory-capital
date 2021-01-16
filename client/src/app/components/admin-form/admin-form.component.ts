@@ -20,6 +20,7 @@ export class AdminFormComponent {
     @ViewChild('formElement', { read: NgForm }) formElement: NgForm;
     submitted: boolean = false;
     disableButtons: boolean = true;
+    showLoader: boolean = false;
     dataBackup: string = null;
 
     constructor(private apiService: ApiService) { }
@@ -45,8 +46,10 @@ export class AdminFormComponent {
             text: this.data
         }
         this.disableButtons = true;
+        this.showLoader = true;
         this.apiService.updateParagraph(update).subscribe((res: any) => {
             this.dataBackup = this.data;
+            this.showLoader = false;
         })
     }
 

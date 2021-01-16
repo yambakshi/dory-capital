@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('../../fonts/icomoon.eot?8tbo6e');
-  src:  url('../../fonts/icomoon.eot?8tbo6e#iefix') format('embedded-opentype'),
-    url('../../fonts/icomoon.ttf?8tbo6e') format('truetype'),
-    url('../../fonts/icomoon.woff?8tbo6e') format('woff'),
-    url('../../fonts/icomoon.svg?8tbo6e#icomoon') format('svg');
+  src:  url('../../fonts/icomoon.eot?7gxaiz');
+  src:  url('../../fonts/icomoon.eot?7gxaiz#iefix') format('embedded-opentype'),
+    url('../../fonts/icomoon.ttf?7gxaiz') format('truetype'),
+    url('../../fonts/icomoon.woff?7gxaiz') format('woff'),
+    url('../../fonts/icomoon.svg?7gxaiz#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -72,6 +72,15 @@
 .icon-genius:before {
   content: "\e909";
   color: #ffff64;
+}
+.icon-spinner2:before {
+  content: "\e97b";
+}
+.icon-spinner5:before {
+  content: "\e97e";
+}
+.icon-spinner8:before {
+  content: "\e981";
 }
 .icon-download3:before {
   content: "\e9c7";
