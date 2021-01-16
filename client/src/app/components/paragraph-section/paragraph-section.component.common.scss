@@ -10,37 +10,6 @@
         height: 57px;
     }
 
-    & .submit-button, .reset-button {
-        outline: none;
-        padding: 5px;
-        border: white 1px solid;
-        border-radius: 10px;
-        color: white;
-        background-color: rgba(15, 73, 219, 1);
-        cursor: pointer;
-        font-size: 16px;
-        user-select: none;
-
-        &.disabled {
-            color: rgba(16, 16, 16, 0.3);
-            background-color: rgba(239, 239, 239, 0.3);
-            border-color: rgba(118, 118, 118, 0.3);
-            cursor: not-allowed;
-        }
-    }
-
-    & .submit-button {
-        margin-right: 10px;
-    }
-
-    & .form-buttons {
-        display: flex;
-    }
-
-    & .invalid-feedback {
-        display: flex;
-    }
-
     > .section-header-container {
         display: flex;
         justify-content: center;
@@ -51,8 +20,8 @@
         cursor: pointer;
 
         &.collapsed {
-            margin-bottom: 4px;
-            padding-bottom: 6px;
+            margin-bottom: 0px;
+            padding-bottom: 4px;
         }
 
         > .section-title {
@@ -76,48 +45,30 @@
         }
     }
 
-    > .section-title-form {
+    & > .admin-form {
         display: flex;
-        flex-direction: column;
+        flex-direction: column;    
         margin-bottom: 30px;
 
-        &.remove-margin{
-            margin-bottom: 0px
+        &.remove-margin {
+            margin: 0;
         }
-
-        > .title-form-field {
-            margin-bottom: 10px;
-        }
-    }
-
-    > .paragraphs-title-container {
-        margin-bottom: 10px;
     }
 
     > .section-paragraph-forms {
+        > h4 {
+            font-style: italic;
+        }
+
         &:not(:last-of-type) {
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
-        > .paragraph-title-form {
-            display: flex;
-            flex-direction: column;
-            margin-bottom: 10px;
-
-            > .paragraph-form-title {
-                font-style: italic;
-            }
-
-            > .paragraph-title-field {
-                margin-bottom: 10px;
-            }
-        }
-
-        > .paragraph-text-form {
+        & .admin-form {
             display: flex;
             flex-direction: column;
 
-            > .paragraph-text-field {
+            &:not(:last-of-type) {
                 margin-bottom: 10px;
             }
         }

@@ -5,52 +5,16 @@
             <i class="icon-chevron-thin-down"></i>
         </div>
     </div>
-    <form #formElement class="section-title-form" (ngSubmit)="onSubmit($event, ['title'])" [ngClass]="!data.paragraphs ? 'remove-margin' : ''">
-        <h3>Title</h3>
-        <textarea class="title-form-field" name="value" rows="2" [(ngModel)]="data.title" (input)="inputChanged(['title'])" required></textarea>
-        <div *ngIf="submitted && f.value.errors" class="invalid-feedback">
-            <div *ngIf="f.value.errors.required">Field is required</div>
-        </div>
-        <div class="form-buttons">
-            <div class="submit-input-container">
-                <input class="submit-button" type="submit" value="Submit" [disabled]="disableButtons" [ngClass]="disableButtons ? 'disabled' : ''">
-            </div>
-            <div class="reset-input-container">
-                <button class="reset-button" (click)="reset(['title'])" [disabled]="disableButtons" [ngClass]="disableButtons ? 'disabled' : ''">Reset</button>
-            </div>
-        </div>
-    </form>
+    <h3>Title</h3>
+    <admin-form class="admin-form" [ngClass]="!data.paragraphs ? 'remove-margin' : null" [_id]="_id" [data]="data.title" [formTitle]="" [path]="nameKey + '.title'" [dataRetrieved]="dataRetrieved"></admin-form>
     <ng-container *ngIf="data.paragraphs">
         <h3>Paragraphs</h3>
         <div *ngFor="let paragraph of data.paragraphs; let i = index" class="section-paragraph-forms">
-            <form *ngIf="paragraph.title" class="paragraph-title-form"
-                (ngSubmit)="onSubmit($event, ['paragraphs', i, 'title'])">
+            <ng-container *ngIf="paragraph.title">
                 <h4 class="paragraph-form-title">{{paragraph.title}}</h4>
-                <h5 class="paragraph-title-field-title">Title</h5>
-                <textarea class="paragraph-title-field" name="value" rows="2" [(ngModel)]="paragraph.title"
-                    required></textarea>
-                <div class="form-buttons">
-                    <div class="submit-input-container">
-                        <input class="submit-button" type="submit" value="Submit">
-                    </div>
-                    <div class="reset-input-container">
-                        <div class="reset-button" (click)="reset(['paragraphs', i, 'title'])">Reset</div>
-                    </div>
-                </div>
-            </form>
-            <form class="paragraph-text-form" (ngSubmit)="onSubmit($event, ['paragraphs', i, 'text'])">
-                <h5 class="paragraph-text-field-title">Paragraph</h5>
-                <textarea class="paragraph-text-field" name="value" rows="3" [(ngModel)]="paragraph.text"
-                    required></textarea>
-                <div class="form-buttons">
-                    <div class="submit-input-container">
-                        <input class="submit-button" type="submit" value="Submit">
-                    </div>
-                    <div class="reset-input-container">
-                        <div class="reset-button" (click)="reset(['paragraphs', i, 'text'])">Reset</div>
-                    </div>
-                </div>
-            </form>
+                <admin-form class="admin-form" [_id]="_id" [data]="paragraph.title" [formTitle]="'Title'" [path]="nameKey + '.paragraphs.' + i + '.title'" [dataRetrieved]="dataRetrieved"></admin-form>
+            </ng-container>
+            <admin-form class="admin-form" [_id]="_id" [data]="paragraph.text" [formTitle]="'Paragraph'" [path]="nameKey + '.paragraphs.' + i + '.text'" [dataRetrieved]="dataRetrieved"></admin-form>
         </div>
     </ng-container>
 </div>

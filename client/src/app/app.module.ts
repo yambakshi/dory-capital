@@ -11,6 +11,7 @@ import { AdminComponent } from './components/admin/admin.component';
 import { VideoElementComponent } from './components/video-element/video-element.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { ParagraphSectionComponent } from '@components/paragraph-section/paragraph-section.component';
+import { AdminFormComponent } from '@components/admin-form/admin-form.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ParagraphSectionComponent } from '@components/paragraph-section/paragra
     AdminComponent,
     VideoElementComponent,
     LoginPageComponent,
-    ParagraphSectionComponent
+    ParagraphSectionComponent,
+    AdminFormComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
