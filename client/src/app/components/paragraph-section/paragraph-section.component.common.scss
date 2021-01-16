@@ -20,6 +20,13 @@
         cursor: pointer;
         font-size: 16px;
         user-select: none;
+
+        &.disabled {
+            color: rgba(16, 16, 16, 0.3);
+            background-color: rgba(239, 239, 239, 0.3);
+            border-color: rgba(118, 118, 118, 0.3);
+            cursor: not-allowed;
+        }
     }
 
     & .submit-button {
@@ -27,6 +34,10 @@
     }
 
     & .form-buttons {
+        display: flex;
+    }
+
+    & .invalid-feedback {
         display: flex;
     }
 
@@ -74,13 +85,13 @@
             margin-bottom: 0px
         }
 
-        > .title-form-title-container {
-            display: flex;
-        }
-
         > .title-form-field {
             margin-bottom: 10px;
         }
+    }
+
+    > .paragraphs-title-container {
+        margin-bottom: 10px;
     }
 
     > .section-paragraph-forms {
@@ -93,20 +104,8 @@
             flex-direction: column;
             margin-bottom: 10px;
 
-            > .paragraph-form-title-container {
-                display: flex;
-                margin-bottom: 10px;
-    
-                > .paragraph-form-title {
-                    font-style: italic;
-                }
-            }
-
-            > .paragraph-title-field-title-container {
-                > .paragraph-title-field {
-                    display: flex;
-                    margin-bottom: 10px;
-                }
+            > .paragraph-form-title {
+                font-style: italic;
             }
 
             > .paragraph-title-field {
@@ -117,13 +116,6 @@
         > .paragraph-text-form {
             display: flex;
             flex-direction: column;
-
-            > .paragraph-text-field-title-container {
-                > .paragraph-text-field {
-                    display: flex;
-                    margin-bottom: 10px;
-                }
-            }
 
             > .paragraph-text-field {
                 margin-bottom: 10px;
