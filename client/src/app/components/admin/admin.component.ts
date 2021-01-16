@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { ApiService } from '@services/api.service';
 import { LoginService } from '@services/login.service';
+import { SocketIoService } from '@services/socket-io.service';
 
 @Component({
   selector: 'admin',
@@ -83,12 +85,25 @@ export class AdminComponent {
     }
 
   constructor(
+    @Inject(PLATFORM_ID) private platformId: any,
     private apiService: ApiService,
-    private loginService: LoginService) {
+    private loginService: LoginService,
+    private socketIoService: SocketIoService) {
     this.apiService.getParagraphs([]).subscribe(data => {
       this.data = data;
       this.dataRetrieved = true;
     });
+  }
+
+  ngOnInit(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      this.socketIoService.connect();
+      this.socketIoService.listen('paragraphs-changed').subscribe(() => {
+        this.apiService.getParagraphs([]).subscribe(data => {
+          this.data = data;
+        });
+      })
+    }
   }
 
   logout(): void {
