@@ -266,14 +266,15 @@
                 </div>
             </div>
         </div>
-        <h1 class="process">The process</h1>
+        <h1 class="process">{{data.process.title}}</h1>
         <div class="container container-set">
             <div class="row step1">
                 <div class="col-md-6  border-set">
                     <div class="step">
                         <span>STEP 1</span>
-                        <h1>Present yourself</h1>
-                        <p class="one-pager">Please send us a one-pager teaser to <em>dealflow@dory.capital</em></p>
+                        <h1>{{data.process.paragraphs[0].title}}</h1>
+                        <!-- <p class="one-pager">Please send us a one-pager teaser to <em>dealflow@dory.capital</em></p> -->
+                        <p class="one-pager">{{data.process.paragraphs[0].text}}</p>
                         <p class="make"><small></small> Make sure you also introduce your team, and not just your
                             technology.</p>
                         <p class="make"><small></small> Please, also, send us any and all materials and/or brochures
@@ -293,8 +294,8 @@
                 <div class="col-md-6 mb-md-4 border-m-set dep-set">
                     <div class="step mt-0">
                         <span class="stp-squre">STEP 2</span>
-                        <h1>Meet us</h1>
-                        <p class="one-pager">In the meeting, please be prepared to present to us the following:</p>
+                        <h1>{{data.process.paragraphs[1].title}}</h1>
+                        <p class="one-pager">{{data.process.paragraphs[1].text}}</p>
                         <p class="make"><small></small> Explain and detail your ground-breaking technology and added
                             value.</p>
                         <p class="make"><small></small>Detail your relevant experience, and your motivation for this
@@ -312,11 +313,11 @@
                 <div class="col-md-6 border-step-left">
                     <div class="step">
                         <span>STEP 3</span>
-                        <h1>Moving forward</h1>
+                        <h1>{{data.process.paragraphs[2].title}}</h1>
                         <div class="media mb-4">
                             <img src="assets/media/team.png" alt="team" class="img-fluid co-founding-img" />
                             <div class="media-body">
-                                <h6 class="co-founding">Co-founding team personal vetting and assessment</h6>
+                                <h6 class="co-founding">{{data.process.paragraphs[2].text}}</h6>
                             </div>
                         </div>
                         <div class="media">

@@ -34,10 +34,14 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
       title: string,
       paragraphs: { text: string, title: string }[]
     },
-    faq: {
+    process: {
       title: string,
       paragraphs: { text: string, title: string }[]
     }
+    faq: {
+      title: string,
+      paragraphs: { text: string, title: string }[]
+    },
     contactUs: {
       title: string
     }
@@ -63,6 +67,14 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
           { text: '', title: '' },
           { text: '', title: '' },
           { text: '', title: '' },
+          { text: '', title: '' },
+          { text: '', title: '' },
+          { text: '', title: '' }
+        ]
+      },
+      process: {
+        title: '',
+        paragraphs: [
           { text: '', title: '' },
           { text: '', title: '' },
           { text: '', title: '' }

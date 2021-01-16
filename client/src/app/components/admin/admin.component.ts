@@ -29,6 +29,10 @@ export class AdminComponent {
       title: string,
       paragraphs: { text: string, title: string }[]
     },
+    process: {
+      title: string,
+      paragraphs: { text: string, title: string }[]
+    }
     faq: {
       title: string,
       paragraphs: { text: string, title: string }[]
@@ -58,6 +62,14 @@ export class AdminComponent {
           { text: '', title: '' },
           { text: '', title: '' },
           { text: '', title: '' },
+          { text: '', title: '' },
+          { text: '', title: '' },
+          { text: '', title: '' }
+        ]
+      },
+      process: {
+        title: '',
+        paragraphs: [
           { text: '', title: '' },
           { text: '', title: '' },
           { text: '', title: '' }
