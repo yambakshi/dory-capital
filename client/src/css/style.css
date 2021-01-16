@@ -538,6 +538,7 @@ body {
 	background-image: url("../assets/media/minus.svg");
 	background-repeat: no-repeat;
 	background-size: contain;
+	margin-left: 10px;
 }
 
 .panel-title>a.collapsed:before {

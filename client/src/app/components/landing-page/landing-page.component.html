@@ -22,8 +22,8 @@
     <div class="container-fluid" id="scope">
         <div class="scope-header">
             <p>Our Scope</p>
-            <h1>Bit2Atom Technologies and Innovations</h1>
-            <h6>We are looking for Advanced Technologies in the following fields</h6>
+            <h1>{{data.scope.title}}</h1>
+            <h6>{{data.scope.paragraphs[0].text}}</h6>
         </div>
         <div class="position-relative container carousel">
             <ul class="nav nav-pills carousel-picker" id="pills-tab" role="tablist">
@@ -186,9 +186,10 @@
                 </div>
             </div>
         </div>
-        <p class="addition text-center mt-5">In addition to the above we also welcome applications from other fields
-            <br />please <a href="mailto:dealflow@dory.capital" class="send-email">send us an email </a>
-            and tell us about your venture
+        <p class="addition text-center mt-5">{{data.scope.paragraphs[1].text}}
+            <br />
+            <span>please <a href="mailto:dealflow@dory.capital" class="send-email">send us an email </a>
+                and tell us about your venture</span>
         </p>
     </div>
     <div class="container-fluid position-relative" id="about">
@@ -200,14 +201,8 @@
                     </div>
                 </div>
             </div>
-            <h1>Empowering, enabling and investing in <br class="d-none d-lg-block">Bit2Atom innovative technologies
-            </h1>
-            <p class="mb-4">Dory Capital was established in 2021, as a fund-of-funds, designed to enable Bit2Atom
-                innovative <br /> technologies. We aim to enable and strengthen the execution of projects and start-ups
-                with <br />
-                frontier breakthrough technologies as well as supporting the scope of their efforts to <br /> expand
-                their
-                operation globally through our well-established <br /> extensive network and ecosystem.</p>
+            <h1>{{data.aboutUs.title}}</h1>
+            <p class="mb-4">{{data.aboutUs.paragraphs[0].text}}</p>
             <a href="#" class="opn-video" data-toggle="modal" data-target="#video-popup">
                 <img src="assets/media/train1.png" alt="video img" class="img-fluid" />
             </a>
@@ -226,7 +221,7 @@
                     </div>
                 </div>
             </div>
-            <p class="pt-4 invest">{{data.aboutUs.paragraph2.text}}</p>
+            <p class="pt-4 invest">{{data.aboutUs.paragraphs[1].text}}</p>
             <p class="quote">“And, when you want something, all the universe conspires in helping you to achieve
                 it (Paulo Coelho)”.</p>
         </div>
@@ -241,54 +236,16 @@
         </div>
         <div class="ellipse">
             <span>why us</span>
-            <h1>{{data.whyUs.title.text}}</h1>
+            <h1>{{data.whyUs.title}}</h1>
             <p>“It’s the possibility of having a dream come true that makes life interesting (Paulo Coelho)”.</p>
         </div>
         <div class="container mt-space">
             <div class="row">
-                <div class="col-md-6 mb-5">
+                <div *ngFor="let paragraph of data.whyUs.paragraphs; let i = index" class="col-md-6 mb-5">
                     <div class="fair-approch">
-                        <span>01</span>
-                        <h4>Fair Investment Approach</h4>
-                        <p>We, at Dory Capital, empower, enable and invest in Bit2Atom R&amp;D based innovative and
-                            groundbreaking technologies with a Fair Investment Approach which is designed as win-win
-                            for all parties.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 mb-5">
-                    <div class="fair-approch">
-                        <span>02</span>
-                        <h4>Seal of approval</h4>
-                        <p>Dory Capital portfolio companies undergo a comprehensive process of examination by our
-                            experts, focusing and putting the team in the center and servicing as a significant
-                            signal to other investors and partners within our international network.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 mb-5">
-                    <div class="fair-approch">
-                        <span>03</span>
-                        <h4>Dedication and commitment</h4>
-                        <p>We, at Dory Capital, are fully committed to support your operation and would allocate a
-                            dedicated team of mentors to maintain a personal and collaborative working relationship
-                            as well as promoting your venture in the market and within our international network.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 mb-5">
-                    <div class="fair-approch">
-                        <span>04</span>
-                        <h4>Global Reach</h4>
-                        <p>Dory Capital, throughout our extensive international network, will help you to connect
-                            your technology to design-partners and end-users, giving you access to initial feedback,
-                            POCs and further engagements with the market.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 mb-5">
-                    <div class="fair-approch">
-                        <span>05</span>
-                        <h4>Prompt and Efficient</h4>
-                        <p>We, at Dory Capital, believe in simplicity and as such we have created a simple prompt
-                            process that will guide you effectively from your first application to signing a
-                            contract.</p>
+                        <span>0{{i + 1}}</span>
+                        <h4>{{paragraph.title}}</h4>
+                        <p>{{paragraph.text}}</p>
                     </div>
                 </div>
             </div>
@@ -419,7 +376,24 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                        <div class="panel panel-default">
+                        <div class="panel panel-default" *ngFor="let paragraph of data.faq.paragraphs; let i = index">
+                            <div class="panel-heading" role="tab" [attr.id]="'heading' + i">
+                                <h4 class="panel-title">
+                                    <a [ngClass]="i == 0 ? null : 'collapsed'" data-toggle="collapse"
+                                        data-parent="#accordion" [attr.href]="'#collapse' + i"
+                                        [attr.aria-expanded]="i == 0 ? true : false"
+                                        [attr.aria-controls]="'collapse' + i">
+                                        {{paragraph.title}}
+                                    </a>
+                                </h4>
+                            </div>
+                            <div [attr.id]="'collapse' + i"
+                                [ngClass]="i == 0 ? 'panel-collapse collapse in show' : 'panel-collapse collapse'"
+                                role="tabpanel" [attr.aria-labelledby]="'heading' + i">
+                                <div class="panel-body">{{paragraph.text}}</div>
+                            </div>
+                        </div>
+                        <!-- <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="headingOne">
                                 <h4 class="panel-title">
                                     <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
@@ -594,7 +568,7 @@
                                     define the stages of the investment based on your R&D plan and detailed budget.
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -611,7 +585,7 @@
         <div class="container footer-top">
             <div class="faq">
                 <span>Contact us</span>
-                <h1 class="mt-0">Drop us a line</h1>
+                <h1 class="mt-0">{{data.contactUs.title}}</h1>
             </div>
             <div class="row justify-content-center">
                 <form class="contact-form">

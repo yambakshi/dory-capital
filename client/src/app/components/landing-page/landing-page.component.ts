@@ -21,32 +21,71 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
   carousels = [0, 0, 0, 0, 0];
   radiusLength: number;
   data: {
+    _id: string,
     scope: {
-      title: { _id: string, text: string },
-      paragraph1: { _id: string, text: string },
-      paragraph2: { _id: string, text: string }
+      title: string,
+      paragraphs: { text: string }[]
     },
     aboutUs: {
-      title: { _id: string, text: string },
-      paragraph1: { _id: string, text: string },
-      paragraph2: { _id: string, text: string }
-    }
+      title: string,
+      paragraphs: { text: string }[],
+    },
     whyUs: {
-      title: { _id: string, text: string },
+      title: string,
+      paragraphs: { text: string, title: string }[]
+    },
+    faq: {
+      title: string,
+      paragraphs: { text: string, title: string }[]
+    }
+    contactUs: {
+      title: string
     }
   } = {
+      _id: '',
       scope: {
-        title: { _id: '', text: '' },
-        paragraph1: { _id: '', text: '' },
-        paragraph2: { _id: '', text: '' }
+        title: '',
+        paragraphs: [
+          { text: '' },
+          { text: '' }
+        ],
       },
       aboutUs: {
-        title: { _id: '', text: '' },
-        paragraph1: { _id: '', text: '' },
-        paragraph2: { _id: '', text: '' }
+        title: '',
+        paragraphs: [
+          { text: '' },
+          { text: '' }
+        ]
       },
       whyUs: {
-        title: { _id: '', text: '' },
+        title: '',
+        paragraphs: [
+          { text: '', title: '' },
+          { text: '', title: '' },
+          { text: '', title: '' },
+          { text: '', title: '' },
+          { text: '', title: '' },
+          { text: '', title: '' }
+        ]
+      },
+      faq: {
+        title: '',
+        paragraphs: [
+          { text: '', title: '' },
+          { text: '', title: '' },
+          { text: '', title: '' },
+          { text: '', title: '' },
+          { text: '', title: '' },
+          { text: '', title: '' },
+          { text: '', title: '' },
+          { text: '', title: '' },
+          { text: '', title: '' },
+          { text: '', title: '' },
+          { text: '', title: '' }
+        ]
+      },
+      contactUs: {
+        title: '',
       }
     }
 
@@ -70,6 +109,18 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
           this.data = data;
         });
       })
+    }
+  }
+
+  parseData(data: any): any {
+    if (typeof data == 'object') {
+      return Object.entries(data).reduce((acc, [key, value]) => {
+        return { ...acc, [key]: this.parseData(value) };
+      }, {})
+    } else if (Array.isArray(data)) {
+      return data.map(dataItem => this.parseData(dataItem));
+    } else if (typeof data === 'string') {
+      return data.replace('\n', '<br>');
     }
   }
 
