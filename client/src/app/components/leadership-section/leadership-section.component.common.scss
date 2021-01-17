@@ -1,0 +1,123 @@
+@mixin grid($cols, $mgn) {
+    float: left;
+    margin-right: $mgn;
+    margin-bottom: $mgn;
+    width: ((100% - (($cols - 1) * $mgn)) / $cols);
+    &:nth-child(#{$cols}n) {
+        margin-right: 0;
+    }
+}
+
+.leadership-section-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & ul {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        list-style-type: none;
+    }
+
+    > .leadership-section-title {
+        font-family: Merriweather;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 48px;
+        line-height: 72px;
+        text-align: center;
+        color: #FFFFFF;
+        padding-top: 24px;
+        margin-bottom: 30px;
+        white-space: pre-wrap;
+    }
+
+    > .leadership-section-subtitle {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 32px;
+        text-align: center;
+        color: #FFFFFF;
+        white-space: pre-wrap;
+        margin-bottom: 40px;
+    }
+
+    > .leadership-grid {
+        display: flex;
+        width: 70%;
+
+        > ul {
+            > li {
+                @include grid(6, 4%);
+                border: white 1px solid;
+                height: 265px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                > .profile-image-container {
+                    overflow: hidden;
+                    height: 150px;
+
+                    > img {
+                        width: 150px;
+                    }
+                }
+
+                > .person-name {
+                    font-family: Merriweather;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 18px;
+                    text-align: center;
+                    margin-bottom: 5px;
+                }
+
+                > .skills-container {
+                    display: flex;
+                    position: relative;
+                    align-self: flex-start;
+                    
+                    > .skill-icon {
+                        position: absolute;
+
+                        > img {
+                            width: 30px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    > .leadership-icons {
+        display: flex;
+        justify-content: center;
+        width: 55%;
+
+        > ul {
+            > li {
+                @include grid(6, 2%);
+                height: 100px;
+                border: white 1px solid;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                > img {
+                    width: 25%;
+                    height: 50px;
+                }
+                
+                > div {
+                    font-size: 14px;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

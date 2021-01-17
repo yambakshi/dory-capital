@@ -6,12 +6,12 @@ import { SocketIoService } from '@services/socket-io.service';
 
 
 @Component({
-  selector: 'app-landing-page',
-  templateUrl: './landing-page.component.html',
+  selector: 'home-page',
+  templateUrl: './home-page.component.html',
   styleUrls: [
-    './landing-page.component.common.scss',
-    './landing-page.component.desktop.scss',
-    './landing-page.component.mobile.scss']
+    './home-page.component.common.scss',
+    './home-page.component.desktop.scss',
+    './home-page.component.mobile.scss']
 })
 export class LandingPageComponent implements OnInit, AfterViewInit {
   @ViewChild('carsouelsContainer') carsouelsContainer: ElementRef;

@@ -1,0 +1,28 @@
+<div class="leadership-section-container">
+    <h1 class="leadership-section-title">{{title}}</h1>
+    <h6 class="leadership-section-subtitle">Dory Capital is led by a professional Board of Directors (BoD) and managed
+        by top<br />multicultural talented experts with unique skills and expertise in:</h6>
+    <div class="leadership-grid">
+        <ul>
+            <li *ngFor="let person of media.people; let i = index">
+                <div class="profile-image-container">
+                    <img [src]="person.img" [alt]="person.alt" />
+                </div>
+                <div class="person-name">{{person.alt}}</div>
+                <div #skillsContainer class="skills-container">
+                    <div *ngFor="let skill of person.skills; let i = index" class="skill-icon">
+                        <img [src]="media.skills[skill].img" [alt]="media.skills[skill].alt" />
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="leadership-icons">
+        <ul>
+            <li *ngFor="let skill of skillsArray; let i = index">
+                <img [src]="skill.img" [alt]="skill.alt" />
+                <div [style.color]="'#' + skill.color">{{skill.alt}}</div>
+            </li>
+        </ul>
+    </div>
+</div>
