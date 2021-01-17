@@ -6,10 +6,10 @@
         </div>
     </div>
     <h3>Title</h3>
-    <admin-form class="admin-form" [ngClass]="!data.paragraphs ? 'remove-margin' : null" [_id]="_id" [data]="data.title" [formTitle]="" [path]="nameKey + '.title'" [dataRetrieved]="dataRetrieved"></admin-form>
+    <admin-form [_id]="_id" [data]="data.title" [formTitle]="" [path]="nameKey + '.title'" [dataRetrieved]="dataRetrieved"></admin-form>
     <ng-container *ngIf="data.paragraphs">
-        <h3>Paragraphs</h3>
-        <div *ngFor="let paragraph of data.paragraphs; let i = index" class="section-paragraph-forms">
+        <h3 class="paragraphs-title">Paragraphs</h3>
+        <div *ngFor="let paragraph of data.paragraphs; let i = index" class="paragraphs-forms">
             <ng-container *ngIf="paragraph.title">
                 <h4 class="paragraph-form-title">{{paragraph.title}}</h4>
                 <admin-form class="admin-form" [_id]="_id" [data]="paragraph.title" [formTitle]="'Title'" [path]="nameKey + '.paragraphs.' + i + '.title'" [dataRetrieved]="dataRetrieved"></admin-form>

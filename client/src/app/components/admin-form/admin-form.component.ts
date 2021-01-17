@@ -33,7 +33,7 @@ export class AdminFormComponent {
         }
     }
 
-    onSubmit(): void {
+    async onSubmit(): Promise<void> {
         this.submitted = true;
 
         if (this.formElement.invalid) {
@@ -47,10 +47,16 @@ export class AdminFormComponent {
         }
         this.disableButtons = true;
         this.showLoader = true;
+
+        await this.timeout(500);
         this.apiService.updateParagraph(update).subscribe((res: any) => {
             this.dataBackup = this.data;
             this.showLoader = false;
         })
+    }
+
+    timeout(ms: number) {
+        return new Promise(resolve => setTimeout(resolve, ms));
     }
 
     inputChanged(): void {
