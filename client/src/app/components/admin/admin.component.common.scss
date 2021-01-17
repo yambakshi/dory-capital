@@ -12,7 +12,6 @@
         width: 100%;
         display: flex;
         justify-content: center;
-        margin-bottom: 30px;
         border-bottom: white 1px solid;
 
         > .management-platform-header {
@@ -41,7 +40,63 @@
         }
     }
 
+    > .sections-tabs-container {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        background-color: rgb(14, 63, 187);
+        z-index: 1;
+        border-bottom: white 1px solid;
+        
+        > .sections-tabs {
+            display: flex;
+            overflow: auto;
+            position: relative;
+
+            > ul {
+                display: flex;
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+
+                > li {
+                    display: flex;
+                    align-items: center;
+                    font-weight: 900;
+                    font-size: 18px;
+                    user-select: none;
+                    padding: 18px 30px;
+                    color: rgba(255, 255, 255, .7);
+                    white-space: nowrap;
+                    cursor: pointer;
+
+                    &.selected {
+                        color: rgba(255, 255, 255, 1);
+                    }
+
+                    &:hover {
+                        color: rgba(255, 255, 255, 1);
+                    }
+                }
+            }
+
+            > .tabs-line {
+                height: 2px;
+                position: absolute;
+                bottom: 0;
+                margin: 10px 0 0 0;
+                background-color: #FF1847;
+                transition: all 0.4s ease;
+            }
+        }
+    }
+
     > .management-platform {
         width: 80%;
+
+        > * {
+            display: none;
+            flex-direction: column;
+        }
     }
 }

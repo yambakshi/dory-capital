@@ -2,8 +2,9 @@
 
 @include media("screen", "<mobile") {
     .management-platform-container {    
+        background-color: rgb(14, 63, 187);
+
         > .management-platform-header-container {    
-            margin-bottom: 20px;
             position: fixed;
             top: 0;
             z-index: 1;
@@ -28,9 +29,14 @@
             }
         }
 
+        > .sections-tabs-container {
+            position: fixed;
+            margin-top: 65px;
+        }
+
         > .management-platform {
             width: 100%;
-            margin-top: 84px;
+            margin-top: 129px;
         }
     }
 }

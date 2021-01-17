@@ -1,9 +1,9 @@
 <div class="section-container" [ngClass]="collapsed ? 'collapsed' : ''">
     <div class="section-header-container" (click)="toggleCollapse()" [ngClass]="collapsed ? 'collapsed' : ''">
         <h2 class="section-title">{{name}}</h2>
-        <div class="chevron-container" [ngClass]="collapsed ? 'collapsed' : ''">
+        <!-- <div class="chevron-container" [ngClass]="collapsed ? 'collapsed' : ''">
             <i class="icon-chevron-thin-down"></i>
-        </div>
+        </div> -->
     </div>
     <h3>Title</h3>
     <admin-form [_id]="_id" [data]="data.title" [formTitle]="" [path]="nameKey + '.title'" [dataRetrieved]="dataRetrieved"></admin-form>

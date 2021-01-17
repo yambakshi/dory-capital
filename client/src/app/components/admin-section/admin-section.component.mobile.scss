@@ -3,5 +3,8 @@
 @include media("screen", "<mobile") {
     .section-container {
         margin: 0px 0px 20px;
+        border: none;
+        border-radius: 0px;
+        margin-bottom: 0px;
     }
 }

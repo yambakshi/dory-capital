@@ -26,8 +26,8 @@ export class ParagraphSectionComponent implements OnInit {
         this.nameKey = this.toCamelCase(this.name);
     }
 
-    toCamelCase(str: string): string {
-        let camelCaseStr = str.toLowerCase().split(' ');
+    toCamelCase(name: string): string {
+        let camelCaseStr = name.toLowerCase().split(' ');
         const firstWord = camelCaseStr.shift();
         camelCaseStr = camelCaseStr.map(word => {
             return word.charAt(0).toUpperCase() + word.slice(1);
