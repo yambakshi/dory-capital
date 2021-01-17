@@ -9,18 +9,15 @@
                     <img [src]="person.img" [alt]="person.alt" />
                 </div>
                 <div class="person-name">{{person.alt}}</div>
-                <div #skillsContainer class="skills-container">
-                    <div *ngFor="let skill of person.skills; let i = index" class="skill-icon">
-                        <img [src]="media.skills[skill].img" [alt]="media.skills[skill].alt" />
-                    </div>
-                </div>
+                <skills-container class="person-skills-container" [skills]="person.skills" [skillsIcons]="media.skills">
+                </skills-container>
             </li>
         </ul>
     </div>
     <div class="leadership-icons">
-        <ul>
+        <ul #skillsTypes>
             <li *ngFor="let skill of skillsArray; let i = index">
-                <img [src]="skill.img" [alt]="skill.alt" />
+                <img [src]="skill.img" [alt]="skill.alt" [width]="skill.width || 'auto'" />
                 <div [style.color]="'#' + skill.color">{{skill.alt}}</div>
             </li>
         </ul>

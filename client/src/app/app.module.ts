@@ -13,6 +13,7 @@ import { LoginPageComponent } from './components/login-page/login-page.component
 import { ParagraphSectionComponent } from '@components/admin-section/admin-section.component';
 import { AdminFormComponent } from '@components/admin-form/admin-form.component';
 import { LeadershipSectionComponent } from '@components/leadership-section/leadership-section.component';
+import { SkillsContainerComponent } from '@components/skills-container/skills-container.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { LeadershipSectionComponent } from '@components/leadership-section/leade
     LoginPageComponent,
     ParagraphSectionComponent,
     AdminFormComponent,
-    LeadershipSectionComponent
+    LeadershipSectionComponent,
+    SkillsContainerComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

@@ -1,0 +1,11 @@
+.skills-container {
+    position: relative;
+    
+    > .skill-icon {
+        position: absolute;
+
+        > img {
+            width: 30px;
+        }
+    }
+}

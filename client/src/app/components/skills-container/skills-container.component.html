@@ -1,0 +1,5 @@
+<div #skillsContainer class="skills-container">
+    <div *ngFor="let skill of skills; let i = index" class="skill-icon">
+        <img [src]="skillsIcons[skill].img" [alt]="skillsIcons[skill].alt" placement="top" ngbTooltip="Tooltip on top" />
+    </div>
+</div>
