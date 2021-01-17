@@ -1,12 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'paragraph-section',
-    templateUrl: './paragraph-section.component.html',
+    selector: 'admin-section',
+    templateUrl: './admin-section.component.html',
     styleUrls: [
-        './paragraph-section.component.common.scss',
-        './paragraph-section.component.desktop.scss',
-        './paragraph-section.component.mobile.scss'
+        './admin-section.component.common.scss',
+        './admin-section.component.desktop.scss',
+        './admin-section.component.mobile.scss'
     ]
 })
 export class ParagraphSectionComponent implements OnInit {
