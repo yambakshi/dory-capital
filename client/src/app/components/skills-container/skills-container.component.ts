@@ -10,10 +10,12 @@ export class SkillsContainerComponent implements AfterViewInit {
     @Input() skills: string[];
     @Input() skillsIcons: { skill: { img: string, alt: string, color: string } };
     maxSkillsPerRow: number = 4;
-    iconSize: number = 30;
-    margin: number = 9.6;
+    iconSize: number = 20;
+    margin: number;
 
-    constructor(private renderer: Renderer2) { }
+    constructor(private renderer: Renderer2) {
+        this.margin = (168 - (4 * this.iconSize)) / 5;
+    }
 
     ngAfterViewInit(): void {
         const skillsRows = this.skillsContainer.nativeElement.children;
@@ -30,7 +32,7 @@ export class SkillsContainerComponent implements AfterViewInit {
             } else {
                 const div = this.renderer.createElement('div');
                 this.renderer.addClass(div, 'skill-icon');
-                const left = 9.6 + ((i % this.maxSkillsPerRow) * (this.iconSize + this.margin));
+                const left = this.margin + ((i % this.maxSkillsPerRow) * (this.iconSize + this.margin));
                 const top = 0;
                 this.renderer.setStyle(div, 'top', `${top}px`);
                 this.renderer.setStyle(div, 'left', `${left}px`);
