@@ -14,6 +14,7 @@ import { ParagraphSectionComponent } from '@components/admin-section/admin-secti
 import { AdminFormComponent } from '@components/admin-form/admin-form.component';
 import { LeadershipSectionComponent } from '@components/leadership-section/leadership-section.component';
 import { SkillsContainerComponent } from '@components/skills-container/skills-container.component';
+import { CarouselsComponent } from '@components/carousels/carousels.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { SkillsContainerComponent } from '@components/skills-container/skills-co
     ParagraphSectionComponent,
     AdminFormComponent,
     LeadershipSectionComponent,
-    SkillsContainerComponent
+    SkillsContainerComponent,
+    CarouselsComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

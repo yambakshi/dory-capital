@@ -227,9 +227,6 @@
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
-	.slide-num {
-		font-size: 24px !important;
-	}
 	.dory-video {
 		width: auto;
 		height: auto;
@@ -1227,9 +1224,6 @@
 	.enable-dis h1 {
 		padding-top: 100px;
 	}
-	.circle-images {
-		width: 100%;
-	}
 }
 
 @media screen and (max-width: 767px) {
@@ -1474,51 +1468,6 @@
 		height: 60px;
 		font-size: 10px;
 	}
-	.slide-num {
-		font-size: 30px;
-		line-height: 26px;
-		padding: 5px 0px !important;
-		display: flex;
-		color: rgba(255, 255, 255, 0.2);
-	}
-	.carousel {
-		-moz-user-select: none;
-		-webkit-user-select: none;
-		user-select: none;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
-	.carousel-picker {
-		list-style-type: none;
-		display: flex;
-		margin: 50px 0px 0px;
-		padding: 0;
-		width: 100%;
-	}
-	.carousel-option {
-		position: relative;
-		width: 20%;
-		display: flex;
-		justify-content: center;
-	}
-	.carousel-option:not(:last-of-type)::after {
-		content: "";
-		position: absolute;
-		width: 1px;
-		height: 100%;
-		background-color: white;
-		right: 0;
-	}
-	.slider-container {
-		width: 100%;
-		height: 400px;
-	}
-	.circle-slide {
-		position: absolute;
-		top: 180px;
-		left: calc(50% - 50px);
-	}
 	.process, .ellipse img, .footer-top {
 		margin-top: 50px;
 	}
@@ -1538,28 +1487,6 @@
 	#about::after {
 		height: 70%;
 		top: -200px;
-	}
-	.circle-images {
-		width: 100%;
-		height: 340px;
-	}
-	.slider-img {
-		width: 25%;
-	}
-	.circle-images .slider-img:nth-child(2) {
-		left: 0;
-	}
-	.circle-images .slider-img:nth-child(3) {
-		right: 0;
-	}
-	.circle-images .slider-img:nth-child(4) {
-		left: 55px;
-	}
-	.circle-images .slider-img:nth-child(5) {
-		right: 55px;
-	}
-	.slider-img p {
-		font-size: 12px;
 	}
 }
 
