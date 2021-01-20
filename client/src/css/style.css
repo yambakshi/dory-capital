@@ -752,18 +752,18 @@ body {
 }
 
 .faq1 {
-	top: 15px !important;
-	left: -28px;
+	top: 14px !important;
+    right: 119px !important;
 }
 
 .faq1:after {
 	top: 5px;
-	right: -15px;
+    right: -17px;
 }
 
 .faq2 {
-	top: 80px !important;
-	left: -55px;
+	top: 61px !important;
+    right: 129px !important;
 }
 
 .faq2:after {
@@ -772,43 +772,53 @@ body {
 }
 
 .faq3 {
-	top: 121px !important;
-	left: 35px;
+	top: 103px !important;
+    right: 99px !important;
 }
 
 .faq3:after {
-	top: -8px;
-	right: 25px;
+	top: 4px;
+    right: -19px;
 }
 
 .faq4 {
-	top: 80px !important;
-	right: -54px;
+	top: 103px !important;
+    right: -58px !important;
 }
 
 .faq4:after {
-	top: 3px;
-	right: 56px;
+	top: 4px;
+    right: 85px;
 }
 
 .faq5 {
-	top: 17px !important;
-	right: -64px;
+	top: 61px !important;
+    right: -63px !important;
 }
 
 .faq5:after {
-	top: 3px;
-	right: 70px;
+	top: 5px;
+    right: 58px;
 }
 
 .faq6 {
-	top: -23px !important;
-	right: 37px;
+	top: 10px !important;
+    right: -59px !important;
 }
 
 .faq6:after {
-	top: 17px;
-	right: 17px;
+	top: 5px;
+    right: 68px;
+}
+
+.faq7 {
+	top: -27px !important;
+    right: 37px !important;
+}
+
+.faq7:after {
+	top: 21px;
+    right: 17px;
 }
 
 .menu:hover {
