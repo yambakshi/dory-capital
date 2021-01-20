@@ -13,7 +13,11 @@ const personUpdateSchema = {
                 imgUrl: { type: 'string', format: 'non-empty-string' },
                 name: { type: 'string', format: 'non-empty-string' },
                 link: { type: 'string', format: 'non-empty-string' },
-                skills: { type: 'array', items: { type: 'string', format: 'non-empty-string' } }
+                skills: {
+                    type: 'array',
+                    minItems: 1,
+                    items: { type: 'string', format: 'non-empty-string' }
+                }
             }
         },
     }

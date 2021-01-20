@@ -6,7 +6,18 @@ const peopleDeletionSchema = {
     type: 'object',
     properties: {
         _id: { type: 'string', format: 'non-empty-string' },
-        data: { type: 'object' }
+        data: {
+            required: ['leadership.people'],
+            type: 'object',
+            title: 'leadership-people',
+            properties: {
+                'leadership.people': {
+                    type: 'array',
+                    minItems: 1,
+                    items: { type: 'string', format: 'non-empty-string' }
+                }
+            }
+        }
     }
 };
 
