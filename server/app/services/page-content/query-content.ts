@@ -5,8 +5,20 @@ export async function queryPageContent() {
     const lookup = [{
         $lookup: {
             from: "people",
-            localField: "leadership.people",
-            foreignField: "_id",
+            let: { "leadershippeople": "$leadership.people" },
+            pipeline: [
+                { $match: { $expr: { $in: ["$_id", "$$leadershippeople"] } } },
+                {
+                    $lookup: {
+                        from: "skills",
+                        let: { "skills": "$skills" },
+                        pipeline: [
+                            { "$match": { "$expr": { "$in": ["$_id", "$$skills"] } } }
+                        ],
+                        as: "skills"
+                    }
+                }
+            ],
             as: "leadership.people"
         }
     }];
