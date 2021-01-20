@@ -4,3 +4,4 @@ export { validateUserRegistration } from './validate-user-registration';
 export { validatePeopleAddition } from './validate-people-addition';
 export { validatePersonUpdate } from './validate-person-update';
 export { validatePeopleDeletion } from './validate-people-deletion';
+export { validateSkillsAddition } from './validate-skills-addition';

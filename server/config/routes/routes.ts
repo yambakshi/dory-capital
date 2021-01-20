@@ -1,6 +1,6 @@
 import { Router } from "express";
 import passport from 'passport';
-import { createPageContent, getPageContent, updatePageContent, addPeople, updatePerson, deletePeople } from '../../app/controllers';
+import { createPageContent, getPageContent, updatePageContent, addPeople, updatePerson, deletePeople, addSkills } from '../../app/controllers';
 import { register, login, logout, getLoginStatus } from '../../app/controllers/users';
 import { loginMiddleware, loginStatusMiddleware, logoutMiddleware } from "../middlewares";
 
@@ -27,3 +27,6 @@ router.route('/api/admin/leadership')
     .put(passport.authenticate('jwt', { session: false }), addPeople)
     .post(passport.authenticate('jwt', { session: false }), updatePerson)
     .delete(passport.authenticate('jwt', { session: false }), deletePeople);
+
+router.route('/api/admin/skills')
+    .put(passport.authenticate('jwt', { session: false }), addSkills);
