@@ -1,14 +1,13 @@
 import { Router } from "express";
 import passport from 'passport';
-import { createParagraphs, getParagraphs, updateParagraph } from '../../app/controllers/paragraphs';
+import { createPageContent, getPageContent, updatePageContent, addPeople, updatePerson, deletePeople } from '../../app/controllers';
 import { register, login, logout, getLoginStatus } from '../../app/controllers/users';
 import { loginMiddleware, loginStatusMiddleware, logoutMiddleware } from "../middlewares";
 
 
 export const router = Router();
 router.route('/api')
-    .put(createParagraphs)
-    .post(getParagraphs);
+    .get(getPageContent);
 
 router.route('/api/register')
     .post(register);
@@ -21,4 +20,10 @@ router.route('/api/logout')
     .get(logoutMiddleware, logout);
 
 router.route('/api/admin')
-    .post(passport.authenticate('jwt', { session: false }), updateParagraph);
+    .put(passport.authenticate('jwt', { session: false }), createPageContent)
+    .post(passport.authenticate('jwt', { session: false }), updatePageContent);
+
+router.route('/api/admin/leadership')
+    .put(passport.authenticate('jwt', { session: false }), addPeople)
+    .post(passport.authenticate('jwt', { session: false }), updatePerson)
+    .delete(passport.authenticate('jwt', { session: false }), deletePeople);

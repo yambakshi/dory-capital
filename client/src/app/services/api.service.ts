@@ -12,12 +12,12 @@ export class ApiService {
 
     constructor(private http: HttpClient) { }
 
-    getParagraphs(ids: string[]): any {
-        return this.http.post('/api', ids, this.httpOptions)
+    getPageContent(): any {
+        return this.http.get('/api', this.httpOptions)
             .pipe(catchError(this.handleError));
     }
 
-    updateParagraph(newParagraph: { _id: string, path: string, text: string }): any {
+    updatePageContent(newParagraph: { _id: string, path: string, text: string }): any {
         return this.http.post('/api/admin', newParagraph, this.httpOptions)
             .pipe(catchError(this.handleError));
     }

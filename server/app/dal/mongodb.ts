@@ -32,6 +32,12 @@ export class MongoDB {
         return cursor;
     }
 
+    async aggregate(dbName: string, collectionName: string, lookup: {}) {
+        const db = this.mongoClient.db(dbName);
+        const cursor = db.collection(collectionName).aggregate(lookup);
+        return cursor;
+    }
+
     async insertMany(dbName: string, collectionName: string, documents: any[]) {
         const db = this.mongoClient.db(dbName);
         const collection = db.collection(collectionName);
@@ -48,20 +54,40 @@ export class MongoDB {
         return output;
     }
 
-    async updateOne(dbName: string, collectionName: string, document: { _id: string, path: string, text: string }) {
-        const db = this.mongoClient.db(dbName);
-        const collection = db.collection(collectionName);
-        const output = collection.updateOne(
-            { _id: { $eq: new ObjectID(document._id) } },
-            { $set: { [document.path]: document.text } });
-
-        return output;
-    }
-
     async deleteMany(dbName: string, collectionName: string, filter: {}) {
         const db = this.mongoClient.db(dbName);
         const collection = db.collection(collectionName);
         const output = collection.deleteMany(filter);
+
+        return output;
+    }
+
+    async updateOne(dbName: string, collectionName: string, { _id, data }) {
+        const db = this.mongoClient.db(dbName);
+        const collection = db.collection(collectionName);
+        const output = collection.updateOne(
+            { _id: { $eq: new ObjectID(_id) } },
+            { $set: data });
+
+        return output;
+    }
+
+    async push(dbName: string, collectionName: string, { _id, data }) {
+        const db = this.mongoClient.db(dbName);
+        const collection = db.collection(collectionName);
+        const output = collection.updateOne(
+            { _id: { $eq: new ObjectID(_id) } },
+            { $push: data });
+
+        return output;
+    }
+
+    async pull(dbName: string, collectionName: string, { _id, data }) {
+        const db = this.mongoClient.db(dbName);
+        const collection = db.collection(collectionName);
+        const output = collection.updateOne(
+            { _id: { $eq: new ObjectID(_id) } },
+            { $pull: data });
 
         return output;
     }

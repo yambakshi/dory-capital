@@ -16,8 +16,7 @@ async function processRegistration(user: any) {
 
 export async function register(req: Request, res: Response) {
     try {
-        const user = req.body;
-        const output = await processRegistration(user);
+        const output = await processRegistration(req.body);
         res.send(output);
     } catch (error) {
         console.error(error);

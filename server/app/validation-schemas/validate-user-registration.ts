@@ -1,4 +1,4 @@
-import Ajv from 'ajv';
+import { ajv } from '../../config';
 
 const userSchema = {
     required: ['email', 'password'],
@@ -11,14 +11,6 @@ const userSchema = {
 };
 
 export function validateUserRegistration(user: { email: string, password: string }) {
-    const ajv = new Ajv({
-        formats: {
-            'non-empty-string': {
-                validate: value => !!value
-            }
-        }
-    });
-
     ajv.validate(userSchema, user);
     return ajv.errors;
 }

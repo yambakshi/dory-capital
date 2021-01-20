@@ -12,7 +12,7 @@ import { SocketIoService } from '@services/socket-io.service';
     './home-page.component.desktop.scss',
     './home-page.component.mobile.scss']
 })
-export class LandingPageComponent implements OnInit {
+export class HomePageComponent implements OnInit {
   @ViewChild('pageNavigator') pageNavigator: ElementRef;
   data: {
     _id: string,
@@ -99,7 +99,7 @@ export class LandingPageComponent implements OnInit {
     @Inject(PLATFORM_ID) private platformId: any,
     private apiService: ApiService,
     private socketIoService: SocketIoService) {
-    this.apiService.getParagraphs([]).subscribe(data => {
+    this.apiService.getPageContent().subscribe(data => {
       this.data = data;
     });
   }
@@ -107,8 +107,8 @@ export class LandingPageComponent implements OnInit {
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
       this.socketIoService.connect();
-      this.socketIoService.listen('paragraphs-changed').subscribe(() => {
-        this.apiService.getParagraphs([]).subscribe(data => {
+      this.socketIoService.listen('page-content-changed').subscribe(() => {
+        this.apiService.getPageContent().subscribe(data => {
           this.data = data;
         });
       })

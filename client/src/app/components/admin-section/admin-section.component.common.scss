@@ -20,32 +20,32 @@
         border-bottom: white 1px solid;
         margin-bottom: 10px;
         padding-bottom: 0px;
-        cursor: pointer;
+        // cursor: pointer;
 
-        &.collapsed {
-            margin-bottom: 0px;
-            padding-bottom: 4px;
-        }
+        // &.collapsed {
+        //     margin-bottom: 0px;
+        //     padding-bottom: 4px;
+        // }
 
         > .section-title {
             flex: 1;
             text-align: center;
         }
 
-        > .chevron-container {
-            transform: rotate(0deg);
-            transition: transform 0.30s;
+        // > .chevron-container {
+        //     transform: rotate(0deg);
+        //     transition: transform 0.30s;
 
-            &.collapsed {
-                transform: rotate(180deg);
-                transition: transform 0.30s;
-            }
+        //     &.collapsed {
+        //         transform: rotate(180deg);
+        //         transition: transform 0.30s;
+        //     }
 
-            > i[class^="icon-"] {
-                font-size: 20px;
-                font-weight: 400;
-            }
-        }
+        //     > i[class^="icon-"] {
+        //         font-size: 20px;
+        //         font-weight: 400;
+        //     }
+        // }
     }
 
     > .paragraphs-title {

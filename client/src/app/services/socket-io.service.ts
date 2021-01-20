@@ -8,8 +8,8 @@ import { environment } from "@environments/environment";
 })
 export class SocketIoService {
     socket;
-    readonly uri: string = `${environment.apiUrl}/paragraphs`;
-    readonly path: string = '/page-content/socket.io';
+    readonly uri: string = `${environment.apiUrl}/page-content`;
+    readonly path: string = '/dory-capital/socket.io';
     constructor() { }
 
     connect() {

@@ -49,7 +49,7 @@ export class AdminFormComponent {
         this.showLoader = true;
 
         await this.timeout(500);
-        this.apiService.updateParagraph(update).subscribe((res: any) => {
+        this.apiService.updatePageContent(update).subscribe((res: any) => {
             this.dataBackup = this.data;
             this.showLoader = false;
         })

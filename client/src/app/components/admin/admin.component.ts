@@ -19,7 +19,7 @@ export class AdminComponent implements AfterViewInit {
   @ViewChild('sections') sections: ElementRef;
   dataRetrieved: boolean = false;
   sectionsTabs: string[] = [];
-  selectedTab: number = 0;
+  selectedTab: number = 3;
   data: {
     _id: string,
     scope: {
@@ -33,6 +33,9 @@ export class AdminComponent implements AfterViewInit {
     whyUs: {
       title: string,
       paragraphs: { text: string, title: string }[]
+    },
+    leadership: {
+      people: any[]
     },
     process: {
       title: string,
@@ -72,6 +75,9 @@ export class AdminComponent implements AfterViewInit {
           { text: '', title: '' }
         ]
       },
+      leadership: {
+        people: []
+      },
       process: {
         title: '',
         paragraphs: [
@@ -109,7 +115,7 @@ export class AdminComponent implements AfterViewInit {
     private renderer: Renderer2) {
     this.initSectionsHeader();
 
-    this.apiService.getParagraphs([]).subscribe(data => {
+    this.apiService.getPageContent().subscribe(data => {
       this.data = data;
       this.dataRetrieved = true;
     });
@@ -118,8 +124,8 @@ export class AdminComponent implements AfterViewInit {
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
       this.socketIoService.connect();
-      this.socketIoService.listen('paragraphs-changed').subscribe(() => {
-        this.apiService.getParagraphs([]).subscribe(data => {
+      this.socketIoService.listen('page-content-changed').subscribe(() => {
+        this.apiService.getPageContent().subscribe(data => {
           this.data = data;
         });
       })

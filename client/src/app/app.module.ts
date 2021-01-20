@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { LandingPageComponent } from './components/home-page/home-page.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { VideoElementComponent } from './components/video-element/video-element.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
@@ -15,16 +15,20 @@ import { AdminFormComponent } from '@components/admin-form/admin-form.component'
 import { LeadershipSectionComponent } from '@components/leadership-section/leadership-section.component';
 import { SkillsContainerComponent } from '@components/skills-container/skills-container.component';
 import { CarouselsComponent } from '@components/carousels/carousels.component';
+import { AdminLeadershipComponent } from '@components/admin-leadership/admin-leadership.component';
+import { AdminLeadershipPersonComponent } from '@components/admin-leadership-person/admin-leadership-person.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LandingPageComponent,
+    HomePageComponent,
     AdminComponent,
+    AdminFormComponent,
+    AdminLeadershipComponent,
+    AdminLeadershipPersonComponent,
     VideoElementComponent,
     LoginPageComponent,
     ParagraphSectionComponent,
-    AdminFormComponent,
     LeadershipSectionComponent,
     SkillsContainerComponent,
     CarouselsComponent

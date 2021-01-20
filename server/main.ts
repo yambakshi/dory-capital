@@ -9,8 +9,8 @@ const app = express();
 const server = http.createServer(app);
 
 // Init socket
-socket.initSocket(server, '/page-content/socket.io');
-socket.configNsp('/paragraphs');
+socket.initSocket(server, '/dory-capital/socket.io');
+socket.configNsp('/page-content');
 
 // Config passport
 configPassport();
