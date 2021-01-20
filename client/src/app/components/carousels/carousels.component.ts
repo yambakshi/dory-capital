@@ -73,7 +73,7 @@ export class CarouselsComponent implements OnInit, AfterViewInit {
 
     calcCarouselRadius(): void {
         this.radiusLength = (this.windowRefService.nativeWindow.innerWidth < 901) ? 120 : 280;
-        this.labelHeight = (this.windowRefService.nativeWindow.innerWidth < 901) ? 12 : 24;
+        this.labelHeight = (this.windowRefService.nativeWindow.innerWidth < 901) ? 15 : 24;
     }
 
     selectTab(i: number) {

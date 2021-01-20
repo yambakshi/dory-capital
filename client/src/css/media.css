@@ -1488,6 +1488,9 @@
 		height: 70%;
 		top: -200px;
 	}
+	.scope-header {
+		margin-bottom: 20px;
+	}
 }
 
 @media (max-width: 552px) {
