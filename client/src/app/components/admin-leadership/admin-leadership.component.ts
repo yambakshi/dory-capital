@@ -67,24 +67,19 @@ export class AdminLeadershipComponent implements OnInit {
     }
   }
 
-  openDialog(): void {
-    const name = "Yam Bakshi";
+  addMember(): void {
+
+  }
+
+  removeMember({ name }): void {
     const dialogRef = this.dialog.open(ApproveDialog, {
-      width: '500px',
+      width: '400px',
       data: { name }
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
-  }
-
-  addMember(): void {
-
-  }
-
-  removeMember(): void {
-
   }
 
   editMember($event): void {
@@ -95,25 +90,23 @@ export class AdminLeadershipComponent implements OnInit {
     return skills.map(({ name }) => name).join(', ');
   }
 
-  /** Whether the number of selected elements matches the total number of rows. */
   isAllSelected() {
     const numSelected = this.selection.selected.length;
     const numRows = this.data.people.length;
     return numSelected === numRows;
   }
 
-  /** Selects all rows if they are not all selected; otherwise clear selection. */
   masterToggle() {
     this.isAllSelected() ?
       this.selection.clear() :
       this.data.people.forEach(row => this.selection.select(row));
   }
 
-  /** The label for the checkbox on the passed row */
   checkboxLabel(row?: PersonElement): string {
     if (!row) {
       return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
     }
+
     return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.position + 1}`;
   }
 }
