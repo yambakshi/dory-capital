@@ -17,6 +17,13 @@ import { SkillsContainerComponent } from '@components/skills-container/skills-co
 import { CarouselsComponent } from '@components/carousels/carousels.component';
 import { AdminLeadershipComponent } from '@components/admin-leadership/admin-leadership.component';
 import { AdminLeadershipPersonComponent } from '@components/admin-leadership-person/admin-leadership-person.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSortModule } from '@angular/material/sort';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -38,7 +45,13 @@ import { AdminLeadershipPersonComponent } from '@components/admin-leadership-per
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatProgressSpinnerModule,
+    MatCheckboxModule
   ],
   providers: [APP_PROVIDERS],
   bootstrap: [AppComponent]

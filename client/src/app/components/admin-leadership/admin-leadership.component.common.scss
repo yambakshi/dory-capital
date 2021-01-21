@@ -22,4 +22,10 @@
             text-align: center;
         }
     }
+
+    > .people-table-container {
+        > table {
+            width: 100%;
+        }
+    }
 }
