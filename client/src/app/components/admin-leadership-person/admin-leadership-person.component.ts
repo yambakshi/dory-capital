@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { CloudinaryService } from '@services/cloudinary.service';
 
 @Component({
   selector: 'admin-leadership-person',
@@ -10,10 +11,10 @@ import { Component, Input } from '@angular/core';
   ]
 })
 export class AdminLeadershipPersonComponent {
-  @Input() data: any[];
+  @Input() data;
   @Input() dataRetrieved: boolean = false;
 
-  constructor() { }
+  constructor(public cloudinaryService: CloudinaryService) { }
 
   ngOnChanges(): void {
     if (this.dataRetrieved) {

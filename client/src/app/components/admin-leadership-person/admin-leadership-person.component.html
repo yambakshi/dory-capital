@@ -1,3 +1,4 @@
 <div class="admin-leadership-person-container">
-    <div>name</div>
+    <div>{{data.name}}</div>
+    <img [src]="cloudinaryService.prefix + data.imgUrl" [alt]="data.name" />
 </div>

@@ -10,7 +10,8 @@ import { Component, Input } from '@angular/core';
   ]
 })
 export class AdminLeadershipComponent {
-  @Input() data: any[];
+  @Input() _id: string;
+  @Input() data;
   @Input() dataRetrieved: boolean = false;
 
   constructor() { }

@@ -3,6 +3,9 @@ import { isPlatformBrowser } from '@angular/common';
 import { ApiService } from '@services/api.service';
 import { LoginService } from '@services/login.service';
 import { SocketIoService } from '@services/socket-io.service';
+import { PageContent } from '@models/page-content';
+import { ActivatedRoute } from '@angular/router';
+import { PageContentService } from '@services/page-content.service';
 
 @Component({
   selector: 'admin',
@@ -20,116 +23,43 @@ export class AdminComponent implements AfterViewInit {
   dataRetrieved: boolean = false;
   sectionsTabs: string[] = [];
   selectedTab: number = 3;
-  data: {
-    _id: string,
-    scope: {
-      title: string,
-      paragraphs: { text: string }[]
-    },
-    aboutUs: {
-      title: string,
-      paragraphs: { text: string }[],
-    },
-    whyUs: {
-      title: string,
-      paragraphs: { text: string, title: string }[]
-    },
-    leadership: {
-      people: any[]
-    },
-    process: {
-      title: string,
-      paragraphs: { text: string, title: string }[]
-    }
-    faq: {
-      title: string,
-      paragraphs: { text: string, title: string }[]
-    }
-    contactUs: {
-      title: string
-    }
-  } = {
-      _id: '',
-      scope: {
-        title: '',
-        paragraphs: [
-          { text: '' },
-          { text: '' }
-        ],
-      },
-      aboutUs: {
-        title: '',
-        paragraphs: [
-          { text: '' },
-          { text: '' }
-        ]
-      },
-      whyUs: {
-        title: '',
-        paragraphs: [
-          { text: '', title: '' },
-          { text: '', title: '' },
-          { text: '', title: '' },
-          { text: '', title: '' },
-          { text: '', title: '' },
-          { text: '', title: '' }
-        ]
-      },
-      leadership: {
-        people: []
-      },
-      process: {
-        title: '',
-        paragraphs: [
-          { text: '', title: '' },
-          { text: '', title: '' },
-          { text: '', title: '' }
-        ]
-      },
-      faq: {
-        title: '',
-        paragraphs: [
-          { text: '', title: '' },
-          { text: '', title: '' },
-          { text: '', title: '' },
-          { text: '', title: '' },
-          { text: '', title: '' },
-          { text: '', title: '' },
-          { text: '', title: '' },
-          { text: '', title: '' },
-          { text: '', title: '' },
-          { text: '', title: '' },
-          { text: '', title: '' }
-        ]
-      },
-      contactUs: {
-        title: '',
-      }
-    }
+  data: PageContent;
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
+    private route: ActivatedRoute,
     private apiService: ApiService,
     private loginService: LoginService,
     private socketIoService: SocketIoService,
+    private pageContentService: PageContentService,
     private renderer: Renderer2) {
-    this.initSectionsHeader();
 
-    this.apiService.getPageContent().subscribe(data => {
-      this.data = data;
-      this.dataRetrieved = true;
+    this.route.data.subscribe(data => {
+      if (!data['pageContent']) {
+        this.data = new PageContent();
+        return;
+      }
+
+      this.data = data['pageContent'];
+      this.pageContentService.setPageContent(data['pageContent']);
+      this.initSectionsHeader();
     });
+
+    // this.apiService.getPageContent().subscribe(data => {
+    //   this.data = data;
+    //   this.dataRetrieved = true;
+    // });
   }
 
   ngOnInit(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      this.socketIoService.connect();
-      this.socketIoService.listen('page-content-changed').subscribe(() => {
-        this.apiService.getPageContent().subscribe(data => {
-          this.data = data;
-        });
-      })
-    }
+    // if (isPlatformBrowser(this.platformId)) {
+    //   this.socketIoService.connect();
+    //   this.socketIoService.listen('page-content-changed').subscribe(() => {
+    //     this.apiService.getPageContent().subscribe(data => {
+    //       this.data = data;
+    //     });
+    //   })
+    // }
   }
 
   ngAfterViewInit() {

@@ -19,6 +19,8 @@
       "@services/*": ["app/services/*"],
       "@components/*": ["app/components/*"],
       "@providers/*": ["app/providers/*"],
+      "@resolvers/*": ["app/resolvers/*"],
+      "@models/*": ["app/models/*"],
       "@environments/*": ["environments/*"]
     }
   },
