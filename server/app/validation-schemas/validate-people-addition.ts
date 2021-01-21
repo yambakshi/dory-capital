@@ -25,6 +25,7 @@ const peopleAdditionSchema = {
                             skills: {
                                 type: 'array',
                                 minItems: 1,
+                                maxItems: 8,
                                 items: { type: "string", format: 'non-empty-string' }
                             }
                         }
