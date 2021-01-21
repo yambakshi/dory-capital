@@ -30,6 +30,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
+import { AddMemberDialog } from '@components/add-member-dialog/add-member-dialog.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     LeadershipSectionComponent,
     SkillsContainerComponent,
     CarouselsComponent,
-    ApproveDialog
+    ApproveDialog,
+    AddMemberDialog
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

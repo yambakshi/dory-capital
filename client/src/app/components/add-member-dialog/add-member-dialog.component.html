@@ -1,0 +1,31 @@
+<h1 mat-dialog-title>Add Member</h1>
+<div class="add-member-dialog-container" mat-dialog-content>
+    <p>Name</p>
+    <mat-form-field class="add-member-field-container">
+        <mat-label>Name</mat-label>
+        <input matInput [(ngModel)]="data.name">
+    </mat-form-field>
+    <p>Link</p>
+    <mat-form-field class="add-member-field-container">
+        <mat-label>Link</mat-label>
+        <input matInput [(ngModel)]="data.link">
+    </mat-form-field>
+    <p>Skills</p>
+    <mat-form-field class="add-member-field-container">
+        <mat-label>Skills</mat-label>
+        <input matInput [(ngModel)]="data.skills">
+    </mat-form-field>
+    <div class="file-upload-field-container">
+        <p>Profile Picture</p>
+        <div class="file-upload-field">
+            <button mat-button (click)="fileInput.click()">Choose File...</button>
+            <mat-label class="file-upload-label">{{profilePicture.path}}</mat-label>
+            <input #fileInput type="file" (change)="onFileSelected()" accept="image/*" hidden>
+        </div>
+        <mat-label class="upload-field-error">{{fileUploadError}}</mat-label>
+    </div>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onCancelClick()">Cancel</button>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Add</button>
+</div>

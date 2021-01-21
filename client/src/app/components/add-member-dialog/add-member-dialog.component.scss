@@ -1,0 +1,27 @@
+.add-member-dialog-container {
+    > .add-member-field-container {
+        width: 100%;
+    }
+
+    > .file-upload-field-container {
+        display: flex;
+        flex-direction: column;
+
+        > .file-upload-field {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            > .file-upload-label {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                width: 67%;
+            }
+        }
+
+        > .upload-field-error {
+            color: red;
+        }
+    }
+}

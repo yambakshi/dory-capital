@@ -7,7 +7,7 @@
             <mat-icon>add</mat-icon>
             Add member
         </button>
-        <button mat-button (click)="removeMember()">
+        <button mat-button (click)="removeMember({ name: 'fuck you' })" disabled>
             <mat-icon>delete</mat-icon>
             Remove member
         </button>
@@ -64,7 +64,7 @@
                         <mat-icon>more_vert</mat-icon>
                     </button>
                     <mat-menu #menu="matMenu">
-                        <button mat-menu-item (click)="editMember($event)" >
+                        <button mat-menu-item (click)="editMember($event)">
                             <mat-icon>edit</mat-icon>
                             <span>Edit</span>
                         </button>

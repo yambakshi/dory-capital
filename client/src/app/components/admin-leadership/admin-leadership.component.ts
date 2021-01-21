@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { ApproveDialog } from '@components/approve-dialog/approve-dialog.component';
+import { AddMemberDialog } from '@components/add-member-dialog/add-member-dialog.component';
 
 export interface PersonElement {
   position: number;
@@ -68,7 +69,14 @@ export class AdminLeadershipComponent implements OnInit {
   }
 
   addMember(): void {
+    const dialogRef = this.dialog.open(AddMemberDialog, {
+      width: '400px',
+      data: {}
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 
   removeMember({ name }): void {
