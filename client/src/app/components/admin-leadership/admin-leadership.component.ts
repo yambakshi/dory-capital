@@ -4,6 +4,8 @@ import { MatSort } from '@angular/material/sort';
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatDialog } from '@angular/material/dialog';
+import { ApproveDialog } from '@components/approve-dialog/approve-dialog.component';
 
 export interface PersonElement {
   position: number;
@@ -27,12 +29,13 @@ export class AdminLeadershipComponent implements OnInit {
   @Input() dataRetrieved: boolean = false;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
-  displayedColumns: string[] = ['select', 'name', 'skills', 'link'];
+  displayedColumns: string[] = ['select', 'name', 'skills', 'link', 'actions'];
   selection = new SelectionModel<PersonElement>(true, []);
   dataSource: MatTableDataSource<PersonElement>;
 
   constructor(
-    private route: ActivatedRoute) {
+    private route: ActivatedRoute,
+    public dialog: MatDialog) {
     this.route.data.subscribe(data => {
       if (!data['pageContent']) {
         this.data = { people: [] };
@@ -62,6 +65,30 @@ export class AdminLeadershipComponent implements OnInit {
   ngOnChanges(): void {
     if (this.dataRetrieved) {
     }
+  }
+
+  openDialog(): void {
+    const name = "Yam Bakshi";
+    const dialogRef = this.dialog.open(ApproveDialog, {
+      width: '500px',
+      data: { name }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+
+  addMember(): void {
+
+  }
+
+  removeMember(): void {
+
+  }
+
+  editMember($event): void {
+    $event.stopPropagation();
   }
 
   getSkillsNames(skills: []): string {

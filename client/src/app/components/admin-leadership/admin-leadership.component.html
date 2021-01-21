@@ -3,6 +3,14 @@
         <h2 class="section-title">Leadership</h2>
     </div>
     <div class="people-table-container">
+        <button mat-button (click)="addMember()">
+            <mat-icon>add</mat-icon>
+            Add member
+        </button>
+        <button mat-button (click)="removeMember()">
+            <mat-icon>delete</mat-icon>
+            Remove member
+        </button>
         <mat-form-field>
             <mat-label>Filter</mat-label>
             <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Asher Dory">
@@ -46,6 +54,26 @@
             <ng-container matColumnDef="link">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>Link</th>
                 <td mat-cell *matCellDef="let element">{{element.link}} </td>
+            </ng-container>
+
+            <!-- Actions Column -->
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td mat-cell *matCellDef="let element">
+                    <button mat-icon-button [matMenuTriggerFor]="menu" (click)="$event.stopPropagation()">
+                        <mat-icon>more_vert</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="editMember($event)" >
+                            <mat-icon>edit</mat-icon>
+                            <span>Edit</span>
+                        </button>
+                        <button mat-menu-item (click)="openDialog()">
+                            <mat-icon>delete</mat-icon>
+                            <span>Remove</span>
+                        </button>
+                    </mat-menu>
+                </td>
             </ng-container>
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

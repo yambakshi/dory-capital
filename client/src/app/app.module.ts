@@ -17,6 +17,7 @@ import { SkillsContainerComponent } from '@components/skills-container/skills-co
 import { CarouselsComponent } from '@components/carousels/carousels.component';
 import { AdminLeadershipComponent } from '@components/admin-leadership/admin-leadership.component';
 import { AdminLeadershipPersonComponent } from '@components/admin-leadership-person/admin-leadership-person.component';
+import { ApproveDialog } from '@components/approve-dialog/approve-dialog.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatTableModule } from '@angular/material/table';
@@ -25,6 +26,10 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSortModule } from '@angular/material/sort';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -39,7 +44,8 @@ import { MatInputModule } from '@angular/material/input';
     ParagraphSectionComponent,
     LeadershipSectionComponent,
     SkillsContainerComponent,
-    CarouselsComponent
+    CarouselsComponent,
+    ApproveDialog
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -53,7 +59,11 @@ import { MatInputModule } from '@angular/material/input';
     MatSortModule,
     MatProgressSpinnerModule,
     MatCheckboxModule,
-    MatInputModule
+    MatInputModule,
+    MatButtonModule,
+    MatIconModule,
+    MatMenuModule,
+    MatDialogModule
   ],
   providers: [APP_PROVIDERS],
   bootstrap: [AppComponent]
