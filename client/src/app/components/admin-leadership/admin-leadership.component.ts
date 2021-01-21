@@ -1,7 +1,9 @@
 import { SelectionModel } from '@angular/cdk/collections';
-import { Component, Input } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Person } from '@models/page-content';
+import { MatTableDataSource } from '@angular/material/table';
 
 export interface PersonElement {
   position: number;
@@ -19,12 +21,15 @@ export interface PersonElement {
     './admin-leadership.component.mobile.scss'
   ]
 })
-export class AdminLeadershipComponent {
+export class AdminLeadershipComponent implements OnInit {
   @Input() _id: string;
   @Input() data;
   @Input() dataRetrieved: boolean = false;
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
   displayedColumns: string[] = ['select', 'name', 'skills', 'link'];
   selection = new SelectionModel<PersonElement>(true, []);
+  dataSource: MatTableDataSource<PersonElement>;
 
   constructor(
     private route: ActivatedRoute) {
@@ -36,7 +41,22 @@ export class AdminLeadershipComponent {
 
       this.data = data['pageContent'].leadership;
       this.data.people.forEach((person, i) => person.position = i);
+      this.dataSource = new MatTableDataSource(this.data.people);
     });
+  }
+
+  ngOnInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
 
   ngOnChanges(): void {
