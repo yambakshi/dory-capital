@@ -17,7 +17,8 @@ import { SkillsContainerComponent } from '@components/skills-container/skills-co
 import { CarouselsComponent } from '@components/carousels/carousels.component';
 import { AdminLeadershipComponent } from '@components/admin-leadership/admin-leadership.component';
 import { AdminLeadershipPersonComponent } from '@components/admin-leadership-person/admin-leadership-person.component';
-import { ApproveDialog } from '@components/approve-dialog/approve-dialog.component';
+import { MemberDialog } from '@components/member-dialog/member.dialog';
+import { ApproveDialog } from '@components/approve-dialog/approve.dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatTableModule } from '@angular/material/table';
@@ -30,7 +31,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
-import { AddMemberDialog } from '@components/add-member-dialog/add-member-dialog.component';
+import { MatSelectModule } from '@angular/material/select';
+
 
 @NgModule({
   declarations: [
@@ -47,7 +49,7 @@ import { AddMemberDialog } from '@components/add-member-dialog/add-member-dialog
     SkillsContainerComponent,
     CarouselsComponent,
     ApproveDialog,
-    AddMemberDialog
+    MemberDialog
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -65,7 +67,8 @@ import { AddMemberDialog } from '@components/add-member-dialog/add-member-dialog
     MatButtonModule,
     MatIconModule,
     MatMenuModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSelectModule
   ],
   providers: [APP_PROVIDERS],
   bootstrap: [AppComponent]

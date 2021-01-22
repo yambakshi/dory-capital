@@ -1,0 +1,42 @@
+<form [formGroup]="memberForm" (ngSubmit)="onSubmit()">
+    <h1 mat-dialog-title>{{ editMode ? 'Edit' : 'Add'}} Member</h1>
+    <div class="member-dialog-container" mat-dialog-content>
+        <div class="file-upload-field-container">
+            <p>Profile Picture</p>
+            <img class="file-upload-picture" src="{{imgUrl}}" [alt]="data.name" />
+            <div class="file-upload-field">
+                <button mat-button type="button" (click)="fileInput.click()">Choose Image...</button>
+                <input #fileInput type="file" (change)="onFileSelected()" accept="image/*" formControlName="filePath"
+                    hidden>
+            </div>
+            <mat-label class="file-upload-label">{{profilePicture.path}}</mat-label>
+            <mat-label class="upload-field-error">{{fileUploadError}}</mat-label>
+            <mat-label>Recommended Dimensions</mat-label>
+            <mat-label class="upload-field-recomendation">{{fileUploadRecommendation}}</mat-label>
+        </div>
+        <div class="member-text-fields-container">
+            <p>Name</p>
+            <mat-form-field class="member-field-container">
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name" (input)="onInput('name')">
+            </mat-form-field>
+            <p>Link</p>
+            <mat-form-field class="member-field-container">
+                <mat-label>Link</mat-label>
+                <input matInput formControlName="link" (input)="onInput('link')">
+            </mat-form-field>
+            <p>Skills</p>
+            <mat-form-field class="member-field-container" appearance="fill">
+                <mat-label>Skills</mat-label>
+                <mat-select formControlName="skills" multiple (selectionChange)="onSelectChange()">
+                    <mat-option *ngFor="let skill of skillsList" [value]="skill._id">{{skill.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="member-actions-container" mat-dialog-actions>
+        <button mat-button (click)="onCancelClick()" mat-dialog-close>Cancel</button>
+        <button mat-button [mat-dialog-close]="data" color="primary" [disabled]="!memberForm.valid || !diff" type="submit">{{
+            editMode ? 'Update' : 'Add'}}</button>
+    </div>
+</form>

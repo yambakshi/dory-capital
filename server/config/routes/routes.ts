@@ -1,6 +1,6 @@
 import { Router } from "express";
 import passport from 'passport';
-import { createPageContent, getPageContent, updatePageContent, addPeople, updatePerson, deletePeople, addSkills } from '../../app/controllers';
+import { createPageContent, getPageContent, updatePageContent, addPeople, updatePerson, deletePeople, addSkills, getSkills } from '../../app/controllers';
 import { register, login, logout, getLoginStatus } from '../../app/controllers/users';
 import { loginMiddleware, loginStatusMiddleware, logoutMiddleware } from "../middlewares";
 
@@ -8,6 +8,9 @@ import { loginMiddleware, loginStatusMiddleware, logoutMiddleware } from "../mid
 export const router = Router();
 router.route('/api')
     .get(getPageContent);
+
+router.route('/api/skills')
+    .get(getSkills);
 
 router.route('/api/register')
     .post(register);

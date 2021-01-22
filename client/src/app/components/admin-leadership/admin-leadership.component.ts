@@ -5,11 +5,11 @@ import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
-import { ApproveDialog } from '@components/approve-dialog/approve-dialog.component';
-import { AddMemberDialog } from '@components/add-member-dialog/add-member-dialog.component';
+import { ApproveDialog } from '@components/approve-dialog/approve.dialog';
+import { MemberDialog } from '@components/member-dialog/member.dialog';
 
-export interface PersonElement {
-  position: number;
+export interface Member {
+  index: number;
   name: string;
   skills: string;
   link: string;
@@ -31,8 +31,8 @@ export class AdminLeadershipComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   displayedColumns: string[] = ['select', 'name', 'skills', 'link', 'actions'];
-  selection = new SelectionModel<PersonElement>(true, []);
-  dataSource: MatTableDataSource<PersonElement>;
+  selection = new SelectionModel<Member>(true, []);
+  dataSource: MatTableDataSource<Member>;
 
   constructor(
     private route: ActivatedRoute,
@@ -44,7 +44,7 @@ export class AdminLeadershipComponent implements OnInit {
       }
 
       this.data = data['pageContent'].leadership;
-      this.data.people.forEach((person, i) => person.position = i);
+      this.data.people.forEach((member, i) => member.index = i);
       this.dataSource = new MatTableDataSource(this.data.people);
     });
   }
@@ -69,8 +69,8 @@ export class AdminLeadershipComponent implements OnInit {
   }
 
   addMember(): void {
-    const dialogRef = this.dialog.open(AddMemberDialog, {
-      width: '400px',
+    const dialogRef = this.dialog.open(MemberDialog, {
+      width: '600px',
       data: {}
     });
 
@@ -79,7 +79,20 @@ export class AdminLeadershipComponent implements OnInit {
     });
   }
 
-  removeMember({ name }): void {
+  editMember($event, member): void {
+    $event.stopPropagation();
+    const dialogRef = this.dialog.open(MemberDialog, {
+      width: '600px',
+      data: member
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+
+  removeMember($event, { name }): void {
+    $event.stopPropagation();
     const dialogRef = this.dialog.open(ApproveDialog, {
       width: '400px',
       data: { name }
@@ -88,10 +101,6 @@ export class AdminLeadershipComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
-  }
-
-  editMember($event): void {
-    $event.stopPropagation();
   }
 
   getSkillsNames(skills: []): string {
@@ -110,11 +119,11 @@ export class AdminLeadershipComponent implements OnInit {
       this.data.people.forEach(row => this.selection.select(row));
   }
 
-  checkboxLabel(row?: PersonElement): string {
+  checkboxLabel(row?: Member): string {
     if (!row) {
       return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
     }
 
-    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.position + 1}`;
+    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.index + 1}`;
   }
 }

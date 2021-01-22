@@ -7,14 +7,14 @@ export interface DialogData {
 
 @Component({
     selector: 'approve-dialog',
-    templateUrl: 'approve-dialog.component.html',
+    templateUrl: 'approve.dialog.html',
 })
 export class ApproveDialog {
     constructor(
         public dialogRef: MatDialogRef<ApproveDialog>,
         @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
 
-    onNoClick(): void {
+    onCancelClick(): void {
         this.dialogRef.close();
     }
 }

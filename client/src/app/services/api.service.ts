@@ -17,8 +17,18 @@ export class ApiService {
             .pipe(catchError(this.handleError));
     }
 
+    getSkills(): any {
+        return this.http.get('/api/skills', this.httpOptions)
+            .pipe(catchError(this.handleError));
+    }
+
     updatePageContent(newParagraph: { _id: string, path: string, text: string }): any {
         return this.http.post('/api/admin', newParagraph, this.httpOptions)
+            .pipe(catchError(this.handleError));
+    }
+
+    addMember(newMember: { name: string, link: string, skills: {}[], imgUrl: string }): any {
+        return this.http.put('/api/admin', newMember, this.httpOptions)
             .pipe(catchError(this.handleError));
     }
 
