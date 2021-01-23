@@ -5,7 +5,6 @@ import { LoginService } from '@services/login.service';
 import { SocketIoService } from '@services/socket-io.service';
 import { PageContent } from '@models/page-content';
 import { ActivatedRoute } from '@angular/router';
-import { PageContentService } from '@services/page-content.service';
 
 @Component({
   selector: 'admin',
@@ -31,7 +30,6 @@ export class AdminComponent implements AfterViewInit {
     private apiService: ApiService,
     private loginService: LoginService,
     private socketIoService: SocketIoService,
-    private pageContentService: PageContentService,
     private renderer: Renderer2) {
 
     this.route.data.subscribe(data => {
@@ -41,7 +39,6 @@ export class AdminComponent implements AfterViewInit {
       }
 
       this.data = data['pageContent'];
-      this.pageContentService.setPageContent(data['pageContent']);
       this.initSectionsHeader();
     });
 

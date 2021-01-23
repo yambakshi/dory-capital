@@ -7,7 +7,6 @@ import { HttpErrorInterceptor } from '@services/http-interceptor';
 import { CookiesService } from '@services/cookies.service';
 import { AuthGuard } from './guards/auth.guard';
 import { CloudinaryService } from '@services/cloudinary.service';
-import { PageContentService } from '@services/page-content.service';
 import { PageContentResolver } from '@resolvers/page-content.resolver';
 
 export const APP_PROVIDERS = [
@@ -17,7 +16,6 @@ export const APP_PROVIDERS = [
     LoginService,
     AuthGuard,
     CookiesService,
-    PageContentService,
     CloudinaryService,
     PageContentResolver,
     {

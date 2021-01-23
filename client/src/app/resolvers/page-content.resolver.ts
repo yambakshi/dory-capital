@@ -10,10 +10,10 @@ export class PageContentResolver implements Resolve<PageContent> {
   constructor(
     private apiService: ApiService,
     private router: Router
-  ) {}
+  ) { }
 
   resolve(route: ActivatedRouteSnapshot): Observable<PageContent> {
-    return this.apiService.getPageContent().pipe(catchError(err=>{
+    return this.apiService.getPageContent().pipe(catchError(err => {
       this.router.navigateByUrl('/404');
       return of(null);
     }));

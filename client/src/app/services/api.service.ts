@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
+import { PageContent } from '@models/page-content';
 
 @Injectable()
 export class ApiService {
+    pageContent: PageContent;
     httpOptions: any = {
         headers: {},
         responseType: 'json'
@@ -14,7 +16,12 @@ export class ApiService {
 
     getPageContent(): any {
         return this.http.get('/api', this.httpOptions)
-            .pipe(catchError(this.handleError));
+            .pipe(
+                map(res => {
+                    this.pageContent = res as any;
+                    return res;
+                }),
+                catchError(this.handleError));
     }
 
     getSkills(): any {
@@ -29,6 +36,20 @@ export class ApiService {
 
     addMember(newMember: { name: string, link: string, skills: {}[], imgUrl: string }): any {
         return this.http.put('/api/admin', newMember, this.httpOptions)
+            .pipe(catchError(this.handleError));
+    }
+
+    removeMembers(ids: string[]): any {
+        const { _id } = this.pageContent;
+        const body = {
+            _id,
+            data: {
+                "leadership.people": ids
+            }
+        }
+
+        const options = { ...this.httpOptions, body };
+        return this.http.delete('/api/admin/leadership', options)
             .pipe(catchError(this.handleError));
     }
 

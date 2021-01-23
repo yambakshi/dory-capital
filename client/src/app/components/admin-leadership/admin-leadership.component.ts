@@ -1,18 +1,20 @@
 import { SelectionModel } from '@angular/cdk/collections';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { ApproveDialog } from '@components/approve-dialog/approve.dialog';
 import { MemberDialog } from '@components/member-dialog/member.dialog';
 
-export interface Member {
+export interface MemberRow {
+  _id: string;
   index: number;
   name: string;
   skills: string;
   link: string;
+  imgUrl: string;
 }
 
 @Component({
@@ -25,28 +27,28 @@ export interface Member {
   ]
 })
 export class AdminLeadershipComponent implements OnInit {
-  @Input() _id: string;
-  @Input() data;
-  @Input() dataRetrieved: boolean = false;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   displayedColumns: string[] = ['select', 'name', 'skills', 'link', 'actions'];
-  selection = new SelectionModel<Member>(true, []);
-  dataSource: MatTableDataSource<Member>;
+  selection = new SelectionModel<MemberRow>(true, []);
+  dataSource: MatTableDataSource<MemberRow>;
 
   constructor(
     private route: ActivatedRoute,
     public dialog: MatDialog) {
     this.route.data.subscribe(data => {
       if (!data['pageContent']) {
-        this.data = { people: [] };
         return;
       }
 
-      this.data = data['pageContent'].leadership;
-      this.data.people.forEach((member, i) => member.index = i);
-      this.dataSource = new MatTableDataSource(this.data.people);
+      const members = data['pageContent'].leadership.people;
+      members.forEach((member, i) => member.index = i);
+      this.dataSource = new MatTableDataSource(members);
     });
+  }
+
+  get noRowsSelected() {
+    return this.selection.selected.length === 0;
   }
 
   ngOnInit() {
@@ -63,43 +65,52 @@ export class AdminLeadershipComponent implements OnInit {
     }
   }
 
-  ngOnChanges(): void {
-    if (this.dataRetrieved) {
-    }
+  removeMember($event, member): void {
+    $event.stopPropagation();
+    const message = `Are you sure you want to remove ${member.name}?`;
+    this.showApproveDialog({ members: [member], message });
+  }
+
+  removeMembers(): void {
+    const members = this.selection.selected;
+    const message = 'Are you sure you want to remove the selected members?';
+    this.showApproveDialog({ members, message });
   }
 
   addMember(): void {
-    const dialogRef = this.dialog.open(MemberDialog, {
-      width: '600px',
-      data: {}
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
+    this.showMembersDialog({});
   }
 
   editMember($event, member): void {
     $event.stopPropagation();
-    const dialogRef = this.dialog.open(MemberDialog, {
-      width: '600px',
-      data: member
+    this.showMembersDialog(member);
+  }
+
+  showApproveDialog(data): void {
+    const dialogRef = this.dialog.open(ApproveDialog, {
+      width: '400px',
+      data
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      for (let i = result.length - 1; i >= 0; i--) {
+        const { index } = result[i];
+        this.dataSource.data.splice(index, 1);
+      }
+
+      this.dataSource.data.forEach((row, i) => row.index = i);
+      this.selection.clear();
+      this.dataSource._updateChangeSubscription();
     });
   }
 
-  removeMember($event, { name }): void {
-    $event.stopPropagation();
-    const dialogRef = this.dialog.open(ApproveDialog, {
-      width: '400px',
-      data: { name }
+  showMembersDialog(data): void {
+    const dialogRef = this.dialog.open(MemberDialog, {
+      width: '600px',
+      data
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
     });
   }
 
@@ -109,17 +120,17 @@ export class AdminLeadershipComponent implements OnInit {
 
   isAllSelected() {
     const numSelected = this.selection.selected.length;
-    const numRows = this.data.people.length;
+    const numRows = this.dataSource.data.length;
     return numSelected === numRows;
   }
 
   masterToggle() {
     this.isAllSelected() ?
       this.selection.clear() :
-      this.data.people.forEach(row => this.selection.select(row));
+      this.dataSource.data.forEach(row => this.selection.select(row));
   }
 
-  checkboxLabel(row?: Member): string {
+  checkboxLabel(row?: MemberRow): string {
     if (!row) {
       return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
     }

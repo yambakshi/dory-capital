@@ -6,12 +6,15 @@ import { mongoDb } from '../../dal';
 export async function deletePeopleProfiles({ _id, data }: { _id: string, data: {} }) {
     const path = Object.keys(data)[0];
     const objectIds = data[path].map(id => new ObjectID(id));
+
+    // Remove member from members collection
     const query = objectIds.length > 0 ? { _id: { $in: objectIds } } : {};
     const { result } = await mongoDb.deleteMany(env.mongodb.dbName, 'people', query);
     if (result.ok !== 1 || (objectIds.length > 0 && result.n !== objectIds.length)) {
         return Promise.reject({ message: 'Deleting people profiles failed' });
     }
 
+    // Remove member from page-content collection
     let output;
     if (objectIds.length > 0) {
         const pullData = { _id, data: { [path]: { $in: objectIds } } };

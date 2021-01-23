@@ -4,7 +4,7 @@ export class Skill {
     name: string;
 }
 
-export class Person {
+export class Member {
     imgUrl: string;
     name: string;
     link: string;
@@ -26,7 +26,7 @@ export class PageContent {
     scope: TextSection
     aboutUs: TextSection
     whyUs: TextSection
-    leadership: { people: Person[] };
+    leadership: { members: Member[] };
     process: TextSection
     faq: TextSection
     contactUs: TextSection

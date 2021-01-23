@@ -2,14 +2,14 @@
     <div class="section-header-container">
         <h2 class="section-title">Leadership</h2>
     </div>
-    <div class="people-table-container">
+    <div class="members-table-container">
         <button mat-button (click)="addMember()">
             <mat-icon>add</mat-icon>
-            Add member
+            Add Member
         </button>
-        <button mat-button (click)="removeMember($event, { name: 'asdf' })" disabled>
+        <button mat-button (click)="removeMembers()" [disabled]="noRowsSelected">
             <mat-icon>delete</mat-icon>
-            Remove member
+            Remove Members
         </button>
         <mat-form-field>
             <mat-label>Filter</mat-label>
