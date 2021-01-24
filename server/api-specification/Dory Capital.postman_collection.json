@@ -12,14 +12,14 @@
 					"name": "leadership",
 					"item": [
 						{
-							"name": "add-people",
+							"name": "add-members",
 							"request": {
 								"auth": {
 									"type": "bearer",
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmZkZGQxYTlkN2NlMTM0YjBjMmU2NjUiLCJpYXQiOjE2MTEwOTk0MjQsImV4cCI6MTYxMTE4NTgyNCwiYXVkIjoiZG9yeS1jYXBpdGFsIiwiaXNzIjoiZG9yeS1jYXBpdGFsIn0.tFk0rFAxW2CtxA7iEQiTxKu3ntQiS7VRVtgTIMRTSDQ",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmZkZGQxYTlkN2NlMTM0YjBjMmU2NjUiLCJpYXQiOjE2MTEzOTc5OTAsImV4cCI6MTYxMTQ4NDM5MCwiYXVkIjoiZG9yeS1jYXBpdGFsIiwiaXNzIjoiZG9yeS1jYXBpdGFsIn0.iUogoqrfjKcxOg6b-N4fd04gktjJyy_-zDbIkhEGOtI",
 											"type": "string"
 										}
 									]
@@ -28,7 +28,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"_id\": \"600874a70b4dc64fe4a0e6f6\",\r\n    \"data\": {\r\n        \"leadership.people\": [\r\n            {\r\n                \"imgUrl\": \"v1611142485/dory-capital/leadership/people/asaf-eli_twcqtv.png\",\r\n                \"name\": \"Asaf Eli\",\r\n                \"link\": \"https://www.linkedin.com/in/asherdory/\",\r\n                \"skills\": [\r\n                    \"6008746b0b4dc64fe4a0e6ea\",\r\n                    \"6008746b0b4dc64fe4a0e6eb\",\r\n                    \"6008746b0b4dc64fe4a0e6ec\"\r\n                ]\r\n            },\r\n            {\r\n                \"imgUrl\": \"v1611142469/dory-capital/leadership/people/asher-dory_l90vxw.png\",\r\n                \"name\": \"Asher Dory\",\r\n                \"link\": \"https://www.linkedin.com/in/asherdory/\",\r\n                \"skills\": [\r\n                    \"6008746b0b4dc64fe4a0e6ed\",\r\n                    \"6008746b0b4dc64fe4a0e6ee\",\r\n                    \"6008746b0b4dc64fe4a0e6ef\"\r\n                ]\r\n            },\r\n            {\r\n                \"imgUrl\": \"v1611142499/dory-capital/leadership/people/eli-clark_zey3cg.png\",\r\n                \"name\": \"Eli Clark\",\r\n                \"link\": \"https://www.linkedin.com/in/eli-clark-8a60523/\",\r\n                \"skills\": [\r\n                    \"6008746b0b4dc64fe4a0e6f0\",\r\n                    \"6008746b0b4dc64fe4a0e6f1\",\r\n                    \"6008746b0b4dc64fe4a0e6f2\",\r\n                    \"6008746b0b4dc64fe4a0e6f3\"\r\n                ]\r\n            }\r\n        ]\r\n    }\r\n}",
+									"raw": "{\r\n    \"_id\": \"600874a70b4dc64fe4a0e6f6\",\r\n    \"data\": {\r\n        \"leadership.people\": [\r\n            {\r\n                \"imgUrl\": \"dory-capital/leadership/people/asaf-eli_twcqtv\",\r\n                \"name\": \"Asaf Eli\",\r\n                \"link\": \"https://www.linkedin.com/in/asherdory/\",\r\n                \"skills\": [\r\n                    \"6008746b0b4dc64fe4a0e6ea\",\r\n                    \"6008746b0b4dc64fe4a0e6eb\",\r\n                    \"6008746b0b4dc64fe4a0e6ec\"\r\n                ]\r\n            },\r\n            {\r\n                \"imgUrl\": \"dory-capital/leadership/people/asher-dory_l90vxw\",\r\n                \"name\": \"Asher Dory\",\r\n                \"link\": \"https://www.linkedin.com/in/asherdory/\",\r\n                \"skills\": [\r\n                    \"6008746b0b4dc64fe4a0e6ed\",\r\n                    \"6008746b0b4dc64fe4a0e6ee\",\r\n                    \"6008746b0b4dc64fe4a0e6ef\"\r\n                ]\r\n            },\r\n            {\r\n                \"imgUrl\": \"dory-capital/leadership/people/eli-clark_njd5aj\",\r\n                \"name\": \"Eli Clark\",\r\n                \"link\": \"https://www.linkedin.com/in/eli-clark-8a60523/\",\r\n                \"skills\": [\r\n                    \"6008746b0b4dc64fe4a0e6f0\",\r\n                    \"6008746b0b4dc64fe4a0e6f1\",\r\n                    \"6008746b0b4dc64fe4a0e6f2\",\r\n                    \"6008746b0b4dc64fe4a0e6f3\"\r\n                ]\r\n            }\r\n        ]\r\n    }\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -55,14 +55,14 @@
 							"response": []
 						},
 						{
-							"name": "update-person",
+							"name": "update-member",
 							"request": {
 								"auth": {
 									"type": "bearer",
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmZkZGQxYTlkN2NlMTM0YjBjMmU2NjUiLCJpYXQiOjE2MTEwOTk0MjQsImV4cCI6MTYxMTE4NTgyNCwiYXVkIjoiZG9yeS1jYXBpdGFsIiwiaXNzIjoiZG9yeS1jYXBpdGFsIn0.tFk0rFAxW2CtxA7iEQiTxKu3ntQiS7VRVtgTIMRTSDQ",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmZkZGQxYTlkN2NlMTM0YjBjMmU2NjUiLCJpYXQiOjE2MTExODYyMTgsImV4cCI6MTYxMTI3MjYxOCwiYXVkIjoiZG9yeS1jYXBpdGFsIiwiaXNzIjoiZG9yeS1jYXBpdGFsIn0.hpQsBH17Pq9KK1Zz-9fW1b7XKADDtVmI9ne6qD02PLU",
 											"type": "string"
 										}
 									]
@@ -71,7 +71,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"_id\": \"60086af47908aa20e03fd744\",\r\n    \"data\": {\r\n        \"name\": \"Eli Clark\",\r\n        \"link\": \"https://www.linkedin.com/in/eli-clark-8a60523/\"\r\n    }\r\n}",
+									"raw": "{\r\n    \"_id\": \"60086af47908aa20e03fd744\",\r\n    \"data\": {\r\n        \"name\": \"Eli Clark\",\r\n        \"link\": \"https://www.linkedin.com/in/eli-clark-8a60523/\",\r\n        \"skills\": []\r\n    }\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -98,14 +98,14 @@
 							"response": []
 						},
 						{
-							"name": "delete-people",
+							"name": "delete-members",
 							"request": {
 								"auth": {
 									"type": "bearer",
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmZkZGQxYTlkN2NlMTM0YjBjMmU2NjUiLCJpYXQiOjE2MTEwOTk0MjQsImV4cCI6MTYxMTE4NTgyNCwiYXVkIjoiZG9yeS1jYXBpdGFsIiwiaXNzIjoiZG9yeS1jYXBpdGFsIn0.tFk0rFAxW2CtxA7iEQiTxKu3ntQiS7VRVtgTIMRTSDQ",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmZkZGQxYTlkN2NlMTM0YjBjMmU2NjUiLCJpYXQiOjE2MTEzOTc5OTAsImV4cCI6MTYxMTQ4NDM5MCwiYXVkIjoiZG9yeS1jYXBpdGFsIiwiaXNzIjoiZG9yeS1jYXBpdGFsIn0.iUogoqrfjKcxOg6b-N4fd04gktjJyy_-zDbIkhEGOtI",
 											"type": "string"
 										}
 									]
@@ -114,7 +114,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"_id\": \"60086a427908aa20e03fd73b\",\r\n    \"data\": {\r\n        \"leadership.people\": [\r\n            \"60086a647908aa20e03fd741\",\r\n            \"60086a647908aa20e03fd73f\"\r\n        ]\r\n    }\r\n}",
+									"raw": "{\r\n    \"_id\": \"600874a70b4dc64fe4a0e6f6\",\r\n    \"data\": {\r\n        \"leadership.people\": [\r\n            \"600c103f1e82d321ccd528ae\"\r\n        ]\r\n    }\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -305,6 +305,29 @@
 									"path": [
 										"api",
 										"admin",
+										"skills"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get-skills",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:9356/api/skills",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "9356",
+									"path": [
+										"api",
 										"skills"
 									]
 								}

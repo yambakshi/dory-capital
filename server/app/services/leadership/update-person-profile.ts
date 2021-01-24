@@ -17,13 +17,11 @@ export async function updatePersonProfile(update: { _id: string, data: any }) {
         update.data.skills = update.data.skills.map(_id => new ObjectID(_id));
     }
 
-    // const output = await mongoDb.updateOne(env.mongodb.dbName, 'people', update);
     const result = await mongoDb.findAndModify(env.mongodb.dbName, 'people', update);
 
     if (!result.ok) {
         return Promise.reject("Member update failed");
     }
-
 
     const member = result.value;
     const resolvedSkills = await querySkills(member.skills);
