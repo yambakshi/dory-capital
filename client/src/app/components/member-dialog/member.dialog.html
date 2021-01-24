@@ -3,10 +3,10 @@
     <div class="member-dialog-container" mat-dialog-content>
         <div class="file-upload-field-container">
             <p>Profile Picture</p>
-            <img class="file-upload-picture" src="{{imgUrl}}" [alt]="data.name" />
+            <img class="file-upload-picture" [src]="imgUrl" [alt]="data.name" />
             <div class="file-upload-field">
                 <button mat-button type="button" (click)="fileInput.click()">Choose Image...</button>
-                <input #fileInput type="file" (change)="onFileSelected()" accept="image/*" formControlName="filePath"
+                <input #fileInput type="file" (change)="onFileSelected()" accept="image/*" formControlName="imgUrl"
                     hidden>
             </div>
             <mat-label class="file-upload-label">{{profilePicture.path}}</mat-label>
@@ -36,7 +36,7 @@
     </div>
     <div class="member-actions-container" mat-dialog-actions>
         <button mat-button (click)="onCancelClick()" mat-dialog-close>Cancel</button>
-        <button mat-button [mat-dialog-close]="data" color="primary" [disabled]="!memberForm.valid || !diff" type="submit">{{
+        <button mat-button color="primary" [disabled]="!memberForm.valid || !diff" type="submit">{{
             editMode ? 'Update' : 'Add'}}</button>
     </div>
 </form>

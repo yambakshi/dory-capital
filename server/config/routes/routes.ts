@@ -1,8 +1,11 @@
 import { Router } from "express";
 import passport from 'passport';
-import { createPageContent, getPageContent, updatePageContent, addPeople, updatePerson, deletePeople, addSkills, getSkills } from '../../app/controllers';
-import { register, login, logout, getLoginStatus } from '../../app/controllers/users';
-import { loginMiddleware, loginStatusMiddleware, logoutMiddleware } from "../middlewares";
+import {
+    register, login, logout, getLoginStatus,
+    createPageContent, getPageContent, updatePageContent,
+    addMembers, updatePerson, deletePeople, addSkills, getSkills
+} from '../../app/controllers';
+import { loginMiddleware, loginStatusMiddleware, logoutMiddleware, memberFormatterMiddleware, uploadProfilePictureMiddleware } from "../middlewares";
 
 
 export const router = Router();
@@ -27,8 +30,15 @@ router.route('/api/admin')
     .post(passport.authenticate('jwt', { session: false }), updatePageContent);
 
 router.route('/api/admin/leadership')
-    .put(passport.authenticate('jwt', { session: false }), addPeople)
-    .post(passport.authenticate('jwt', { session: false }), updatePerson)
+    .put(
+        passport.authenticate('jwt', { session: false }),
+        uploadProfilePictureMiddleware,
+        memberFormatterMiddleware,
+        addMembers)
+    .post(passport.authenticate('jwt', { session: false }),
+        uploadProfilePictureMiddleware,
+        memberFormatterMiddleware,
+        updatePerson)
     .delete(passport.authenticate('jwt', { session: false }), deletePeople);
 
 router.route('/api/admin/skills')

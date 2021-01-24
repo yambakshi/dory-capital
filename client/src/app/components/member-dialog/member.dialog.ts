@@ -1,14 +1,15 @@
 import { Component, ElementRef, Inject, ViewChild } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { CloudinaryService } from '@services/cloudinary.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '@services/api.service';
-import { Skill } from '@models/page-content';
+import { Member, ProfilePictureFile, Skill } from '@models/page-content';
+import { Cloudinary } from '@cloudinary/angular-5.x';
 
 
 export interface DialogData {
+    _id: string;
     name: string;
-    imgUrl: string;
+    imageId: string;
     link: string;
     skills: Skill[];
 }
@@ -22,22 +23,23 @@ export class MemberDialog {
     @ViewChild('fileInput') fileInput: ElementRef;
     submitted: boolean = false;
     memberForm: FormGroup;
-    profilePicture: { path: string, file: any } = { path: '', file: null };
-    megabyteLength: number = 2**20; // For DOM string comparison
-    blankProfilePictureUrl: string = 'v1611307800/dory-capital/leadership/blank-profile-picture_xiyjyk.jpg';
+    profilePicture: ProfilePictureFile = { path: '', dataUrl: '', file: null };
+    blankImageId: string = 'dory-capital/leadership/blank-profile-picture_xiyjyk';
     fileUploadRecommendation: string = 'W: 775px; H: 800px';
     fileUploadError: string = '';
     skillsList: Skill[] = [];
     editMode: boolean = false;
-    diffValidator: { name: boolean, link: boolean, skills: boolean, imgUrl: boolean }
-        = { name: false, link: false, skills: false, imgUrl: false };
+    diffValidator:
+        { name: boolean, link: boolean, skills: boolean, imgUrl: boolean } =
+        { name: false, link: false, skills: false, imgUrl: false };
     diff: boolean = false;
+    submitMethod: Function;
 
     constructor(
         public dialogRef: MatDialogRef<MemberDialog>,
-        private cloudinaryService: CloudinaryService,
         private apiService: ApiService,
         private formBuilder: FormBuilder,
+        private cloudinary: Cloudinary,
         @Inject(MAT_DIALOG_DATA) public data: DialogData) {
         this.editMode = !!Object.keys(data).length;
         this.diff = !this.editMode;
@@ -47,11 +49,8 @@ export class MemberDialog {
     }
 
     get imgUrl() {
-        if (this.profilePicture.path) {
-            return this.profilePicture.file;
-        } else {
-            return `${this.cloudinaryService.prefix}${this.data.imgUrl || this.blankProfilePictureUrl}`;
-        }
+        return this.profilePicture.dataUrl ||
+            this.cloudinary.url(this.data.imageId || this.blankImageId, { transformation: [{ fetch_format: "auto" }] });
     }
 
     ngOnInit(): void {
@@ -63,26 +62,27 @@ export class MemberDialog {
             name: [name, [Validators.required]],
             link: [link, [Validators.required]],
             skills: [skillsIds, [Validators.required]],
-            filePath: ['', fileInputValidators]
+            imgUrl: ['', fileInputValidators]
         });
-    }
-
-    onCancelClick(): void {
-        this.dialogRef.close();
     }
 
     onFileSelected(): void {
         if (typeof (FileReader) !== 'undefined') {
             const reader = new FileReader();
             const fileInput = this.fileInput.nativeElement;
+            const file: File = fileInput.files[0];
             reader.onload = (e: any) => {
-                const file = e.target.result;
-                if (!file) {
+                const dataUrl = e.target.result;
+                if (!dataUrl) {
                     this.fileUploadError = 'Cannot read file';
                     return;
                 }
 
-                if (file.length * 2 > this.megabyteLength) {
+                const head = 'data:image/png;base64,';
+                const imgFileSize = Math.round((dataUrl.length - head.length) * 3 / 4) / 1024;
+
+                // If image file size is over 1000 kilobytes
+                if (imgFileSize > 1000) {
                     this.fileUploadError = 'File exceeds the 1MB maximum size';
                     return;
                 }
@@ -90,6 +90,7 @@ export class MemberDialog {
                 this.fileUploadError = '';
                 this.profilePicture.path = fileInput.value;
                 this.profilePicture.file = file;
+                this.profilePicture.dataUrl = dataUrl;
 
                 if (this.editMode) {
                     this.diffValidator.imgUrl = true;
@@ -97,7 +98,7 @@ export class MemberDialog {
                 }
             };
 
-            reader.readAsDataURL(this.fileInput.nativeElement.files[0]);
+            reader.readAsDataURL(file);
         }
     }
 
@@ -115,15 +116,15 @@ export class MemberDialog {
         if (selectedSkillsIds.length !== memberSkillsIds.length) {
             this.diffValidator.skills = true;
         } else {
-            let skillsDiff: boolean = false;
+            let diffStatus: boolean = false;
             for (let i = 0, length = selectedSkillsIds.length; i < length; i++) {
                 if (!memberSkillsIds.includes(selectedSkillsIds[i])) {
-                    skillsDiff = true;
+                    diffStatus = true;
                     break;
                 }
             }
 
-            this.diffValidator.skills = skillsDiff;
+            this.diffValidator.skills = diffStatus;
         }
 
         this.sumDiffStatus();
@@ -148,15 +149,34 @@ export class MemberDialog {
             return;
         }
 
-        // this.apiService.addMember({
-        //     name: this.memberForm.controls.name.value,
-        //     link: this.memberForm.controls.link.value,
-        //     skills: this.memberForm.controls.skills.value,
-        //     imgUrl: this.memberForm.controls.imgUrl.value,
-        // }).subscribe(
-        //     res => {
-        //     },
-        //     err => {
-        //     });
+        this.editMode ? this.submitEdit() : this.submitAdd();
+    }
+
+    submitEdit(): void {
+        const member = new Member();
+        const modifiedFields = Object.keys(this.diffValidator).filter(key => this.diffValidator[key]);
+        modifiedFields.forEach(field => member[field] = this.memberForm.controls[field].value);
+        if (this.profilePicture.file)
+            member.profilePictureFile = this.profilePicture;
+
+        this.apiService.updateMember(this.data._id, member).subscribe(
+            res => { this.dialogRef.close(res) },
+            err => { console.log(err) });
+    }
+
+    submitAdd(): void {
+        const member = new Member();
+        for (const field in this.memberForm.controls) {
+            member[field] = this.memberForm.controls[field].value;
+        }
+
+        member.profilePictureFile = this.profilePicture;
+        this.apiService.addMember(member).subscribe(
+            res => { this.dialogRef.close(res) },
+            err => { console.log(err) });
+    }
+
+    onCancelClick(): void {
+        this.dialogRef.close();
     }
 }

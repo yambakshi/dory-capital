@@ -1,3 +1,9 @@
+export class ProfilePictureFile {
+    path: string;
+    file: File;
+    dataUrl: string;
+}
+
 export class Skill {
     _id: string;
     imgUrl: string;
@@ -5,10 +11,12 @@ export class Skill {
 }
 
 export class Member {
+    _id: string;
     imgUrl: string;
     name: string;
     link: string;
     skills: Skill[];
+    profilePictureFile?: ProfilePictureFile;
 }
 
 export class Paragraph {

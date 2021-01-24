@@ -23,9 +23,9 @@ export class ApproveDialog {
     }
 
     onRemoveClick(): void {
-        const ids = this.data.members.map(({ _id }) => _id);
+        const members = this.data.members.map(({ _id, imageId }) => ({ _id, imageId }));
         // TODO: Show loader
-        this.apiService.removeMembers(ids).subscribe(
+        this.apiService.removeMembers(members).subscribe(
             (res: any) => {
                 this.dialogRef.close(this.data.members);
             },

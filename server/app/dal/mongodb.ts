@@ -10,7 +10,6 @@ export class MongoDB {
             const uri = `${uriPrefix}://${username}:${password}@${host}/${dbName}`;
             this.mongoClient = await MongoClient.connect(uri, {
                 useUnifiedTopology: true,
-                retryWrites: true,
                 w: 'majority',
                 useNewUrlParser: true
             });
@@ -32,7 +31,19 @@ export class MongoDB {
         return cursor;
     }
 
-    async aggregate(dbName: string, collectionName: string, lookup: {}) {
+    async findAndModify(dbName: string, collectionName: string, { _id, data }) {
+        const db = this.mongoClient.db(dbName);
+        const collection = db.collection(collectionName);
+        const output = collection.findOneAndUpdate(
+            { _id: { $eq: new ObjectID(_id) } },
+            { $set: data },
+            { returnOriginal: false }
+        )
+
+        return output;
+    }
+
+    async aggregate(dbName: string, collectionName: string, lookup: {}[]) {
         const db = this.mongoClient.db(dbName);
         const cursor = db.collection(collectionName).aggregate(lookup);
         return cursor;

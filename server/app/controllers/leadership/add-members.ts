@@ -4,7 +4,7 @@ import { socket } from '../../../config/socket';
 import { validatePeopleAddition } from '../../validation-schemas';
 
 
-async function processPeople(people: any) {
+async function processMembers(people: any) {
     const validationErrors = validatePeopleAddition(people);
     if (validationErrors) {
         const firstErr = validationErrors[0];
@@ -15,9 +15,9 @@ async function processPeople(people: any) {
     return output;
 }
 
-export async function addPeople(req: Request, res: Response) {
+export async function addMembers(req: Request, res: Response) {
     try {
-        const output = await processPeople(req.body);
+        const output = await processMembers(req.body);
         socket.nsp.emit('page-content-changed');
         res.send(output);
     } catch (error) {

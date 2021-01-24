@@ -1,11 +1,13 @@
 import { ObjectID } from 'mongodb';
 import { env } from '../../../config';
 import { mongoDb } from '../../dal';
+import { deleteImages } from '../images';
 
 
 export async function deletePeopleProfiles({ _id, data }: { _id: string, data: {} }) {
     const path = Object.keys(data)[0];
-    const objectIds = data[path].map(id => new ObjectID(id));
+    await deleteImages(data[path].map(({ imageId }) => imageId));
+    const objectIds = data[path].map(({ _id }) => new ObjectID(_id));
 
     // Remove member from members collection
     const query = objectIds.length > 0 ? { _id: { $in: objectIds } } : {};

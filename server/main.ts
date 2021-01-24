@@ -2,6 +2,7 @@ import express from "express";
 import http from "http";
 import { mongoDb } from './app/dal';
 import { configApp, configPassport, socket, env } from './config';
+import './config/cloudinary';
 
 
 const port = env.apiPort || 3000;

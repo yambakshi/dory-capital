@@ -3,10 +3,11 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MatTableDataSource } from '@angular/material/table';
+import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { ApproveDialog } from '@components/approve-dialog/approve.dialog';
 import { MemberDialog } from '@components/member-dialog/member.dialog';
+import { Member } from '@models/page-content';
 
 export interface MemberRow {
   _id: string;
@@ -15,6 +16,7 @@ export interface MemberRow {
   skills: string;
   link: string;
   imgUrl: string;
+  imageId: string;
 }
 
 @Component({
@@ -27,11 +29,13 @@ export interface MemberRow {
   ]
 })
 export class AdminLeadershipComponent implements OnInit {
+  @ViewChild(MatTable, { static: true }) table: MatTable<any>;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   displayedColumns: string[] = ['select', 'name', 'skills', 'link', 'actions'];
   selection = new SelectionModel<MemberRow>(true, []);
   dataSource: MatTableDataSource<MemberRow>;
+  members: MemberRow[]
 
   constructor(
     private route: ActivatedRoute,
@@ -41,9 +45,9 @@ export class AdminLeadershipComponent implements OnInit {
         return;
       }
 
-      const members = data['pageContent'].leadership.people;
-      members.forEach((member, i) => member.index = i);
-      this.dataSource = new MatTableDataSource(members);
+      this.members = data['pageContent'].leadership.people;
+      this.members.forEach((member, i) => member.index = i);
+      this.dataSource = new MatTableDataSource(this.members);
     });
   }
 
@@ -65,6 +69,30 @@ export class AdminLeadershipComponent implements OnInit {
     }
   }
 
+  addMember(): void {
+    const dialogCallback = members => {
+      this.members = this.members.concat(members);
+      this.dataSource.data = this.members;
+    }
+
+    this.showMembersDialog({}, dialogCallback);
+  }
+
+  editMember($event, member): void {
+    $event.stopPropagation();
+    const dialogCallback = member => {
+      this.dataSource.data.filter((value, key) => {
+        if (value._id == member._id) {
+          value.name = member.name;
+          value.link = member.link;
+          value.skills = member.skills;
+        }
+      })
+    }
+
+    this.showMembersDialog(member, dialogCallback);
+  }
+
   removeMember($event, member): void {
     $event.stopPropagation();
     const message = `Are you sure you want to remove ${member.name}?`;
@@ -75,15 +103,6 @@ export class AdminLeadershipComponent implements OnInit {
     const members = this.selection.selected;
     const message = 'Are you sure you want to remove the selected members?';
     this.showApproveDialog({ members, message });
-  }
-
-  addMember(): void {
-    this.showMembersDialog({});
-  }
-
-  editMember($event, member): void {
-    $event.stopPropagation();
-    this.showMembersDialog(member);
   }
 
   showApproveDialog(data): void {
@@ -104,14 +123,13 @@ export class AdminLeadershipComponent implements OnInit {
     });
   }
 
-  showMembersDialog(data): void {
+  showMembersDialog(data, dialogCallback): void {
     const dialogRef = this.dialog.open(MemberDialog, {
       width: '600px',
       data
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-    });
+    dialogRef.afterClosed().subscribe(dialogCallback);
   }
 
   getSkillsNames(skills: []): string {

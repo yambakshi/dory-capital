@@ -33,6 +33,10 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 
+import { CloudinaryModule } from '@cloudinary/angular-5.x';
+import { Cloudinary } from 'cloudinary-core';
+import { CLODUINARY_CONFIG } from '@services/constants';
+
 
 @NgModule({
   declarations: [
@@ -53,6 +57,7 @@ import { MatSelectModule } from '@angular/material/select';
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    CloudinaryModule.forRoot({ Cloudinary }, CLODUINARY_CONFIG),
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,

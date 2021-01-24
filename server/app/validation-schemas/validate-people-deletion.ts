@@ -14,7 +14,14 @@ const peopleDeletionSchema = {
                 'leadership.people': {
                     type: 'array',
                     minItems: 1,
-                    items: { type: 'string', format: 'non-empty-string' }
+                    items: {
+                        required: ['_id', 'imageId'],
+                        type: 'object',
+                        properties:  {
+                            _id: { type: 'string', format: 'non-empty-string' },
+                            imageId: { type: 'string', format: 'non-empty-string' }
+                        }
+                    }
                 }
             }
         }
