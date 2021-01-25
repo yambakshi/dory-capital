@@ -31,11 +31,11 @@ export class MongoDB {
         return cursor;
     }
 
-    async findAndModify(dbName: string, collectionName: string, { _id, data }) {
+    async findAndModify(dbName: string, collectionName: string, filter: {}, data: {}) {
         const db = this.mongoClient.db(dbName);
         const collection = db.collection(collectionName);
         const output = collection.findOneAndUpdate(
-            { _id: { $eq: new ObjectID(_id) } },
+            filter,
             { $set: data },
             { returnOriginal: false }
         )
@@ -57,10 +57,10 @@ export class MongoDB {
         return output;
     }
 
-    async insertOne(dbName: string, collectionName: string, documents: any[]) {
+    async insertOne(dbName: string, collectionName: string, document: any) {
         const db = this.mongoClient.db(dbName);
         const collection = db.collection(collectionName);
-        const output = collection.insertOne(documents);
+        const output = collection.insertOne(document);
 
         return output;
     }
@@ -83,12 +83,10 @@ export class MongoDB {
         return output;
     }
 
-    async push(dbName: string, collectionName: string, { _id, data }) {
+    async push(dbName: string, collectionName: string, filter: {}, data: {}) {
         const db = this.mongoClient.db(dbName);
         const collection = db.collection(collectionName);
-        const output = collection.updateOne(
-            { _id: { $eq: new ObjectID(_id) } },
-            { $push: data });
+        const output = collection.updateOne(filter, { $push: data });
 
         return output;
     }

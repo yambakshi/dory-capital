@@ -2,11 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { Member, PageContent } from '@models/page-content';
+import { Member, PageContent, Paragraph } from '@models/page-content';
 
 @Injectable()
 export class ApiService {
-    pageContent: PageContent;
+    pageData: any;
     httpOptions: any = {
         headers: {},
         responseType: 'json'
@@ -14,18 +14,18 @@ export class ApiService {
 
     constructor(private http: HttpClient) { }
 
-    getPageContent(): any {
-        return this.http.get('/api', this.httpOptions)
+    getPageData(): any {
+        return this.http.get('/api/general', this.httpOptions)
             .pipe(
-                map(res => {
-                    this.pageContent = res as any;
+                map((res: any) => {
+                    this.pageData = res;
                     return res;
                 }),
                 catchError(this.handleError));
     }
 
-    updatePageContent(newParagraph: { _id: string, path: string, text: string }): any {
-        return this.http.post('/api/admin', newParagraph, this.httpOptions)
+    updateParagraph(paragraph: Paragraph): any {
+        return this.http.post('/api/paragraphs', paragraph, this.httpOptions)
             .pipe(catchError(this.handleError));
     }
 
@@ -36,26 +36,19 @@ export class ApiService {
 
 
     addMember(member: Member): any {
-        const { _id } = this.pageContent;
-        const body = {
-            _id,
-            data: { "leadership.people": [member] }
-        }
-
-        const formData = this.objectToFormData(body);
-        return this.http.put('/api/admin/leadership', formData, this.httpOptions)
+        const formData = this.objectToFormData(member);
+        return this.http.put('/api/members', formData, this.httpOptions)
             .pipe(catchError(this.handleError));
     }
 
-    updateMember(_id: string, member: Member): any {
-        const body = { _id, data: member };
-        const formData = this.objectToFormData(body);
-        return this.http.post('/api/admin/leadership', body, this.httpOptions)
+    updateMember(member: Member): any {
+        const formData = this.objectToFormData(member);
+        return this.http.post('/api/members', formData, this.httpOptions)
             .pipe(catchError(this.handleError));
     }
 
     removeMembers(members: { _id: string, imageId: string }[]): any {
-        const { _id } = this.pageContent;
+        const { _id } = this.pageData;
         const body = {
             _id,
             data: { "leadership.people": members }

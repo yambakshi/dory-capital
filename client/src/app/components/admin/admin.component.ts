@@ -22,7 +22,7 @@ export class AdminComponent implements AfterViewInit {
   dataRetrieved: boolean = false;
   sectionsTabs: string[] = [];
   selectedTab: number = 3;
-  data: PageContent;
+  data: any;
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
@@ -74,19 +74,22 @@ export class AdminComponent implements AfterViewInit {
   }
 
   initSectionsHeader(): void {
-    const sectionsKeys = Object.keys(this.data);
-    for (let i = 0, length = sectionsKeys.length; i < length; i++) {
-      if (sectionsKeys[i].charAt(0) == '_') {
-        continue;
-      }
+    this.data.forEach(({ name }) => {
+      this.sectionsTabs.push(name);
+    });
+    // const sectionsKeys = Object.keys(this.data);
+    // for (let i = 0, length = sectionsKeys.length; i < length; i++) {
+    //   if (sectionsKeys[i].charAt(0) == '_') {
+    //     continue;
+    //   }
 
-      if (sectionsKeys[i] === 'faq') {
-        this.sectionsTabs.push('FAQ');
-        continue;
-      }
+    //   if (sectionsKeys[i] === 'faq') {
+    //     this.sectionsTabs.push('FAQ');
+    //     continue;
+    //   }
 
-      this.sectionsTabs.push(this.toName(sectionsKeys[i]));
-    }
+    //   this.sectionsTabs.push(this.toName(sectionsKeys[i]));
+    // }
   }
 
   selectTab(i: number) {

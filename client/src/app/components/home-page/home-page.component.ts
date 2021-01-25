@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild, PLATFORM_ID, Inject } from '@
 import { isPlatformBrowser } from '@angular/common';
 import { ApiService } from '@services/api.service';
 import { SocketIoService } from '@services/socket-io.service';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -14,101 +15,111 @@ import { SocketIoService } from '@services/socket-io.service';
 })
 export class HomePageComponent implements OnInit {
   @ViewChild('pageNavigator') pageNavigator: ElementRef;
-  data: {
-    _id: string,
-    scope: {
-      title: string,
-      paragraphs: { text: string }[]
-    },
-    aboutUs: {
-      title: string,
-      paragraphs: { text: string }[],
-    },
-    whyUs: {
-      title: string,
-      paragraphs: { text: string, title: string }[]
-    },
-    process: {
-      title: string,
-      paragraphs: { text: string, title: string }[]
-    }
-    faq: {
-      title: string,
-      paragraphs: { text: string, title: string }[]
-    },
-    contactUs: {
-      title: string
-    }
-  } = {
-      _id: '',
-      scope: {
-        title: '',
-        paragraphs: [
-          { text: '' },
-          { text: '' }
-        ],
-      },
-      aboutUs: {
-        title: '',
-        paragraphs: [
-          { text: '' },
-          { text: '' }
-        ]
-      },
-      whyUs: {
-        title: '',
-        paragraphs: [
-          { text: '', title: '' },
-          { text: '', title: '' },
-          { text: '', title: '' },
-          { text: '', title: '' },
-          { text: '', title: '' },
-          { text: '', title: '' }
-        ]
-      },
-      process: {
-        title: '',
-        paragraphs: [
-          { text: '', title: '' },
-          { text: '', title: '' },
-          { text: '', title: '' }
-        ]
-      },
-      faq: {
-        title: '',
-        paragraphs: [
-          { text: '', title: '' },
-          { text: '', title: '' },
-          { text: '', title: '' },
-          { text: '', title: '' },
-          { text: '', title: '' },
-          { text: '', title: '' },
-          { text: '', title: '' },
-          { text: '', title: '' },
-          { text: '', title: '' },
-          { text: '', title: '' },
-          { text: '', title: '' }
-        ]
-      },
-      contactUs: {
-        title: '',
-      }
-    }
+  // data: {
+  //   _id: string,
+  //   scope: {
+  //     title: string,
+  //     paragraphs: { text: string }[]
+  //   },
+  //   aboutUs: {
+  //     title: string,
+  //     paragraphs: { text: string }[],
+  //   },
+  //   whyUs: {
+  //     title: string,
+  //     paragraphs: { text: string, title: string }[]
+  //   },
+  //   process: {
+  //     title: string,
+  //     paragraphs: { text: string, title: string }[]
+  //   }
+  //   faq: {
+  //     title: string,
+  //     paragraphs: { text: string, title: string }[]
+  //   },
+  //   contactUs: {
+  //     title: string
+  //   }
+  // } = {
+  //     _id: '',
+  //     scope: {
+  //       title: '',
+  //       paragraphs: [
+  //         { text: '' },
+  //         { text: '' }
+  //       ],
+  //     },
+  //     aboutUs: {
+  //       title: '',
+  //       paragraphs: [
+  //         { text: '' },
+  //         { text: '' }
+  //       ]
+  //     },
+  //     whyUs: {
+  //       title: '',
+  //       paragraphs: [
+  //         { text: '', title: '' },
+  //         { text: '', title: '' },
+  //         { text: '', title: '' },
+  //         { text: '', title: '' },
+  //         { text: '', title: '' },
+  //         { text: '', title: '' }
+  //       ]
+  //     },
+  //     process: {
+  //       title: '',
+  //       paragraphs: [
+  //         { text: '', title: '' },
+  //         { text: '', title: '' },
+  //         { text: '', title: '' }
+  //       ]
+  //     },
+  //     faq: {
+  //       title: '',
+  //       paragraphs: [
+  //         { text: '', title: '' },
+  //         { text: '', title: '' },
+  //         { text: '', title: '' },
+  //         { text: '', title: '' },
+  //         { text: '', title: '' },
+  //         { text: '', title: '' },
+  //         { text: '', title: '' },
+  //         { text: '', title: '' },
+  //         { text: '', title: '' },
+  //         { text: '', title: '' },
+  //         { text: '', title: '' }
+  //       ]
+  //     },
+  //     contactUs: {
+  //       title: '',
+  //     }
+  //   }
+  data: any;
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
     private apiService: ApiService,
+    private route: ActivatedRoute,
     private socketIoService: SocketIoService) {
-    this.apiService.getPageContent().subscribe(data => {
-      this.data = data;
+    this.route.data.subscribe(data => {
+      if (!data['pageContent']) {
+        this.data = [];
+        return;
+      }
+
+      this.data = data['pageContent'];
     });
+    // this.apiService.getPageData().subscribe(data => {
+    //   this.data = data;
+    // });
   }
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
       this.socketIoService.connect();
       this.socketIoService.listen('page-content-changed').subscribe(() => {
-        this.apiService.getPageContent().subscribe(data => {
+        this.apiService.getPageData().subscribe(data => {
           this.data = data;
         });
       })

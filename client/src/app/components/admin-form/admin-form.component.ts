@@ -12,11 +12,11 @@ import { ApiService } from '@services/api.service';
     ]
 })
 export class AdminFormComponent {
-    @Input() _id: string;
-    @Input() data: string;
-    @Input() path: string;
-    @Input() formTitle: string;
-    @Input() dataRetrieved: boolean = false;
+    // @Input() _id: string;
+    @Input() data: any;
+    // @Input() path: string;
+    // @Input() formTitle: string;
+    // @Input() dataRetrieved: boolean = false;
     @ViewChild('formElement', { read: NgForm }) formElement: NgForm;
     submitted: boolean = false;
     disableButtons: boolean = true;
@@ -27,32 +27,32 @@ export class AdminFormComponent {
 
     get f() { return this.formElement.controls; }
 
-    ngOnChanges(): void {
-        if (this.dataRetrieved) {
-            this.dataBackup = this.data;
-        }
-    }
+    // ngOnChanges(): void {
+    //     if (this.dataRetrieved) {
+    //         this.dataBackup = this.data;
+    //     }
+    // }
 
     async onSubmit(): Promise<void> {
-        this.submitted = true;
+        // this.submitted = true;
 
-        if (this.formElement.invalid) {
-            return;
-        }
+        // if (this.formElement.invalid) {
+        //     return;
+        // }
 
-        const update = {
-            _id: this._id,
-            path: this.path,
-            text: this.data
-        }
-        this.disableButtons = true;
-        this.showLoader = true;
+        // const update = {
+        //     _id: this._id,
+        //     path: this.path,
+        //     text: this.data
+        // }
+        // this.disableButtons = true;
+        // this.showLoader = true;
 
-        await this.timeout(500);
-        this.apiService.updatePageContent(update).subscribe((res: any) => {
-            this.dataBackup = this.data;
-            this.showLoader = false;
-        })
+        // await this.timeout(500);
+        // this.apiService.updatePageContent(update).subscribe((res: any) => {
+        //     this.dataBackup = this.data;
+        //     this.showLoader = false;
+        // })
     }
 
     timeout(ms: number) {

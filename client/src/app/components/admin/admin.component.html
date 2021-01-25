@@ -16,12 +16,12 @@
         </div>
     </div>
     <div #sections class="management-platform">
-        <admin-section [_id]="data._id" [name]="'Scope'" [data]="data.scope" [dataRetrieved]="dataRetrieved"></admin-section>
-        <admin-section [_id]="data._id" [name]="'About Us'" [data]="data.aboutUs" [dataRetrieved]="dataRetrieved"></admin-section>
-        <admin-section [_id]="data._id" [name]="'Why Us'" [data]="data.whyUs" [dataRetrieved]="dataRetrieved"></admin-section>
+        <admin-section [data]="data[0]"></admin-section>
+        <admin-section [data]="data[1]"></admin-section>
+        <admin-section [data]="data[2]"></admin-section>
         <admin-leadership></admin-leadership>
-        <admin-section [_id]="data._id" [name]="'Process'" [data]="data.process" [dataRetrieved]="dataRetrieved"></admin-section>
-        <admin-section [_id]="data._id" [name]="'FAQ'" [data]="data.faq" [dataRetrieved]="dataRetrieved"></admin-section>
-        <admin-section [_id]="data._id" [name]="'Contact Us'" [data]="data.contactUs" [dataRetrieved]="dataRetrieved"></admin-section>
+        <admin-section [data]="data[4]"></admin-section>
+        <admin-section [data]="data[5]"></admin-section>
+        <admin-section [data]="data[6]"></admin-section>
     </div>
 </div>

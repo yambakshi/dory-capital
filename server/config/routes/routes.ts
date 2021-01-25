@@ -2,44 +2,60 @@ import { Router } from "express";
 import passport from 'passport';
 import {
     register, login, logout, getLoginStatus,
-    createPageContent, getPageContent, updatePageContent,
-    addMembers, updatePerson, deletePeople, addSkills, getSkills
+    getPageData,
+    createMemberProfile, updateMemberProfile, deleteMembersProfiles,
+    updateParagraph,
+    createSections,
+    createSkills, getSkills
 } from '../../app/controllers';
 import { loginMiddleware, loginStatusMiddleware, logoutMiddleware, memberFormatterMiddleware, uploadProfilePictureMiddleware } from "../middlewares";
 
 
 export const router = Router();
-router.route('/api')
-    .get(getPageContent);
 
-router.route('/api/skills')
-    .get(getSkills);
+// Auth
 
-router.route('/api/register')
+router.route('/api/auth/register')
     .post(register);
 
-router.route('/api/login')
+router.route('/api/auth/login')
     .get(loginStatusMiddleware, getLoginStatus)
     .post(loginMiddleware, login);
 
-router.route('/api/logout')
+router.route('/api/auth/logout')
     .get(logoutMiddleware, logout);
 
-router.route('/api/admin')
-    .put(passport.authenticate('jwt', { session: false }), createPageContent)
-    .post(passport.authenticate('jwt', { session: false }), updatePageContent);
+// Genetal
 
-router.route('/api/admin/leadership')
+router.route('/api/general')
+    .get(getPageData);
+
+// Members
+
+router.route('/api/members')
     .put(
         passport.authenticate('jwt', { session: false }),
         uploadProfilePictureMiddleware,
         memberFormatterMiddleware,
-        addMembers)
+        createMemberProfile)
     .post(passport.authenticate('jwt', { session: false }),
         uploadProfilePictureMiddleware,
         memberFormatterMiddleware,
-        updatePerson)
-    .delete(passport.authenticate('jwt', { session: false }), deletePeople);
+        updateMemberProfile)
+    .delete(passport.authenticate('jwt', { session: false }), deleteMembersProfiles);
 
-router.route('/api/admin/skills')
-    .put(passport.authenticate('jwt', { session: false }), addSkills);
+// Paragraphs
+
+router.route('/api/paragraphs')
+    .post(passport.authenticate('jwt', { session: false }), updateParagraph);
+
+// Sections
+
+router.route('/api/sections')
+    .put(passport.authenticate('jwt', { session: false }), createSections);
+
+// Skills
+
+router.route('/api/skills')
+    .get(getSkills)
+    .put(passport.authenticate('jwt', { session: false }), createSkills);

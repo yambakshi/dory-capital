@@ -19,7 +19,7 @@ export class LoginService {
         private router: Router) { }
 
     logout(): any {
-        return this.http.get('/api/logout', this.httpOptions).pipe(map(res => res),
+        return this.http.get('/api/auth/logout', this.httpOptions).pipe(map(res => res),
             finalize(() => {
                 this.router.navigate(['']);
             }), catchError(this.handleError)).subscribe(res => {
@@ -28,12 +28,12 @@ export class LoginService {
     }
 
     getLoginStatus(): any {
-        return this.http.get('/api/login', this.httpOptions)
+        return this.http.get('/api/auth/login', this.httpOptions)
             .pipe(catchError(this.handleError));
     }
 
     login(creds: { email: string, password: string }): any {
-        return this.http.post('/api/login', creds, this.httpOptions).pipe(map(
+        return this.http.post('/api/auth/login', creds, this.httpOptions).pipe(map(
             (res: any) => {
                 this.cookiesService.set(COOKIES.TOKEN_KEY, res.token);
             }),

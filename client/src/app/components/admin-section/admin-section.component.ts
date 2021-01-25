@@ -10,20 +10,17 @@ import { Component, Input, OnInit } from '@angular/core';
     ]
 })
 export class ParagraphSectionComponent implements OnInit {
-    @Input() _id: string;
-    @Input() name: string;
-    @Input() data: {
-        title: string,
-        paragraphs: { text: string }[]
-    };
-    @Input() dataRetrieved: boolean = false;
+    // @Input() _id: string;
+    // @Input() name: string;
+    @Input() data: any;
+    // @Input() dataRetrieved: boolean = false;
     collapsed: boolean = false;
     nameKey: string = ''
 
     constructor() { }
 
     ngOnInit(): void {
-        this.nameKey = this.toCamelCase(this.name);
+        // this.nameKey = this.toCamelCase(this.name);
     }
 
     toCamelCase(name: string): string {

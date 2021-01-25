@@ -12,11 +12,16 @@ export class Skill {
 
 export class Member {
     _id: string;
-    imgUrl: string;
+    sectionId: string;
+    imageId: string;
     name: string;
     link: string;
     skills: Skill[];
-    profilePictureFile?: ProfilePictureFile;
+    profilePictureFile?: File;
+    constructor({ _id, sectionId }: { _id?: string, sectionId?: string }) {
+        this._id = _id || undefined;
+        this.sectionId = sectionId || undefined;
+    }
 }
 
 export class Paragraph {

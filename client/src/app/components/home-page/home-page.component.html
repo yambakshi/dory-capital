@@ -22,11 +22,11 @@
     <div class="container-fluid" id="scope">
         <div class="scope-header">
             <p>Our Scope</p>
-            <h1>{{data.scope.title}}</h1>
-            <h6>{{data.scope.paragraphs[0].text}}</h6>
+            <h1>{{data[0].title}}</h1>
+            <h6>{{data[0].content[0].text}}</h6>
         </div>
         <carousels class="carousels-component"></carousels>
-        <p class="addition text-center mt-5">{{data.scope.paragraphs[1].text}}
+        <p class="addition text-center mt-5">{{data[0].content[1].text}}
             <br />
             <span>please <a href="mailto:dealflow@dory.capital" class="send-email">send us an email </a>
                 and tell us about your venture</span>
@@ -41,8 +41,8 @@
                     </div>
                 </div>
             </div>
-            <h1>{{data.aboutUs.title}}</h1>
-            <p class="mb-4">{{data.aboutUs.paragraphs[0].text}}</p>
+            <h1>{{data[1].title}}</h1>
+            <p class="mb-4">{{data[1].content[0].text}}</p>
             <a href="#" class="opn-video" data-toggle="modal" data-target="#video-popup">
                 <img src="assets/media/train1.png" alt="video img" class="img-fluid" />
             </a>
@@ -61,7 +61,7 @@
                     </div>
                 </div>
             </div>
-            <p class="pt-4 invest">{{data.aboutUs.paragraphs[1].text}}</p>
+            <p class="pt-4 invest">{{data[1].content[1].text}}</p>
             <p class="quote">“And, when you want something, all the universe conspires in helping you to achieve
                 it (Paulo Coelho)”.</p>
         </div>
@@ -76,12 +76,12 @@
         </div>
         <div class="ellipse">
             <span>why us</span>
-            <h1>{{data.whyUs.title}}</h1>
+            <h1>{{data[2].title}}</h1>
             <p>“It’s the possibility of having a dream come true that makes life interesting (Paulo Coelho)”.</p>
         </div>
         <div class="container mt-space">
             <div class="row">
-                <div *ngFor="let paragraph of data.whyUs.paragraphs; let i = index" class="col-md-6 mb-5">
+                <div *ngFor="let paragraph of data[2].content; let i = index" class="col-md-6 mb-5">
                     <div class="fair-approch">
                         <span>0{{i + 1}}</span>
                         <h4>{{paragraph.title}}</h4>
@@ -109,15 +109,15 @@
                 </div>
             </div>
         </div>
-        <h1 class="process">{{data.process.title}}</h1>
+        <h1 class="process">{{data[4].title}}</h1>
         <div class="container container-set">
             <div class="row step1">
                 <div class="col-md-6  border-set">
                     <div class="step">
                         <span>STEP 1</span>
-                        <h1>{{data.process.paragraphs[0].title}}</h1>
+                        <h1>{{data[4].content[0].title}}</h1>
                         <!-- <p class="one-pager">Please send us a one-pager teaser to <em>dealflow@dory.capital</em></p> -->
-                        <p class="one-pager">{{data.process.paragraphs[0].text}}</p>
+                        <p class="one-pager">{{data[4].content[0].text}}</p>
                         <p class="make"><small></small> Make sure you also introduce your team, and not just your
                             technology.</p>
                         <p class="make"><small></small> Please, also, send us any and all materials and/or brochures
@@ -137,8 +137,8 @@
                 <div class="col-md-6 mb-md-4 border-m-set dep-set">
                     <div class="step mt-0">
                         <span class="stp-squre">STEP 2</span>
-                        <h1>{{data.process.paragraphs[1].title}}</h1>
-                        <p class="one-pager">{{data.process.paragraphs[1].text}}</p>
+                        <h1>{{data[4].content[1].title}}</h1>
+                        <p class="one-pager">{{data[4].content[1].text}}</p>
                         <p class="make"><small></small> Explain and detail your ground-breaking technology and added
                             value.</p>
                         <p class="make"><small></small>Detail your relevant experience, and your motivation for this
@@ -156,11 +156,11 @@
                 <div class="col-md-6 border-step-left">
                     <div class="step">
                         <span>STEP 3</span>
-                        <h1>{{data.process.paragraphs[2].title}}</h1>
+                        <h1>{{data[4].content[2].title}}</h1>
                         <div class="media mb-4">
                             <img src="assets/media/team.png" alt="team" class="img-fluid co-founding-img" />
                             <div class="media-body">
-                                <h6 class="co-founding">{{data.process.paragraphs[2].text}}</h6>
+                                <h6 class="co-founding">{{data[4].content[2].text}}</h6>
                             </div>
                         </div>
                         <div class="media">
@@ -220,7 +220,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                        <div class="panel panel-default" *ngFor="let paragraph of data.faq.paragraphs; let i = index">
+                        <div class="panel panel-default" *ngFor="let paragraph of data[5].content; let i = index">
                             <div class="panel-heading" role="tab" [attr.id]="'heading' + i">
                                 <h4 class="panel-title">
                                     <a [ngClass]="i == 0 ? null : 'collapsed'" data-toggle="collapse"
@@ -429,7 +429,7 @@
         <div class="container footer-top">
             <div class="faq">
                 <span>Contact us</span>
-                <h1 class="mt-0">{{data.contactUs.title}}</h1>
+                <h1 class="mt-0">{{data[6].title}}</h1>
             </div>
             <div class="row justify-content-center">
                 <form class="contact-form">

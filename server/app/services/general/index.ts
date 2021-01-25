@@ -1,0 +1,1 @@
+export { queryPageData } from './query-page-data';

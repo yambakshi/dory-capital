@@ -1,20 +1,20 @@
 <div class="section-container" [ngClass]="collapsed ? 'collapsed' : ''">
     <div class="section-header-container" [ngClass]="collapsed ? 'collapsed' : ''">
-        <h2 class="section-title">{{name}}</h2>
+        <h2 class="section-title">{{data}}</h2>
         <!-- <div class="chevron-container" [ngClass]="collapsed ? 'collapsed' : ''">
             <i class="icon-chevron-thin-down"></i>
         </div> -->
     </div>
     <h3>Title</h3>
-    <admin-form [_id]="_id" [data]="data.title" [formTitle]="" [path]="nameKey + '.title'" [dataRetrieved]="dataRetrieved"></admin-form>
+    <admin-form [data]="data"></admin-form>
     <ng-container *ngIf="data.paragraphs">
         <h3 class="paragraphs-title">Paragraphs</h3>
-        <div *ngFor="let paragraph of data.paragraphs; let i = index" class="paragraphs-forms">
+        <div *ngFor="let paragraph of data.content; let i = index" class="paragraphs-forms">
             <ng-container *ngIf="paragraph.title">
                 <h4 class="paragraph-form-title">{{paragraph.title}}</h4>
-                <admin-form class="admin-form" [_id]="_id" [data]="paragraph.title" [formTitle]="'Title'" [path]="nameKey + '.paragraphs.' + i + '.title'" [dataRetrieved]="dataRetrieved"></admin-form>
+                <admin-form class="admin-form" [data]="paragraph.title"></admin-form>
             </ng-container>
-            <admin-form class="admin-form" [_id]="_id" [data]="paragraph.text" [formTitle]="'Paragraph'" [path]="nameKey + '.paragraphs.' + i + '.text'" [dataRetrieved]="dataRetrieved"></admin-form>
+            <admin-form class="admin-form" [data]="paragraph.text"></admin-form>
         </div>
     </ng-container>
 </div>

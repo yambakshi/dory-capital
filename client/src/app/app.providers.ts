@@ -7,7 +7,7 @@ import { HttpErrorInterceptor } from '@services/http-interceptor';
 import { CookiesService } from '@services/cookies.service';
 import { AuthGuard } from './guards/auth.guard';
 import { CloudinaryService } from '@services/cloudinary.service';
-import { PageContentResolver } from '@resolvers/page-content.resolver';
+import { PageDataResolver } from '@resolvers/page-data.resolver';
 
 export const APP_PROVIDERS = [
     WindowRefService,
@@ -17,7 +17,7 @@ export const APP_PROVIDERS = [
     AuthGuard,
     CookiesService,
     CloudinaryService,
-    PageContentResolver,
+    PageDataResolver,
     {
         provide: HTTP_INTERCEPTORS,
         useClass: HttpErrorInterceptor,

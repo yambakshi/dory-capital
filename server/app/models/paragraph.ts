@@ -1,13 +1,12 @@
-export class Paragraph {
-    section: string;
-    name: string;
-    text: string;
-    lastModified: Date;
+import { SectionContent } from "./section-content";
 
-    constructor({ section, name, text }: Paragraph) {
-        this.section = section;
-        this.name = name;
-        this.text = text;
-        this.lastModified = new Date();
+export class Paragraph extends SectionContent {
+    title: string;
+    text: string;
+
+    constructor(paragraph?: Paragraph) {
+        super(paragraph);
+        this.title = paragraph.title;
+        this.text = paragraph.text;
     }
 }

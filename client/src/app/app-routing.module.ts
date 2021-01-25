@@ -4,13 +4,13 @@ import { HomePageComponent } from '@components/home-page/home-page.component';
 import { AdminComponent } from '@components/admin/admin.component';
 import { LoginPageComponent } from '@components/login-page/login-page.component';
 import { AuthGuard } from './guards/auth.guard';
-import { PageContentResolver } from '@resolvers/page-content.resolver';
+import { PageDataResolver } from '@resolvers/page-data.resolver';
 
 
 const routes: Routes = [
-  { path: '', component: HomePageComponent },
+  { path: '', component: HomePageComponent, resolve: { pageContent: PageDataResolver } },
   { path: 'login', component: LoginPageComponent, canActivate: [AuthGuard] },
-  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard], resolve: { pageContent: PageContentResolver }  },
+  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard], resolve: { pageContent: PageDataResolver } },
   { path: "**", redirectTo: "" }
 ];
 

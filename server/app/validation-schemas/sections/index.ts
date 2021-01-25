@@ -1,0 +1,1 @@
+export { validateSectionsCreation } from './validate-sections-creation';

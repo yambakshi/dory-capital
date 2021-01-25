@@ -7,7 +7,6 @@ import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { ApproveDialog } from '@components/approve-dialog/approve.dialog';
 import { MemberDialog } from '@components/member-dialog/member.dialog';
-import { Member } from '@models/page-content';
 
 export interface MemberRow {
   _id: string;
@@ -36,6 +35,7 @@ export class AdminLeadershipComponent implements OnInit {
   selection = new SelectionModel<MemberRow>(true, []);
   dataSource: MatTableDataSource<MemberRow>;
   members: MemberRow[]
+  sectionId: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -45,7 +45,9 @@ export class AdminLeadershipComponent implements OnInit {
         return;
       }
 
-      this.members = data['pageContent'].leadership.people;
+      const leadershipData = data['pageContent'][3];
+      this.sectionId = leadershipData._id;
+      this.members = leadershipData.content;
       this.members.forEach((member, i) => member.index = i);
       this.dataSource = new MatTableDataSource(this.members);
     });
@@ -70,12 +72,17 @@ export class AdminLeadershipComponent implements OnInit {
   }
 
   addMember(): void {
-    const dialogCallback = members => {
-      this.members = this.members.concat(members);
+    const dialogCallback = member => {
+      this.members.push(member);
       this.dataSource.data = this.members;
     }
 
-    this.showMembersDialog({}, dialogCallback);
+    const dialogData = {
+      editMode: false,
+      member: { sectionId: this.sectionId }
+    }
+
+    this.showMembersDialog(dialogData, dialogCallback);
   }
 
   editMember($event, member): void {
@@ -86,11 +93,17 @@ export class AdminLeadershipComponent implements OnInit {
           value.name = member.name;
           value.link = member.link;
           value.skills = member.skills;
+          value.imageId = member.imageId;
         }
       })
     }
 
-    this.showMembersDialog(member, dialogCallback);
+    const dialogData = {
+      editMode: true,
+      member
+    }
+
+    this.showMembersDialog(dialogData, dialogCallback);
   }
 
   removeMember($event, member): void {
