@@ -1,11 +1,11 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { MemberRow } from '@components/admin-leadership/admin-leadership.component';
+import { Member } from '@models/page-content';
 import { ApiService } from '@services/api.service';
 
 export interface DialogData {
     message: string;
-    members: MemberRow[];
+    members: Member[];
 }
 
 @Component({
@@ -23,12 +23,11 @@ export class ApproveDialog {
     }
 
     onRemoveClick(): void {
+        const sectionId = this.data.members[0].sectionId;
         const members = this.data.members.map(({ _id, imageId }) => ({ _id, imageId }));
         // TODO: Show loader
-        this.apiService.removeMembers(members).subscribe(
-            (res: any) => {
-                this.dialogRef.close(this.data.members);
-            },
+        this.apiService.removeMembers(sectionId, members).subscribe(
+            res => { this.dialogRef.close(res); },
             err => {
                 console.error(err);
                 this.dialogRef.close([]);

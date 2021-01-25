@@ -73,11 +73,11 @@ export class MongoDB {
         return output;
     }
 
-    async updateOne(dbName: string, collectionName: string, { _id, data }) {
+    async updateOne(dbName: string, collectionName: string, filter: {}, data: {}) {
         const db = this.mongoClient.db(dbName);
         const collection = db.collection(collectionName);
         const output = collection.updateOne(
-            { _id: { $eq: new ObjectID(_id) } },
+            filter,
             { $set: data });
 
         return output;
@@ -91,12 +91,10 @@ export class MongoDB {
         return output;
     }
 
-    async pull(dbName: string, collectionName: string, { _id, data }) {
+    async pull(dbName: string, collectionName: string, filter: {}, data: {}) {
         const db = this.mongoClient.db(dbName);
         const collection = db.collection(collectionName);
-        const output = collection.updateOne(
-            { _id: { $eq: new ObjectID(_id) } },
-            { $pull: data });
+        const output = collection.updateOne(filter, { $pull: data });
 
         return output;
     }

@@ -14,8 +14,6 @@ export interface MemberRow {
   name: string;
   skills: string;
   link: string;
-  imgUrl: string;
-  imageId: string;
 }
 
 @Component({
@@ -114,7 +112,7 @@ export class AdminLeadershipComponent implements OnInit {
 
   removeMembers(): void {
     const members = this.selection.selected;
-    const message = 'Are you sure you want to remove the selected members?';
+    const message = `Are you sure you want to remove ${members.length} members?`;
     this.showApproveDialog({ members, message });
   }
 
@@ -124,15 +122,13 @@ export class AdminLeadershipComponent implements OnInit {
       data
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      for (let i = result.length - 1; i >= 0; i--) {
-        const { index } = result[i];
-        this.dataSource.data.splice(index, 1);
-      }
+    dialogRef.afterClosed().subscribe(removedMembersIds => {
+      removedMembersIds.forEach(removedId => {
+        const index = this.members.findIndex(({ _id }) => removedId === _id);
+        this.members.splice(index, 1);
+      });
 
-      this.dataSource.data.forEach((row, i) => row.index = i);
-      this.selection.clear();
-      this.dataSource._updateChangeSubscription();
+      this.dataSource.data = this.members;
     });
   }
 

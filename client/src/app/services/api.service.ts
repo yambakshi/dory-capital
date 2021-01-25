@@ -47,15 +47,10 @@ export class ApiService {
             .pipe(catchError(this.handleError));
     }
 
-    removeMembers(members: { _id: string, imageId: string }[]): any {
-        const { _id } = this.pageData;
-        const body = {
-            _id,
-            data: { "leadership.people": members }
-        }
-
+    removeMembers(sectionId: string, members: { _id: string, imageId: string }[]): any {
+        const body = { sectionId, members };
         const options = { ...this.httpOptions, body };
-        return this.http.delete('/api/admin/leadership', options)
+        return this.http.delete('/api/members', options)
             .pipe(catchError(this.handleError));
     }
 
