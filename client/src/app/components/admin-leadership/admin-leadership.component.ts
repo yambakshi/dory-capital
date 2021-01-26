@@ -82,16 +82,19 @@ export class AdminLeadershipComponent implements OnInit {
 
   editMember($event, member): void {
     $event.stopPropagation();
-    const dialogCallback = member => {
-      if (!member) return;
-      this.dataSource.data.filter((value, key) => {
-        if (value._id == member._id) {
-          value.name = member.name;
-          value.link = member.link;
-          value.skills = member.skills;
-          value.imageId = member.imageId;
+    const dialogCallback = updatedMember => {
+      if (!updatedMember) return;
+      for (let i = 0, length = this.members.length; i < length; i++) {
+        if (this.members[i]._id == updatedMember._id) {
+          this.members[i].name = updatedMember.name;
+          this.members[i].link = updatedMember.link;
+          this.members[i].skills = updatedMember.skills;
+          this.members[i].imageId = updatedMember.imageId;
+          break;
         }
-      })
+      }
+
+      this.dataSource.data = this.members;
     }
 
     const dialogData = { editMode: true, member };

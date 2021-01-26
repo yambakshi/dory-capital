@@ -13,14 +13,23 @@ export async function insertMember(rawMember: Member) {
         link: rawMember.link,
     };
 
+    // Upload image to cloudinary
     member.imageId = (await uploadImage(profilePictureFile.path)).public_id;
+
+    // Map skills to MongoDB ObjectIds
     member.skills = rawMember.skills.map((_id) => new ObjectID(_id.toString()));
+
+    // Insert member into 'sections-contents' collection
     const { ops } = await mongoDb.insertOne(env.mongodb.dbName, 'sections-contents', member);
     const memberId = ops[0]._id;
+
+    // Push member ObjectId into 'Leadership' section content array in 'sections' collection
     const filter = { _id: { $eq: new ObjectID(sectionId) } };
     const data = { content: { $each: [memberId] } };
     await mongoDb.push(env.mongodb.dbName, 'sections', filter, data);
     member._id = memberId;
+
+    // Resolve member's skills
     member.skills = await querySkills(member.skills);
 
     return member;
