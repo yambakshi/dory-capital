@@ -1,4 +1,5 @@
 import { Server } from 'socket.io';
+import { logger } from './logger';
 
 
 class SocketIO {
@@ -14,14 +15,14 @@ class SocketIO {
         });
 
         this.io.on('connection', () => {
-            console.log('Socket connection established');
+            logger.info({ message: "Socket connection established", label: 'SocketIO' });
         });
     }
 
     configNsp(nspName: string): void {
         this.nsp = this.io.of(nspName);
         this.nsp.on('connection', () => {
-            console.log(`Socket connection established on namespace: ${nspName}`);
+            logger.info({ message: `Socket connection established on namespace: ${nspName}`, label: 'SocketIO' });
         })
     }
 }

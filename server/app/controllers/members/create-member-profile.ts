@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import { insertMember } from '../../services';
 import { socket } from '../../../config/socket';
 import { validateMemberProfileCreation } from '../../validation-schemas';
+import { logger } from '../../../config/logger';
 
 
 async function processMemberProfile(member: any) {
@@ -17,11 +18,12 @@ async function processMemberProfile(member: any) {
 
 export async function createMemberProfile(req: Request, res: Response) {
     try {
+        logger.info({ message: "Received 'createMemberProfile' request", label: 'createMemberProfile' });
         const output = await processMemberProfile(req.body);
-        socket.nsp.emit('page-content-changed');
+        socket.nsp.emit('page-data-changed');
         res.send(output);
     } catch (error) {
-        console.error(error);
-        res.status(500).send(error.message);
+        logger.error({ message: error.message, label: 'createMemberProfile' });
+        res.status(500).send({ success: false, message: error.message });
     }
 }

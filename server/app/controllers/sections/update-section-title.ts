@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import { updateSection } from '../../services';
 import { socket } from '../../../config/socket';
 import { validateSectionTitleUpdate } from '../../validation-schemas';
+import { logger } from '../../../config/logger';
 
 
 async function processSectionTitleUpdate(update: any) {
@@ -17,11 +18,12 @@ async function processSectionTitleUpdate(update: any) {
 
 export async function updateSectionTitle(req: Request, res: Response) {
     try {
+        logger.info({ message: "Received 'updateSectionTitle' request", label: 'updateSectionTitle' });
         const output = await processSectionTitleUpdate(req.body);
-        socket.nsp.emit('page-content-changed');
+        socket.nsp.emit('page-data-changed');
         res.send(output);
     } catch (error) {
-        console.error(error);
+        logger.error({ message: error.message, label: 'updateSectionTitle' });
         res.status(500).send({ success: false, message: error.message });
     }
 }

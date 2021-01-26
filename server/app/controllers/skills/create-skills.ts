@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import { insertSkills } from '../../services';
 import { socket } from '../../../config/socket';
 import { validateSkillsCreation } from '../../validation-schemas';
+import { logger } from '../../../config/logger';
 
 
 async function processSkillsCreation(skills: any) {
@@ -17,11 +18,12 @@ async function processSkillsCreation(skills: any) {
 
 export async function createSkills(req: Request, res: Response) {
     try {
+        logger.info({ message: "Received 'createSkills' request", label: 'createSkills' });
         const output = await processSkillsCreation(req.body.skills);
-        socket.nsp.emit('page-content-changed');
+        socket.nsp.emit('page-data-changed');
         res.send(output);
     } catch (error) {
-        console.error(error);
-        res.status(500).send(error.message);
+        logger.error({ message: error.message, label: 'createSkills' });
+        res.status(500).send({ success: false, message: error.message });
     }
 }

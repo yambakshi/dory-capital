@@ -118,7 +118,7 @@ export class HomePageComponent implements OnInit {
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
       this.socketIoService.connect();
-      this.socketIoService.listen('page-content-changed').subscribe(() => {
+      this.socketIoService.listen('page-data-changed').subscribe(() => {
         this.apiService.getPageData().subscribe(data => {
           this.data = data;
         });

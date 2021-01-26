@@ -324,7 +324,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmZkZGQxYTlkN2NlMTM0YjBjMmU2NjUiLCJpYXQiOjE2MTEzOTc5OTAsImV4cCI6MTYxMTQ4NDM5MCwiYXVkIjoiZG9yeS1jYXBpdGFsIiwiaXNzIjoiZG9yeS1jYXBpdGFsIn0.iUogoqrfjKcxOg6b-N4fd04gktjJyy_-zDbIkhEGOtI",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmZkZGQxYTlkN2NlMTM0YjBjMmU2NjUiLCJpYXQiOjE2MTE1OTEwNTUsImV4cCI6MTYxMTY3NzQ1NSwiYXVkIjoiZG9yeS1jYXBpdGFsIiwiaXNzIjoiZG9yeS1jYXBpdGFsIn0.hjaRRUT_pwsy2ZbTqJPqv5U9hsbE-VMjjrRN8cd5StQ",
 									"type": "string"
 								}
 							]
@@ -333,7 +333,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"_id\": \"600874a70b4dc64fe4a0e6f6\",\r\n    \"data\": {\r\n        \"leadership.people\": [\r\n            \"600c103f1e82d321ccd528ae\"\r\n        ]\r\n    }\r\n}",
+							"raw": "{\r\n    \"sectionId\": \"a\",\r\n    \"members\": [\r\n        { \"_id\": \"c\", \"imageId\": \"d\" },\r\n        { \"_id\": \"d\", \"imageId\": \"d\" },\r\n        { \"_id\": \"d\", \"imageId\": \"d\" }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -341,7 +341,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:9356/api/admin/leadership",
+							"raw": "http://127.0.0.1:9356/api/members",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -352,8 +352,7 @@
 							"port": "9356",
 							"path": [
 								"api",
-								"admin",
-								"leadership"
+								"members"
 							]
 						}
 					},
@@ -372,7 +371,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmZkZGQxYTlkN2NlMTM0YjBjMmU2NjUiLCJpYXQiOjE2MTE1ODEzNDksImV4cCI6MTYxMTY2Nzc0OSwiYXVkIjoiZG9yeS1jYXBpdGFsIiwiaXNzIjoiZG9yeS1jYXBpdGFsIn0.1BrK5_CE0JelCss3ahOh3V49pckqP1bVHApD6HpSL6I",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmZkZGQxYTlkN2NlMTM0YjBjMmU2NjUiLCJpYXQiOjE2MTE1OTEwNTUsImV4cCI6MTYxMTY3NzQ1NSwiYXVkIjoiZG9yeS1jYXBpdGFsIiwiaXNzIjoiZG9yeS1jYXBpdGFsIn0.hjaRRUT_pwsy2ZbTqJPqv5U9hsbE-VMjjrRN8cd5StQ",
 									"type": "string"
 								}
 							]

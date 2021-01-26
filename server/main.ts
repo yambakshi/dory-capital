@@ -3,6 +3,7 @@ import http from "http";
 import { mongoDb } from './app/dal';
 import { configApp, configPassport, socket, env } from './config';
 import './config/cloudinary';
+import { logger } from "./config/logger";
 
 
 const port = env.apiPort || 3000;
@@ -23,7 +24,7 @@ mongoDb.connect().then(() => {
     server.listen(port);
     server.on("error", onError);
     server.on('listening', onListening);
-}).catch(error => console.error(error));
+}).catch(error => logger.error({ message: error, label: 'Server Init' }));
 
 /**
  * Event listener for HTTP server "error" event.
@@ -38,11 +39,11 @@ function onError(error) {
     // handle specific listen errors with friendly messages
     switch (error.code) {
         case 'EACCES':
-            console.error(`${bind} requires elevated privileges`);
+            logger.error({ message: `${bind} requires elevated privileges`, label: 'Server Init' });
             process.exit(1);
             break;
         case 'EADDRINUSE':
-            console.error(`${bind} is already in use`);
+            logger.error({ message: `${bind} is already in use`, label: 'Server Init' });
             process.exit(1);
             break;
         default:
@@ -56,5 +57,5 @@ function onError(error) {
 function onListening() {
     const addr = server.address();
     const bind = typeof addr === "string" ? `pipe ${addr}` : `port ${addr.port}`;
-    console.log(`Listening on ${bind}`);
+    logger.info({ message: `Listening on ${bind}`, label: 'Server Init' });
 }

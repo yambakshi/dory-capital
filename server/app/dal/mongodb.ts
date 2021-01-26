@@ -1,5 +1,6 @@
-import { MongoClient, ObjectID } from 'mongodb';
+import { MongoClient } from 'mongodb';
 import { env } from '../../config';
+import { logger } from '../../config/logger';
 
 export class MongoDB {
     mongoClient: MongoClient;
@@ -13,9 +14,10 @@ export class MongoDB {
                 w: 'majority',
                 useNewUrlParser: true
             });
-            console.log('Connected to MongoDB');
+
+            logger.info({ message: "Connected to MongoDB", label: 'MongoDB' });
         } catch (error) {
-            console.error(`Failed to connect to MongoDB: ${error}`);
+            logger.error({ message: error, label: 'MongoDB' });
         }
     }
 

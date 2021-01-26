@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import { updateText } from '../../services';
 import { socket } from '../../../config/socket';
 import { validateParagraphUpdate } from '../../validation-schemas';
+import { logger } from '../../../config/logger';
 
 
 async function processParagraphUpdate(paragraphUpdate) {
@@ -17,11 +18,12 @@ async function processParagraphUpdate(paragraphUpdate) {
 
 export async function updateParagraph(req: Request, res: Response) {
     try {
+        logger.info({ message: "Received 'updateParagraph' request", label: 'updateParagraph' });
         const output = await processParagraphUpdate(req.body);
-        socket.nsp.emit('page-content-changed');
+        socket.nsp.emit('page-data-changed');
         res.send(output);
     } catch (error) {
-        console.error(error);
+        logger.error({ message: error.message, label: 'updateParagraph' });
         res.status(500).send({ success: false, message: error.message });
     }
 }

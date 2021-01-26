@@ -68,6 +68,7 @@ export class AdminLeadershipComponent implements OnInit {
 
   addMember(): void {
     const dialogCallback = member => {
+      if (!member) return;
       this.members.push(member);
       this.dataSource.data = this.members;
     }
