@@ -6,7 +6,7 @@ export class ProfilePictureFile {
 
 export class Skill {
     _id: string;
-    imgUrl: string;
+    imaegId: string;
     name: string;
 }
 

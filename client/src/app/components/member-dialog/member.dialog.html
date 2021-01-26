@@ -29,7 +29,7 @@
             <mat-form-field class="member-field-container" appearance="fill">
                 <mat-label>Skills</mat-label>
                 <mat-select formControlName="skills" multiple (selectionChange)="onSelectChange()">
-                    <mat-option *ngFor="let skill of skillsList" [value]="skill._id">{{skill.name}}</mat-option>
+                    <mat-option *ngFor="let skill of data.skills" [value]="skill._id">{{skill.name}}</mat-option>
                 </mat-select>
             </mat-form-field>
         </div>

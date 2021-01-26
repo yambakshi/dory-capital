@@ -9,6 +9,7 @@ import { Cloudinary } from '@cloudinary/angular-5.x';
 export interface DialogData {
     editMode: boolean;
     member: Member;
+    skills: Skill[];
 }
 
 @Component({
@@ -24,12 +25,10 @@ export class MemberDialog {
     blankImageId: string = 'dory-capital/leadership/blank-profile-picture_djm9y5';
     fileUploadRecommendation: string = 'W: 775px; H: 800px';
     fileUploadError: string = '';
-    skillsList: Skill[] = [];
     diffValidator:
         { name: boolean, link: boolean, skills: boolean, profilePicture: boolean } =
         { name: false, link: false, skills: false, profilePicture: false };
     diff: boolean = false;
-    submitMethod: Function;
 
     constructor(
         public dialogRef: MatDialogRef<MemberDialog>,
@@ -38,9 +37,6 @@ export class MemberDialog {
         private cloudinary: Cloudinary,
         @Inject(MAT_DIALOG_DATA) public data: DialogData) {
         this.diff = !this.data.editMode;
-        this.apiService.getSkills().subscribe(skillsList => {
-            this.skillsList = skillsList;
-        });
     }
 
     get imgSrc() {

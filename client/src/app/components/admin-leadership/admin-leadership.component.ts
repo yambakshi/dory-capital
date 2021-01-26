@@ -6,6 +6,7 @@ import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { ApproveDialog } from '@components/approve-dialog/approve.dialog';
 import { MemberDialog } from '@components/member-dialog/member.dialog';
+import { Skill } from '@models/page-content';
 
 export interface MemberRow {
   _id: string;
@@ -31,6 +32,7 @@ export class AdminLeadershipComponent implements OnInit {
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @Input() data: any;
   @Input() dataRetrieved: boolean = false;
+  @Input() skills: Skill[];
   displayedColumns: string[] = ['select', 'name', 'skills', 'link', 'actions'];
   selection = new SelectionModel<MemberRow>(true, []);
   dataSource: MatTableDataSource<MemberRow>;
@@ -75,7 +77,8 @@ export class AdminLeadershipComponent implements OnInit {
 
     const dialogData = {
       editMode: false,
-      member: { sectionId: this.sectionId }
+      member: { sectionId: this.sectionId },
+      skills: this.skills
     }
 
     this.showMembersDialog(dialogData, dialogCallback);
@@ -98,7 +101,7 @@ export class AdminLeadershipComponent implements OnInit {
       this.dataSource.data = this.members;
     }
 
-    const dialogData = { editMode: true, member };
+    const dialogData = { editMode: true, member, skills: this.skills };
     this.showMembersDialog(dialogData, dialogCallback);
   }
 
