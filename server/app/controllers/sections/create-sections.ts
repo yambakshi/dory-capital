@@ -8,7 +8,7 @@ async function processSectionCreation(sections: any[]) {
     // const validationErrors = validateSectionsCreation(sections);
     // if (validationErrors) {
     //     const firstErr = validationErrors[0];
-    //     throw new Error(`Invalid request(${firstErr.keyword}): sections ${firstErr.dataPath} ${firstErr.message}`);
+    //     throw new Error(`Invalid request(${firstErr.keyword}): create-sections ${firstErr.dataPath} ${firstErr.message}`);
     // }
 
     const output = insertSections(sections);

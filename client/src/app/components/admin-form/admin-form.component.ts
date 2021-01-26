@@ -12,47 +12,62 @@ import { ApiService } from '@services/api.service';
     ]
 })
 export class AdminFormComponent {
-    // @Input() _id: string;
+    @Input() _id: string;
+    @Input() type: string;
     @Input() data: any;
-    // @Input() path: string;
-    // @Input() formTitle: string;
-    // @Input() dataRetrieved: boolean = false;
+    @Input() dataRetrieved: boolean = false;
     @ViewChild('formElement', { read: NgForm }) formElement: NgForm;
     submitted: boolean = false;
     disableButtons: boolean = true;
     showLoader: boolean = false;
     dataBackup: string = null;
+    submitCallback: Function;
 
-    constructor(private apiService: ApiService) { }
+    constructor(private apiService: ApiService) {
+        this.submitCallback = (res: any) => {
+            this.dataBackup = this.data;
+            this.showLoader = false;
+        }
+    }
 
     get f() { return this.formElement.controls; }
 
-    // ngOnChanges(): void {
-    //     if (this.dataRetrieved) {
-    //         this.dataBackup = this.data;
-    //     }
-    // }
+    ngOnChanges(): void {
+        if (this.dataRetrieved) {
+            this.dataBackup = this.data;
+        }
+    }
 
     async onSubmit(): Promise<void> {
-        // this.submitted = true;
+        this.submitted = true;
 
-        // if (this.formElement.invalid) {
-        //     return;
-        // }
+        if (this.formElement.invalid) {
+            return;
+        }
 
-        // const update = {
-        //     _id: this._id,
-        //     path: this.path,
-        //     text: this.data
-        // }
-        // this.disableButtons = true;
-        // this.showLoader = true;
 
-        // await this.timeout(500);
-        // this.apiService.updatePageContent(update).subscribe((res: any) => {
-        //     this.dataBackup = this.data;
-        //     this.showLoader = false;
-        // })
+        this.disableButtons = true;
+        this.showLoader = true;
+
+        await this.timeout(500);
+
+        const update: any = { _id: this._id };
+        switch (this.type) {
+            case 'section.title':
+                update.title = this.data;
+                this.apiService.updateSectionTitle(update).subscribe(this.submitCallback)
+                break;
+            case 'paragraph.title':
+                update.title = this.data;
+                this.apiService.updateParagraph(update).subscribe(this.submitCallback)
+                break;
+            case 'paragraph.text':
+                update.text = this.data;
+                this.apiService.updateParagraph(update).subscribe(this.submitCallback)
+                break;
+            default:
+                break;
+        }
     }
 
     timeout(ms: number) {

@@ -5,7 +5,7 @@ import {
     getPageData,
     createMemberProfile, updateMemberProfile, deleteMembersProfiles,
     updateParagraph,
-    createSections,
+    createSections, updateSectionTitle,
     createSkills, getSkills
 } from '../../app/controllers';
 import { loginMiddleware, loginStatusMiddleware, logoutMiddleware, memberFormatterMiddleware, uploadProfilePictureMiddleware } from "../middlewares";
@@ -52,7 +52,8 @@ router.route('/api/paragraphs')
 // Sections
 
 router.route('/api/sections')
-    .put(passport.authenticate('jwt', { session: false }), createSections);
+    .put(passport.authenticate('jwt', { session: false }), createSections)
+    .post(passport.authenticate('jwt', { session: false }), updateSectionTitle);
 
 // Skills
 

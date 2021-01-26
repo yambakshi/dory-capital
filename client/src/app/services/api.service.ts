@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { Member, PageContent, Paragraph } from '@models/page-content';
+import { Member, Paragraph } from '@models/page-content';
 
 @Injectable()
 export class ApiService {
@@ -22,6 +22,11 @@ export class ApiService {
                     return res;
                 }),
                 catchError(this.handleError));
+    }
+
+    updateSectionTitle(update: { _id: string, title: string }): any {
+        return this.http.post('/api/sections', update, this.httpOptions)
+            .pipe(catchError(this.handleError));
     }
 
     updateParagraph(paragraph: Paragraph): any {

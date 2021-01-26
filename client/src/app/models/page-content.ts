@@ -25,7 +25,8 @@ export class Member {
 }
 
 export class Paragraph {
-    title: string;
+    _id: string;
+    title?: string;
     text: string;
 }
 

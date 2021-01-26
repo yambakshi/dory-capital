@@ -86,12 +86,12 @@ export class AdminLeadershipComponent implements OnInit {
   editMember($event, member): void {
     $event.stopPropagation();
     const dialogCallback = member => {
+      if (!member) return;
       this.dataSource.data.filter((value, key) => {
         if (value._id == member._id) {
           value.name = member.name;
           value.link = member.link;
           value.skills = member.skills;
-          value.imageId = member.imageId;
         }
       })
     }
@@ -123,6 +123,7 @@ export class AdminLeadershipComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(removedMembersIds => {
+      if (!removedMembersIds) return;
       removedMembersIds.forEach(removedId => {
         const index = this.members.findIndex(({ _id }) => removedId === _id);
         this.members.splice(index, 1);

@@ -27,10 +27,7 @@ export class ApproveDialog {
         const members = this.data.members.map(({ _id, imageId }) => ({ _id, imageId }));
         // TODO: Show loader
         this.apiService.removeMembers(sectionId, members).subscribe(
-            res => { this.dialogRef.close(res); },
-            err => {
-                console.error(err);
-                this.dialogRef.close([]);
-            });
+            res => { this.dialogRef.close(res) },
+            err => { this.dialogRef.close() });
     }
 }

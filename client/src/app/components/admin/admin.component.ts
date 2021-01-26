@@ -21,7 +21,7 @@ export class AdminComponent implements AfterViewInit {
   @ViewChild('sections') sections: ElementRef;
   dataRetrieved: boolean = false;
   sectionsTabs: string[] = [];
-  selectedTab: number = 3;
+  selectedTab: number = 0;
   data: any;
 
   constructor(
@@ -38,6 +38,7 @@ export class AdminComponent implements AfterViewInit {
         return;
       }
 
+      this.dataRetrieved = true;
       this.data = data['pageContent'];
       this.initSectionsHeader();
     });
@@ -77,19 +78,6 @@ export class AdminComponent implements AfterViewInit {
     this.data.forEach(({ name }) => {
       this.sectionsTabs.push(name);
     });
-    // const sectionsKeys = Object.keys(this.data);
-    // for (let i = 0, length = sectionsKeys.length; i < length; i++) {
-    //   if (sectionsKeys[i].charAt(0) == '_') {
-    //     continue;
-    //   }
-
-    //   if (sectionsKeys[i] === 'faq') {
-    //     this.sectionsTabs.push('FAQ');
-    //     continue;
-    //   }
-
-    //   this.sectionsTabs.push(this.toName(sectionsKeys[i]));
-    // }
   }
 
   selectTab(i: number) {
