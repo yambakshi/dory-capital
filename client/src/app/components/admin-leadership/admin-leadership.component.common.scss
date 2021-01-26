@@ -24,48 +24,42 @@
     }
 
     > .members-table-container {
-        > table {
-            width: 100%;
-            background-color: #0f49db;
-        }
+        > .table-inner-container {
+            > table {
+                width: 100%;
+                background-color: #0f49db;
+            }
 
-        > .mat-form-field {
-            font-size: 14px;
-            color: #fff;
-            width: 100%;
-        }
+            > .mat-form-field {
+                font-size: 14px;
+                color: #fff;
+                width: 100%;
+            }
 
-        .mat-cell {
-            color: white;
-        }
+            .mat-cell {
+                color: white;
+            }
 
-        td.mat-column-select {
-            padding-right: 24px;
-            flex: 0 0 64px;
-            width: 64px;
-        }
+            td.mat-column-select {
+                padding-right: 24px;
+                flex: 0 0 64px;
+                width: 64px;
+            }
 
-        td.mat-column-name {
-            flex: 0 0 200px;
-            width: 200px;
-        }
+            td.mat-column-name {
+                flex: 0 0 200px;
+                width: 200px;
+            }
 
-        td.mat-column-skills {
-            flex: 0 0 700px;
-            width: 700px;
-        }
+            td.mat-column-skills {
+                flex: 0 0 700px;
+                width: 700px;
+            }
 
-        td.mat-column-actions {
-            width: 20px;
-            padding-right: 8px;
-        }
-
-        .mat-table-sticky-border-elem-right {
-            border-left: 1px solid #e0e0e0;
-        }
-
-        .mat-table-sticky-border-elem-left {
-            border-right: 1px solid #e0e0e0;
+            td.mat-column-actions {
+                width: 20px;
+                padding-right: 0px;
+            }
         }
     }
 }
@@ -78,7 +72,16 @@
     color: #8a8a8a;
 }
 
-:host ::ng-deep mat-row, mat-header-row, mat-footer-row, th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
+:host ::ng-deep .mat-paginator-range-label {
+    margin: 0;
+}
+
+:host ::ng-deep mat-row,
+mat-header-row,
+mat-footer-row,
+th.mat-header-cell,
+td.mat-cell,
+td.mat-footer-cell {
     border-bottom-color: rgb(0 0 0);
 }
 
