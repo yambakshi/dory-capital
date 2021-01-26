@@ -24,6 +24,15 @@
     }
 
     > .members-table-container {
+        > .table-control-panel-container {
+            display: flex;
+            flex-direction: column;
+
+            > .table-control-panel-buttons {
+                display: flex;
+                flex-direction: row;
+            }
+        }
         > .table-inner-container {
             > table {
                 width: 100%;

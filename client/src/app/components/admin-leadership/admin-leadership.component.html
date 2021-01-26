@@ -3,19 +3,23 @@
         <h2 class="section-title">Leadership</h2>
     </div>
     <div class="members-table-container">
-        <div class="table-inner-container">
-            <button mat-button (click)="addMember()">
-                <mat-icon>add</mat-icon>
-                Add Member
-            </button>
-            <button mat-button (click)="removeMembers()" [disabled]="noRowsSelected">
-                <mat-icon>delete</mat-icon>
-                Remove Members
-            </button>
+        <div class="table-control-panel-container">
+            <div class="table-control-panel-buttons">
+                <button mat-button (click)="addMember()">
+                    <mat-icon>add</mat-icon>
+                    Add Member
+                </button>
+                <button mat-button (click)="removeMembers()" [disabled]="noRowsSelected">
+                    <mat-icon>delete</mat-icon>
+                    Remove Members
+                </button>
+            </div>
             <mat-form-field>
                 <mat-label>Filter</mat-label>
                 <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Asher Dory">
             </mat-form-field>
+        </div>
+        <div class="table-inner-container">
             <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
 
                 <!-- Checkbox Column -->
