@@ -8,9 +8,9 @@ import { PageDataResolver } from '@resolvers/page-data.resolver';
 
 
 const routes: Routes = [
-  { path: '', component: HomePageComponent, resolve: { pageContent: PageDataResolver } },
+  { path: '', component: HomePageComponent, resolve: { pageData: PageDataResolver } },
   { path: 'login', component: LoginPageComponent, canActivate: [AuthGuard] },
-  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard], resolve: { pageContent: PageDataResolver } },
+  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard], resolve: { pageData: PageDataResolver } },
   { path: "**", redirectTo: "" }
 ];
 

@@ -21,7 +21,7 @@ export class MemberDialog {
     submitted: boolean = false;
     memberForm: FormGroup;
     profilePicture: ProfilePictureFile = { path: '', dataUrl: '', file: null };
-    blankImageId: string = 'dory-capital/leadership/blank-profile-picture_xiyjyk';
+    blankImageId: string = 'dory-capital/leadership/blank-profile-picture_djm9y5';
     fileUploadRecommendation: string = 'W: 775px; H: 800px';
     fileUploadError: string = '';
     skillsList: Skill[] = [];

@@ -1,11 +1,11 @@
 import { ajv } from '../../../config';
 
 const skillsCreationSchema = {
-    required: ['imgUrl', 'name'],
+    required: ['imageId', 'name'],
     title: 'skills-creation',
     type: 'object',
     properties: {
-        imgUrl: { type: 'string', format: 'non-empty-string' },
+        imageId: { type: 'string', format: 'non-empty-string' },
         name: { type: 'string', format: 'non-empty-string' }
     }
 };

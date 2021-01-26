@@ -33,13 +33,13 @@ export class AdminComponent implements AfterViewInit {
     private renderer: Renderer2) {
 
     this.route.data.subscribe(data => {
-      if (!data['pageContent']) {
+      if (!data['pageData']) {
         this.data = new PageContent();
         return;
       }
 
       this.dataRetrieved = true;
-      this.data = data['pageContent'];
+      this.data = data['pageData'];
       this.initSectionsHeader();
     });
 
@@ -75,7 +75,7 @@ export class AdminComponent implements AfterViewInit {
   }
 
   initSectionsHeader(): void {
-    this.data.forEach(({ name }) => {
+    this.data.sections.forEach(({ name }) => {
       this.sectionsTabs.push(name);
     });
   }
@@ -88,20 +88,6 @@ export class AdminComponent implements AfterViewInit {
     this.setTabsLine(i);
     const selectedElement = this.sections.nativeElement.children[this.selectedTab];
     this.renderer.setStyle(selectedElement, 'display', 'flex');
-  }
-
-  toName(camelCase: string): string {
-    const name = [camelCase.charAt(0).toUpperCase()];
-    for (let i = 1, length = camelCase.length; i < length; i++) {
-      const char = camelCase[i]
-      if (char == char.toUpperCase()) {
-        name.push(` ${char}`)
-      } else {
-        name.push(char);
-      }
-    }
-
-    return name.join('');
   }
 
   logout(): void {

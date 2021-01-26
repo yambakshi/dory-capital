@@ -1,8 +1,7 @@
 import { SelectionModel } from '@angular/cdk/collections';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { ApproveDialog } from '@components/approve-dialog/approve.dialog';
@@ -12,8 +11,9 @@ export interface MemberRow {
   _id: string;
   index: number;
   name: string;
-  skills: string;
   link: string;
+  skills: string;
+  imageId: string;
 }
 
 @Component({
@@ -29,27 +29,15 @@ export class AdminLeadershipComponent implements OnInit {
   @ViewChild(MatTable, { static: true }) table: MatTable<any>;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
+  @Input() data: any;
+  @Input() dataRetrieved: boolean = false;
   displayedColumns: string[] = ['select', 'name', 'skills', 'link', 'actions'];
   selection = new SelectionModel<MemberRow>(true, []);
   dataSource: MatTableDataSource<MemberRow>;
   members: MemberRow[]
   sectionId: string;
 
-  constructor(
-    private route: ActivatedRoute,
-    public dialog: MatDialog) {
-    this.route.data.subscribe(data => {
-      if (!data['pageContent']) {
-        return;
-      }
-
-      const leadershipData = data['pageContent'][3];
-      this.sectionId = leadershipData._id;
-      this.members = leadershipData.content;
-      this.members.forEach((member, i) => member.index = i);
-      this.dataSource = new MatTableDataSource(this.members);
-    });
-  }
+  constructor(public dialog: MatDialog) { }
 
   get noRowsSelected() {
     return this.selection.selected.length === 0;
@@ -58,6 +46,15 @@ export class AdminLeadershipComponent implements OnInit {
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+  }
+
+  ngOnChanges(): void {
+    if (this.dataRetrieved) {
+      this.sectionId = this.data._id;
+      this.members = this.data.content;
+      this.members.forEach((member, i) => member.index = i);
+      this.dataSource = new MatTableDataSource(this.members);
+    }
   }
 
   applyFilter(event: Event) {
@@ -92,15 +89,12 @@ export class AdminLeadershipComponent implements OnInit {
           value.name = member.name;
           value.link = member.link;
           value.skills = member.skills;
+          value.imageId = member.imageId;
         }
       })
     }
 
-    const dialogData = {
-      editMode: true,
-      member
-    }
-
+    const dialogData = { editMode: true, member };
     this.showMembersDialog(dialogData, dialogCallback);
   }
 

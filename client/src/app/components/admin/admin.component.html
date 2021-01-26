@@ -16,12 +16,12 @@
         </div>
     </div>
     <div #sections class="management-platform">
-        <admin-section [dataRetrieved]="dataRetrieved" [data]="data[0]"></admin-section>
-        <admin-section [dataRetrieved]="dataRetrieved" [data]="data[1]"></admin-section>
-        <admin-section [dataRetrieved]="dataRetrieved" [data]="data[2]"></admin-section>
-        <admin-leadership></admin-leadership>
-        <admin-section [dataRetrieved]="dataRetrieved" [data]="data[4]"></admin-section>
-        <admin-section [dataRetrieved]="dataRetrieved" [data]="data[5]"></admin-section>
-        <admin-section [dataRetrieved]="dataRetrieved" [data]="data[6]"></admin-section>
+        <admin-section [dataRetrieved]="dataRetrieved" [data]="data.sections[0]"></admin-section>
+        <admin-section [dataRetrieved]="dataRetrieved" [data]="data.sections[1]"></admin-section>
+        <admin-section [dataRetrieved]="dataRetrieved" [data]="data.sections[2]"></admin-section>
+        <admin-leadership [dataRetrieved]="dataRetrieved" [data]="data.sections[3]"></admin-leadership>
+        <admin-section [dataRetrieved]="dataRetrieved" [data]="data.sections[4]"></admin-section>
+        <admin-section [dataRetrieved]="dataRetrieved" [data]="data.sections[5]"></admin-section>
+        <admin-section [dataRetrieved]="dataRetrieved" [data]="data.sections[6]"></admin-section>
     </div>
 </div>

@@ -6,5 +6,5 @@ export const COOKIES = {
 };
 
 export const CLODUINARY_CONFIG: CloudinaryConfiguration = {
-    cloud_name: 'yambakshimusic'
+    cloud_name: 'dory-capital'
 };
