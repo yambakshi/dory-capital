@@ -5,13 +5,14 @@
     <div class="members-table-container">
         <div class="table-control-panel-container">
             <div class="table-control-panel-buttons">
-                <button mat-button (click)="addMember()">
+                <button mat-button type="button" class="control-panel-button" (click)="addMember()">
                     <mat-icon>add</mat-icon>
-                    Add Member
+                    <div class="control-panel-button-text">Add Member</div>
                 </button>
-                <button mat-button (click)="removeMembers()" [disabled]="noRowsSelected">
+                <button mat-button type="button" class="control-panel-button" (click)="removeMembers()"
+                    [disabled]="noRowsSelected">
                     <mat-icon>delete</mat-icon>
-                    Remove Members
+                    <div class="control-panel-button-text">Remove Members</div>
                 </button>
             </div>
             <mat-form-field>
