@@ -1,13 +1,12 @@
 import { ajv } from '../../../config';
 
 const sectionTitleUpdateSchema = {
-    required: ['section', 'name', 'text'],
-    title: 'sections-creation',
+    required: ['_id', 'title'],
+    title: 'section-title-update',
     type: 'object',
     properties: {
-        section: { type: 'string', format: 'non-empty-string' },
-        name: { type: 'string', format: 'non-empty-string' },
-        text: { type: 'string', format: 'non-empty-string' }
+        _id: { type: 'string', format: 'non-empty-string' },
+        title: { type: 'string', format: 'non-empty-string' }
     },
 };
 

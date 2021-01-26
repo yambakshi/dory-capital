@@ -5,11 +5,11 @@ import { validateMembersProfilesDeletion } from '../../validation-schemas';
 
 
 async function processMembersProfilesDeletion(query: any) {
-    // const validationErrors = validateMembersProfilesDeletion(query);
-    // if (validationErrors) {
-    //     const firstErr = validationErrors[0];
-    //     throw new Error(`Invalid request(${firstErr.keyword}): delete-members-profiles ${firstErr.dataPath} ${firstErr.message}`);
-    // }
+    const validationErrors = validateMembersProfilesDeletion(query);
+    if (validationErrors) {
+        const firstErr = validationErrors[0];
+        throw new Error(`Invalid request(${firstErr.keyword}): delete-members-profiles ${firstErr.dataPath} ${firstErr.message}`);
+    }
 
     const output = deleteMembers(query);
     return output;
@@ -22,6 +22,6 @@ export async function deleteMembersProfiles(req: Request, res: Response) {
         res.send(output);
     } catch (error) {
         console.error(error);
-        res.status(500).send(error.message);
+        res.status(500).send({ success: false, message: error.message });
     }
 }

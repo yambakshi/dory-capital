@@ -1,27 +1,20 @@
 import { ajv } from '../../../config';
 
 const membersProfilesDeletionSchema = {
-    required: ['_id', 'data'],
+    required: ['sectionId', 'members'],
     title: 'members-profiles-deletion',
     type: 'object',
     properties: {
-        _id: { type: 'string', format: 'non-empty-string' },
-        data: {
-            required: ['leadership.members'],
-            type: 'object',
-            title: 'leadership-members',
-            properties: {
-                'leadership.members': {
-                    type: 'array',
-                    minItems: 1,
-                    items: {
-                        required: ['_id', 'imageId'],
-                        type: 'object',
-                        properties:  {
-                            _id: { type: 'string', format: 'non-empty-string' },
-                            imageId: { type: 'string', format: 'non-empty-string' }
-                        }
-                    }
+        sectionId: { type: 'string', format: 'non-empty-string' },
+        members: {
+            type: 'array',
+            items: {
+                required: ['_id', 'imageId'],
+                title: 'member',
+                type: 'object',
+                properties: {
+                    _id: { type: 'string', format: 'non-empty-string' },
+                    imageId: { type: 'string', format: 'non-empty-string' }
                 }
             }
         }

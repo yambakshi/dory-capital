@@ -5,11 +5,11 @@ import { validateSectionsCreation } from '../../validation-schemas';
 
 
 async function processSectionCreation(sections: any[]) {
-    // const validationErrors = validateSectionsCreation(sections);
-    // if (validationErrors) {
-    //     const firstErr = validationErrors[0];
-    //     throw new Error(`Invalid request(${firstErr.keyword}): create-sections ${firstErr.dataPath} ${firstErr.message}`);
-    // }
+    const validationErrors = validateSectionsCreation(sections);
+    if (validationErrors) {
+        const firstErr = validationErrors[0];
+        throw new Error(`Invalid request(${firstErr.keyword}): create-sections ${firstErr.dataPath} ${firstErr.message}`);
+    }
 
     const output = insertSections(sections);
     return output;

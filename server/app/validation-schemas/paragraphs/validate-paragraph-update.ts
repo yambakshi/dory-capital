@@ -1,12 +1,13 @@
 import { ajv } from '../../../config';
 
 const paragraphUpdateSchema = {
-    required: ['_id', 'data'],
+    required: ['_id'],
     title: 'paragraph-update',
     type: 'object',
     properties: {
         _id: { type: 'string', format: 'non-empty-string' },
-        data: { type: 'object' }
+        title: { type: 'string', format: 'non-empty-string' },
+        text: { type: 'string', format: 'non-empty-string' }
     },
 };
 

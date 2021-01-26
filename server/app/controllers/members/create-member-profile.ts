@@ -5,11 +5,11 @@ import { validateMemberProfileCreation } from '../../validation-schemas';
 
 
 async function processMemberProfile(member: any) {
-    // const validationErrors = validateMemberProfileCreation(member);
-    // if (validationErrors) {
-    //     const firstErr = validationErrors[0];
-    //     throw new Error(`Invalid request(${firstErr.keyword}): create-member-profile ${firstErr.dataPath} ${firstErr.message}`);
-    // }
+    const validationErrors = validateMemberProfileCreation(member);
+    if (validationErrors) {
+        const firstErr = validationErrors[0];
+        throw new Error(`Invalid request(${firstErr.keyword}): create-member-profile ${firstErr.dataPath} ${firstErr.message}`);
+    }
 
     const output = insertMember(member);
     return output;

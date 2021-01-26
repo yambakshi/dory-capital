@@ -5,11 +5,11 @@ import { validateMemberProfileUpdate } from '../../validation-schemas';
 
 
 async function processMemberProfileUpdate(update: any) {
-    // const validationErrors = validateMemberProfileUpdate(update);
-    // if (validationErrors) {
-    //     const firstErr = validationErrors[0];
-    //     throw new Error(`Invalid request(${firstErr.keyword}): update-member-profile ${firstErr.dataPath} ${firstErr.message}`);
-    // }
+    const validationErrors = validateMemberProfileUpdate(update);
+    if (validationErrors) {
+        const firstErr = validationErrors[0];
+        throw new Error(`Invalid request(${firstErr.keyword}): update-member-profile ${firstErr.dataPath} ${firstErr.message}`);
+    }
 
     const output = updateMember(update);
     return output;

@@ -1,13 +1,27 @@
 import { ajv } from '../../../config';
 
 const sectionsCreationSchema = {
-    required: ['section', 'name', 'text'],
-    title: 'sections-creation',
-    type: 'object',
-    properties: {
-        section: { type: 'string', format: 'non-empty-string' },
-        name: { type: 'string', format: 'non-empty-string' },
-        text: { type: 'string', format: 'non-empty-string' }
+    required: ['sections'],
+    type: 'array',
+    items: {
+        required: ['name', 'title', 'content'],
+        type: 'object',
+        title: 'section',
+        properties: {
+            name: { type: 'string', format: 'non-empty-string' },
+            title: { type: 'string', format: 'non-empty-string' },
+            content: {
+                type: 'array',
+                items: {
+                    type: 'object',
+                    title: 'content',
+                    properties: {
+                        title: { type: 'string', format: 'non-empty-string' },
+                        text: { type: 'string', format: 'non-empty-string' },
+                    }
+                }
+            }
+        }
     },
 };
 

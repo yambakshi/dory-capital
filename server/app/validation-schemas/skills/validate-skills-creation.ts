@@ -11,6 +11,6 @@ const skillsCreationSchema = {
 };
 
 export function validateSkillsCreation(skills: any) {
-    ajv.validate({ type: "array", items: skillsCreationSchema }, skills);
+    ajv.validate({ type: 'array', items: skillsCreationSchema }, skills);
     return ajv.errors;
 }
