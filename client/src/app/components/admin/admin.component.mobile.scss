@@ -1,32 +1,13 @@
 @import "../../../scss/global/index.scss";
 
 @include media("screen", "<mobile") {
-    .management-platform-container {    
+    .management-platform-container {
         background-color: rgb(14, 63, 187);
 
-        > .management-platform-header-container {    
+        > .main-header-component {
             position: fixed;
             top: 0;
             z-index: 1;
-
-            > .management-platform-header {
-                padding: 0px 10px;
-                width: 100%;
-
-                > .hello-message {
-                    font-size: 12px;
-                }
-
-                > .management-platfotm-title {
-                    text-align: center;
-                    font-size: 20px;
-                    margin: 0px 20px;
-                }
-
-                > .logout-button {
-                    font-size: 12px;
-                }
-            }
         }
 
         > .sections-tabs-container {

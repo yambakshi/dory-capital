@@ -6,38 +6,8 @@
     min-height: 100%;
     align-items: center;
 
-    > .management-platform-header-container {
-        background-color: rgb(14, 63, 187);
-        height: 65px;
+    > .main-header-component {
         width: 100%;
-        display: flex;
-        justify-content: center;
-        border-bottom: white 1px solid;
-
-        > .management-platform-header {
-            display: flex;
-            background-color: rgb(14, 63, 187);
-            width: 80%;
-            height: 100%;
-            align-items: center;
-            justify-content: space-between;
-
-            > .management-platfotm-title {
-                margin: 0;
-            }
-
-            > .logout-button {
-                outline: none;
-                padding: 2px 5px;
-                border: white 1px solid;
-                border-radius: 6px;
-                color: white;
-                background-color: rgba(15, 73, 219, 1);
-                cursor: pointer;
-                font-size: 16px;
-                user-select: none;
-            }
-        }
     }
 
     > .sections-tabs-container {
@@ -47,7 +17,7 @@
         background-color: rgb(14, 63, 187);
         z-index: 1;
         border-bottom: white 1px solid;
-        
+
         > .sections-tabs {
             display: flex;
             overflow: auto;
@@ -66,7 +36,7 @@
                     font-size: 18px;
                     user-select: none;
                     padding: 18px 30px;
-                    color: rgba(255, 255, 255, .7);
+                    color: rgba(255, 255, 255, 0.7);
                     white-space: nowrap;
                     cursor: pointer;
 
@@ -85,7 +55,7 @@
                 position: absolute;
                 bottom: 0;
                 margin: 10px 0 0 0;
-                background-color: #FF1847;
+                background-color: #ff1847;
                 transition: all 0.4s ease;
             }
         }

@@ -36,6 +36,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { CloudinaryModule } from '@cloudinary/angular-5.x';
 import { Cloudinary } from 'cloudinary-core';
 import { CLODUINARY_CONFIG } from '@services/constants';
+import { MainHeaderComponent } from '@components/main-header/main-header.component';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { CLODUINARY_CONFIG } from '@services/constants';
     SkillsContainerComponent,
     CarouselsComponent,
     ApproveDialog,
-    MemberDialog
+    MemberDialog,
+    MainHeaderComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

@@ -1,0 +1,32 @@
+.main-header-container {
+    background-color: rgb(14, 63, 187);
+    height: 65px;
+    display: flex;
+    justify-content: center;
+    border-bottom: white 1px solid;
+
+    > .main-header {
+        display: flex;
+        background-color: rgb(14, 63, 187);
+        width: 80%;
+        height: 100%;
+        align-items: center;
+        justify-content: space-between;
+
+        > .header-title {
+            margin: 0;
+        }
+
+        > .logout-button {
+            outline: none;
+            padding: 2px 5px;
+            border: white 1px solid;
+            border-radius: 6px;
+            color: white;
+            background-color: rgba(15, 73, 219, 1);
+            cursor: pointer;
+            font-size: 16px;
+            user-select: none;
+        }
+    }
+}
