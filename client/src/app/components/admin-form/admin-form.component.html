@@ -10,7 +10,7 @@
         <button class="reset-button" (click)="reset()" [disabled]="disableButtons"
             [ngClass]="disableButtons ? 'disabled' : ''">Reset</button>
         <div *ngIf="showLoader" class="loader-container">
-            <div class="spinning-loader"></div>
+            <spinning-loader></spinning-loader>
         </div>
     </div>
 </form>

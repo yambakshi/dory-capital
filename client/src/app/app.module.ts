@@ -16,7 +16,7 @@ import { LeadershipSectionComponent } from '@components/leadership-section/leade
 import { SkillsContainerComponent } from '@components/skills-container/skills-container.component';
 import { CarouselsComponent } from '@components/carousels/carousels.component';
 import { AdminLeadershipComponent } from '@components/admin-leadership/admin-leadership.component';
-import { AdminLeadershipPersonComponent } from '@components/admin-leadership-person/admin-leadership-person.component';
+import { SpinningLoaderComponent } from '@components/spinning-loader/spinning-loader.component';
 import { MemberDialog } from '@components/member-dialog/member.dialog';
 import { ApproveDialog } from '@components/approve-dialog/approve.dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -45,7 +45,7 @@ import { CLODUINARY_CONFIG } from '@services/constants';
     AdminComponent,
     AdminFormComponent,
     AdminLeadershipComponent,
-    AdminLeadershipPersonComponent,
+    SpinningLoaderComponent,
     VideoElementComponent,
     LoginPageComponent,
     ParagraphSectionComponent,

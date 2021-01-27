@@ -1,12 +1,14 @@
 import { SelectionModel } from '@angular/cdk/collections';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, HostListener, Inject, Input, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { ApproveDialog } from '@components/approve-dialog/approve.dialog';
 import { MemberDialog } from '@components/member-dialog/member.dialog';
 import { Skill } from '@models/page-content';
+import { WindowRefService } from '@services/window-ref.service';
+import { isPlatformBrowser } from '@angular/common';
 
 export interface MemberRow {
   _id: string;
@@ -34,12 +36,16 @@ export class AdminLeadershipComponent implements OnInit {
   @Input() dataRetrieved: boolean = false;
   @Input() skills: Skill[];
   displayedColumns: string[] = ['select', 'name', 'skills', 'link', 'actions'];
+  dialogsSizes = { approve: {}, members: {} };
   selection = new SelectionModel<MemberRow>(true, []);
   dataSource: MatTableDataSource<MemberRow>;
   members: MemberRow[]
   sectionId: string;
 
-  constructor(public dialog: MatDialog) { }
+  constructor(
+    public dialog: MatDialog,
+    @Inject(PLATFORM_ID) private platformId: any,
+    private windowRefService: WindowRefService) { }
 
   get noRowsSelected() {
     return this.selection.selected.length === 0;
@@ -48,6 +54,9 @@ export class AdminLeadershipComponent implements OnInit {
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+    if (isPlatformBrowser(this.platformId)) {
+      this.calcDialogsSizes();
+    }
   }
 
   ngOnChanges(): void {
@@ -117,9 +126,28 @@ export class AdminLeadershipComponent implements OnInit {
     this.showApproveDialog({ members, message });
   }
 
+  @HostListener('window:resize', ['$event'])
+  onResize(event?) {
+    this.calcDialogsSizes();
+  }
+
+  calcDialogsSizes(): void {
+    // If in mobile
+    if (this.windowRefService.nativeWindow.innerWidth < 901) {
+      const fullScreen = { maxWidth: '100vw', height: '100%', width: '100%' };
+      this.dialogsSizes.approve = fullScreen;
+      this.dialogsSizes.members = fullScreen;
+    } else {
+      this.dialogsSizes.approve = { width: '400px' };
+      this.dialogsSizes.members = { width: '600px' };
+    }
+  }
+
   showApproveDialog(data): void {
     const dialogRef = this.dialog.open(ApproveDialog, {
-      width: '400px',
+      ...this.dialogsSizes.approve,
+      disableClose: true,
+      hasBackdrop: true,
       data
     });
 
@@ -136,7 +164,7 @@ export class AdminLeadershipComponent implements OnInit {
 
   showMembersDialog(data, dialogCallback): void {
     const dialogRef = this.dialog.open(MemberDialog, {
-      width: '600px',
+      ...this.dialogsSizes.members,
       data
     });
 

@@ -1,6 +1,6 @@
 import { Component, ElementRef, Inject, ViewChild } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '@services/api.service';
 import { Member, ProfilePictureFile, Skill } from '@models/page-content';
 import { Cloudinary } from '@cloudinary/angular-5.x';
@@ -15,20 +15,26 @@ export interface DialogData {
 @Component({
     selector: 'member-dialog',
     templateUrl: 'member.dialog.html',
-    styleUrls: ['./member.dialog.scss']
+    styleUrls: [
+        './member.dialog.common.scss',
+        './member.dialog.mobile.scss'
+    ]
 })
 export class MemberDialog {
     @ViewChild('fileInput') fileInput: ElementRef;
+    readonly blankImageId: string = 'dory-capital/leadership/blank-profile-picture_djm9y5';
+    readonly fileUploadRecommendation: string = 'W: 775px; H: 800px';
+    readonly maxSelectedSkills: number = 8;
     submitted: boolean = false;
     memberForm: FormGroup;
     profilePicture: ProfilePictureFile = { path: '', dataUrl: '', file: null };
-    blankImageId: string = 'dory-capital/leadership/blank-profile-picture_djm9y5';
-    fileUploadRecommendation: string = 'W: 775px; H: 800px';
     fileUploadError: string = '';
     diffValidator:
         { name: boolean, link: boolean, skills: boolean, profilePicture: boolean } =
         { name: false, link: false, skills: false, profilePicture: false };
     diff: boolean = false;
+    showLoader: boolean = false;
+    maxSkillsExceeded: boolean = false;
 
     constructor(
         public dialogRef: MatDialogRef<MemberDialog>,
@@ -53,9 +59,21 @@ export class MemberDialog {
         this.memberForm = this.formBuilder.group({
             name: [name, [Validators.required]],
             link: [link, [Validators.required]],
-            skills: [skillsIds, [Validators.required]],
+            skills: [skillsIds, [Validators.required, this.maxOptionsValidator()]],
             profilePicture: ['', fileInputValidators]
         });
+    }
+
+    maxOptionsValidator() {
+        return (control: AbstractControl): { [key: string]: boolean } | null => {
+            if (control.value.length > this.maxSelectedSkills) {
+                this.maxSkillsExceeded = true;
+                return { 'maxOptionsValidator': true }
+            }
+
+            this.maxSkillsExceeded = false;
+            return null;
+        };
     }
 
     onFileSelected(): void {
@@ -101,7 +119,7 @@ export class MemberDialog {
     }
 
     onSelectChange(): void {
-        if (!this.data.editMode) return;
+        if (this.maxSkillsExceeded || !this.data.editMode) return;
         const selectedSkillsIds = this.memberForm.controls.skills.value;
         const memberSkillsIds = this.data.member.skills.map(({ _id }) => _id);
 
@@ -134,13 +152,19 @@ export class MemberDialog {
         this.diff = inputChanged;
     }
 
-    onSubmit(): void {
+    timeout(ms: number) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    async onSubmit() {
         this.submitted = true;
 
         if (this.memberForm.invalid) {
             return;
         }
 
+        this.showLoader = true;
+        await this.timeout(500);
         this.data.editMode ? this.submitEdit() : this.submitAdd();
     }
 
@@ -176,9 +200,5 @@ export class MemberDialog {
         this.apiService.addMember(member).subscribe(
             res => { this.dialogRef.close(res) },
             err => { console.log(err) });
-    }
-
-    onCancelClick(): void {
-        this.dialogRef.close();
     }
 }

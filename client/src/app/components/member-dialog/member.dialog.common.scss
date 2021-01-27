@@ -1,0 +1,49 @@
+.member-dialog-container {
+    .member-dialog-fields-container {
+        display: flex;
+
+        > .file-upload-field-container {
+            display: flex;
+            flex-direction: column;
+            max-width: 200px;
+            margin-right: 20px;
+
+            > .file-upload-picture {
+                width: 200px;
+                border: black 1px solid;
+            }
+
+            > .file-upload-field {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+            }
+
+            > .file-upload-label {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+
+            > .upload-field-error {
+                color: red;
+            }
+        }
+
+        > .member-text-fields-container {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+
+            > .skills-field-error {
+                color: red;
+            }
+        }
+    }
+
+    .member-actions-container {
+        > .loader-container {
+            margin-left: 8px;
+        }
+    }
+}
