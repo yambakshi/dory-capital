@@ -7,12 +7,12 @@
             <div class="table-control-panel-buttons">
                 <button mat-button type="button" class="control-panel-button" (click)="addMember()">
                     <mat-icon>add</mat-icon>
-                    <div class="control-panel-button-text">Add Member</div>
+                    Add Member
                 </button>
                 <button mat-button type="button" class="control-panel-button" (click)="removeMembers()"
                     [disabled]="noRowsSelected">
                     <mat-icon>delete</mat-icon>
-                    <div class="control-panel-button-text">Remove Members</div>
+                    Remove Members
                 </button>
             </div>
             <mat-form-field>
@@ -24,7 +24,7 @@
             <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
 
                 <!-- Checkbox Column -->
-                <ng-container matColumnDef="select">
+                <ng-container matColumnDef="select" sticky>
                     <th mat-header-cell *matHeaderCellDef>
                         <mat-checkbox (change)="$event ? masterToggle() : null"
                             [checked]="selection.hasValue() && isAllSelected()"
@@ -40,7 +40,7 @@
                 </ng-container>
 
                 <!-- Index Column -->
-                <ng-container matColumnDef="index" sticky>
+                <ng-container matColumnDef="index">
                     <th mat-header-cell *matHeaderCellDef>No.</th>
                     <td mat-cell *matCellDef="let member">{{member.index}}</td>
                 </ng-container>
@@ -88,6 +88,6 @@
                 </tr>
             </table>
         </div>
-        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+        <mat-paginator [pageSizeOptions]="[10, 25, 50]" [pageSize]="10"></mat-paginator>
     </div>
 </div>
