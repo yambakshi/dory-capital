@@ -2,6 +2,26 @@
     <div class="main-header">
         <div class="header-message">Hey, Admin</div>
         <h1 class="header-title">Management Platform</h1>
-        <div class="logout-button" (click)="logout()">Logout</div>
+        <div class="open-menu-button-container">
+            <button #openMenuButton mat-icon-button (click)="openMenu()" class="open-menu-button">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+            <div *ngIf="showMenu" class="header-menu">
+                <div *ngIf="router.url == '/admin'; else elseBlock" class="header-menu-go-to"
+                    (click)="goTo($event, '/')">
+                    <mat-icon>home</mat-icon>
+                    <mat-label>Home Page</mat-label>
+                </div>
+                <ng-template #elseBlock>
+                    <div class="header-menu-go-to" (click)="goTo($event, '/admin')">
+                        <mat-icon>home</mat-icon>
+                        <mat-label>Admin Page</mat-label>
+                    </div>
+                </ng-template>
+                <div class="header-menu-logout" (click)="logout($event)">
+                    <mat-label>Logout</mat-label>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

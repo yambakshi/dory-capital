@@ -1,3 +1,18 @@
+.main-header-component {
+    position: fixed;
+    top: 0;
+    z-index: 200;
+    width: 100%;
+}
+
+.first-section {
+    margin-top: 0px;
+
+    &.logged-in {
+        margin-top: 65px;
+    }
+}
+
 h1 {
     white-space: pre-wrap !important;
 }
@@ -11,11 +26,11 @@ h6 {
 }
 
 p {
-	white-space: pre-wrap !important;
+    white-space: pre-wrap !important;
 }
 
 .panel-title {
-	white-space: normal !important;
+    white-space: normal !important;
 }
 
 .make {

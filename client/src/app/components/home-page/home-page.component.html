@@ -1,4 +1,5 @@
-<section>
+<main-header *ngIf="isLoggedIn" class="main-header-component"></main-header>
+<section class="first-section" [ngClass]="isLoggedIn ? 'logged-in' : ''">
     <div class="conatiner-fluid content-set">
         <video-element></video-element>
         <div class="dory-center overflow-hidden">

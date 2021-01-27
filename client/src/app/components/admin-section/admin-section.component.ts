@@ -12,11 +12,6 @@ import { Component, Input } from '@angular/core';
 export class ParagraphSectionComponent {
     @Input() data: any;
     @Input() dataRetrieved: boolean = false;
-    collapsed: boolean = false;
 
     constructor() { }
-
-    toggleCollapse(): void {
-        this.collapsed = !this.collapsed;
-    }
 }

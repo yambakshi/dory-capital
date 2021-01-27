@@ -89,8 +89,4 @@ export class AdminComponent implements AfterViewInit {
     const selectedElement = this.sections.nativeElement.children[this.selectedTab];
     this.renderer.setStyle(selectedElement, 'display', 'flex');
   }
-
-  logout(): void {
-    this.loginService.logout();
-  }
 }

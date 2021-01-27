@@ -1,9 +1,6 @@
-<div class="section-container" [ngClass]="collapsed ? 'collapsed' : ''">
-    <div class="section-header-container" [ngClass]="collapsed ? 'collapsed' : ''">
+<div class="section-container">
+    <div class="section-header-container">
         <h2 class="section-title">{{data.name}}</h2>
-        <!-- <div class="chevron-container" [ngClass]="collapsed ? 'collapsed' : ''">
-            <i class="icon-chevron-thin-down"></i>
-        </div> -->
     </div>
     <h3>Title</h3>
     <admin-form [_id]="data._id" [dataRetrieved]="dataRetrieved" [data]="data.title" [type]="'section.title'">

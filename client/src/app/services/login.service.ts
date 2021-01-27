@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { throwError } from 'rxjs';
+import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { catchError, finalize, map } from 'rxjs/operators';
 import { CookiesService } from './cookies.service';
 import { COOKIES } from './constants';
@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 
 @Injectable()
 export class LoginService {
+    private loginSubject: BehaviorSubject<boolean>;
     httpOptions: any = {
         headers: {},
         responseType: 'json'
@@ -16,12 +17,23 @@ export class LoginService {
     constructor(
         private http: HttpClient,
         private cookiesService: CookiesService,
-        private router: Router) { }
+        private router: Router) {
+        this.loginSubject = new BehaviorSubject<boolean>(false);
+    }
+
+    getLoginStatusObservable(): Observable<boolean> {
+        return this.loginSubject.asObservable();
+    }
+
+    setLoginStatus(status: boolean): void {
+        this.loginSubject.next(status);
+    }
 
     logout(): any {
         return this.http.get('/api/auth/logout', this.httpOptions).pipe(map(res => res),
             finalize(() => {
                 this.router.navigate(['']);
+                this.setLoginStatus(false);
             }), catchError(this.handleError)).subscribe(res => {
                 this.cookiesService.remove(COOKIES.TOKEN_KEY);
             });
@@ -35,6 +47,7 @@ export class LoginService {
     login(creds: { email: string, password: string }): any {
         return this.http.post('/api/auth/login', creds, this.httpOptions).pipe(map(
             (res: any) => {
+                this.setLoginStatus(true);
                 this.cookiesService.set(COOKIES.TOKEN_KEY, res.token);
             }),
             catchError(this.handleError));

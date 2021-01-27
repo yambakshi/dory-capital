@@ -3,6 +3,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { ApiService } from '@services/api.service';
 import { SocketIoService } from '@services/socket-io.service';
 import { ActivatedRoute } from '@angular/router';
+import { LoginService } from '@services/login.service';
 
 
 @Component({
@@ -15,104 +16,31 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class HomePageComponent implements OnInit {
   @ViewChild('pageNavigator') pageNavigator: ElementRef;
-  // data: {
-  //   _id: string,
-  //   scope: {
-  //     title: string,
-  //     paragraphs: { text: string }[]
-  //   },
-  //   aboutUs: {
-  //     title: string,
-  //     paragraphs: { text: string }[],
-  //   },
-  //   whyUs: {
-  //     title: string,
-  //     paragraphs: { text: string, title: string }[]
-  //   },
-  //   process: {
-  //     title: string,
-  //     paragraphs: { text: string, title: string }[]
-  //   }
-  //   faq: {
-  //     title: string,
-  //     paragraphs: { text: string, title: string }[]
-  //   },
-  //   contactUs: {
-  //     title: string
-  //   }
-  // } = {
-  //     _id: '',
-  //     scope: {
-  //       title: '',
-  //       paragraphs: [
-  //         { text: '' },
-  //         { text: '' }
-  //       ],
-  //     },
-  //     aboutUs: {
-  //       title: '',
-  //       paragraphs: [
-  //         { text: '' },
-  //         { text: '' }
-  //       ]
-  //     },
-  //     whyUs: {
-  //       title: '',
-  //       paragraphs: [
-  //         { text: '', title: '' },
-  //         { text: '', title: '' },
-  //         { text: '', title: '' },
-  //         { text: '', title: '' },
-  //         { text: '', title: '' },
-  //         { text: '', title: '' }
-  //       ]
-  //     },
-  //     process: {
-  //       title: '',
-  //       paragraphs: [
-  //         { text: '', title: '' },
-  //         { text: '', title: '' },
-  //         { text: '', title: '' }
-  //       ]
-  //     },
-  //     faq: {
-  //       title: '',
-  //       paragraphs: [
-  //         { text: '', title: '' },
-  //         { text: '', title: '' },
-  //         { text: '', title: '' },
-  //         { text: '', title: '' },
-  //         { text: '', title: '' },
-  //         { text: '', title: '' },
-  //         { text: '', title: '' },
-  //         { text: '', title: '' },
-  //         { text: '', title: '' },
-  //         { text: '', title: '' },
-  //         { text: '', title: '' }
-  //       ]
-  //     },
-  //     contactUs: {
-  //       title: '',
-  //     }
-  //   }
   data: any;
+  isLoggedIn: boolean = false;
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
     private apiService: ApiService,
     private route: ActivatedRoute,
+    private loginService: LoginService,
     private socketIoService: SocketIoService) {
     this.route.data.subscribe(data => {
-      if (!data['pageContent']) {
+      if (!data['pageData']) {
         this.data = [];
         return;
       }
 
-      this.data = data['pageContent'];
+      this.data = data['pageData'].sections;
     });
-    // this.apiService.getPageData().subscribe(data => {
-    //   this.data = data;
-    // });
+
+    this.loginService.getLoginStatus().subscribe((res: any) => {
+      this.isLoggedIn = res.status;
+    });
+
+    this.loginService.getLoginStatusObservable().subscribe((status: boolean) => {
+      this.isLoggedIn = status;
+    });
   }
 
   ngOnInit(): void {
