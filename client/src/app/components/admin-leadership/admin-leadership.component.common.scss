@@ -2,7 +2,7 @@
     background-color: rgb(14, 63, 187);
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
-    padding: 5px 20px 20px;
+    padding: 10px 20px 20px;
     margin-bottom: 30px;
     overflow: hidden;
     border-right: white 1px solid;
@@ -20,6 +20,7 @@
         > .section-title {
             flex: 1;
             text-align: center;
+            margin-bottom: 10px;
         }
     }
 
