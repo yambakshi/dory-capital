@@ -72,5 +72,5 @@ router.route('/api/sections')
 router.route('/api/skills')
     .get(getSkills)
     .put(
-        passport.authenticate('jwt', { session: false }),
+        loginStatusMiddleware,
         createSkills);

@@ -6,8 +6,10 @@ export class ProfilePictureFile {
 
 export class Skill {
     _id: string;
-    imaegId: string;
+    imageId: string;
     name: string;
+    color: string;
+    width?: number;
 }
 
 export class Member {
