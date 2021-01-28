@@ -1,9 +1,10 @@
+<div *ngIf="showOutsideMenu" (click)="hideOutsideMenu($event)" class="outside-menu"></div>
 <div class="main-header-container">
     <div class="main-header">
         <div class="header-message">Hey, Admin</div>
         <h1 class="header-title">Management Platform</h1>
         <div class="open-menu-button-container">
-            <button #openMenuButton mat-icon-button (click)="openMenu()" class="open-menu-button">
+            <button mat-icon-button (click)="openMenu()" class="open-menu-button">
                 <mat-icon>more_vert</mat-icon>
             </button>
             <div *ngIf="showMenu" class="header-menu">

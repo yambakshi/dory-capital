@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from '@services/login.service';
 
@@ -12,23 +12,22 @@ import { LoginService } from '@services/login.service';
     ]
 })
 export class MainHeaderComponent {
-    @ViewChild('openMenuButton') openMenuButton: ElementRef;
     showMenu: boolean = false;
+    showOutsideMenu: boolean = false;
+
     constructor(
-        private _eref: ElementRef,
         private loginService: LoginService,
         public router: Router) { }
 
-    @HostListener('document:click', ['$event'])
-    onDocumentClick(event?) {
-        console.log(event);
-        if (!this._eref.nativeElement.contains(event.target)) {
-            this.showMenu = false;
-        }
+    hideOutsideMenu($event): void {
+        $event.stopPropagation();
+        this.showMenu = false;
+        this.showOutsideMenu = false;
     }
 
     openMenu(): void {
         this.showMenu = !this.showMenu;
+        this.showOutsideMenu = this.showMenu;
     }
 
     goTo($event, path: string): void {
