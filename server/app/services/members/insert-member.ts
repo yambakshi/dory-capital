@@ -19,13 +19,13 @@ export async function insertMember(rawMember: Member) {
     // Map skills to MongoDB ObjectIds
     member.skills = rawMember.skills.map((_id) => new ObjectID(_id.toString()));
 
-    // Insert member into 'sections-contents' collection
-    const { ops } = await mongoDb.insertOne(env.mongodb.dbName, 'sections-contents', member);
+    // Insert member into 'members' collection
+    const { ops } = await mongoDb.insertOne(env.mongodb.dbName, 'members', member);
     const memberId = ops[0]._id;
 
-    // Push member ObjectId into 'Leadership' section content array in 'sections' collection
+    // Push member ObjectId into 'Leadership' members array in 'sections' collection
     const filter = { _id: { $eq: new ObjectID(sectionId) } };
-    const data = { content: { $each: [memberId] } };
+    const data = { members: { $each: [memberId] } };
     await mongoDb.push(env.mongodb.dbName, 'sections', filter, data);
     member._id = memberId;
 

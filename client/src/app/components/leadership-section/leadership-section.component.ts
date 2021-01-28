@@ -1,7 +1,10 @@
 import { AfterViewInit, Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Cloudinary } from '@cloudinary/angular-5.x';
-import { Skill } from '@models/page-content';
+import { Section } from '@models/section';
+import { Member } from '@models/member';
+import { PageData } from '@models/page-data';
+import { Skill } from '@models/skill';
+import { ApiService } from '@services/api.service';
 
 @Component({
     selector: 'leadership-section',
@@ -13,30 +16,28 @@ import { Skill } from '@models/page-content';
     ]
 })
 export class LeadershipSectionComponent implements AfterViewInit {
-    @ViewChild('members') members: ElementRef;
+    @ViewChild('membersContainer') membersContainer: ElementRef;
     @ViewChild('skillsTypes') skillsTypes: ElementRef;
-    data: any;
+    section: Section;
+    members: Member[] = [];
     skills: Skill[] = [];
 
     constructor(
-        private route: ActivatedRoute,
+        private apiService: ApiService,
         private cloudinary: Cloudinary,
         private renderer: Renderer2) {
-        this.route.data.subscribe(data => {
-            if (!data['pageData']) {
-                this.data = [];
-                return;
-            }
 
-            this.data = data['pageData'].sections[3];
-            this.skills = data['pageData'].skills;
+        this.apiService.getPageDataObservable().subscribe((pageData: PageData) => {
+            this.section = pageData.sections[3];
+            this.members = pageData.members;
+            this.skills = pageData.skills;
         });
     }
 
     ngAfterViewInit(): void {
-        const membersElements = this.members.nativeElement.children;
-        for (let i = 0, length = this.data.content.length; i < length; i++) {
-            const { width } = this.data.content[i];
+        const membersElements = this.membersContainer.nativeElement.children;
+        for (let i = 0, length = this.members.length; i < length; i++) {
+            const { width } = this.members[i];
             if (width) {
                 this.renderer.setStyle(membersElements[i].firstChild.children[1], 'width', `${width}px`);
             }

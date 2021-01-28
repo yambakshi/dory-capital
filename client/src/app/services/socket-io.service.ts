@@ -8,7 +8,7 @@ import { environment } from "@environments/environment";
 })
 export class SocketIoService {
     socket;
-    readonly uri: string = `${environment.apiUrl}/page-content`;
+    readonly uri: string = `${environment.apiUrl}/page-data`;
     readonly path: string = '/dory-capital/socket.io';
     constructor() { }
 

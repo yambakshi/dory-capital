@@ -4,17 +4,17 @@ const sectionsCreationSchema = {
     required: ['sections'],
     type: 'array',
     items: {
-        required: ['name', 'title', 'content'],
+        required: ['name', 'title', 'paragraphs'],
         type: 'object',
         title: 'section',
         properties: {
             name: { type: 'string', format: 'non-empty-string' },
             title: { type: 'string', format: 'non-empty-string' },
-            content: {
+            paragraphs: {
                 type: 'array',
                 items: {
                     type: 'object',
-                    title: 'content',
+                    title: 'paragraphs',
                     properties: {
                         title: { type: 'string', format: 'non-empty-string' },
                         text: { type: 'string', format: 'non-empty-string' },

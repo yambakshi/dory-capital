@@ -11,6 +11,6 @@ export async function updateText({ _id, title, text }: Paragraph) {
         ...text && { text }
     }
 
-    const { value } = await mongoDb.findAndModify(env.mongodb.dbName, 'sections-contents', filter, data);
+    const { value } = await mongoDb.findAndModify(env.mongodb.dbName, 'paragraphs', filter, data);
     return value;
 }

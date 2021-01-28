@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ElementRef, Input, Renderer2, ViewChild } from '@angular/core';
 import { Cloudinary } from '@cloudinary/angular-5.x';
-import { Skill } from '@models/page-content';
+import { Skill } from '@models/skill';
 
 @Component({
     selector: 'skills-container',

@@ -12,7 +12,7 @@ const server = http.createServer(app);
 
 // Init socket
 socket.initSocket(server, '/dory-capital/socket.io');
-socket.configNsp('/page-content');
+socket.configNsp('/page-data');
 
 // Config passport
 configPassport();

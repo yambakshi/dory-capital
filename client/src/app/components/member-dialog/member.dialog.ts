@@ -2,7 +2,9 @@ import { Component, ElementRef, Inject, ViewChild } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '@services/api.service';
-import { Member, ProfilePictureFile, Skill } from '@models/page-content';
+import { Member, } from '@models/member';
+import { ProfilePictureFile } from '@models/profile-picture-file';
+import { Skill } from '@models/skill';
 import { Cloudinary } from '@cloudinary/angular-5.x';
 
 

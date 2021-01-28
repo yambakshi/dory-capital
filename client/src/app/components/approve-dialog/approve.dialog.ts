@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Member } from '@models/page-content';
+import { Member } from '@models/member';
 import { ApiService } from '@services/api.service';
 
 export interface DialogData {

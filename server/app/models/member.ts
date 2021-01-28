@@ -1,7 +1,8 @@
-import { SectionContent } from "./section-content";
 import { Skill } from "./skill";
 
-export class Member extends SectionContent {
+export class Member {
+    _id: string;
+    sectionId: string;
     name: string;
     link: string;
     skills: Skill[];
@@ -9,7 +10,7 @@ export class Member extends SectionContent {
     profilePictureFile?: any;
 
     constructor(member?: Member) {
-        super(member);
+        if (!member) return;
         this.name = member.name;
         this.link = member.link;
         this.skills = member.skills;

@@ -1,11 +1,11 @@
-import { SectionContent } from "./section-content";
-
-export class Paragraph extends SectionContent {
+export class Paragraph {
+    _id: string;
+    sectionId: string;
     title: string;
     text: string;
 
     constructor(paragraph?: Paragraph) {
-        super(paragraph);
+        if (!paragraph) return;
         this.title = paragraph.title;
         this.text = paragraph.text;
     }

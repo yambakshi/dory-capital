@@ -23,7 +23,7 @@ export async function updateMember(rawMember: Member) {
     }
 
     const filter = { _id: { $eq: new ObjectID(rawMember._id) } };
-    const { value } = await mongoDb.findAndModify(env.mongodb.dbName, 'sections-contents', filter, memberChanges);
+    const { value } = await mongoDb.findAndModify(env.mongodb.dbName, 'members', filter, memberChanges);
     const member = value;
     member.skills = await querySkills(value.skills);
 

@@ -10,12 +10,12 @@
         </div>
     </div>
     <div #sections class="management-platform">
-        <admin-section [dataRetrieved]="dataRetrieved" [data]="data.sections[0]"></admin-section>
-        <admin-section [dataRetrieved]="dataRetrieved" [data]="data.sections[1]"></admin-section>
-        <admin-section [dataRetrieved]="dataRetrieved" [data]="data.sections[2]"></admin-section>
-        <admin-leadership [dataRetrieved]="dataRetrieved" [data]="data.sections[3]" [skills]="data.skills"></admin-leadership>
-        <admin-section [dataRetrieved]="dataRetrieved" [data]="data.sections[4]"></admin-section>
-        <admin-section [dataRetrieved]="dataRetrieved" [data]="data.sections[5]"></admin-section>
-        <admin-section [dataRetrieved]="dataRetrieved" [data]="data.sections[6]"></admin-section>
+        <admin-section [dataRetrieved]="dataRetrieved" [data]="pageData.sections[0]"></admin-section>
+        <admin-section [dataRetrieved]="dataRetrieved" [data]="pageData.sections[1]"></admin-section>
+        <admin-section [dataRetrieved]="dataRetrieved" [data]="pageData.sections[2]"></admin-section>
+        <admin-leadership></admin-leadership>
+        <admin-section [dataRetrieved]="dataRetrieved" [data]="pageData.sections[4]"></admin-section>
+        <admin-section [dataRetrieved]="dataRetrieved" [data]="pageData.sections[5]"></admin-section>
+        <admin-section [dataRetrieved]="dataRetrieved" [data]="pageData.sections[6]"></admin-section>
     </div>
 </div>

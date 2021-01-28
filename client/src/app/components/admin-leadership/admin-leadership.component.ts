@@ -1,22 +1,21 @@
 import { SelectionModel } from '@angular/cdk/collections';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { Component, HostListener, Inject, Input, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
+import { Component, HostListener, Inject, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { ApproveDialog } from '@components/approve-dialog/approve.dialog';
 import { MemberDialog } from '@components/member-dialog/member.dialog';
-import { Skill } from '@models/page-content';
+import { Skill } from '@models/skill';
 import { WindowRefService } from '@services/window-ref.service';
 import { isPlatformBrowser } from '@angular/common';
+import { PageData } from '@models/page-data';
+import { ApiService } from '@services/api.service';
+import { Section } from '@models/section';
+import { Member } from '@models/member';
 
-export interface MemberRow {
-  _id: string;
+export interface MemberRow extends Member {
   index: number;
-  name: string;
-  link: string;
-  skills: string;
-  imageId: string;
 }
 
 @Component({
@@ -32,20 +31,31 @@ export class AdminLeadershipComponent implements OnInit {
   @ViewChild(MatTable, { static: true }) table: MatTable<any>;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
-  @Input() data: any;
-  @Input() dataRetrieved: boolean = false;
-  @Input() skills: Skill[];
   displayedColumns: string[] = ['select', 'name', 'skills', 'link', 'actions'];
   dialogsSizes = { approve: {}, members: {} };
   selection = new SelectionModel<MemberRow>(true, []);
   dataSource: MatTableDataSource<MemberRow>;
-  members: MemberRow[]
-  sectionId: string;
+  section: Section;
+  members: MemberRow[];
+  skills: Skill[];
 
   constructor(
     public dialog: MatDialog,
+    private apiService: ApiService,
     @Inject(PLATFORM_ID) private platformId: any,
-    private windowRefService: WindowRefService) { }
+    private windowRefService: WindowRefService) {
+    this.dataSource = new MatTableDataSource([]);
+    this.apiService.getPageDataObservable().subscribe((pageData: PageData) => {
+      this.section = pageData.sections[3];
+      this.skills = pageData.skills;
+      this.members = pageData.members.map((member: MemberRow, i) => {
+        member.index = i;
+        return member;
+      });
+
+      this.dataSource.data = this.members;
+    });
+  }
 
   get noRowsSelected() {
     return this.selection.selected.length === 0;
@@ -56,15 +66,6 @@ export class AdminLeadershipComponent implements OnInit {
     this.dataSource.sort = this.sort;
     if (isPlatformBrowser(this.platformId)) {
       this.calcDialogsSizes();
-    }
-  }
-
-  ngOnChanges(): void {
-    if (this.dataRetrieved) {
-      this.sectionId = this.data._id;
-      this.members = this.data.content;
-      this.members.forEach((member, i) => member.index = i);
-      this.dataSource = new MatTableDataSource(this.members);
     }
   }
 
@@ -86,7 +87,7 @@ export class AdminLeadershipComponent implements OnInit {
 
     const dialogData = {
       editMode: false,
-      member: { sectionId: this.sectionId },
+      member: { sectionId: this.section._id },
       skills: this.skills
     }
 
@@ -155,7 +156,8 @@ export class AdminLeadershipComponent implements OnInit {
       if (!removedMembersIds) return;
       removedMembersIds.forEach(removedId => {
         const index = this.members.findIndex(({ _id }) => removedId === _id);
-        this.members.splice(index, 1);
+        const removedMembers = this.members.splice(index, 1);
+        this.selection.deselect(removedMembers[0]);
       });
 
       this.dataSource.data = this.members;

@@ -1,24 +1,36 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { throwError } from 'rxjs';
+import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { Member, Paragraph } from '@models/page-content';
+import { Member } from '@models/member';
+import { Paragraph } from '@models/paragraph';
+import { PageData } from '@models/page-data';
 
 @Injectable()
 export class ApiService {
-    pageData: any;
+    private pageDataSubject: BehaviorSubject<PageData>;
     httpOptions: any = {
         headers: {},
         responseType: 'json'
     }
 
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient) {
+        this.pageDataSubject = new BehaviorSubject<PageData>(new PageData());
+    }
+
+    getPageDataObservable(): Observable<PageData> {
+        return this.pageDataSubject.asObservable();
+    }
+
+    setPageData(pageData: PageData): void {
+        this.pageDataSubject.next(pageData);
+    }
 
     getPageData(): any {
         return this.http.get('/api/general', this.httpOptions)
             .pipe(
                 map((res: any) => {
-                    this.pageData = res;
+                    this.setPageData(res);
                     return res;
                 }),
                 catchError(this.handleError));
@@ -38,7 +50,6 @@ export class ApiService {
         return this.http.get('/api/skills', this.httpOptions)
             .pipe(catchError(this.handleError));
     }
-
 
     addMember(member: Member): any {
         const formData = this.objectToFormData(member);

@@ -1,17 +1,18 @@
 import { env } from '../../../config';
 import { mongoDb } from '../../dal';
+import { queryMembers } from '../members';
 import { querySkills } from '../skills';
 
 
 export async function queryPageData() {
     const lookup = [{
         $lookup: {
-            from: "sections-contents",
-            let: { "sectioncontent": "$content" },
+            from: "paragraphs",
+            let: { "paragraphs": "$paragraphs" },
             pipeline: [
-                { $match: { $expr: { $in: ["$_id", "$$sectioncontent"] } } },
+                { $match: { $expr: { $in: ["$_id", "$$paragraphs"] } } },
             ],
-            as: "content"
+            as: "paragraphs"
         }
     }];
 
@@ -20,16 +21,16 @@ export async function queryPageData() {
 
     // Resolve members skills from skills IDS
     const skills = await querySkills([]);
+    const members = await queryMembers([]);
     const skillsObject = skills.reduce((acc, skill) => ({ ...acc, [skill._id]: skill }), {});
-    const i = sections.findIndex(({ name }) => name === 'Leadership');
-    const members = sections[i].content;
+
     for (let j = 0, length = members.length; j < length; j++) {
-        const skillsIds = sections[i].content[j].skills;
+        const skillsIds = members[j].skills;
         for (let k = 0, length = skillsIds.length; k < length; k++) {
-            const skillId = sections[i].content[j].skills[k];
-            sections[i].content[j].skills[k] = skillsObject[skillId];
+            const skillId = members[j].skills[k];
+            members[j].skills[k] = skillsObject[skillId];
         }
     }
 
-    return { sections, skills };
+    return { sections, skills, members };
 }

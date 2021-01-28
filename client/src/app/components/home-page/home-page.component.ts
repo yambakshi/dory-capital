@@ -4,6 +4,7 @@ import { ApiService } from '@services/api.service';
 import { SocketIoService } from '@services/socket-io.service';
 import { ActivatedRoute } from '@angular/router';
 import { LoginService } from '@services/login.service';
+import { PageData } from '@models/page-data';
 
 
 @Component({
@@ -16,7 +17,7 @@ import { LoginService } from '@services/login.service';
 })
 export class HomePageComponent implements OnInit {
   @ViewChild('pageNavigator') pageNavigator: ElementRef;
-  data: any;
+  pageData: any;
   isLoggedIn: boolean = false;
 
   constructor(
@@ -27,15 +28,16 @@ export class HomePageComponent implements OnInit {
     private socketIoService: SocketIoService) {
     this.route.data.subscribe(data => {
       if (!data['pageData']) {
-        this.data = [];
         return;
       }
-
-      this.data = data['pageData'].sections;
     });
 
     this.loginService.getLoginStatusObservable().subscribe((status: boolean) => {
       this.isLoggedIn = status;
+    });
+
+    this.apiService.getPageDataObservable().subscribe((pageData: PageData) => {
+      this.pageData = pageData;
     });
   }
 
@@ -43,9 +45,7 @@ export class HomePageComponent implements OnInit {
     if (isPlatformBrowser(this.platformId)) {
       this.socketIoService.connect();
       this.socketIoService.listen('page-data-changed').subscribe(() => {
-        this.apiService.getPageData().subscribe(data => {
-          this.data = data;
-        });
+        this.apiService.getPageData().subscribe(() => { });
       })
     }
   }
