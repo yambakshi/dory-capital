@@ -147,8 +147,6 @@ export class AdminLeadershipComponent implements OnInit {
   showApproveDialog(data): void {
     const dialogRef = this.dialog.open(ApproveDialog, {
       ...this.dialogsSizes.approve,
-      disableClose: true,
-      hasBackdrop: true,
       data
     });
 
