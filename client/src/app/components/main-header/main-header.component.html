@@ -15,11 +15,14 @@
                 </div>
                 <ng-template #elseBlock>
                     <div class="header-menu-go-to" (click)="goTo($event, '/admin')">
-                        <mat-icon>home</mat-icon>
-                        <mat-label>Admin Page</mat-label>
+                        <div class="go-to-admin">
+                            <i class="icon-person"></i>
+                            <div class="go-to-admin-text">Admin Page</div>
+                        </div>
                     </div>
                 </ng-template>
                 <div class="header-menu-logout" (click)="logout($event)">
+                    <i class="icon-exit"></i>
                     <mat-label>Logout</mat-label>
                 </div>
             </div>

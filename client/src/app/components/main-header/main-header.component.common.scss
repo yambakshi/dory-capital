@@ -56,6 +56,23 @@
                         margin-left: 5px;
                     }
 
+                    > .go-to-admin {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        > .go-to-admin-text {
+                            margin-left: 5px;
+                            white-space: nowrap;
+                        }
+
+                        > i[class^="icon-"] {
+                            margin-top: -7px;
+                            font-size: 22px;
+                        }
+
+                    }
+
                     &::after {
                         content: "";
                         position: absolute;
@@ -63,6 +80,20 @@
                         width: 100%;
                         height: 1px;
                         background-color: #ffffff;
+                    }
+                }
+
+                > .header-menu-logout {
+                    align-items: center;
+                    display: flex;
+
+                    > i[class^="icon-"] {
+                        font-size: 20px;
+                    }
+
+                    > mat-label {
+                        white-space: nowrap;
+                        margin-left: 5px;
                     }
                 }
 

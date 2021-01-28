@@ -16,13 +16,11 @@
                 margin: 0px 20px;
             }
 
-            > .logout-button {
-                font-size: 12px;
+            > .open-menu-button-container {
+                > .header-menu {
+                    right: -10px;
+                }
             }
-        }
-
-        > .header-menu {
-            right: 0;
         }
     }
 }
