@@ -19,6 +19,9 @@ export class LoginService {
         private cookiesService: CookiesService,
         private router: Router) {
         this.loginSubject = new BehaviorSubject<boolean>(false);
+        this.getLoginStatus().subscribe((res: any) => {
+            this.setLoginStatus(res.status);
+        });
     }
 
     getLoginStatusObservable(): Observable<boolean> {

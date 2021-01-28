@@ -34,10 +34,6 @@ export class HomePageComponent implements OnInit {
       this.data = data['pageData'].sections;
     });
 
-    this.loginService.getLoginStatus().subscribe((res: any) => {
-      this.isLoggedIn = res.status;
-    });
-
     this.loginService.getLoginStatusObservable().subscribe((status: boolean) => {
       this.isLoggedIn = status;
     });
