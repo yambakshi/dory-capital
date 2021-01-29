@@ -1,10 +1,19 @@
-import { ObjectID } from 'mongodb';
 import { env } from '../../../config';
 import { mongoDb } from '../../dal';
 
 
 export async function queryMembers(ids: string[]) {
-    const filter = ids.length > 0 ? { _id: { $in: ids.map(_id => new ObjectID(_id)) } } : {};
-    const cursor = await mongoDb.find(env.mongodb.dbName, 'members', filter);
+    const lookup = [{
+        $lookup: {
+            from: "skills",
+            let: { "skills": "$skills" },
+            pipeline: [
+                { $match: { $expr: { $in: ["$_id", "$$skills"] } } },
+            ],
+            as: "skills"
+        }
+    }];
+
+    const cursor = await mongoDb.aggregate(env.mongodb.dbName, 'members', lookup);
     return cursor.toArray();
 }
