@@ -17,7 +17,7 @@ import { PageData } from '@models/page-data';
 })
 export class HomePageComponent implements OnInit {
   @ViewChild('pageNavigator') pageNavigator: ElementRef;
-  pageData: any;
+  pageData: PageData;
   isLoggedIn: boolean = false;
 
   constructor(

@@ -36,8 +36,8 @@
         </div>
     </div>
     <div class="member-actions-container" mat-dialog-actions>
-        <button mat-button mat-dialog-close cdkFocusInitial>Cancel</button>
-        <button mat-button color="primary" [disabled]="!memberForm.valid || !diff" type="submit">{{
+        <button mat-button mat-dialog-close cdkFocusInitial [disabled]="showLoader">Cancel</button>
+        <button mat-button color="primary" [disabled]="!memberForm.valid || !diff || showLoader" type="submit">{{
             data.editMode ? 'Update' : 'Add'}}</button>
         <div *ngIf="showLoader" class="loader-container">
             <spinning-loader></spinning-loader>

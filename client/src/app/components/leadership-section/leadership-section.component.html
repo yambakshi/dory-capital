@@ -8,7 +8,7 @@
             <div *ngFor="let member of members; let i = index" class="members-grid-item">
                 <div class="profile-image-container">
                     <div class="profile-image-overlay"></div>
-                    <img [src]="imgSrc(member.imageId)" [alt]="member.name" />
+                    <img [src]="imgSrc(member.imageId)" [alt]="member.name" [width]="member.width || defaultWidths.member" />
                 </div>
                 <div class="member-name">{{member.name}}</div>
                 <skills-container class="member-skills-container" [skills]="member.skills">
@@ -19,7 +19,7 @@
     <div class="leadership-icons">
         <div #skillsTypes class="skills-grid-container">
             <div *ngFor="let skill of skills; let i = index" class="skill-grid-item">
-                <img [src]="imgSrc(skill.imageId)" [alt]="skill.name" />
+                <img [src]="imgSrc(skill.imageId, false)" [alt]="skill.name" [width]="skill.width || defaultWidths.skill" />
                 <div [style.color]="skill.color">{{skill.name}}</div>
             </div>
         </div>

@@ -51,6 +51,6 @@ export class SkillsContainerComponent implements AfterViewInit {
     }
 
     imgSrc(imageId: string) {
-        return this.cloudinary.url(imageId, { transformation: [{ fetch_format: "auto" }] });
+        return this.cloudinary.url(imageId);
     }
 }
