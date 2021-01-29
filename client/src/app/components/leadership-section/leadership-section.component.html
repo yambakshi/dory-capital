@@ -2,14 +2,17 @@
     <h1 class="leadership-section-title">{{section.title}}</h1>
     <!-- <h6 class="leadership-section-subtitle">Dory Capital is led by a professional Board of Directors (BoD) and managed
         by top<br />multicultural talented experts with unique skills and expertise in:</h6> -->
-        <h6 class="leadership-section-subtitle">{{section.paragraphs[0].text}}</h6>
+    <h6 class="leadership-section-subtitle">{{section.paragraphs[0].text}}</h6>
     <div class="leadership-grid">
         <div #membersContainer class="members-grid-container">
             <div *ngFor="let member of members; let i = index" class="members-grid-item">
-                <div class="profile-image-container">
-                    <div class="profile-image-overlay"></div>
-                    <img [src]="imgSrc(member.imageId)" [alt]="member.name" [width]="member.width || defaultWidths.member" />
-                </div>
+                <a [href]="member.link" target="_blank">
+                    <div class="profile-image-container">
+                        <div class="profile-image-overlay"></div>
+                        <img [src]="imgSrc(member.imageId)" [alt]="member.name"
+                            [width]="member.width || defaultWidths.member" />
+                    </div>
+                </a>
                 <div class="member-name">{{member.name}}</div>
                 <skills-container class="member-skills-container" [skills]="member.skills">
                 </skills-container>
@@ -19,7 +22,8 @@
     <div class="leadership-icons">
         <div #skillsTypes class="skills-grid-container">
             <div *ngFor="let skill of skills; let i = index" class="skill-grid-item">
-                <img [src]="imgSrc(skill.imageId, false)" [alt]="skill.name" [width]="skill.width || defaultWidths.skill" />
+                <img [src]="imgSrc(skill.imageId, false)" [alt]="skill.name"
+                    [width]="skill.width || defaultWidths.skill" />
                 <div [style.color]="skill.color">{{skill.name}}</div>
             </div>
         </div>
