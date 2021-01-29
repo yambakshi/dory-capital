@@ -1,5 +1,7 @@
 import { Component, Input, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Paragraph } from '@models/paragraph';
+import { Section } from '@models/section';
 import { ApiService } from '@services/api.service';
 
 @Component({
@@ -12,30 +14,34 @@ import { ApiService } from '@services/api.service';
     ]
 })
 export class AdminFormComponent {
-    @Input() _id: string;
     @Input() type: string;
-    @Input() data: any;
-    @Input() dataRetrieved: boolean = false;
+    @Input() data: Section | Paragraph;
     @ViewChild('formElement', { read: NgForm }) formElement: NgForm;
     submitted: boolean = false;
     disableButtons: boolean = true;
     showLoader: boolean = false;
-    dataBackup: string = null;
+    inputBackup: Section | Paragraph = null;
     submitCallback: Function;
 
     constructor(private apiService: ApiService) {
         this.submitCallback = (res: any) => {
-            this.dataBackup = this.data;
+            this.inputBackup = this.data[this.type];
             this.showLoader = false;
         }
     }
 
     get f() { return this.formElement.controls; }
 
+    get showParagraphTitle() {
+        return !this.isSection(this.data) && this.type == 'title';
+    }
+
+    isSection(data: Section | Paragraph): data is Section {
+        return (data as Section).paragraphs !== undefined;
+    }
+
     ngOnChanges(): void {
-        if (this.dataRetrieved) {
-            this.dataBackup = this.data;
-        }
+        this.inputBackup = this.data[this.type];
     }
 
     async onSubmit(): Promise<void> {
@@ -51,18 +57,17 @@ export class AdminFormComponent {
 
         await this.timeout(500);
 
-        const update: any = { _id: this._id };
+        const update: any = { _id: this.data._id };
         switch (this.type) {
-            case 'section.title':
-                update.title = this.data;
-                this.apiService.updateSectionTitle(update).subscribe(this.submitCallback)
+            case 'title':
+                update.title = this.data.title;
+                this.isSection(this.data) ?
+                    this.apiService.updateSectionTitle(update).subscribe(this.submitCallback) :
+                    this.apiService.updateParagraph(update).subscribe(this.submitCallback);
+
                 break;
-            case 'paragraph.title':
-                update.title = this.data;
-                this.apiService.updateParagraph(update).subscribe(this.submitCallback)
-                break;
-            case 'paragraph.text':
-                update.text = this.data;
+            case 'text':
+                update.text = (this.data as Paragraph).text;
                 this.apiService.updateParagraph(update).subscribe(this.submitCallback)
                 break;
             default:
@@ -75,11 +80,11 @@ export class AdminFormComponent {
     }
 
     inputChanged(): void {
-        this.disableButtons = this.data == this.dataBackup;
+        this.disableButtons = this.data[this.type] == this.inputBackup;
     }
 
     reset(): void {
-        this.data = this.dataBackup;
+        this.data[this.type] = this.inputBackup;
         this.disableButtons = true;
     }
 }

@@ -16,7 +16,6 @@ export class AdminComponent implements AfterViewInit {
   @ViewChild('headerTabs') headerTabs: ElementRef;
   @ViewChild('tabsLine') tabsLine: ElementRef;
   @ViewChild('sections') sections: ElementRef;
-  dataRetrieved: boolean = false;
   sectionsTabs: string[] = [];
   selectedTab: number = 0;
   pageData: PageData;
@@ -25,17 +24,15 @@ export class AdminComponent implements AfterViewInit {
     private route: ActivatedRoute,
     private apiService: ApiService,
     private renderer: Renderer2) {
-
     this.route.data.subscribe(data => {
       if (!data['pageData']) {
         return;
       }
+    });
 
-      this.apiService.getPageDataObservable().subscribe((pageData: PageData) => {
-        this.dataRetrieved = true;
-        this.pageData = pageData;
-        this.initSectionsHeader();
-      });
+    this.apiService.getPageDataObservable().subscribe((pageData: PageData) => {
+      this.pageData = pageData;
+      this.initSectionsHeader();
     });
   }
 

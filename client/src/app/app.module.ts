@@ -10,7 +10,7 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { VideoElementComponent } from './components/video-element/video-element.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
-import { ParagraphSectionComponent } from '@components/admin-section/admin-section.component';
+import { AdminSectionComponent } from '@components/admin-section/admin-section.component';
 import { AdminFormComponent } from '@components/admin-form/admin-form.component';
 import { LeadershipSectionComponent } from '@components/leadership-section/leadership-section.component';
 import { SkillsContainerComponent } from '@components/skills-container/skills-container.component';
@@ -49,7 +49,7 @@ import { MainHeaderComponent } from '@components/main-header/main-header.compone
     SpinningLoaderComponent,
     VideoElementComponent,
     LoginPageComponent,
-    ParagraphSectionComponent,
+    AdminSectionComponent,
     LeadershipSectionComponent,
     SkillsContainerComponent,
     CarouselsComponent,

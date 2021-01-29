@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Section } from '@models/section';
 
 @Component({
     selector: 'admin-section',
@@ -9,9 +10,8 @@ import { Component, Input } from '@angular/core';
         './admin-section.component.mobile.scss'
     ]
 })
-export class ParagraphSectionComponent {
-    @Input() data: any;
-    @Input() dataRetrieved: boolean = false;
+export class AdminSectionComponent {
+    @Input() section: Section;
 
     constructor() { }
 }
