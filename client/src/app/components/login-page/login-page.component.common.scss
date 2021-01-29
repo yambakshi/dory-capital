@@ -88,6 +88,13 @@
                     background-color: rgba(15, 73, 219, 1);
                     cursor: pointer;
                     user-select: none;
+
+                    &.disabled {
+                        color: rgba(16, 16, 16, 0.4);
+                        background-color: rgba(239, 239, 239, 0.3);
+                        border-color: rgba(118, 118, 118, 0.3);
+                        cursor: not-allowed;
+                    }
                 }
 
                 > .loader-container {

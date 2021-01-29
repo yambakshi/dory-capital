@@ -2,10 +2,10 @@
     <div class="section-header-container">
         <h2 class="section-title">{{section.name}}</h2>
     </div>
-    <h3>Title</h3>
+    <h2>Title</h2>
     <admin-form [data]="section" [type]="'title'"></admin-form>
     <ng-container *ngIf="section.paragraphs.length > 0">
-        <h3 class="paragraphs-title">Paragraphs</h3>
+        <h2 class="paragraphs-title">Paragraphs</h2>
         <div *ngFor="let paragraph of section.paragraphs; let i = index" class="paragraphs-forms">
             <admin-form *ngIf="paragraph.title" class="admin-form" [data]="paragraph" [type]="'title'">
             </admin-form>
