@@ -1,11 +1,10 @@
 <div class="login-page-container">
     <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <div class="login-title-container">
-            <!-- <div class="login-title">Login</div> -->
             <h1 class="login-title">Login</h1>
         </div>
-        <div *ngIf="submitted && wrongCreds" class="wrong-creds-container">
-            <div class="wrong-creds">Wrong email or password</div>
+        <div *ngIf="submitted && authError" class="auth-error-container">
+            <div class="auth-error">{{authError}}</div>
         </div>
         <div class="login-inputs">
             <div class=input-container>
@@ -30,7 +29,12 @@
             <div class="forgot-my-password">Forgot my password</div>
         </div> -->
         <div class="login-button-container">
-            <input class="login-button" type="submit" value="Submit">
+            <div class="login-button-inner-container">
+                <input class="login-button" type="submit" value="Submit">
+                <div *ngIf="showLoader" class="loader-container">
+                    <spinning-loader class="login-loader"></spinning-loader>
+                </div>
+            </div>
         </div>
     </form>
 </div>

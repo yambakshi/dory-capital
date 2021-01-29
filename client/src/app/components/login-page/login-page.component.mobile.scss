@@ -28,9 +28,11 @@
             > .login-button-container {
                 margin-bottom: 6px;
 
-                > .login-button {
-                    padding: 6px;
-                    font-size: 18px;
+                > .login-button-inner-container {
+                    > .login-button {
+                        padding: 6px;
+                        font-size: 18px;
+                    }
                 }
             }
         }

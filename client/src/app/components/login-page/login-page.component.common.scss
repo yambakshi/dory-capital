@@ -25,12 +25,12 @@
             }
         }
 
-        > .wrong-creds-container {
+        > .auth-error-container {
             display: flex;
             justify-content: center;
             margin-bottom: 10px;
 
-            > .wrong-creds {
+            > .auth-error {
                 font-size: 80%;
                 color: #dc3545;
             }
@@ -73,16 +73,27 @@
             align-items: center;
             justify-content: center;
 
-            > .login-button {
-                padding: 15px;
-                font-size: 30px;
-                outline: none;
-                border: white 1px solid;
-                border-radius: 10px;
-                color: white;
-                background-color: rgba(15, 73, 219, 1);
-                cursor: pointer;
-                user-select: none;
+            > .login-button-inner-container {
+                position: relative;
+                display: flex;
+                align-items: center;
+
+                > .login-button {
+                    padding: 15px;
+                    font-size: 30px;
+                    outline: none;
+                    border: white 1px solid;
+                    border-radius: 10px;
+                    color: white;
+                    background-color: rgba(15, 73, 219, 1);
+                    cursor: pointer;
+                    user-select: none;
+                }
+
+                > .loader-container {
+                    position: absolute;
+                    right: -35px;
+                }
             }
         }
     }

@@ -15,8 +15,9 @@ import { LoginService } from '@services/login.service';
 export class LoginPageComponent implements OnInit {
     loginForm: FormGroup;
     submitted: boolean = false;
-    wrongCreds: boolean = false;
+    authError: string = '';
     passwordMinLength: number = 6;
+    showLoader: boolean = false;
 
     constructor(
         private loginService: LoginService,
@@ -32,27 +33,39 @@ export class LoginPageComponent implements OnInit {
 
     get f() { return this.loginForm.controls; }
 
-    onSubmit(): void {
+    timeout(ms: number) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    async onSubmit() {
         this.submitted = true;
 
-        if (this.loginForm.invalid) {
+        if (this.loginForm.invalid || this.authError) {
             return;
         }
 
+        this.showLoader = true;
+        await this.timeout(500);
         this.loginService.login({
             email: this.loginForm.controls.email.value,
             password: this.loginForm.controls.password.value
         }).subscribe(
-            res => {
-                this.router.navigate(['/admin']);
+            ({ success, message }: any) => {
+                this.showLoader = false;
+                if (success) {
+                    this.router.navigate(['/admin']);
+                } else {
+                    this.authError = message;
+                }
             },
             err => {
-                this.wrongCreds = true;
+                this.showLoader = false;
+                this.authError = err;
             });
     }
 
     inputChanged(): void {
-        this.wrongCreds = false;
+        this.authError = '';
     }
 
     onReset() {

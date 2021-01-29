@@ -50,8 +50,10 @@ export class LoginService {
     login(creds: { email: string, password: string }): any {
         return this.http.post('/api/auth/login', creds, this.httpOptions).pipe(map(
             (res: any) => {
-                this.setLoginStatus(true);
-                this.cookiesService.set(COOKIES.TOKEN_KEY, res.token);
+                const status = res.success;
+                this.setLoginStatus(status);
+                status && this.cookiesService.set(COOKIES.TOKEN_KEY, res.token);
+                return res;
             }),
             catchError(this.handleError));
     }
