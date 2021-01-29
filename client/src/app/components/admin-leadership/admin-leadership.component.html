@@ -2,7 +2,20 @@
     <div class="section-header-container">
         <h2 class="section-title">Leadership</h2>
     </div>
+    <div class="text-inputs-container">
+        <h3>Title</h3>
+        <admin-form [data]="section" [type]="'title'"></admin-form>
+        <ng-container *ngIf="section.paragraphs.length > 0">
+            <h3 class="paragraphs-title">Paragraphs</h3>
+            <div *ngFor="let paragraph of section.paragraphs; let i = index" class="paragraphs-forms">
+                <admin-form *ngIf="paragraph.title" class="admin-form" [data]="paragraph" [type]="'title'">
+                </admin-form>
+                <admin-form class="admin-form" [data]="paragraph" [type]="'text'"></admin-form>
+            </div>
+        </ng-container>
+    </div>
     <div class="members-table-container">
+        <h3>Members</h3>
         <div class="table-control-panel-container">
             <div class="table-control-panel-buttons">
                 <button mat-button type="button" class="control-panel-button" (click)="addMember()">
