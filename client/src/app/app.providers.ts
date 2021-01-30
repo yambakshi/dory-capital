@@ -6,7 +6,6 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpErrorInterceptor } from '@services/http-interceptor';
 import { CookiesService } from '@services/cookies.service';
 import { AuthGuard } from './guards/auth.guard';
-import { CloudinaryService } from '@services/cloudinary.service';
 import { PageDataResolver } from '@resolvers/page-data.resolver';
 
 export const APP_PROVIDERS = [
@@ -16,7 +15,6 @@ export const APP_PROVIDERS = [
     LoginService,
     AuthGuard,
     CookiesService,
-    CloudinaryService,
     PageDataResolver,
     {
         provide: HTTP_INTERCEPTORS,

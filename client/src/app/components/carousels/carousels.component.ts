@@ -24,7 +24,7 @@ export class CarouselsComponent implements OnInit, AfterViewInit {
     labelHeight: number = 24;
     carouselsImgs = [
         ['Big Data', 'Data Sciences', 'Data Tech', 'Fintech', 'Smart City Tech'],
-        ['AI', 'AR VR', 'Face Recognition', 'NLP', 'Profiling'],
+        ['Artificial Intelligence', 'AR VR', 'Face Recognition', 'NLP', 'Profiling'],
         ['Blockchain Acceleration', 'Blockchain Scalability', 'Blockchain Throughput', 'Infrastructure Blockchain', 'Quantum Cryptography'],
         ['Energy Harvesting', 'Energy Sourcing', 'Holographic Imaging', 'Machine Learning', 'Voice Diagnostics Analysis'],
         ['Autonomous Mobility Solutions', 'Drones Robotics', 'Medical Histotripsy and Synthetic Biology', 'RF Networks', 'Ultimate Online Privacy']
