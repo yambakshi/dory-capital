@@ -51,10 +51,10 @@ export class LoginPageComponent implements OnInit {
             password: this.loginForm.controls.password.value
         }).subscribe(
             ({ success, message }: any) => {
-                this.showLoader = false;
                 if (success) {
                     this.router.navigate(['/admin']);
                 } else {
+                    this.showLoader = false;
                     this.authError = message;
                 }
             },
