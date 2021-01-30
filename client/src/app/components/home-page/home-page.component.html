@@ -1,7 +1,7 @@
 <main-header *ngIf="isLoggedIn" class="main-header-component"></main-header>
 <section class="intro-section-container" [ngClass]="isLoggedIn ? 'logged-in' : ''">
     <div class="conatiner-fluid content-set">
-        <video-element></video-element>
+        <video-element [fullSize]="false"></video-element>
         <div class="intro-section">
             <img src="assets/media/logo.png" class="img-fluid logo" alt="logo" />
             <div class="dory">
@@ -93,6 +93,13 @@
         </div>
     </div>
     <div class="container-fluid" id="leadership">
+        <div class="video-wrapper-leadership">
+            <div class="video-outer-wrapper-leadership">
+                <div class="video-inner-wrapper-leadership">
+                    <video-element></video-element>
+                </div>
+            </div>
+        </div>
         <leadership-section></leadership-section>
     </div>
     <div class="container-fluid" id="process">
@@ -222,7 +229,8 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                        <div class="panel panel-default" *ngFor="let paragraph of pageData.sections[5].paragraphs; let i = index">
+                        <div class="panel panel-default"
+                            *ngFor="let paragraph of pageData.sections[5].paragraphs; let i = index">
                             <div class="panel-heading" role="tab" [attr.id]="'heading' + i">
                                 <h4 class="panel-title">
                                     <a [ngClass]="i == 0 ? null : 'collapsed'" data-toggle="collapse"

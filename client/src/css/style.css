@@ -1084,7 +1084,7 @@ video-popup video:focus {
 	transform: translateX(-50%);
 }
 
-#about, #faq, #whyus, #contact {
+#about, #faq, #whyus, #leadership, #contact {
 	position: relative
 }
 
