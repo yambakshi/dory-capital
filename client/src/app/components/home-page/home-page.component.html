@@ -1,8 +1,8 @@
 <main-header *ngIf="isLoggedIn" class="main-header-component"></main-header>
-<section class="first-section" [ngClass]="isLoggedIn ? 'logged-in' : ''">
+<section class="intro-section-container" [ngClass]="isLoggedIn ? 'logged-in' : ''">
     <div class="conatiner-fluid content-set">
         <video-element></video-element>
-        <div class="dory-center overflow-hidden">
+        <div class="intro-section">
             <img src="assets/media/logo.png" class="img-fluid logo" alt="logo" />
             <div class="dory">
                 <h1>Welcome to Dory Capital</h1>
@@ -117,6 +117,7 @@
                     <div class="step">
                         <span>STEP 1</span>
                         <h1>{{pageData.sections[4].paragraphs[0].title}}</h1>
+                        <!-- TODO: Ask about italic email: Want email italic or want to be able to edit text? -->
                         <!-- <p class="one-pager">Please send us a one-pager teaser to <em>dealflow@dory.capital</em></p> -->
                         <p class="one-pager">{{pageData.sections[4].paragraphs[0].text}}</p>
                         <p class="make"><small></small> Make sure you also introduce your team, and not just your
@@ -136,7 +137,7 @@
             <div class="row">
                 <div class="col-md-6 border-left-set"></div>
                 <div class="col-md-6 mb-md-4 border-m-set dep-set">
-                    <div class="step mt-0">
+                    <div class="step step-2">
                         <span class="stp-squre">STEP 2</span>
                         <h1>{{pageData.sections[4].paragraphs[1].title}}</h1>
                         <p class="one-pager">{{pageData.sections[4].paragraphs[1].text}}</p>
@@ -167,7 +168,7 @@
                         <div class="media">
                             <img src="assets/media/group.png" alt="team" class="img-fluid co-founding-img" />
                             <div class="media-body ml-4">
-                                <h6 class="co-founding ml-0">Preliminary technical assessment</h6>
+                                <h6 class="co-founding-ml-0">Preliminary technical assessment</h6>
                                 <p class="make">The preliminary technical assessment will examine your technology
                                     knowhow, R&D capabilities, IP and a general technical team assessment.</p>
                             </div>
@@ -175,7 +176,7 @@
                         <div class="media">
                             <img src="assets/media/dd.png" alt="team" class="img-fluid co-founding-img" />
                             <div class="media-body ml-4">
-                                <h6 class="co-founding ml-0">An indicative due diligence</h6>
+                                <h6 class="co-founding-ml-0">An indicative due diligence</h6>
                                 <p class="make">A detailed and thorough due diligence will include, among others,
                                     the following:</p>
                                 <p class="make"><small></small> A vetting process of the entire team; and,</p>
@@ -188,7 +189,7 @@
                         <div class="media">
                             <img src="assets/media/approval.png" alt="team" class="img-fluid co-founding-img" />
                             <div class="media-body ml-4">
-                                <h6 class="co-founding ml-0">Final approval</h6>
+                                <h6 class="co-founding-ml-0">Final approval</h6>
                                 <p class="make">Post due diligence, your full R&D and GTM program is presented
                                     internally for final approval.</p>
                             </div>
@@ -196,7 +197,7 @@
                         <div class="media">
                             <img src="assets/media/work.png" alt="team" class="img-fluid co-founding-img" />
                             <div class="media-body ml-2">
-                                <h6 class="co-founding ml-0">To work</h6>
+                                <h6 class="co-founding-ml-0">To work</h6>
                                 <p class="make">Signing an investment/cooperation agreement and getting to work.</p>
                             </div>
                         </div>

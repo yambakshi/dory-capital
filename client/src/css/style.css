@@ -54,7 +54,9 @@ body {
 	padding: 0 40px !important;
 }
 
-.dory-center {
+/* Intro Section */
+
+.intro-section {
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -82,6 +84,7 @@ body {
 	line-height: 80px;
 	text-align: center;
 	color: #FFFFFF;
+	margin-bottom: 8px;
 }
 
 .dory p:last-child {
@@ -102,6 +105,7 @@ body {
 .scope {
 	display: flex;
 	justify-content: center;
+	/* margin-bottom: 25px; */
 }
 
 .custom-btn {
@@ -146,9 +150,11 @@ body {
 	text-align: center;
 	color: #FFFFFF;
 	display: block;
-	margin: 0 auto;
-	margin-top: 25px;
+	margin: 0 auto !important;
+	margin-top: 25px !important;
 }
+
+/* Scope Section */
 
 .scope-back {
 	background-color: #0F49DB;
@@ -208,10 +214,7 @@ body {
 	text-decoration: none;
 }
 
-.enable-color {
-	background-color: #0F49DB;
-	position: relative;
-}
+/* About Section */
 
 .enable-dis {
 	position: relative;
@@ -227,6 +230,7 @@ body {
 	text-align: center;
 	color: #FFFFFF;
 	padding-top: 270px;
+	margin-bottom: 8px;
 }
 
 .enable-dis p {
@@ -286,6 +290,8 @@ body {
 	transform: translate(-50%, -50%);
 }
 
+/* Why Us Section */
+
 .why-us {
 	background-color: #0F49DB;
 }
@@ -327,6 +333,7 @@ body {
 	color: #FFFFFF;
 	padding-top: 24px;
 	padding-bottom: 40px;
+	margin-bottom: 8px;
 }
 
 .ellipse p {
@@ -396,58 +403,69 @@ body {
 }
 
 .process {
+	font: 400 48px/72px Merriweather, "Helvetica Neue", sans-serif !important;
 	position: relative;
-	font-family: Merriweather;
 	font-style: normal;
-	font-weight: normal;
-	font-size: 48px;
-	line-height: 72px;
+	/* font-weight: normal; */
 	text-align: center;
 	color: #FFFFFF;
-	margin-top: 250px;
-	margin-bottom: 70px;
+	margin: 250px 0px 70px !important;
 }
 
 .step span {
 	font-family: Roboto;
 	font-style: normal;
-	font-weight: bold;
-	font-size: 14px;
-	line-height: 16px;
+	/* font-weight: bold; */
+	/* font-size: 14px; */
+	/* line-height: 16px; */
 	color: #FFFFFF;
+
+	font: 700 14px/16px Roboto, "Helvetica Neue", sans-serif;
 }
 
 .step h1 {
 	font-family: Merriweather;
 	font-style: normal;
 	font-weight: normal;
-	font-size: 24px;
-	line-height: 40px;
+	/* font-size: 24px;
+	line-height: 40px; */
 	color: #FFFFFF;
 	padding: 12px 0 28px 0;
 	margin: 0;
+
+	font: 400 24px/40px Merriweather, "Helvetica Neue", sans-serif;
+}
+
+.step a {
+	font: 400 16px/24px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto !important;
 }
 
 .one-pager {
-	font-family: Roboto;
+	/* font-family: Roboto; */
 	font-style: normal;
-	font-weight: bold;
-	font-size: 16px;
-	line-height: 24px;
+	/* font-weight: bold; */
+	/* font-size: 16px; */
+	/* line-height: 24px; */
 	color: #FFFFFF;
 	padding-bottom: 16px;
-	margin-bottom: 0;
+	/* margin-bottom: 0; */
+
+	margin: 0px !important;
+	font: 700 16px/24px Roboto, "Helvetica Neue", sans-serif !important;
 }
 
 .make {
-	font-family: Roboto;
+	/* font-family: Roboto; */
 	font-style: normal;
-	font-weight: normal;
-	font-size: 14px;
-	line-height: 20px;
+	/* font-weight: normal; */
+	/* font-size: 14px; */
+	/* line-height: 20px; */
 	color: #FFFFFF;
 	width: 476px;
 	display: -webkit-inline-box;
+
+	margin: 0 0 16px !important;
+	font: 400 14px/20px Roboto, "Helvetica Neue", sans-serif !important;
 }
 
 .make small {
@@ -479,15 +497,22 @@ body {
 }
 
 .co-founding {
-	margin-left: 15px;
-	margin-top: 5px;
-	font-family: Roboto;
 	font-style: normal;
 	font-weight: bold;
-	font-size: 16px;
-	line-height: 24px;
 	color: #FFFFFF;
+	font: 700 16px/24px Roboto, "Helvetica Neue", sans-serif !important;
+    margin: 5px 0 12px 15px !important;
 }
+
+.co-founding-ml-0 {
+	font-style: normal;
+	font-weight: bold;
+	color: #FFFFFF;
+	font: 700 16px/24px Roboto, "Helvetica Neue", sans-serif !important;
+    margin: 5px 0 12px 0px !important;
+}
+
+/* FAQ */
 
 .faq {
 	position: relative;
@@ -498,16 +523,18 @@ body {
 
 .faq span {
 	padding-top: 48px !important;
-	font-family: Roboto;
+	/* font-family: Roboto; */
 	font-style: normal;
-	font-weight: bold;
-	font-size: 14px;
-	line-height: 16px;
+	/* font-weight: bold; */
+	/* font-size: 14px;
+	line-height: 16px; */
 	text-align: center;
-	letter-spacing: 0.5em;
+	letter-spacing: 0.5em !important;
 	text-transform: uppercase;
 	color: #FFFFFF;
 	display: block;
+
+	font: 700 14px/16px Roboto, "Helvetica Neue", sans-serif;
 }
 
 .faq h1 {
@@ -520,6 +547,7 @@ body {
 	color: #FFFFFF;
 	padding-top: 24px;
 	padding-bottom: 40px;
+	margin-bottom: 8px !important;
 }
 
 .container-set {
@@ -527,6 +555,10 @@ body {
 }
 
 /*---accordion style---*/
+
+.panel-title {
+	margin-bottom: 8px !important;
+}
 
 .panel-title>a:before {
 	float: right !important;
@@ -857,7 +889,11 @@ body {
 
 .step {
 	margin-bottom: 79px;
-	margin-top: 24px;
+	margin-top: 28px;
+}
+
+.step-2 { 
+	margin-top: 4px;
 }
 
 .border-step-left:before {
