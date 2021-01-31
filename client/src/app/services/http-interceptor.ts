@@ -9,6 +9,11 @@ export class HttpErrorInterceptor implements HttpInterceptor {
     constructor(private cookiesStorageService: CookiesService) { }
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+        let isAbsoluteUrl = this.isAbsoluteUrl(request.url);
+        if (isAbsoluteUrl) {
+            return next.handle(request);
+        }
+
         let token = this.cookiesStorageService.get(COOKIES.TOKEN_KEY);
         if (token) {
             const tokenParts = token.split('"');
@@ -16,12 +21,16 @@ export class HttpErrorInterceptor implements HttpInterceptor {
                 token = tokenParts[1];
         }
 
-        const url = `${environment.apiUrl}${request.url}`
+        const url = `${environment.apiUrl}${request.url}`;
         const headers = {
             Authorization: `bearer ${token}`
         };
 
         const modified = request.clone({ setHeaders: headers, url: url });
         return next.handle(modified);
+    }
+
+    private isAbsoluteUrl(url: string): boolean {
+        return url.startsWith('http');
     }
 }
