@@ -26,7 +26,6 @@ export class LeadershipSectionComponent {
     constructor(
         private apiService: ApiService,
         private cloudinary: Cloudinary) {
-
         this.apiService.getPageDataObservable().subscribe((pageData: PageData) => {
             this.section = pageData.sections[3];
             this.members = pageData.members;

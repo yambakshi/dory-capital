@@ -36,7 +36,7 @@ export class AdminComponent implements AfterViewInit {
     });
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     this.setTabsLine(this.selectedTab);
     const selectedElement = this.sections.nativeElement.children[this.selectedTab];
     this.renderer.setStyle(selectedElement, 'display', 'flex');

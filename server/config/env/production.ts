@@ -1,7 +1,7 @@
 export default {
     apiPort: Number(process.env.API_PORT),
     cors: {
-        origin: 'http://localhost:4200'
+        origin: 'http://localhost:4000'
     },
     cookiesPrefix: 'dory_capital_',
     mongodb: {

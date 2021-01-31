@@ -61,7 +61,7 @@ export class AdminLeadershipComponent implements OnInit {
     return this.selection.selected.length === 0;
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
     if (isPlatformBrowser(this.platformId)) {

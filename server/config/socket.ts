@@ -1,5 +1,6 @@
 import { Server } from 'socket.io';
 import { logger } from './logger';
+import { env } from './env';
 
 
 class SocketIO {
@@ -10,7 +11,7 @@ class SocketIO {
         this.io = new Server(server, {
             path,
             cors: {
-                origin: "http://localhost:4200"
+                origin: env.cors.origin
             }
         });
 
