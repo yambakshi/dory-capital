@@ -1049,8 +1049,8 @@
 		z-index: 0;
 		right: 0;
 		left: 0;
-		top: 0%;
-		height: 44%;
+		top: 0;
+		height: 400px;
 		overflow: hidden;
 	}
 	.video-outer-wrapper-why-us {
@@ -1085,8 +1085,8 @@
 		z-index: 0;
 		right: 0;
 		left: 0;
-		top: 0%;
-		height: 44%;
+		top: 0;
+		height: 400px;
 		overflow: hidden;
 	}
 	.video-outer-wrapper-leadership {
@@ -1203,7 +1203,7 @@
 		right: 0;
 		left: 0;
 		top: 0%;
-		height: 44%;
+		height: 400px;
 		overflow: hidden;
 	}
 	.video-outer-wrapper-faq {
@@ -1239,7 +1239,7 @@
 		right: 0;
 		left: 0;
 		top: 0%;
-		height: 44%;
+		height: 400px;
 		overflow: hidden;
 	}
 	.video-outer-wrapper-contact {

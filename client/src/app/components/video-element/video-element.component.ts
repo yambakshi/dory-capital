@@ -7,8 +7,6 @@ import { Component, Input } from '@angular/core';
     styleUrls: ['./video-element.component.scss']
 })
 export class VideoElementComponent {
-    // TODO: Maybe delete
-    // @ViewChild('videoElement') videoElement: ElementRef;
     @Input() fullSize: boolean = true;
 
     constructor() { }
