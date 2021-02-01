@@ -1,4 +1,4 @@
-import { Component, ElementRef, Inject, ViewChild } from '@angular/core';
+import { Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '@services/api.service';
@@ -22,7 +22,7 @@ export interface DialogData {
         './member.dialog.mobile.scss'
     ]
 })
-export class MemberDialog {
+export class MemberDialog implements OnInit {
     @ViewChild('fileInput') fileInput: ElementRef;
     readonly blankImageId: string = 'dory-capital/leadership/blank-profile-picture_djm9y5';
     readonly fileUploadRecommendation: string = 'W: 775px; H: 800px';
