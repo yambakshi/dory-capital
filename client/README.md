@@ -20,14 +20,6 @@ Run `npm run build:ssr` to build the project in SSR mode.
 WinSCP build to CentOS 8 machine.
 Move server and client folders to /var/www/html/dory-capital
 cd /var/www/html/dory-capital
-
-Server
-cd server
-sudo touch nohup.out
-sudo chmod 777 nohup.out
-nohup node out/main.js > nohup.out 2>&1 &
-
-Client
 cd client
 sudo touch nohup.out
 sudo chmod 777 nohup.out
