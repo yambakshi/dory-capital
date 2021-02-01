@@ -1,0 +1,26 @@
+.skills-container {
+    position: relative;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    
+    & img {
+        width: 20px;
+    }
+    
+    > .skills-row-1 {
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+        margin-bottom: 16px;
+    }
+
+    > .skills-row-2 {
+        position: relative;
+        display: flex;
+
+        > .skill-icon {
+            position: absolute;
+        }
+    }
+}

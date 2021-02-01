@@ -1,0 +1,124 @@
+.tech-carousels-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    > .tech-carousels-tabs-container {
+        position: relative;
+        margin-bottom: 80px;
+
+        > .tech-carousels-tabs {
+            display: flex;
+            flex-direction: row;
+            list-style-type: none;
+            padding: 0;
+            margin: 0 0 20px;
+
+            > .tech-carousel-tab {
+                cursor: pointer;
+                user-select: none;
+                font-family: Merriweather;
+                font-size: 32px;
+                line-height: 40px;
+                padding: 5px 56px;
+                display: flex;
+                font-weight: 400;
+                opacity: .3;
+                transition: opacity 0.5s;
+
+                &:hover {
+                    opacity: 1;
+                }
+
+                &.selected {
+                    opacity: 1;
+                }                
+            }
+        }
+
+        > .tech-carousels-tabs-underscore {
+            width: 100%;
+            height: 10px;
+            background-color: black;
+            border-radius: 10px;
+        }
+
+        > .tech-carousels-tabs-line {
+            height: 14px;
+            position: absolute;
+            bottom: -2px;
+            background-color: white;
+            border-radius: 10px;
+            transition: all 0.4s ease;
+        }
+    }
+
+    > .tech-carousels {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        > .tech-carousel-rotator-container {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            border-radius: 15px;
+            position: absolute;
+            z-index: 1;
+            padding: 15px;
+            background-color: #081B4E;
+
+            > .tech-carousel-rotator-icon {
+                user-select: none;
+            }
+
+            > .tech-carousel-rotator-text {
+                user-select: none;
+                font-size: 20px;
+                font-family: Roboto;
+                margin-left: 10px;
+            }
+        }
+
+        > .tech-carousel {
+            position: relative;
+            width: 700px;
+            height: 700px;
+            display: none;
+
+            > .tech-carousel-item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transition: top 0.5s, left 0.5s, opacity 0.5s;
+                transform: translate(-50%, -50%);
+                cursor: pointer;
+                opacity: .3;
+                z-index: 1000;
+
+                &:hover {
+                    opacity: 1;
+                }
+
+                &.active {
+                    opacity: 1;
+                }
+
+                > img {
+                    width: 200px;
+                }
+
+                > .tech-carousel-item-text {
+                    font-size: 16px;
+                    font-family: Merriweather;
+                    color: #fff;
+                    text-align: center;
+                    width: 80%;
+                }
+            }
+        }
+    }
+}
