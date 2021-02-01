@@ -1,0 +1,57 @@
+@import "../../../scss/global/index.scss";
+
+@include media("screen", "<mobile") {
+    .tech-carousels-container {
+        > .tech-carousels-tabs-container {
+            margin-bottom: 30px;
+
+            > .tech-carousels-tabs {
+                margin: 0;
+
+                > .tech-carousel-tab {
+                    font-size: 15px;
+                    padding: 5px 20px;
+                }
+            }
+
+            > .tech-carousels-tabs-underscore {
+                height: 6px;
+            }
+
+            > .tech-carousels-tabs-line {
+                height: 10px;
+            }
+        }
+
+        > .tech-carousels {
+            > .tech-carousel-rotator-container {
+                border-radius: 8px;
+                padding: 8px;
+
+                > .tech-carousel-rotator-icon {
+                    width: 15px;
+                }
+
+                > .tech-carousel-rotator-text {
+                    font-size: 12px;
+                    margin-left: 8px;
+                }
+            }
+
+            > .tech-carousel {
+                width: 320px;
+                height: 320px;
+
+                > .tech-carousel-item {
+                    > img {
+                        width: 80px;
+                    }
+
+                    > .tech-carousel-item-text {
+                        font-size: 10px;
+                    }
+                }
+            }
+        }
+    }
+}

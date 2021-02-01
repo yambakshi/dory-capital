@@ -1,0 +1,1 @@
+export { validateParagraphUpdate } from './validate-paragraph-update';

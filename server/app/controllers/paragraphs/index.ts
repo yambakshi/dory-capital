@@ -1,0 +1,1 @@
+export { updateParagraph } from './update-paragraph';

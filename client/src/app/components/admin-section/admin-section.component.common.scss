@@ -1,0 +1,50 @@
+.section-container {
+    background-color: rgb(14, 63, 187);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding: 10px 20px 20px;
+    margin-bottom: 30px;
+    overflow: hidden;
+    border-right: white 1px solid;
+    border-left: white 1px solid;
+    border-bottom: white 1px solid;
+
+    &.collapsed {
+        height: 57px;
+    }
+
+    > .section-header-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: white 1px solid;
+        margin-bottom: 18px;
+        padding-bottom: 0px;
+
+        > .section-title {
+            flex: 1;
+            text-align: center;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+    }
+
+    > .paragraphs-title {
+        margin-top: 30px;
+    }
+
+    > .paragraphs-forms {
+        &:not(:last-of-type) {
+            margin-bottom: 20px;
+        }
+
+        & .admin-form {
+            display: flex;
+            flex-direction: column;
+
+            &:not(:last-of-type) {
+                margin-bottom: 10px;
+            }
+        }
+    }
+}

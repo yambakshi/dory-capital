@@ -1,0 +1,38 @@
+.main-header-component {
+    position: fixed;
+    top: 0;
+    z-index: 1001;
+    width: 100%;
+}
+
+.intro-section-container {
+    margin-top: 0px;
+
+    &.logged-in {
+        margin-top: 65px;
+    }
+}
+
+h1 {
+    white-space: pre-wrap !important;
+}
+
+h4 {
+    white-space: pre-wrap !important;
+}
+
+h6 {
+    white-space: pre-wrap !important;
+}
+
+p {
+    white-space: pre-wrap !important;
+}
+
+.panel-title {
+    white-space: normal !important;
+}
+
+.make {
+    white-space: normal !important;
+}

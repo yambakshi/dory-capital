@@ -1,0 +1,488 @@
+<main-header *ngIf="isLoggedIn" class="main-header-component"></main-header>
+<section class="intro-section-container" [ngClass]="isLoggedIn ? 'logged-in' : ''">
+    <div class="conatiner-fluid content-set">
+        <video-element [fullSize]="false"></video-element>
+        <div class="intro-section">
+            <img src="assets/media/logo.png" class="img-fluid logo" alt="logo" />
+            <div class="dory">
+                <h1>Welcome to Dory Capital</h1>
+                <p>Dory Capital is a Bit2Atom Technology and Innovation investment house
+                    <br />We empower, enable and invest in frontier breakthrough technologies!
+                </p>
+            </div>
+            <div class="scope" align="center">
+                <a class="btn custom-btn" href="#scope">Our Scope</a>
+                <a href="#contact" class="btn custom-btn ml-4">Contact us</a>
+            </div>
+            <p class="burning">If you have a burning desire to succeed, and you believe in your vision, we at Dory
+                Capital would be delighted to support and enable your operation</p>
+        </div>
+    </div>
+</section>
+<section class="scope-back">
+    <div class="container-fluid" id="scope">
+        <div class="scope-header">
+            <p>Our Scope</p>
+            <h1>{{pageData.sections[0].title}}</h1>
+            <h6>{{pageData.sections[0].paragraphs[0].text}}</h6>
+        </div>
+        <carousels class="carousels-component"></carousels>
+        <p class="addition text-center mt-5">{{pageData.sections[0].paragraphs[1].text}}
+            <br />
+            <span>please <a href="mailto:dealflow@dory.capital" class="send-email">send us an email </a>
+                and tell us about your venture</span>
+        </p>
+    </div>
+    <div class="container-fluid position-relative" id="about">
+        <div class="enable-dis">
+            <div class="video-wrapper-about-us">
+                <div class="video-outer-wrapper-about-us">
+                    <div class="video-inner-wrapper-about-us">
+                        <video-element></video-element>
+                    </div>
+                </div>
+            </div>
+            <h1>{{pageData.sections[1].title}}</h1>
+            <p class="mb-4">{{pageData.sections[1].paragraphs[0].text}}</p>
+            <a href="#" class="opn-video" data-toggle="modal" data-target="#video-popup">
+                <img src="assets/media/train1.png" alt="video img" class="img-fluid" />
+            </a>
+            <div class="modal fade" id="video-popup" tabindex="-1" role="dialog" aria-labelledby="video-popup"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="position-relative">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <i class="icon-cross"></i>
+                            </button>
+                            <video controls="" class="train-video1" autoplay>
+                                <source src="assets/media/dory_video_2.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="pt-4 invest">{{pageData.sections[1].paragraphs[1].text}}</p>
+            <p class="quote">“And, when you want something, all the universe conspires in helping you to achieve
+                it (Paulo Coelho)”.</p>
+        </div>
+    </div>
+    <div class="container-fluid" id="whyus">
+        <div class="video-wrapper-why-us">
+            <div class="video-outer-wrapper-why-us">
+                <div class="video-inner-wrapper-why-us">
+                    <video-element></video-element>
+                </div>
+            </div>
+        </div>
+        <div class="ellipse">
+            <span>why us</span>
+            <h1>{{pageData.sections[2].title}}</h1>
+            <p>“It’s the possibility of having a dream come true that makes life interesting (Paulo Coelho)”.</p>
+        </div>
+        <div class="container mt-space">
+            <div class="row">
+                <div *ngFor="let paragraph of pageData.sections[2].paragraphs; let i = index" class="col-md-6 mb-5">
+                    <div class="fair-approch">
+                        <span>0{{i + 1}}</span>
+                        <h4>{{paragraph.title}}</h4>
+                        <p>{{paragraph.text}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid" id="leadership">
+        <div class="video-wrapper-leadership">
+            <div class="video-outer-wrapper-leadership">
+                <div class="video-inner-wrapper-leadership">
+                    <video-element></video-element>
+                </div>
+            </div>
+        </div>
+        <leadership-section></leadership-section>
+    </div>
+    <div class="container-fluid" id="process">
+        <div class="video-wrapper-process-1">
+            <div class="video-outer-wrapper-process-1">
+                <div class="video-inner-wrapper-process-1">
+                    <video-element></video-element>
+                </div>
+            </div>
+        </div>
+        <div class="video-wrapper-process-3">
+            <div class="video-outer-wrapper-process-3">
+                <div class="video-inner-wrapper-process-3">
+                    <video-element></video-element>
+                </div>
+            </div>
+        </div>
+        <h1 class="process">{{pageData.sections[4].title}}</h1>
+        <div class="container container-set">
+            <div class="row step1">
+                <div class="col-md-6  border-set">
+                    <div class="step">
+                        <span>STEP 1</span>
+                        <h1>{{pageData.sections[4].paragraphs[0].title}}</h1>
+                        <!-- TODO: Ask about italic email: Want email italic or want to be able to edit text? -->
+                        <!-- <p class="one-pager">Please send us a one-pager teaser to <em>dealflow@dory.capital</em></p> -->
+                        <p class="one-pager">{{pageData.sections[4].paragraphs[0].text}}</p>
+                        <p class="make"><small></small> Make sure you also introduce your team, and not just your
+                            technology.</p>
+                        <p class="make"><small></small> Please, also, send us any and all materials and/or brochures
+                            you may already have (e.g. technical, marketing, others).</p>
+                        <p class="make"><small></small> Last but not least, don’t forget to add your full contact
+                            details.</p>
+                        <a href="http://dory.capital/m-projects/2020-2021/D-13/One-page-teaser-Sportstar-Alliance.pdf"
+                            target="_blank">
+                            <button class="btn custom-btn one-page"> One-pager example</button>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 border-left-set"></div>
+                <div class="col-md-6 mb-md-4 border-m-set dep-set">
+                    <div class="step step-2">
+                        <span class="stp-squre">STEP 2</span>
+                        <h1>{{pageData.sections[4].paragraphs[1].title}}</h1>
+                        <p class="one-pager">{{pageData.sections[4].paragraphs[1].text}}</p>
+                        <p class="make"><small></small> Explain and detail your ground-breaking technology and added
+                            value.</p>
+                        <p class="make"><small></small>Detail your relevant experience, and your motivation for this
+                            project.</p>
+                        <p class="make"><small></small> Detail your Value Proposition, Addressable Markets and GTM.
+                        </p>
+                        <p class="make"><small></small> Detail the competitive landscape and key differentiators
+                            <br /> that sets you apart from the competition.
+                        </p>
+                        <p class="make"><small></small>Detail your IP and R&D plans.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row step3">
+                <div class="col-md-6 border-step-left">
+                    <div class="step">
+                        <span>STEP 3</span>
+                        <h1>{{pageData.sections[4].paragraphs[2].title}}</h1>
+                        <div class="media mb-4">
+                            <img src="assets/media/team.png" alt="team" class="img-fluid co-founding-img" />
+                            <div class="media-body">
+                                <h6 class="co-founding">{{pageData.sections[4].paragraphs[2].text}}</h6>
+                            </div>
+                        </div>
+                        <div class="media">
+                            <img src="assets/media/group.png" alt="team" class="img-fluid co-founding-img" />
+                            <div class="media-body ml-4">
+                                <h6 class="co-founding-ml-0">Preliminary technical assessment</h6>
+                                <p class="make">The preliminary technical assessment will examine your technology
+                                    knowhow, R&D capabilities, IP and a general technical team assessment.</p>
+                            </div>
+                        </div>
+                        <div class="media">
+                            <img src="assets/media/dd.png" alt="team" class="img-fluid co-founding-img" />
+                            <div class="media-body ml-4">
+                                <h6 class="co-founding-ml-0">An indicative due diligence</h6>
+                                <p class="make">A detailed and thorough due diligence will include, among others,
+                                    the following:</p>
+                                <p class="make"><small></small> A vetting process of the entire team; and,</p>
+                                <p class="make"><small></small> Assessment of key elements, such as business, legal
+                                    and financial aspects; and,</p>
+                                <p class="make"><small></small> Commercial viability, business potential and
+                                    proposed modus operandi.</p>
+                            </div>
+                        </div>
+                        <div class="media">
+                            <img src="assets/media/approval.png" alt="team" class="img-fluid co-founding-img" />
+                            <div class="media-body ml-4">
+                                <h6 class="co-founding-ml-0">Final approval</h6>
+                                <p class="make">Post due diligence, your full R&D and GTM program is presented
+                                    internally for final approval.</p>
+                            </div>
+                        </div>
+                        <div class="media">
+                            <img src="assets/media/work.png" alt="team" class="img-fluid co-founding-img" />
+                            <div class="media-body ml-2">
+                                <h6 class="co-founding-ml-0">To work</h6>
+                                <p class="make">Signing an investment/cooperation agreement and getting to work.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid got-back mt-4 mt-md-2" id="faq">
+        <div class="video-wrapper-faq">
+            <div class="video-outer-wrapper-faq">
+                <div class="video-inner-wrapper-faq">
+                    <video-element></video-element>
+                </div>
+            </div>
+        </div>
+        <div class="faq mt-5">
+            <span>Got a Question?</span>
+            <h1>FAQ</h1>
+        </div>
+        <div class="container container-set">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default"
+                            *ngFor="let paragraph of pageData.sections[5].paragraphs; let i = index">
+                            <div class="panel-heading" role="tab" [attr.id]="'heading' + i">
+                                <h4 class="panel-title">
+                                    <a [ngClass]="i == 0 ? null : 'collapsed'" data-toggle="collapse"
+                                        data-parent="#accordion" [attr.href]="'#collapse' + i"
+                                        [attr.aria-expanded]="i == 0 ? true : false"
+                                        [attr.aria-controls]="'collapse' + i">
+                                        {{paragraph.title}}
+                                    </a>
+                                </h4>
+                            </div>
+                            <div [attr.id]="'collapse' + i"
+                                [ngClass]="i == 0 ? 'panel-collapse collapse in show' : 'panel-collapse collapse'"
+                                role="tabpanel" [attr.aria-labelledby]="'heading' + i">
+                                <div class="panel-body">{{paragraph.text}}</div>
+                            </div>
+                        </div>
+                        <!-- <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingOne">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+                                        aria-expanded="true" aria-controls="collapseOne">
+                                        I don’t have a team or a company but I have a brilliant idea, will Dory
+                                        Capital be willing to help me build the company and develop it?
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse in show" role="tabpanel"
+                                aria-labelledby="headingOne">
+                                <div class="panel-body">YES, we would! We empower, enable and invest in companies
+                                    with an outstanding team and breakthrough technology, but we are also open to
+                                    help you build and support your breakthrough technology/idea.</div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingTwo">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
+                                        href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        We would like Dory Capital to consider us. What should we do?
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel"
+                                aria-labelledby="headingTwo">
+                                <div class="panel-body">Click <a href="#process">here</a> to go back and read the
+                                    brief instructions in the “Process” page, hereinabove, as well as emailing us
+                                    your one-page teaser to <em>dealflow@dory.capital</em></div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingThree">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
+                                        href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        We are a self-founded Pre-Seed start-up; will Dory Capital consider us?
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel"
+                                aria-labelledby="headingThree">
+                                <div class="panel-body">Of course! In actual fact, we are very interested in
+                                    Pre-Seed entrepreneurs, especially because it is usually very difficult to raise
+                                    money and attract investments and/or investors at such an early stage. We
+                                    sincerely believe in the enablement of such early stages, Per-Seed, ventures and
+                                    also trust our Modus Operandi and international network will truly make it into
+                                    a Win-Win for both parties.</div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingThree">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
+                                        href="#collapsefour" aria-expanded="false" aria-controls="collapsefour">
+                                        Does Dory Capital have a screening process, and if so, how do you screen
+                                        applications?
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapsefour" class="panel-collapse collapse" role="tabpanel"
+                                aria-labelledby="headingfour">
+                                <div class="panel-body">We have a clear screening process and applications are
+                                    subject to a discretionally filtering and pre-examination process of both the
+                                    team and the proposed technology. We are not obligated to any third party,
+                                    company or entrepreneurs that approaches us.</div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingfive">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
+                                        href="#collapsefive" aria-expanded="false" aria-controls="collapsefive">
+                                        Can anyone approach Dory Capital or must it be a warm introduction through a
+                                        3rd party?
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapsefive" class="panel-collapse collapse" role="tabpanel"
+                                aria-labelledby="headingfive">
+                                <div class="panel-body">No prior acquaintance is required and warm introduction will
+                                    neither be an advantage nor a disadvantage. The way we see it, anyone and
+                                    everyone can apply as it is all about Bit2Atom groundbreaking technology, led by
+                                    a strong team.</div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingsix">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
+                                        href="#collapsesix" aria-expanded="false" aria-controls="collapsesix">
+                                        We believe our technology is a truly brilliant, but it is no on your list of
+                                        preferred ventures and we were, as such, wondering <br /> if we should
+                                        apply?
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapsesix" class="panel-collapse collapse" role="tabpanel"
+                                aria-labelledby="headingsix">
+                                <div class="panel-body">Of course you should! Dory Capital welcomes any
+                                    groundbreaking first to market ideas and technologies. The fields featured on
+                                    our website are a mere general idea of topics that we are familiar with, and
+                                    have the right network to enable and support. In short, if you believe you have
+                                    something brilliant and you wish to present it to us, by all means go ahead and
+                                    do so – <a href="mailto:dealflow@dory.capital" class="send-email">contact
+                                        us</a>.</div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingseven">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
+                                        href="#collapseseven" aria-expanded="false" aria-controls="collapseseven">
+                                        Is there a timeline from the time we present ourselves, and if so, how long
+                                        does it take to receive an answer from Dory Capital?
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseseven" class="panel-collapse collapse" role="tabpanel"
+                                aria-labelledby="headingseven">
+                                <div class="panel-body">There isn’t a timeline protocol, however, we do provide an
+                                    initial Go/No-go response within a few days to a fortnight. In the event of a
+                                    GO, the schedule will be agreed upon with the entrepreneurial team and/or the
+                                    company.</div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingeight">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
+                                        href="#collapseeight" aria-expanded="false" aria-controls="collapseeight">
+                                        Can capital be raised from additional investors besides Dory Capital?
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseeight" class="panel-collapse collapse" role="tabpanel"
+                                aria-labelledby="headingeight">
+                                <div class="panel-body">Of course. We encourage our portfolio companies to raise
+                                    additional capital and support them in their efforts by connecting them to
+                                    potential investors and partners within our international network.</div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingnine">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
+                                        href="#collapsenine" aria-expanded="false" aria-controls="collapsenine">
+                                        Will Dory Capital disclose the list of companies it invests in?
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapsenine" class="panel-collapse collapse" role="tabpanel"
+                                aria-labelledby="headingnine">
+                                <div class="panel-body">Not officially as we are a privately held fund which is
+                                    fully committed to confidentiality and mutual discretion.</div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingten">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
+                                        href="#collapseten" aria-expanded="false" aria-controls="collapseten">
+                                        What is the scope of a contract with Dory Capital?
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseten" class="panel-collapse collapse" role="tabpanel"
+                                aria-labelledby="headingten">
+                                <div class="panel-body">Post TS, a clear and simple Shareholders Purchasing
+                                    Agreement will be singed between us, and our partners, in which we both will
+                                    define the stages of the investment based on your R&D plan and detailed budget.
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid" id="contact">
+        <div class="video-wrapper-contact">
+            <div class="video-outer-wrapper-contact">
+                <div class="video-inner-wrapper-contact">
+                    <video-element></video-element>
+                </div>
+            </div>
+        </div>
+        <div class="container footer-top">
+            <div class="faq">
+                <span>Contact us</span>
+                <h1 class="mt-0">{{pageData.sections[6].title}}</h1>
+            </div>
+            <div class="row justify-content-center">
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label class="f-name">Full name</label>
+                        <input type="text" name="first" class="form-control custom-input"
+                            placeholder="Enter your full name" />
+                    </div>
+                    <div class="form-group">
+                        <label class="f-name">Email</label>
+                        <input type="email" name="email" class="form-control custom-input"
+                            placeholder="Enter your email" />
+                    </div>
+                    <div class="form-group">
+                        <label class="f-name">Add a one pager (optional)</label>
+                        <div class="avatar">
+                            <h1><i class="icon-plus"></i>&nbsp;&nbsp;&nbsp;&nbsp;Upload</h1>
+                            <input type="file" name="avatar" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="f-name">Message</label>
+                        <textarea class="form-control custom-area" placeholder="Enter your message"></textarea>
+                    </div>
+                    <div align="center">
+                        <button type="submit" class="btn custom-btn">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <span class="copyright">© Copyright 2021 Dory Capital - All Rights Reserved</span>
+            <span class="copyright under-copyright">Cambridge, UK.</span>
+        </div>
+    </div>
+</section>
+<div #pageNavigator class="circle-menu mx-auto col-md-4 py-3" (mouseleave)="mouseLeavePageNavigator()">
+    <div class="box mt-2" (mouseenter)="mouseHoverPageNavigation()">
+        <img src="assets/media/ellipse.png" alt="faq" class="img-fluid mt-0" /><br />
+        <a href="#faq" class="menu faq1">FAQ</a>
+        <a href="#contact" class="menu faq2">Contact</a>
+        <a href="#process" class="menu faq3">Process</a>
+        <a href="#leadership" class="menu faq4">Leadership</a>
+        <a href="#whyus" class="menu faq5">Why us</a>
+        <a href="#about" class="menu faq6">About us</a>
+        <a href="#scope" class="menu faq7">Scope</a>
+    </div>
+</div>
