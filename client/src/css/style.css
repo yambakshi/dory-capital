@@ -998,6 +998,7 @@ body {
 	transform: translateX(-50%);
 	z-index: 1000;
 	transition: all 0.5s;
+	width: 250px;
 }
 
 video::-webkit-media-controls {

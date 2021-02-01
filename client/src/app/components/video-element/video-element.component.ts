@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Cloudinary } from '@cloudinary/angular-5.x';
 
 
 @Component({
@@ -8,6 +9,12 @@ import { Component, Input } from '@angular/core';
 })
 export class VideoElementComponent {
     @Input() fullSize: boolean = true;
+    // readonly videoId: string = 'dory-capital/bg-video_fvwmqy';
+    readonly videoId: string = 'https://res.cloudinary.com/dory-capital/video/upload/f_auto/v1612139147/dory-capital/bg-video_fvwmqy.mov';
 
-    constructor() { }
+    constructor(private cloudinary: Cloudinary) { }
+
+    get videoSrc() {
+        return this.cloudinary.url(this.videoId, { transformation: [{ fetch_format: "auto" }] });
+    }
 }
