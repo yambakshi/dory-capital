@@ -79,9 +79,9 @@ export class MemberDialog implements OnInit {
     }
 
     onFileSelected(): void {
-        if (typeof (FileReader) !== 'undefined') {
+        const fileInput = this.fileInput.nativeElement;
+        if (typeof (FileReader) !== 'undefined' && fileInput.files.length > 0) {
             const reader = new FileReader();
-            const fileInput = this.fileInput.nativeElement;
             const file: File = fileInput.files[0];
             reader.onload = (e: any) => {
                 const dataUrl = e.target.result;
