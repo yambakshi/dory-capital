@@ -40,6 +40,7 @@ import { MainHeaderComponent } from '@components/main-header/main-header.compone
 
 // Pipes
 import { SafePipe } from './pipes/safe.pipe';
+import { IntroSectionComponent } from '@components/intro-section/intro-section.component';
 
 
 @NgModule({
@@ -59,7 +60,8 @@ import { SafePipe } from './pipes/safe.pipe';
     ApproveDialog,
     MemberDialog,
     MainHeaderComponent,
-    SafePipe
+    SafePipe,
+    IntroSectionComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

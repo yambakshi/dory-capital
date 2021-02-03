@@ -1,5 +1,5 @@
 <main-header *ngIf="isLoggedIn" class="main-header-component"></main-header>
-<section class="intro-section-container" [ngClass]="isLoggedIn ? 'logged-in' : ''">
+<!-- <section class="intro-section-container" [ngClass]="isLoggedIn ? 'logged-in' : ''">
     <div class="conatiner-fluid content-set">
         <video-element [fullSize]="false"></video-element>
         <div class="intro-section">
@@ -18,7 +18,8 @@
                 Capital would be delighted to support and enable your operation</p>
         </div>
     </div>
-</section>
+</section> -->
+<intro-section class="intro-section-component" [ngClass]="isLoggedIn ? 'logged-in' : ''"></intro-section>
 <section class="scope-back">
     <div class="container-fluid" id="scope">
         <div class="scope-header">
