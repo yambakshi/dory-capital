@@ -1,24 +1,4 @@
 <main-header *ngIf="isLoggedIn" class="main-header-component"></main-header>
-<!-- <section class="intro-section-container" [ngClass]="isLoggedIn ? 'logged-in' : ''">
-    <div class="conatiner-fluid content-set">
-        <video-element [fullSize]="false"></video-element>
-        <div class="intro-section">
-            <img src="assets/media/logo.png" class="img-fluid logo" alt="logo" />
-            <div class="dory">
-                <h1>Welcome to Dory Capital</h1>
-                <p>Dory Capital is a Bit2Atom Technology and Innovation investment house
-                    <br />We empower, enable and invest in frontier breakthrough technologies!
-                </p>
-            </div>
-            <div class="scope" align="center">
-                <a class="btn custom-btn" href="#scope">Our Scope</a>
-                <a href="#contact" class="btn custom-btn ml-4">Contact us</a>
-            </div>
-            <p class="burning">If you have a burning desire to succeed, and you believe in your vision, we at Dory
-                Capital would be delighted to support and enable your operation</p>
-        </div>
-    </div>
-</section> -->
 <intro-section class="intro-section-component" [ngClass]="isLoggedIn ? 'logged-in' : ''"></intro-section>
 <section class="scope-back">
     <div class="container-fluid" id="scope">
@@ -36,13 +16,7 @@
     </div>
     <div class="container-fluid position-relative" id="about">
         <div class="enable-dis">
-            <div class="video-wrapper-about-us">
-                <div class="video-outer-wrapper-about-us">
-                    <div class="video-inner-wrapper-about-us">
-                        <video-element></video-element>
-                    </div>
-                </div>
-            </div>
+            <video-element class="about-us-bg-video"></video-element>
             <h1>{{pageData.sections[1].title}}</h1>
             <p class="mb-4">{{pageData.sections[1].paragraphs[0].text}}</p>
             <a href="#" class="opn-video" data-toggle="modal" data-target="#video-popup">
@@ -69,13 +43,7 @@
         </div>
     </div>
     <div class="container-fluid" id="whyus">
-        <div class="video-wrapper-why-us">
-            <div class="video-outer-wrapper-why-us">
-                <div class="video-inner-wrapper-why-us">
-                    <video-element></video-element>
-                </div>
-            </div>
-        </div>
+        <video-element class="why-us-bg-video"></video-element>
         <div class="ellipse">
             <span>why us</span>
             <h1>{{pageData.sections[2].title}}</h1>
@@ -93,14 +61,8 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid" id="leadership">
-        <div class="video-wrapper-leadership">
-            <div class="video-outer-wrapper-leadership">
-                <div class="video-inner-wrapper-leadership">
-                    <video-element></video-element>
-                </div>
-            </div>
-        </div>
+    <div class="container-fluid" id="leadership">        
+        <video-element class="leadership-bg-video"></video-element>
         <leadership-section></leadership-section>
     </div>
     <div class="container-fluid" id="process">
@@ -215,13 +177,7 @@
         </div>
     </div>
     <div class="container-fluid got-back mt-4 mt-md-2" id="faq">
-        <div class="video-wrapper-faq">
-            <div class="video-outer-wrapper-faq">
-                <div class="video-inner-wrapper-faq">
-                    <video-element></video-element>
-                </div>
-            </div>
-        </div>
+        <video-element class="faq-bg-video"></video-element>
         <div class="faq mt-5">
             <span>Got a Question?</span>
             <h1>FAQ</h1>
@@ -430,13 +386,7 @@
         </div>
     </div>
     <div class="container-fluid" id="contact">
-        <div class="video-wrapper-contact">
-            <div class="video-outer-wrapper-contact">
-                <div class="video-inner-wrapper-contact">
-                    <video-element></video-element>
-                </div>
-            </div>
-        </div>
+        <video-element class="contact-bg-video"></video-element>
         <div class="container footer-top">
             <div class="faq">
                 <span>Contact us</span>

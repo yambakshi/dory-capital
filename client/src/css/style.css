@@ -1085,7 +1085,31 @@ video-popup video:focus {
 	transform: translateX(-50%);
 }
 
-#about, #faq, #whyus, #leadership, #contact {
+#scope {
+	z-index: 6;
+}
+
+#about {
+	z-index: 5;
+}
+
+#whyus {
+	z-index: 4;
+}
+
+#leadership {
+	z-index: 3;
+}
+
+#process {
+	z-index: 2;
+}
+
+#faq {
+	z-index: 1;
+}
+
+#about, #faq, #whyus, #leadership, #process, #contact {
 	position: relative
 }
 

@@ -6,11 +6,48 @@
 }
 
 .intro-section-component {
+    display: flex;
+    flex-direction: column;
     margin-top: 0px;
 
     &.logged-in {
         margin-top: 65px;
     }
+}
+
+.about-us-bg-video {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    top: -300px;
+}
+
+.why-us-bg-video {
+    position: absolute;
+    z-index: 0;
+    width: calc(100% - 15px);
+    top: -385px;
+}
+
+.leadership-bg-video {
+    position: absolute;
+    z-index: -1;
+    width: calc(100% - 15px);
+    top: -450px;
+}
+
+.faq-bg-video {
+    position: absolute;
+    z-index: 0;
+    width: calc(100% - 15px);
+    top: -550px;
+}
+
+.contact-bg-video {
+    position: absolute;
+    z-index: 0;
+    width: calc(100% - 15px);
+    top: -550px;
 }
 
 h1 {

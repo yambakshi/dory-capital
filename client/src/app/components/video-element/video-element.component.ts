@@ -1,4 +1,4 @@
-import { isPlatformBrowser } from '@angular/common';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, HostListener, Inject, Input, PLATFORM_ID, Renderer2, ViewChild } from '@angular/core';
 import { WindowRefService } from '@services/window-ref.service';
 
@@ -28,6 +28,7 @@ export class VideoElementComponent implements AfterViewInit {
     }
 
     constructor(
+        @Inject(DOCUMENT) private document: Document,
         @Inject(PLATFORM_ID) private platformId: any,
         private renderer: Renderer2,
         private windowRefService: WindowRefService) {
@@ -48,14 +49,15 @@ export class VideoElementComponent implements AfterViewInit {
 
     calcPlayerSize(): void {
         const ratio = 1280 / 720;
-        const windowHeight = this.windowRefService.nativeWindow.innerHeight;
-        const windowWidth = this.windowRefService.nativeWindow.innerWidth;
+        const documentHeight = this.document.body.clientHeight;
+        const documentWidth = this.document.body.clientWidth;
         let width = 0, height = 0;
         if (this.windowRefService.nativeWindow.innerWidth < 901) {
-            height = windowHeight;
+            height = documentHeight;
             width = height * ratio;
         } else {
-            width = windowWidth;
+            // width = documentWidth - 30;
+            width = 2500;
             height = width / ratio;
         }
 
