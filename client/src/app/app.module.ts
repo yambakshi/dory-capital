@@ -38,6 +38,9 @@ import { Cloudinary } from 'cloudinary-core';
 import { CLODUINARY_CONFIG } from '@services/constants';
 import { MainHeaderComponent } from '@components/main-header/main-header.component';
 
+// Pipes
+import { SafePipe } from './pipes/safe.pipe';
+
 
 @NgModule({
   declarations: [
@@ -55,7 +58,8 @@ import { MainHeaderComponent } from '@components/main-header/main-header.compone
     CarouselsComponent,
     ApproveDialog,
     MemberDialog,
-    MainHeaderComponent
+    MainHeaderComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
