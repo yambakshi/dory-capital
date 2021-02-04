@@ -56,13 +56,10 @@ export class IntroSectionComponent {
         const ratio = 1280 / 720;
         const documentHeight = this.document.body.clientHeight;
         const documentWidth = this.document.body.clientWidth;
-        let width = 0, height = 0;
-        if (this.windowRefService.nativeWindow.innerWidth < 901) {
+        let width = documentWidth, height = width / ratio;
+        if (height < documentHeight) {
             height = documentHeight;
             width = height * ratio;
-        } else {
-            width = documentWidth;
-            height = width / ratio;
         }
 
         this.renderer.setStyle(this.videoIframe.nativeElement, 'width', `${width}px`);

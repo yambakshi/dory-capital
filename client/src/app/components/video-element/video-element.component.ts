@@ -6,7 +6,10 @@ import { WindowRefService } from '@services/window-ref.service';
 @Component({
     selector: 'video-element',
     templateUrl: './video-element.component.html',
-    styleUrls: ['./video-element.component.scss']
+    styleUrls: [
+        './video-element.component.common.scss',
+        './video-element.component.mobile.scss'
+    ]
 })
 export class VideoElementComponent implements AfterViewInit {
     @ViewChild('videoIframe') videoIframe: ElementRef;
@@ -53,16 +56,18 @@ export class VideoElementComponent implements AfterViewInit {
         const documentWidth = this.document.body.clientWidth;
         let width = 0, height = 0;
         if (this.windowRefService.nativeWindow.innerWidth < 901) {
-            height = documentHeight;
+            // height = documentHeight;
             width = height * ratio;
+            height = 250;
+            width = 1000;
         } else {
             // width = documentWidth - 30;
             width = 2500;
             height = width / ratio;
-        }
 
-        this.renderer.setStyle(this.videoIframe.nativeElement, 'width', `${width}px`);
-        this.renderer.setStyle(this.videoIframe.nativeElement, 'height', `${height}px`);
+            // this.renderer.setStyle(this.videoIframe.nativeElement, 'width', `${width}px`);
+            // this.renderer.setStyle(this.videoIframe.nativeElement, 'height', `${height}px`);
+        }
     }
 
     @HostListener('window:resize', ['$event'])

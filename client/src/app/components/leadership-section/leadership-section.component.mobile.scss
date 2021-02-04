@@ -3,5 +3,13 @@
 @include media("screen", "<mobile") {
     .leadership-section-container {
         padding-top: 60px;
+
+        > .leadership-section-title {
+            font-size: 20px;
+        }
+
+        > .leadership-section-subtitle {
+            font-size: 12px;
+        }
     }
 }
