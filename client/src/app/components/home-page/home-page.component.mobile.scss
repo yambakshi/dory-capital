@@ -1,29 +1,9 @@
 @import "../../../scss/global/index.scss";
 
 @include media("screen", "<mobile") {
-    .about-us-bg-video {
-        top: 0;
-    }
-
-    .why-us-bg-video {
-        top: 0px;
-        width: calc(100% - 30px);
-    }
-
-    .leadership-bg-video {
-        top: 0;
-        width: calc(100% - 30px);
-    }
-
-    .process-bg-video {
-        top: 0;
-    }
-
-    .faq-bg-video {
-        top: 0;
-    }
-
-    .contact-bg-video {
-        top: 0;
+    .home-page-container {
+        > .sections-container {
+            padding-bottom: 80px;
+        }
     }
 }

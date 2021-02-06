@@ -1,6 +1,9 @@
 <div class="leadership-section-container">
-    <h1 class="leadership-section-title">{{section.title}}</h1>
-    <h6 class="leadership-section-subtitle">{{section.paragraphs[0].text}}</h6>
+    <video-element class="leadership-section-background-video"></video-element>
+    <div class="section-header">
+        <h1>{{data.title}}</h1>
+    </div>
+    <h6 class="leadership-section-subtitle">{{data.paragraphs[0].text}}</h6>
     <div class="leadership-grid">
         <div #membersContainer class="members-grid-container">
             <div *ngFor="let member of members; let i = index" class="members-grid-item">

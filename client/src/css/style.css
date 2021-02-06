@@ -156,59 +156,6 @@ body {
 
 /* Scope Section */
 
-.scope-back {
-	background-color: #0F49DB;
-}
-
-.scope-header {
-	padding-top: 136px;
-	margin-bottom: 50px;
-}
-
-.scope-header p:first-child {
-	font-family: Roboto;
-	font-style: normal;
-	font-weight: bold;
-	font-size: 14px;
-	line-height: 16px;
-	text-align: center;
-	letter-spacing: 0.5em;
-	text-transform: uppercase;
-	color: #FFFFFF;
-}
-
-.scope-header h1 {
-	font-family: Merriweather;
-	font-style: normal;
-	font-weight: normal;
-	font-size: 48px;
-	line-height: 72px;
-	text-align: center;
-	color: #FFFFFF;
-	margin: 24px 0;
-}
-
-.scope-header h6 {
-	font-family: Roboto;
-	font-style: normal;
-	font-weight: normal;
-	font-size: 16px;
-	line-height: 32px;
-	text-align: center;
-	color: #FFFFFF;
-}
-
-.scope-header p:last-child {
-	font-family: Roboto;
-	font-size: 16px;
-	line-height: 32px;
-	text-align: center;
-	color: #FFFFFF;
-	max-width: 775px;
-	display: block;
-	margin: 0 auto;
-}
-
 .send-email:hover {
 	color: #FFFFFF;
 	text-decoration: none;
@@ -721,12 +668,6 @@ body {
 	box-shadow: none !important;
 }
 
-.got-back {
-	background-size: 1315px 719px;
-	background-repeat: no-repeat;
-	background-position: top center;
-}
-
 .box {
 	display: block;
 	margin: 0 auto;
@@ -784,8 +725,8 @@ body {
 }
 
 .faq1 {
-	top: 14px !important;
-    right: 119px !important;
+	top: 12px !important;
+    right: 117px !important;
 }
 
 .faq1:after {
@@ -927,11 +868,6 @@ body {
 	background-color: #fff;
 	top: 8px;
 	left: -5px;
-}
-
-.carousels-component {
-	display: flex;
-	justify-content: center;
 }
 
 .item {
@@ -1109,7 +1045,7 @@ video-popup video:focus {
 	z-index: 1;
 }
 
-#about, #faq, #whyus, #leadership, #process, #contact {
+#scope, #about, #faq, #whyus, #leadership, #process, #contact {
 	position: relative
 }
 
@@ -1154,11 +1090,6 @@ video-popup video:focus {
 	height: 50%;
 	left: 50%;
 	transform: translateX(-50%);
-}
-
-#process {
-	position: relative;
-	overflow-x: hidden;
 }
 
 .step1::after {

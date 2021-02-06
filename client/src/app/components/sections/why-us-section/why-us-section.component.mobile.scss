@@ -1,0 +1,28 @@
+@import "../../../../scss/global/index.scss";
+
+@include media("screen", "<mobile") {
+    .why-us-section-container {
+        padding-top: 25px;
+
+        > .why-us-section-background-video {
+            top: calc(-125px + (0.238 * (900px - 100vw)));
+        }
+
+        > .section-header {
+            > .section-title {
+                font-size: 12px;
+                margin-bottom: 10px;
+            }
+
+            > h1 {
+                font-size: 22px;
+                line-height: 38px;
+            }
+        }
+
+        > .why-us-section-quote {
+            max-width: 400px;
+            font-size: 12px;
+        }
+    }
+}

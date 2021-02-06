@@ -1,0 +1,46 @@
+.contact-section-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding-top: 50px;
+
+    > .contact-section-background-video {
+        position: absolute;
+        z-index: 0;
+        width: 100%;
+        top: calc(-300px + (0.245 * (1920px - 100vw)));
+    }
+
+    > .section-header {
+        z-index: 1;
+
+        > .section-title {
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 16px;
+            text-align: center;
+            letter-spacing: 0.5em;
+            text-transform: uppercase;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        > h1 {
+            font-family: Merriweather;
+            font-size: 48px;
+            line-height: 72px;
+            font-style: normal;
+            font-weight: 400;
+            text-align: center;
+            color: #fff;
+            white-space: pre-wrap;
+        }
+    }
+
+    > .contact-section-body {
+        z-index: 1;
+    }
+}

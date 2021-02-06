@@ -1,66 +1,29 @@
-.main-header-component {
-    position: fixed;
-    top: 0;
-    z-index: 1001;
-    width: 100%;
-}
-
-.intro-section-component {
-    display: flex;
-    flex-direction: column;
-    margin-top: 0px;
-
-    &.logged-in {
-        margin-top: 65px;
+.home-page-container {
+    > .main-header-component {
+        position: fixed;
+        top: 0;
+        z-index: 1001;
+        width: 100%;
     }
-}
 
-.responsive-video {
-    @media (min-width: 1921px) and (max-width: 3840px) {
-        top: -200px;
+    > .intro-section-component {
+        display: flex;
+        flex-direction: column;
+        margin-top: 0px;
+
+        &.logged-in {
+            margin-top: 65px;
+        }
     }
-    @media (min-width: 1501px) and (max-width: 1920px) {
-        top: -200px;
+
+    > .sections-container {
+        background-color: #0f49db;
+        padding-bottom: 0px;
+
+        > .sections-margin {
+            margin-top: 50px;
+        }
     }
-    @media (min-width: 1336px) and (max-width: 1500px) {
-        top: -100px;
-    }
-    @media (min-width: 1101px) and (max-width: 1335px) {
-        top: -35px;
-    }
-    @media (min-width: 901px) and (max-width: 1100px) {
-        top: 0px;
-    }
-}
-
-.about-us-bg-video {
-    position: absolute;
-    z-index: -1;
-    width: 100%;
-}
-
-.why-us-bg-video {
-    position: absolute;
-    z-index: 0;
-    width: calc(100% - 30px);
-}
-
-.leadership-bg-video {
-    position: absolute;
-    z-index: -1;
-    width: calc(100% - 30px);
-}
-
-.faq-bg-video {
-    position: absolute;
-    z-index: 0;
-    width: calc(100% - 30px);
-}
-
-.contact-bg-video {
-    position: absolute;
-    z-index: 0;
-    width: calc(100% - 30px);
 }
 
 h1 {

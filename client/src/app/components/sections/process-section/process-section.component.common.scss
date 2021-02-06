@@ -1,0 +1,22 @@
+.process-section-container {
+    padding-top: 50px;
+
+    > .section-header {
+        > h1 {
+            font-family: Merriweather;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 48px;
+            line-height: 72px;
+            text-align: center;
+            color: #ffffff;
+            white-space: pre-wrap;
+        }
+    }
+
+    > .process-body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}

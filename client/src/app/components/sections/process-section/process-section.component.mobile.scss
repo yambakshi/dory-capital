@@ -1,0 +1,19 @@
+@import "../../../../scss/global/index.scss";
+
+@include media("screen", "<mobile") {
+    .process-section-container {
+        padding-top: 25px;
+
+        > .section-header {
+            > .section-title {
+                font-size: 12px;
+                margin-bottom: 10px;
+            }
+
+            > h1 {
+                font-size: 22px;
+                line-height: 38px;
+            }
+        }
+    }
+}
