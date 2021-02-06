@@ -1,7 +1,30 @@
 .process-section-container {
+    position: relative;
     padding-top: 50px;
+    overflow: hidden;
+
+    > .process-section-background-video-1 {
+        position: absolute;
+        width: 100%;
+        z-index: 0;
+        right: -50%;
+        // let topIn1920 = -100
+        // let topIn901 = 100
+        // 0.196 = Math.abs(topIn1920 - topIn901) / (1920 - 901)
+        top: calc(-100px + (0.196 * (1920px - 100vw)));
+    }
+
+    > .process-section-background-video-2 {
+        position: absolute;
+        width: 100%;
+        z-index: 0;
+        left: -50%;
+        top: calc(900px + (0.49 * (1920px - 100vw)));
+    }
 
     > .section-header {
+        position: relative;
+
         > h1 {
             font-family: Merriweather;
             font-style: normal;
@@ -15,8 +38,12 @@
     }
 
     > .process-body {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        & h1 {
+            white-space: pre-wrap !important;
+        }
+
+        & p {
+            white-space: pre-wrap !important;
+        }
     }
 }
