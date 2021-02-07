@@ -1,5 +1,6 @@
 import { isPlatformBrowser } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, HostListener, Inject, OnInit, PLATFORM_ID, Renderer2, ViewChild } from '@angular/core';
+import { Cloudinary } from '@cloudinary/angular-5.x';
 import { WindowRefService } from '@services/window-ref.service';
 
 @Component({
@@ -22,18 +23,50 @@ export class CarouselsComponent implements OnInit, AfterViewInit {
     radiusLength: number;
     carouselsTabs: string[] = ['I', 'II', 'III', 'IV', 'V'];
     labelHeight: number = 24;
+    rotateIconId: string = 'dory-capital/scope/rotate_sdc32r';
     carouselsImgs = [
-        ['Big Data', 'Data Sciences', 'Data Tech', 'Fintech', 'Smart City Tech'],
-        ['Artificial Intelligence', 'AR VR', 'Face Recognition', 'NLP', 'Profiling'],
-        ['Blockchain Acceleration', 'Blockchain Scalability', 'Blockchain Throughput', 'Infrastructure Blockchain', 'Quantum Cryptography'],
-        ['Energy Harvesting', 'Energy Sourcing', 'Holographic Imaging', 'Machine Learning', 'Voice Diagnostics Analysis'],
-        ['Autonomous Mobility Solutions', 'Drones Robotics', 'Medical Histotripsy and Synthetic Biology', 'RF Networks', 'Ultimate Online Privacy']
+        [
+            { name: 'Big Data', id: 'big-data_enwda7' },
+            { name: 'Data Sciences', id: 'data-sciences_aqjaja' },
+            { name: 'Data Tech', id: 'data-tech_mjqwqu' },
+            { name: 'Fintech', id: 'fintech_i9c9yo' },
+            { name: 'Smart City Tech', id: 'smart-city-tech_d6thry' }
+        ],
+        [
+            { name: 'Artificial Intelligence', id: 'artificial-intelligence_vorcg6' },
+            { name: 'AR VR', id: 'ar-vr_cpwall' },
+            { name: 'Face Recognition', id: 'face-recognition_nynool' },
+            { name: 'NLP', id: 'nlp_zopdqy' },
+            { name: 'Profiling', id: 'profiling_wzvl5s' }
+        ],
+        [
+            { name: 'Blockchain Acceleration', id: 'blockchain-acceleration_t8gxtt' },
+            { name: 'Blockchain Scalability', id: 'blockchain-scalability_lbtnjp' },
+            { name: 'Blockchain Throughput', id: 'blockchain-throughput_igkay1' },
+            { name: 'Infrastructure Blockchain', id: 'infrastructure-blockchain_htwhql' },
+            { name: 'Quantum Cryptography', id: 'quantum-cryptography_iwwwjo' }
+        ],
+        [
+            { name: 'Energy Harvesting', id: 'energy-harvesting_ghbijj' },
+            { name: 'Energy Sourcing', id: 'energy-sourcing_nsuahs' },
+            { name: 'Holographic Imaging', id: 'holographic-imaging_qq7ppv' },
+            { name: 'Machine Learning', id: 'machine-learning_gis8in' },
+            { name: 'Voice Diagnostics Analysis', id: 'voice-diagnostics-analysis_fau9di' },
+        ],
+        [
+            { name: 'Autonomous Mobility Solutions', id: 'autonomous-mobility-solutions_rl91h5' },
+            { name: 'Drones Robotics', id: 'drones-robotics_lq0t5n' },
+            { name: 'Medical Histotripsy and Synthetic Biology', id: 'medical-histotripsy-and-synthetic-biology_mpa3zo' },
+            { name: 'RF Networks', id: 'rf-networks_f92wcn' },
+            { name: 'Ultimate Online Privacy', id: 'ultimate-online-privacy_sbb2dh' },
+        ]
     ]
 
     constructor(
         @Inject(PLATFORM_ID) private platformId: any,
         private windowRefService: WindowRefService,
-        private renderer: Renderer2
+        private renderer: Renderer2,
+        private cloudinary: Cloudinary
     ) { }
 
     ngOnInit(): void {
@@ -47,8 +80,15 @@ export class CarouselsComponent implements OnInit, AfterViewInit {
         this.calcCarouselRadius();
     }
 
-    imgKey(name): string {
-        return name.toLowerCase().replace(/ /g, '-');
+    carouselImg(i: number, id: string) {
+        const imageId = `dory-capital/scope/${i}/${id}`;
+        return this.imgSrc(imageId);
+    }
+
+    imgSrc(imageId: string, autoFormat: boolean = true) {
+        return autoFormat ?
+            this.cloudinary.url(imageId, { transformation: [{ fetch_format: "auto" }] }) :
+            this.cloudinary.url(imageId);
     }
 
     ngAfterViewInit(): void {
