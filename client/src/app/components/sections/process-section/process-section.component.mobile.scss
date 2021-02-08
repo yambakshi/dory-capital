@@ -14,7 +14,7 @@
             // 0.196 = Math.abs(topIn900 - topIn375) / (900 - 375)
             // top: calc(-100px + (0.196 * (1920px - 100vw)));
         }
-    
+
         > .process-section-background-video-2 {
             position: absolute;
             width: 100%;
@@ -33,6 +33,11 @@
                 font-size: 22px;
                 line-height: 38px;
             }
+        }
+
+        > .process-body {
+            padding-right: 28px;
+            padding-left: 28px;
         }
     }
 }

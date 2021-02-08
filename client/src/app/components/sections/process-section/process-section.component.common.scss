@@ -2,6 +2,9 @@
     position: relative;
     padding-top: 50px;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     > .process-section-background-video-1 {
         position: absolute;
