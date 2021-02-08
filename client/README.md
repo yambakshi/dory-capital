@@ -19,11 +19,10 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 Run `npm run build:ssr` to build the project in SSR mode.
 WinSCP build to CentOS 8 machine.
 Move server and client folders to /var/www/html/dory-capital
-cd /var/www/html/dory-capital
-cd client
-sudo touch nohup.out
-sudo chmod 777 nohup.out
-nohup node dist/dory-capital/server/main.js > nohup.out 2>&1 &
+`cd /var/www/html/dory-capital/client`
+`sudo touch nohup.out`
+`sudo chmod 777 nohup.out`
+`nohup node dist/dory-capital/server/main.js > nohup.out 2>&1 &`
 
 ## Running unit tests
 

@@ -1,0 +1,17 @@
+<div class="about-us-section-container">
+    <video-element class="about-us-section-background-video"></video-element>
+    <div class="section-header">
+        <h1>{{data.title}}</h1>
+    </div>
+    <p class="about-section-paragraph">{{data.paragraphs[0].text}}</p>
+    <div class="about-section-player-container">
+        <div class="about-section-thumbnail-container" [ngClass]="playVideo ? 'show-player' : ''">
+            <img src="assets/media/train1.png" alt="video-thumbnail" (click)="togglePlayVideo()" />
+        </div>
+        <iframe #videoIframe [src]="iframeSrc | safe" scrolling="no" frameborder="0"
+            [ngClass]="playVideo ? 'show-player' : ''"></iframe>
+    </div>
+    <p class="about-section-paragraph align-justify-paragraph">{{data.paragraphs[1].text}}</p>
+    <p class="about-section-quote">“And, when you want something, all the universe conspires in helping you to achieve
+        it (Paulo Coelho)”.</p>
+</div>

@@ -1,0 +1,47 @@
+@import "../../../../scss/global/index.scss";
+
+@include media("screen", "<mobile") {
+    .about-us-section-container {
+        padding-top: 25px;
+
+        > .about-us-section-background-video {
+            top: calc(-125px + (0.238 * (900px - 100vw)));
+        }
+
+        > .section-header {
+            > h1 {
+                font-size: 22px;
+                line-height: 38px;
+            }
+        }
+
+        > .about-section-paragraph {
+            font-size: 12px;
+            line-height: 26px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        > .about-section-quote {
+            font-size: 12px;
+            line-height: 24px;
+            padding-top: 18px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        > .about-section-player-container {
+            width: calc(640px * 0.6);
+            height: calc(360px * 0.6);
+
+            .about-section-thumbnail-container {
+                width: 100%;
+            }
+
+            > iframe {
+                width: 85%;
+                height: 85%;
+            }
+        }
+    }
+}

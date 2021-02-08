@@ -1,0 +1,37 @@
+@import "../../../scss/global/index.scss";
+
+@include media("screen", "<mobile") {
+    .intro-section-container {
+        > .intro-section {
+            width: 100%;
+            padding: 0 10px;
+
+            > .intro-section-paragraph {
+                font-size: 15px;
+                line-height: 28px;
+
+                &:first-of-type {
+                    margin-bottom: 30px;
+                }
+
+                > h1 {
+                    font-size: 22px;
+                    line-height: 80px;
+                    color: #ffffff;
+                    margin-bottom: 8px;
+                }
+            }
+
+            > .intro-section-buttons-container {
+                margin-bottom: 30px;
+
+                > a {
+                    font-size: 12px;
+                    width: 90px;
+                    height: 40px;
+                    border-radius: 8px;
+                }
+            }
+        }
+    }
+}

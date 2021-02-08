@@ -56,7 +56,7 @@ body {
 
 /* Intro Section */
 
-.intro-section {
+/* .intro-section {
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -100,7 +100,7 @@ body {
 	margin: 0 auto;
 	padding-bottom: 40px;
 	padding-top: 20px;
-}
+} */
 
 .scope {
 	display: flex;
@@ -156,59 +156,6 @@ body {
 
 /* Scope Section */
 
-.scope-back {
-	background-color: #0F49DB;
-}
-
-.scope-header {
-	padding-top: 136px;
-	margin-bottom: 50px;
-}
-
-.scope-header p:first-child {
-	font-family: Roboto;
-	font-style: normal;
-	font-weight: bold;
-	font-size: 14px;
-	line-height: 16px;
-	text-align: center;
-	letter-spacing: 0.5em;
-	text-transform: uppercase;
-	color: #FFFFFF;
-}
-
-.scope-header h1 {
-	font-family: Merriweather;
-	font-style: normal;
-	font-weight: normal;
-	font-size: 48px;
-	line-height: 72px;
-	text-align: center;
-	color: #FFFFFF;
-	margin: 24px 0;
-}
-
-.scope-header h6 {
-	font-family: Roboto;
-	font-style: normal;
-	font-weight: normal;
-	font-size: 16px;
-	line-height: 32px;
-	text-align: center;
-	color: #FFFFFF;
-}
-
-.scope-header p:last-child {
-	font-family: Roboto;
-	font-size: 16px;
-	line-height: 32px;
-	text-align: center;
-	color: #FFFFFF;
-	max-width: 775px;
-	display: block;
-	margin: 0 auto;
-}
-
 .send-email:hover {
 	color: #FFFFFF;
 	text-decoration: none;
@@ -229,7 +176,7 @@ body {
 	line-height: 72px;
 	text-align: center;
 	color: #FFFFFF;
-	padding-top: 270px;
+	padding-top: 165px;
 	margin-bottom: 8px;
 }
 
@@ -291,10 +238,10 @@ body {
 }
 
 /* Why Us Section */
-
+/* 
 .why-us {
 	background-color: #0F49DB;
-}
+} */
 
 .ellipse {
 	position: relative;
@@ -721,12 +668,6 @@ body {
 	box-shadow: none !important;
 }
 
-.got-back {
-	background-size: 1315px 719px;
-	background-repeat: no-repeat;
-	background-position: top center;
-}
-
 .box {
 	display: block;
 	margin: 0 auto;
@@ -784,8 +725,8 @@ body {
 }
 
 .faq1 {
-	top: 14px !important;
-    right: 119px !important;
+	top: 12px !important;
+    right: 117px !important;
 }
 
 .faq1:after {
@@ -927,11 +868,6 @@ body {
 	background-color: #fff;
 	top: 8px;
 	left: -5px;
-}
-
-.carousels-component {
-	display: flex;
-	justify-content: center;
 }
 
 .item {
@@ -1085,7 +1021,31 @@ video-popup video:focus {
 	transform: translateX(-50%);
 }
 
-#about, #faq, #whyus, #leadership, #contact {
+#scope {
+	z-index: 6;
+}
+
+#about {
+	z-index: 5;
+}
+
+#whyus {
+	z-index: 4;
+}
+
+#leadership {
+	z-index: 3;
+}
+
+#process {
+	z-index: 2;
+}
+
+#faq {
+	z-index: 1;
+}
+
+#scope, #about, #faq, #whyus, #leadership, #process, #contact {
 	position: relative
 }
 
@@ -1132,11 +1092,6 @@ video-popup video:focus {
 	transform: translateX(-50%);
 }
 
-#process {
-	position: relative;
-	overflow-x: hidden;
-}
-
 .step1::after {
 	content: "";
 	mix-blend-mode: lighten;
@@ -1164,8 +1119,8 @@ video-popup video:focus {
 	height: 1048px;
 }
 
-.logo {
+/* .logo {
 	width: 100px;
 	margin: 0 auto;
 	display: block;
-}
+} */

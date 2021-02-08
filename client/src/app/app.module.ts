@@ -12,7 +12,13 @@ import { VideoElementComponent } from './components/video-element/video-element.
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { AdminSectionComponent } from '@components/admin-section/admin-section.component';
 import { AdminFormComponent } from '@components/admin-form/admin-form.component';
-import { LeadershipSectionComponent } from '@components/leadership-section/leadership-section.component';
+import { AboutUsSectionComponent } from '@components/sections/about-us-section/about-us-section.component';
+import { ContactSectionComponent } from '@components/sections/contact-section/contact-section.component';
+import { FaqSectionComponent } from '@components/sections/faq-section/faq-section.component';
+import { LeadershipSectionComponent } from '@components/sections/leadership-section/leadership-section.component';
+import { ProcessSectionComponent } from '@components/sections/process-section/process-section.component';
+import { ScopeSectionComponent } from '@components/sections/scope-section/scope-section.component';
+import { WhyUsSectionComponent } from '@components/sections/why-us-section/why-us-section.component';
 import { SkillsContainerComponent } from '@components/skills-container/skills-container.component';
 import { CarouselsComponent } from '@components/carousels/carousels.component';
 import { AdminLeadershipComponent } from '@components/admin-leadership/admin-leadership.component';
@@ -38,6 +44,10 @@ import { Cloudinary } from 'cloudinary-core';
 import { CLODUINARY_CONFIG } from '@services/constants';
 import { MainHeaderComponent } from '@components/main-header/main-header.component';
 
+// Pipes
+import { SafePipe } from './pipes/safe.pipe';
+import { IntroSectionComponent } from '@components/intro-section/intro-section.component';
+
 
 @NgModule({
   declarations: [
@@ -50,12 +60,20 @@ import { MainHeaderComponent } from '@components/main-header/main-header.compone
     VideoElementComponent,
     LoginPageComponent,
     AdminSectionComponent,
+    AboutUsSectionComponent,
+    ContactSectionComponent,
+    FaqSectionComponent,
     LeadershipSectionComponent,
+    ProcessSectionComponent,
+    ScopeSectionComponent,
+    WhyUsSectionComponent,
     SkillsContainerComponent,
     CarouselsComponent,
     ApproveDialog,
     MemberDialog,
-    MainHeaderComponent
+    MainHeaderComponent,
+    SafePipe,
+    IntroSectionComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

@@ -1,0 +1,9 @@
+@import "../../../scss/global/index.scss";
+
+@include media("screen", "<mobile") {
+    .home-page-container {
+        > .sections-container {
+            padding-bottom: 80px;
+        }
+    }
+}

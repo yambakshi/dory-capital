@@ -1,0 +1,38 @@
+@import "../../../../scss/global/index.scss";
+
+@include media("screen", "<mobile") {
+    .process-section-container {
+        padding-top: 25px;
+
+        > .process-section-background-video-1 {
+            position: absolute;
+            width: 100%;
+            z-index: 0;
+            right: -50%;
+            // let topIn900 = -100
+            // let topIn375 = 100
+            // 0.196 = Math.abs(topIn900 - topIn375) / (900 - 375)
+            // top: calc(-100px + (0.196 * (1920px - 100vw)));
+        }
+    
+        > .process-section-background-video-2 {
+            position: absolute;
+            width: 100%;
+            z-index: 0;
+            left: -50%;
+            top: 1200px;
+        }
+
+        > .section-header {
+            > .section-title {
+                font-size: 12px;
+                margin-bottom: 10px;
+            }
+
+            > h1 {
+                font-size: 22px;
+                line-height: 38px;
+            }
+        }
+    }
+}
