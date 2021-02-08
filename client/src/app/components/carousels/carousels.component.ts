@@ -15,7 +15,6 @@ import { WindowRefService } from '@services/window-ref.service';
 export class CarouselsComponent implements OnInit, AfterViewInit {
     @ViewChild('carsouels') carsouels: ElementRef;
     @ViewChild('tabs') tabs: ElementRef;
-    @ViewChild('tabsLine') tabsLine: ElementRef;
     containerCenter: { top: number, left: number } = { top: 0, left: 0 };
     selectedTab: number = 0;
     radianSectionDeg: number = (360 / 5) * Math.PI * 2 / 360;
@@ -92,10 +91,6 @@ export class CarouselsComponent implements OnInit, AfterViewInit {
     }
 
     ngAfterViewInit(): void {
-        this.setTabsLine(this.selectedTab);
-        const selectedElement = this.carsouels.nativeElement.children[this.selectedTab + 1];
-        this.renderer.setStyle(selectedElement, 'display', 'flex');
-
         this.containerCenter.top = this.carsouels.nativeElement.offsetHeight / 2;
         this.containerCenter.left = this.carsouels.nativeElement.offsetWidth / 2;
 
@@ -118,20 +113,7 @@ export class CarouselsComponent implements OnInit, AfterViewInit {
 
     selectTab(i: number) {
         if (i === this.selectedTab) return;
-        const deselectedElement = this.carsouels.nativeElement.children[this.selectedTab + 1];
-        this.renderer.setStyle(deselectedElement, 'display', 'none');
         this.selectedTab = i;
-        this.setTabsLine(i);
-        const selectedElement = this.carsouels.nativeElement.children[this.selectedTab + 1];
-        this.renderer.setStyle(selectedElement, 'display', 'flex');
-    }
-
-    setTabsLine(i: number): void {
-        const selectedTab = this.tabs.nativeElement.children[i];
-        const tabWidth = selectedTab.offsetWidth;
-        const tabLeft = selectedTab.offsetLeft;
-        this.renderer.setStyle(this.tabsLine.nativeElement, 'left', `${tabLeft}px`);
-        this.renderer.setStyle(this.tabsLine.nativeElement, 'width', `${tabWidth}px`);
     }
 
     rotateCarousel() {

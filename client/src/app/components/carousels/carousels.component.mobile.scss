@@ -10,16 +10,27 @@
 
                 > .tech-carousel-tab {
                     font-size: 15px;
-                    padding: 5px 20px;
+                    width: 65px;
                 }
             }
 
-            > .tech-carousels-tabs-underscore {
-                height: 6px;
-            }
+            > .tabs-slider-container {
+                > input[type="range"] {
+                    width: 96%;
+                    height: 6px;
 
-            > .tech-carousels-tabs-line {
-                height: 10px;
+                    &::-webkit-slider-thumb {
+                        width: 50px;
+                        height: 10px;
+                        border-radius: 10px;
+                    }
+
+                    &::-moz-range-thumb {
+                        width: 80px;
+                        height: 10px;
+                        border-radius: 10px;
+                    }
+                }
             }
         }
 
