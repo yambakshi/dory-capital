@@ -1,0 +1,23 @@
+@import "../../../../scss/global/index.scss";
+
+@include media("screen", "<mobile") {
+    .leadership-section-container {
+        padding-top: 25px;
+
+        > .leadership-section-background-video {
+            top: calc(-125px + (0.238 * (900px - 100vw)));
+        }
+
+        > .section-header {
+            > h1 {
+                font-size: 22px;
+                line-height: 38px;
+            }
+        }
+
+        > .leadership-section-subtitle {
+            font-size: 12px;
+            line-height: 26px;
+        }
+    }
+}

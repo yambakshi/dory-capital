@@ -1,0 +1,23 @@
+@import "../../../../scss/global/index.scss";
+
+@include media("screen", "<mobile") {
+    .contact-section-container {
+        padding-top: 25px;
+
+        > .section-header {
+            > .section-title {
+                font-size: 12px;
+                margin-bottom: 10px;
+            }
+
+            > h1 {
+                font-size: 22px;
+                line-height: 38px;
+            }
+        }
+
+        > .contact-section-background-video {
+            top: calc(-125px + (0.238 * (900px - 100vw)));
+        }
+    }
+}

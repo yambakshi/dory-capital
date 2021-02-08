@@ -1,0 +1,92 @@
+.about-us-section-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding-top: 50px;
+
+    > .section-header {
+        > h1 {
+            font-family: Merriweather;
+            font-size: 48px;
+            line-height: 72px;
+            font-style: normal;
+            font-weight: 400;
+            text-align: center;
+            color: #fff;
+            white-space: pre-wrap;
+        }
+    }
+
+    > .about-us-section-background-video {
+        position: absolute;
+        z-index: -1;
+        width: 100%;
+        top: calc(-300px + (0.245 * (1920px - 100vw)));
+    }
+
+    > .about-section-paragraph {
+        font-family: Roboto;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        text-align: center;
+        line-height: 32px;
+        display: block;
+        color: #fff;
+        white-space: pre-wrap;
+        max-width: 750px;
+    }
+
+    > .align-justify-paragraph {
+        text-align: justify;
+    }
+
+    > .about-section-quote {
+        width: 750px;
+        font-family: Merriweather;
+        font-weight: 700;
+        font-style: normal;
+        font-size: 16px;
+        text-align: center;
+        line-height: 24px;
+        display: block;
+        padding-top: 40px;
+        color: #fff;
+    }
+
+    > .about-section-player-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        margin-bottom: 10px;
+        width: calc(640px * 1.2);
+        height: calc(360px * 1.2);
+
+        .about-section-thumbnail-container {
+            display: flex;
+            width: 85%;
+            display: flex;
+
+            > img {
+                cursor: pointer;
+                width: 100%;
+            }
+
+            &.show-player {
+                display: none;
+            }
+        }
+
+        > iframe {
+            display: none;
+            width: 85%;
+            height: 85%;
+
+            &.show-player {
+                display: flex;
+            }
+        }
+    }
+}

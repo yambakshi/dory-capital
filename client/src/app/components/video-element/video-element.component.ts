@@ -1,20 +1,40 @@
-import { Component, Input } from '@angular/core';
-import { Cloudinary } from '@cloudinary/angular-5.x';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 
 
 @Component({
     selector: 'video-element',
     templateUrl: './video-element.component.html',
-    styleUrls: ['./video-element.component.scss']
+    styleUrls: [
+        './video-element.component.common.scss',
+        './video-element.component.mobile.scss'
+    ]
 })
 export class VideoElementComponent {
+    @ViewChild('videoIframe') videoIframe: ElementRef;
     @Input() fullSize: boolean = true;
-    // readonly videoId: string = 'dory-capital/bg-video_fvwmqy';
-    readonly videoId: string = 'https://res.cloudinary.com/dory-capital/video/upload/f_auto/v1612139147/dory-capital/bg-video_fvwmqy.mov';
+    iframeSrc: any = '';
+    cloudinaryPlayer = {
+        url: 'https://player.cloudinary.com/embed/?',
+        params: {
+            'cloud_name': 'dory-capital',
+            'public_id': 'dory-capital/bg-video_fvwmqy',
+            'fluid': true,
+            'controls': false,
+            'autoplay': true,
+            'autoplayMode': 'always',
+            'muted': true,
+            'loop': true,
+            'source_types': ['mp4']
+        }
+    }
 
-    constructor(private cloudinary: Cloudinary) { }
+    constructor() {
+        const { url, params } = this.cloudinaryPlayer;
+        const encodedParams = Object.entries(params)
+            .map(([param, value]) =>
+                Array.isArray(value) ? encodeURIComponent(`${param}[0]`) + `=${value}` : `${param}=${value}`
+            ).join('&')
 
-    get videoSrc() {
-        return this.cloudinary.url(this.videoId, { transformation: [{ fetch_format: "auto" }] });
+        this.iframeSrc = `${url}${encodedParams}`;
     }
 }

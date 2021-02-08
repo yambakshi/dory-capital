@@ -1,10 +1,8 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { Cloudinary } from '@cloudinary/angular-5.x';
 import { Section } from '@models/section';
 import { Member } from '@models/member';
-import { PageData } from '@models/page-data';
 import { Skill } from '@models/skill';
-import { ApiService } from '@services/api.service';
 
 @Component({
     selector: 'leadership-section',
@@ -18,20 +16,12 @@ import { ApiService } from '@services/api.service';
 export class LeadershipSectionComponent {
     @ViewChild('membersContainer') membersContainer: ElementRef;
     @ViewChild('skillsTypes') skillsTypes: ElementRef;
-    section: Section;
-    members: Member[] = [];
-    skills: Skill[] = [];
+    @Input() data: Section;
+    @Input() members: Member[];
+    @Input() skills: Skill[];
     readonly defaultWidths = { member: 150, skill: 36 };
 
-    constructor(
-        private apiService: ApiService,
-        private cloudinary: Cloudinary) {
-        this.apiService.getPageDataObservable().subscribe((pageData: PageData) => {
-            this.section = pageData.sections[3];
-            this.members = pageData.members;
-            this.skills = pageData.skills;
-        });
-    }
+    constructor(private cloudinary: Cloudinary) { }
 
     imgSrc(imageId: string, autoFormat: boolean = true) {
         return autoFormat ?

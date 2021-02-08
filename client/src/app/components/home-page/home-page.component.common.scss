@@ -1,15 +1,32 @@
-.main-header-component {
-    position: fixed;
-    top: 0;
-    z-index: 1001;
-    width: 100%;
-}
+.home-page-container {
+    > .main-header-component {
+        position: fixed;
+        top: 0;
+        z-index: 1001;
+        width: 100%;
+    }
 
-.intro-section-container {
-    margin-top: 0px;
+    > .intro-section-component {
+        display: flex;
+        flex-direction: column;
+        margin-top: 0px;
 
-    &.logged-in {
-        margin-top: 65px;
+        &.logged-in {
+            margin-top: 65px;
+        }
+    }
+
+    > .sections-container {
+        background-color: #0f49db;
+        padding-bottom: 0px;
+
+        > .sections-margin {
+            margin-top: 130px;
+        }
+
+        > .process-section-padding {
+            padding: 0;
+        }
     }
 }
 
