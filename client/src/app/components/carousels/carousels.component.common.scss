@@ -48,15 +48,8 @@
                 height: 10px;
                 background: #000;
                 outline: none;
-                opacity: 0.7;
-                -webkit-transition: 0.2s;
-                transition: opacity 0.2s;
                 border-radius: 10px;
                 cursor: pointer;
-
-                &:hover {
-                    opacity: 1;
-                }
 
                 &::-webkit-slider-thumb {
                     -webkit-appearance: none;
@@ -85,23 +78,35 @@
         align-items: center;
 
         > .tech-carousel-rotator-container {
-            display: flex;
-            align-items: center;
             cursor: pointer;
-            border-radius: 15px;
             position: absolute;
             z-index: 1;
-            padding: 15px;
-            background-color: #081b4e;
+            padding: 0 15px;
+            height: 51px;
+            background-color: #0e1a32;
+            box-shadow: 0px 1px 1px rgb(255 255 255 / 20%), 0px 4px 16px rgb(255 255 255 / 40%),
+                inset 0px 2px 8px rgb(0 0 0 / 20%);
+            border-radius: 12px;
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 16px;
+            line-height: 19px;
+            text-align: center;
+            color: #ffffff;
+            transition: all 0.5s ease-in-out;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            user-select: none;
+            border: 1px solid transparent;
 
             > .tech-carousel-rotator-icon {
                 user-select: none;
             }
 
             > .tech-carousel-rotator-text {
-                user-select: none;
-                font-size: 20px;
-                font-family: Roboto;
                 margin-left: 10px;
             }
         }

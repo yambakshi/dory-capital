@@ -38,6 +38,21 @@
         > .process-body {
             padding-right: 28px;
             padding-left: 28px;
+
+            > .process-section-step-1 {
+                > div > div > .one-page-example-container {
+                    margin: 5px 0 15px;
+
+                    & a {
+                        > button {
+                            padding: 8px 12px;
+                            font-size: 14px;
+                            font-weight: 500;
+                            border-radius: 8px;
+                        }
+                    }
+                }
+            }
         }
     }
 }

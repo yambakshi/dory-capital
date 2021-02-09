@@ -8,14 +8,15 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                    <div class="panel panel-default"
-                        *ngFor="let paragraph of data.paragraphs; let i = index">
+                    <div class="panel panel-default" *ngFor="let paragraph of data.paragraphs; let i = index">
                         <div class="panel-heading" role="tab" [attr.id]="'heading' + i">
                             <h4 class="panel-title">
                                 <a [ngClass]="i == 0 ? null : 'collapsed'" data-toggle="collapse"
                                     data-parent="#accordion" [attr.href]="'#collapse' + i"
                                     [attr.aria-expanded]="i == 0 ? true : false" [attr.aria-controls]="'collapse' + i">
-                                    {{paragraph.title}}
+                                    <div class="accordion-title">{{paragraph.title}}</div>
+                                    <mat-icon class="collapse-accordion-icon">remove_circle_outline</mat-icon>
+                                    <mat-icon class="expand-accordion-icon">add_circle_outline</mat-icon>
                                 </a>
                             </h4>
                         </div>

@@ -511,30 +511,14 @@ body {
 /*---accordion style---*/
 
 .panel-title {
-	margin-bottom: 8px !important;
+	margin: 0px !important;
+	display: flex;
+	align-items: center;
 }
 
-.panel-title > a:before {
-	float: right !important;
-	font-family: FontAwesome;
-	content: "";
-	padding-right: 5px;
-	width: 23px;
-	height: 23px;
-	padding-left: 4px;
-	background-image: url("../assets/media/minus.svg");
-	background-repeat: no-repeat;
-	background-size: contain;
-	margin-left: 10px;
-}
-
-.panel-title > a.collapsed:before {
-	float: right !important;
-	content: "";
-	background-image: url("../assets/media/plus.svg");
-}
-
-.panel-title a {
+.panel-title > a {
+	display: flex;
+	align-items: center;
 	font-family: Merriweather;
 	font-style: normal;
 	font-weight: bold;
@@ -542,7 +526,31 @@ body {
 	line-height: 20px;
 	color: #ffffff;
 	padding: 24px 0;
-	display: block;
+	flex: 1;
+}
+
+.panel-title > a > .accordion-title {
+	flex: 1;
+}
+
+.panel-title > a > mat-icon {
+	margin-left: 10px;
+}
+
+.panel-title > a > .collapse-accordion-icon {
+	display: flex;
+}
+
+.panel-title > a.collapsed > .collapse-accordion-icon {
+	display: none;
+}
+
+.panel-title > a > .expand-accordion-icon {
+	display: none;
+}
+
+.panel-title > a.collapsed > .expand-accordion-icon {
+	display: flex;
 }
 
 .panel-title > a:hover,
