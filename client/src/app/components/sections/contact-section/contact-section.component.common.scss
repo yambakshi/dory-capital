@@ -45,6 +45,15 @@
 
         > .contact-form-container {
             > .contact-form {
+                width: 100%;
+                max-width: 576px;
+
+                > .form-group:nth-child(1),
+                .form-group:nth-child(2) {
+                    > input {
+                        width: 100%;
+                    }
+                }
                 > .form-group:nth-child(3) {
                     > label {
                         margin-bottom: 14px;
