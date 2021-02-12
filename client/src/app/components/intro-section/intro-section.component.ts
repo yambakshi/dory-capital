@@ -11,43 +11,24 @@ import { Component, ElementRef, HostListener, Inject, PLATFORM_ID, Renderer2, Vi
     ]
 })
 export class IntroSectionComponent {
-    @ViewChild('videoIframe') videoIframe: ElementRef;
+    @ViewChild('backgroundVideo') backgroundVideo: ElementRef;
     isLoggedIn: boolean = false;
-    iframeSrc: any = '';
-    cloudinaryPlayer = {
-        url: 'https://player.cloudinary.com/embed/?',
-        params: {
-            'cloud_name': 'dory-capital',
-            'public_id': 'dory-capital/bg-video_fvwmqy',
-            'fluid': true,
-            'controls': false,
-            'autoplay': true,
-            'autoplayMode': 'always',
-            'muted': true,
-            'loop': true,
-            'source_types': ['mp4']
-        }
-    }
+    videoUrl: string = 'https://res.cloudinary.com/dory-capital/video/upload/v1612139147/dory-capital/bg-video_fvwmqy.mov';
 
     constructor(
         @Inject(DOCUMENT) private document: Document,
         @Inject(PLATFORM_ID) private platformId: any,
         private renderer: Renderer2) {
-        const { url, params } = this.cloudinaryPlayer;
-        const encodedParams = Object.entries(params)
-            .map(([param, value]) =>
-                Array.isArray(value) ?
-                    encodeURIComponent(`${param}[0]`) + `=${value}` :
-                    `${param}=${value}`
-            ).join('&')
-
-        this.iframeSrc = `${url}${encodedParams}`;
     }
 
     ngAfterViewInit(): void {
         if (isPlatformBrowser(this.platformId)) {
             this.calcPlayerSize();
         }
+    }
+
+    get videoSrc(): string {
+        return this.videoUrl;
     }
 
     calcPlayerSize(): void {
@@ -60,8 +41,8 @@ export class IntroSectionComponent {
             width = height * ratio;
         }
 
-        this.renderer.setStyle(this.videoIframe.nativeElement, 'width', `${width}px`);
-        this.renderer.setStyle(this.videoIframe.nativeElement, 'height', `${height}px`);
+        this.renderer.setStyle(this.backgroundVideo.nativeElement, 'width', `${width}px`);
+        this.renderer.setStyle(this.backgroundVideo.nativeElement, 'height', `${height}px`);
     }
 
     @HostListener('window:resize', ['$event'])

@@ -1,4 +1,5 @@
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { Component, ElementRef, Inject, Input, PLATFORM_ID, ViewChild } from '@angular/core';
 
 
 @Component({
@@ -10,31 +11,27 @@ import { Component, ElementRef, Input, ViewChild } from '@angular/core';
     ]
 })
 export class VideoElementComponent {
-    @ViewChild('videoIframe') videoIframe: ElementRef;
+    @ViewChild('bgVideoCanvas') bgVideoCanvas: ElementRef;
     @Input() fullSize: boolean = true;
-    iframeSrc: any = '';
-    cloudinaryPlayer = {
-        url: 'https://player.cloudinary.com/embed/?',
-        params: {
-            'cloud_name': 'dory-capital',
-            'public_id': 'dory-capital/bg-video_fvwmqy',
-            'fluid': true,
-            'controls': false,
-            'autoplay': true,
-            'autoplayMode': 'always',
-            'muted': true,
-            'loop': true,
-            'source_types': ['mp4']
+
+    constructor(@Inject(PLATFORM_ID) private platformId: any) { }
+
+    ngAfterViewInit(): void {
+        if (isPlatformBrowser(this.platformId)) {
+            this.bgVideoCanvas.nativeElement.width = 1280;
+            this.bgVideoCanvas.nativeElement.height = 720;
+            var ctx = this.bgVideoCanvas.nativeElement.getContext('2d');
+            var video = document.getElementById('bg-video');
+
+            video.addEventListener('play', function () {
+                var $this: any = this; //cache
+                (function loop() {
+                    if (!$this.paused && !$this.ended) {
+                        ctx.drawImage($this, 0, 0);
+                        setTimeout(loop, 1000 / 30); // drawing at 30fps
+                    }
+                })();
+            }, false);
         }
-    }
-
-    constructor() {
-        const { url, params } = this.cloudinaryPlayer;
-        const encodedParams = Object.entries(params)
-            .map(([param, value]) =>
-                Array.isArray(value) ? encodeURIComponent(`${param}[0]`) + `=${value}` : `${param}=${value}`
-            ).join('&')
-
-        this.iframeSrc = `${url}${encodedParams}`;
     }
 }
