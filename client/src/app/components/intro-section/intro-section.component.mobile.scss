@@ -6,24 +6,29 @@
             width: 100%;
             padding: 0 10px;
 
+            > img {
+                max-width: 85px;
+                margin-bottom: 10px;
+            }
+
             > .intro-section-paragraph {
-                font-size: 15px;
-                line-height: 28px;
+                font-size: 12px;
+                line-height: 22px;
 
                 &:first-of-type {
-                    margin-bottom: 30px;
+                    margin-bottom: 10px;
                 }
 
                 > h1 {
                     font-size: 22px;
-                    line-height: 80px;
+                    line-height: 48px;
                     color: #ffffff;
                     margin-bottom: 8px;
                 }
             }
 
             > .intro-section-buttons-container {
-                margin-bottom: 30px;
+                margin-bottom: 15px;
 
                 > a {
                     font-size: 12px;

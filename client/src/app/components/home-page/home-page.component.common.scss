@@ -1,4 +1,6 @@
 .home-page-container {
+    background-color: #0f49db;
+
     > .main-header-component {
         position: fixed;
         top: 0;
@@ -17,7 +19,6 @@
     }
 
     > .sections-container {
-        background-color: #0f49db;
         padding-bottom: 0px;
 
         > .sections-margin {
