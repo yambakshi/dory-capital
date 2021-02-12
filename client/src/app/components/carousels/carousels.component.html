@@ -4,20 +4,21 @@
             <li *ngFor="let tab of carouselsTabs; let i = index" class="tech-carousel-tab"
                 [ngClass]="selectedTab === i ? 'selected' : ''" (click)="selectTab(i)">{{tab}}</li>
         </ul>
-        <div class="tech-carousels-tabs-underscore"></div>
-        <div #tabsLine class="tech-carousels-tabs-line"></div>
+        <div class="tabs-slider-container">
+            <input type="range" min="0" max="4" [(ngModel)]="selectedTab">
+        </div>
     </div>
     <div #carsouels class="tech-carousels">
         <div class="tech-carousel-rotator-container" (click)="rotateCarousel()">
-            <img class="tech-carousel-rotator-icon" src="assets/media/carousels/carousel-icon.svg" />
+            <img class="tech-carousel-rotator-icon" [src]="imgSrc(rotateIconId, false)" alt="rotate-icon" />
             <div class="tech-carousel-rotator-text">Click to rotate</div>
         </div>
-        <div *ngFor="let carouselImgs of carouselsImgs; let i = index" class="tech-carousel">
+        <div *ngFor="let carouselImgs of carouselsImgs; let i = index" class="tech-carousel"
+            [ngClass]="selectedTab === i ? 'show-carousel' : ''">
             <div *ngFor="let img of carouselImgs; let j = index" class="tech-carousel-item"
-                [ngClass]="carouselsIndices[selectedTab] === j ? 'active' : ''"
-                (click)="selectCarouselItem(j)">
-                <img [src]="'assets/media/carousels/' + (i + 1) + '/' + imgKey(img) + '.png'" [alt]="img" />
-                <div class="tech-carousel-item-text">{{img}}</div>
+                [ngClass]="carouselsIndices[selectedTab] === j ? 'active' : ''" (click)="selectCarouselItem(j)">
+                <img [src]="carouselImg(i + 1, img.id)" [alt]="img.name" />
+                <div class="tech-carousel-item-text">{{img.name}}</div>
             </div>
         </div>
     </div>

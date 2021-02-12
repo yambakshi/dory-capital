@@ -1,3 +1,19 @@
+## Setup
+Initial Login URI
+`mongodb://127.0.0.1:27017`
+
+Create DB
+`use dory-capital`
+
+Create Collection
+`db.createCollection("paragraphs")`
+
+Create 'dbAdmin' User
+`db.createUser({ user: "yambakshi", pwd: "1234", roles: [{ role: "dbAdmin", db: "dory-capital" }]})`
+
+Drop user
+`db.dropUser("yambakshi")`
+
 ## Deploy
 
 Run `npm run build` to build the server.

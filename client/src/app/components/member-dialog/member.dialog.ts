@@ -116,7 +116,7 @@ export class MemberDialog implements OnInit {
 
     onInput(field: string): void {
         if (!this.data.editMode) return;
-        this.diffValidator[field] = this.memberForm.controls[field].value != this.data[field];
+        this.diffValidator[field] = this.memberForm.controls[field].value != this.data.member[field];
         this.sumDiffStatus();
     }
 

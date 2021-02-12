@@ -10,8 +10,7 @@
                 <a [href]="member.link" target="_blank">
                     <div class="profile-image-container">
                         <div class="profile-image-overlay"></div>
-                        <img [src]="imgSrc(member.imageId)" [alt]="member.name"
-                            [width]="member.width || defaultWidths.member" />
+                        <img [src]="imgSrc(member.imageId)" [alt]="member.name" />
                     </div>
                 </a>
                 <div class="member-name">{{member.name}}</div>

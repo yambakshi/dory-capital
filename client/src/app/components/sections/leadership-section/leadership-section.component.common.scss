@@ -76,19 +76,23 @@
             }
 
             > .members-grid-item {
-                // border: white 1px solid;
                 height: 275px;
                 width: 168px;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                overflow: hidden;
 
                 > a {
                     > .profile-image-container {
-                        overflow: hidden;
                         height: 150px;
                         margin-bottom: 10px;
                         position: relative;
+
+                        > img {
+                            height: 100%;
+                            width: auto;
+                        }
 
                         > .profile-image-overlay {
                             width: 100%;

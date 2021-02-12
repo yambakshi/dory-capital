@@ -1,4 +1,6 @@
 .home-page-container {
+    background-color: #0f49db;
+
     > .main-header-component {
         position: fixed;
         top: 0;
@@ -17,7 +19,6 @@
     }
 
     > .sections-container {
-        background-color: #0f49db;
         padding-bottom: 0px;
 
         > .sections-margin {
@@ -26,6 +27,85 @@
 
         > .process-section-padding {
             padding: 0;
+        }
+    }
+
+    > .page-navigator-container {
+        > .page-navigator {
+            > .menu:hover {
+                color: #ffffff;
+                text-decoration: none;
+            }
+
+            > .faq1 {
+                top: 12px;
+                right: 117px;
+            }
+
+            > .faq1:after {
+                top: 5px;
+                right: -17px;
+            }
+
+            > .faq2 {
+                top: 61px;
+                right: 129px;
+            }
+
+            > .faq2:after {
+                top: 5px;
+                right: -16px;
+            }
+
+            > .faq3 {
+                top: 103px;
+                right: 99px;
+            }
+
+            > .faq3:after {
+                top: 4px;
+                right: -19px;
+            }
+
+            > .faq4 {
+                top: 103px;
+                right: -58px;
+            }
+
+            > .faq4:after {
+                top: 4px;
+                right: 85px;
+            }
+
+            > .faq5 {
+                top: 61px;
+                right: -63px;
+            }
+
+            > .faq5:after {
+                top: 5px;
+                right: 58px;
+            }
+
+            > .faq6 {
+                top: 12px;
+                right: -61px;
+            }
+
+            > .faq6:after {
+                top: 5px;
+                right: 68px;
+            }
+
+            > .faq7 {
+                top: -27px;
+                right: 37px;
+            }
+
+            > .faq7:after {
+                top: 21px;
+                right: 17px;
+            }
         }
     }
 }

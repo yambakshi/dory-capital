@@ -5,7 +5,7 @@ import bcrypt from 'bcrypt';
 
 export async function validateUser(email: string, password: string) {
     const inavlidUserMessage = "Incorrect username or password";
-    const user = await mongoDb.findOne(env.mongodb.dbName, 'users', { email });
+    const user = await mongoDb.findOne(env.mongodb.dbName, 'users', { email: email.toLowerCase() });
 
     if (!user) {
         return Promise.reject(inavlidUserMessage);

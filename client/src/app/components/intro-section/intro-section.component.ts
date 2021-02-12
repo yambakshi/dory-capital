@@ -1,6 +1,5 @@
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { Component, ElementRef, HostListener, Inject, PLATFORM_ID, Renderer2, ViewChild } from '@angular/core';
-import { WindowRefService } from '@services/window-ref.service';
 
 @Component({
     selector: 'intro-section',
@@ -33,8 +32,7 @@ export class IntroSectionComponent {
     constructor(
         @Inject(DOCUMENT) private document: Document,
         @Inject(PLATFORM_ID) private platformId: any,
-        private renderer: Renderer2,
-        private windowRefService: WindowRefService) {
+        private renderer: Renderer2) {
         const { url, params } = this.cloudinaryPlayer;
         const encodedParams = Object.entries(params)
             .map(([param, value]) =>
