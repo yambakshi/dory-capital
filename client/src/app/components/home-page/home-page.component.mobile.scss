@@ -5,5 +5,89 @@
         > .sections-container {
             padding-bottom: 80px;
         }
+
+        > .page-navigator-container {
+            > .page-navigator {
+                > .faq1,
+                .faq2,
+                .faq3,
+                .faq4,
+                .faq5,
+                .faq6,
+                .faq7 {
+                    font-size: 12px;
+                }
+
+                > .faq1 {
+                    top: 12px;
+                    right: 114px;
+                }
+    
+                > .faq1:after {
+                    top: 4px;
+                    right: -15px;
+                }
+    
+                > .faq2 {
+                    top: 62px;
+                    right: 128px;
+                }
+    
+                > .faq2:after {
+                    top: 4px;
+                    right: -16px;
+                }
+
+                > .faq3 {
+                    top: 102px;
+                    right: 96px;
+                }
+
+                > .faq3:after {
+                    top: 4px;
+                    right: -15px;
+                }
+
+                > .faq4 {
+                    top: 102px;
+                    right: -46px;
+                }
+
+                > .faq4:after {
+                    top: 4px;
+                    right: 72px;
+                }
+
+                > .faq5 {
+                    top: 62px;
+                    right: -52px;
+                }
+
+                > .faq5:after {
+                    top: 4px;
+                    right: 48px;
+                }
+
+                > .faq6 {
+                    top: 12px;
+                    right: -50px;
+                }
+
+                > .faq6:after {
+                    top: 4px;
+                    right: 58px;
+                }
+
+                > .faq7 {
+                    top: -25px;
+                    right: 40px;
+                }
+
+                > .faq7:after {
+                    top: 20px;
+                    right: 14px;
+                }
+            }
+        }
     }
 }

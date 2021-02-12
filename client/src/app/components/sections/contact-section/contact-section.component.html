@@ -5,7 +5,7 @@
         <h1>{{data.title}}</h1>
     </div>
     <div class="container contact-section-body">
-        <div class="row justify-content-center">
+        <div class="row justify-content-center contact-form-container">
             <form class="contact-form">
                 <div class="form-group">
                     <label class="f-name">Full name</label>
@@ -18,17 +18,20 @@
                 </div>
                 <div class="form-group">
                     <label class="f-name">Add a one pager (optional)</label>
-                    <div class="avatar">
-                        <h1><i class="icon-plus"></i>&nbsp;&nbsp;&nbsp;&nbsp;Upload</h1>
-                        <input type="file" name="avatar" />
+                    <div class="upload-button-container">
+                        <button class="upload-button" type="button" (click)="fileInput.click()">
+                            <i class="icon-plus"></i>
+                            <div class="upload-button-text">Upload</div>
+                            <input #fileInput type="file" name="avatar" hidden />
+                        </button>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="f-name">Message</label>
                     <textarea class="form-control custom-area" placeholder="Enter your message"></textarea>
                 </div>
-                <div align="center">
-                    <button type="submit" class="btn custom-btn">Submit</button>
+                <div class="submit-button-container">
+                    <button type="submit" class="btn">Submit</button>
                 </div>
             </form>
         </div>

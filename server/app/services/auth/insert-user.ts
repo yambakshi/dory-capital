@@ -10,7 +10,7 @@ export async function insertUser({ email, password }) {
     }
 
     const hash = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
-    const newUser = { email, password: hash };
+    const newUser = { email: email.toLowerCase(), password: hash };
 
     const output = mongoDb.insertMany(env.mongodb.dbName, 'users', [newUser]);
     return output;

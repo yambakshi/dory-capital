@@ -42,5 +42,98 @@
 
     > .contact-section-body {
         z-index: 1;
+
+        > .contact-form-container {
+            > .contact-form {
+                width: 100%;
+                max-width: 576px;
+
+                > .form-group:nth-child(1),
+                .form-group:nth-child(2) {
+                    > input {
+                        width: 100%;
+                    }
+                }
+                > .form-group:nth-child(3) {
+                    > label {
+                        margin-bottom: 14px;
+                    }
+
+                    > .upload-button-container {
+                        > .upload-button {
+                            padding: 14px 16px;
+                            background-color: #0e1a32;
+                            box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.2), 0px 4px 16px rgba(255, 255, 255, 0.4),
+                                inset 0px 2px 8px rgba(0, 0, 0, 0.2);
+                            border-radius: 12px;
+                            font-family: Roboto;
+                            font-style: normal;
+                            font-weight: bold;
+                            font-size: 16px;
+                            line-height: 19px;
+                            text-align: center;
+                            color: #ffffff;
+                            transition: all 0.5s ease-in-out;
+                            display: inline-flex;
+                            justify-content: center;
+                            align-items: center;
+                            cursor: pointer;
+                            border: 1px solid transparent;
+
+                            > i[class^="icon-plus"] {
+                                margin-right: 10px;
+                            }
+
+                            &:hover {
+                                background-color: #ffffff;
+                                border: 1px solid #fff;
+                                color: #1d4b79;
+                            }
+
+                            &:focus {
+                                outline: 0;
+                                box-shadow: none;
+                            }
+                        }
+                    }
+                }
+
+                > .submit-button-container {
+                    display: flex;
+                    justify-content: center;
+
+                    > button[type="submit"] {
+                        padding: 14px 16px;
+                        background-color: #0e1a32;
+                        box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.2), 0px 4px 16px rgba(255, 255, 255, 0.4),
+                            inset 0px 2px 8px rgba(0, 0, 0, 0.2);
+                        border-radius: 12px;
+                        font-family: Roboto;
+                        font-style: normal;
+                        font-weight: bold;
+                        font-size: 16px;
+                        line-height: 19px;
+                        text-align: center;
+                        color: #ffffff;
+                        transition: all 0.5s ease-in-out;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        border: 1px solid transparent;
+
+                        &:hover {
+                            background-color: #ffffff;
+                            border: 1px solid #fff;
+                            color: #1d4b79;
+                        }
+
+                        &:focus {
+                            outline: 0;
+                            box-shadow: none;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

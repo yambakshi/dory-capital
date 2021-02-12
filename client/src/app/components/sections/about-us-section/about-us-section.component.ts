@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Cloudinary } from '@cloudinary/angular-5.x';
 import { Section } from '@models/section';
 
 @Component({
@@ -14,6 +15,7 @@ export class AboutUsSectionComponent {
     @Input() data: Section;
     playVideo: boolean = false;
     iframeSrc: any = '';
+    thumbnailId: string = 'dory-capital/about-us/pr-video-thumbnail_lsenx5';
     cloudinaryPlayer = {
         url: 'https://player.cloudinary.com/embed/?',
         params: {
@@ -27,7 +29,7 @@ export class AboutUsSectionComponent {
         }
     }
 
-    constructor() {
+    constructor(private cloudinary: Cloudinary) {
         const { url, params } = this.cloudinaryPlayer;
         const encodedParams = Object.entries(params)
             .map(([param, value]) =>
@@ -39,5 +41,9 @@ export class AboutUsSectionComponent {
 
     togglePlayVideo(): void {
         this.playVideo = !this.playVideo;
+    }
+
+    get thumbnailUrl() {
+        return this.cloudinary.url(this.thumbnailId, { transformation: [{ fetch_format: "auto" }] });
     }
 }

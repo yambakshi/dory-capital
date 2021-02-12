@@ -19,5 +19,44 @@
         > .contact-section-background-video {
             top: calc(-125px + (0.238 * (900px - 100vw)));
         }
+
+        > .contact-section-body {
+            z-index: 1;
+
+            > .contact-form-container {
+                > .contact-form {
+                    > .form-group:nth-child(3) {
+                        > label {
+                            margin-bottom: 14px;
+                        }
+
+                        > .upload-button-container {
+                            > .upload-button {
+                                padding: 8px 12px;
+                                border-radius: 8px;
+                                font-weight: 500;
+                                font-size: 14px;
+
+                                > i[class^="icon-plus"] {
+                                    margin-right: 8px;
+                                }
+                            }
+                        }
+                    }
+
+                    > .submit-button-container {
+                        display: flex;
+                        justify-content: center;
+
+                        > button[type="submit"] {
+                            padding: 8px 12px;
+                            border-radius: 8px;
+                            font-weight: 500;
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
