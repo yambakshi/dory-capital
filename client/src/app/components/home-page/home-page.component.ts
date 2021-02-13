@@ -5,6 +5,7 @@ import { SocketIoService } from '@services/socket-io.service';
 import { ActivatedRoute } from '@angular/router';
 import { LoginService } from '@services/login.service';
 import { PageData } from '@models/page-data';
+import { Cloudinary } from '@cloudinary/angular-5.x';
 
 
 @Component({
@@ -25,7 +26,8 @@ export class HomePageComponent implements OnInit {
     private apiService: ApiService,
     private route: ActivatedRoute,
     private loginService: LoginService,
-    private socketIoService: SocketIoService) {
+    private socketIoService: SocketIoService,
+    private cloudinary: Cloudinary) {
     this.route.data.subscribe(data => {
       if (!data['pageData']) {
         return;
@@ -68,7 +70,7 @@ export class HomePageComponent implements OnInit {
     let innerImgElement = innerDivElement.firstElementChild;
 
     innerDivElement.classList.add("box-hover");
-    innerImgElement.setAttribute('src', 'assets/media/grid.png');
+    innerImgElement.setAttribute('src', this.imgSrc('navigator-active_dgqg6y'));
     pageNavigatorElement.style.bottom = '0';
   }
 
@@ -78,7 +80,12 @@ export class HomePageComponent implements OnInit {
     let innerImgElement = innerDivElement.firstElementChild;
 
     innerDivElement.classList.remove("box-hover");
-    innerImgElement.setAttribute('src', 'assets/media/ellipse.png');
+    innerImgElement.setAttribute('src', this.imgSrc('navigator_iztduy'));
     pageNavigatorElement.style.bottom = '-50px';
+  }
+
+  imgSrc(imageId: string) {
+    const url = `dory-capital/${imageId}`;
+    return this.cloudinary.url(url, { transformation: [{ fetch_format: "auto" }] });
   }
 }
