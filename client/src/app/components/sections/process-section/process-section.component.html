@@ -55,13 +55,13 @@
                     <span>STEP 3</span>
                     <h1>{{data.paragraphs[2].title}}</h1>
                     <div class="media mb-4">
-                        <img src="assets/media/team.png" alt="team" class="img-fluid co-founding-img" />
+                        <img [src]="imgSrc('team')" alt="team" class="img-fluid co-founding-img" />
                         <div class="media-body">
                             <h6 class="co-founding">{{data.paragraphs[2].text}}</h6>
                         </div>
                     </div>
                     <div class="media">
-                        <img src="assets/media/group.png" alt="team" class="img-fluid co-founding-img" />
+                        <img [src]="imgSrc('group')" alt="group" class="img-fluid co-founding-img" />
                         <div class="media-body ml-4">
                             <h6 class="co-founding-ml-0">Preliminary technical assessment</h6>
                             <p class="make">The preliminary technical assessment will examine your technology
@@ -69,7 +69,7 @@
                         </div>
                     </div>
                     <div class="media">
-                        <img src="assets/media/dd.png" alt="team" class="img-fluid co-founding-img" />
+                        <img [src]="imgSrc('dd')" alt="dd" class="img-fluid co-founding-img" />
                         <div class="media-body ml-4">
                             <h6 class="co-founding-ml-0">An indicative due diligence</h6>
                             <p class="make">A detailed and thorough due diligence will include, among others,
@@ -82,7 +82,7 @@
                         </div>
                     </div>
                     <div class="media">
-                        <img src="assets/media/approval.png" alt="team" class="img-fluid co-founding-img" />
+                        <img [src]="imgSrc('approval')" alt="approval" class="img-fluid co-founding-img" />
                         <div class="media-body ml-4">
                             <h6 class="co-founding-ml-0">Final approval</h6>
                             <p class="make">Post due diligence, your full R&D and GTM program is presented
@@ -90,7 +90,7 @@
                         </div>
                     </div>
                     <div class="media">
-                        <img src="assets/media/work.png" alt="team" class="img-fluid co-founding-img" />
+                        <img [src]="imgSrc('work')" alt="work" class="img-fluid co-founding-img" />
                         <div class="media-body ml-2">
                             <h6 class="co-founding-ml-0">To work</h6>
                             <p class="make">Signing an investment/cooperation agreement and getting to work.</p>

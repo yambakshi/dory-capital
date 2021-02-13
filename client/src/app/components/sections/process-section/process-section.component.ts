@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Cloudinary } from '@cloudinary/angular-5.x';
 import { Section } from '@models/section';
 
 @Component({
@@ -12,6 +13,18 @@ import { Section } from '@models/section';
 })
 export class ProcessSectionComponent {
     @Input() data: Section;
+    iconsIds = {
+        work: 'work_ojgkpg',
+        approval: 'approval_vb4gd9',
+        dd: 'dd_zh7gzc',
+        group: 'group_imsxbm',
+        team: 'team_wd4r51'
+    }
 
-    constructor() { }
+    constructor(private cloudinary: Cloudinary) { }
+
+    imgSrc(key: string) {
+        const url = `dory-capital/process/${this.iconsIds[key]}`;
+        return this.cloudinary.url(url, { transformation: [{ fetch_format: "auto" }] });
+    }
 }
