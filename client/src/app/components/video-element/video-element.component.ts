@@ -19,7 +19,7 @@ export class VideoElementComponent {
     ngAfterViewInit(): void {
         if (isPlatformBrowser(this.platformId)) {
             this.bgVideoCanvas.nativeElement.width = 1280;
-            this.bgVideoCanvas.nativeElement.height = 720;
+            this.bgVideoCanvas.nativeElement.height = 500;
             var ctx = this.bgVideoCanvas.nativeElement.getContext('2d');
             var video = document.getElementById('bg-video');
 
