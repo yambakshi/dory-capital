@@ -17,9 +17,12 @@ Drop user
 ## Deploy
 
 Run `npm run build` to build the server.
-WinSCP build to CentOS 8 machine.
-Move server folder to /var/www/html/dory-capital
+WinSCP `out` and `package.json` to `~/server` on CentOS 8 machine.
+`cd ~/server`
+`npm i`
+`mv ~/server/* /var/www/html/dory-capital/server`
 `cd /var/www/html/dory-capital/server`
 `sudo touch nohup.out`
 `sudo chmod 777 nohup.out`
+`sudo chown -R root:root ./*`
 `nohup node out/main.js > nohup.out 2>&1 &`

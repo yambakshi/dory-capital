@@ -11,6 +11,7 @@ async function processRegistration(user: any) {
         throw new Error(`Invalid request(${firstErr.keyword}): user ${firstErr.dataPath} ${firstErr.message}`);
     }
 
+    user.email = user.email.toLowerCase();
     const output = insertUser(user);
     return output;
 }

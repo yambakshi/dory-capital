@@ -20,6 +20,7 @@ export class HomePageComponent implements OnInit {
   @ViewChild('pageNavigator') pageNavigator: ElementRef;
   pageData: PageData;
   isLoggedIn: boolean = false;
+  navigatorIcons = { idle: 'navigator_iztduy', active: 'navigator-active_dgqg6y' };
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
@@ -70,7 +71,7 @@ export class HomePageComponent implements OnInit {
     let innerImgElement = innerDivElement.firstElementChild;
 
     innerDivElement.classList.add("box-hover");
-    innerImgElement.setAttribute('src', this.imgSrc('navigator-active_dgqg6y'));
+    innerImgElement.setAttribute('src', this.imgSrc(this.navigatorIcons.active));
     pageNavigatorElement.style.bottom = '0';
   }
 
@@ -80,7 +81,7 @@ export class HomePageComponent implements OnInit {
     let innerImgElement = innerDivElement.firstElementChild;
 
     innerDivElement.classList.remove("box-hover");
-    innerImgElement.setAttribute('src', this.imgSrc('navigator_iztduy'));
+    innerImgElement.setAttribute('src', this.imgSrc(this.navigatorIcons.idle));
     pageNavigatorElement.style.bottom = '-50px';
   }
 
