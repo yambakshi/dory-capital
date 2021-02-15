@@ -47,7 +47,7 @@ export class AdminFormComponent {
     async onSubmit(): Promise<void> {
         this.submitted = true;
 
-        if (this.formElement.invalid) {
+        if (this.formElement.invalid || this.isTextDisabled) {
             return;
         }
 
@@ -80,11 +80,19 @@ export class AdminFormComponent {
     }
 
     inputChanged(): void {
+        if (this.isTextDisabled) {
+            return;
+        }
+
         this.disableButtons = this.data[this.type] == this.inputBackup;
     }
 
     reset(): void {
         this.data[this.type] = this.inputBackup;
         this.disableButtons = true;
+    }
+
+    get isTextDisabled(): boolean {
+        return !this.isSection(this.data) && (this.data.disabled && this.type == 'text');
     }
 }

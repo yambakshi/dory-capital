@@ -31,6 +31,8 @@ export class AdminComponent implements AfterViewInit {
     });
 
     this.apiService.getPageDataObservable().subscribe((pageData: PageData) => {
+      pageData.sections[4].paragraphs[0].disabled = true;
+      pageData.sections[5].paragraphs[1].disabled = true;
       this.pageData = pageData;
       this.initSectionsHeader();
     });
