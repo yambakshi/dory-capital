@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import { Cloudinary } from '@cloudinary/angular-5.x';
 import { Section } from '@models/section';
 
@@ -13,37 +13,41 @@ import { Section } from '@models/section';
 })
 export class AboutUsSectionComponent {
     @Input() data: Section;
+    @ViewChild('videoElement') videoElement: any;
     playVideo: boolean = false;
-    iframeSrc: any = '';
+    videoPlayerVisible: boolean = false;
+    videoSrc: string = 'https://res.cloudinary.com/dory-capital/video/upload/v1612457064/dory-capital/about-us/pr-video_ih7dg6.mp4';
+    playIconId: string = 'dory-capital/about-us/play_qojytb';
     thumbnailId: string = 'dory-capital/about-us/pr-video-thumbnail_lsenx5';
-    cloudinaryPlayer = {
-        url: 'https://player.cloudinary.com/embed/?',
-        params: {
-            'cloud_name': 'dory-capital',
-            'public_id': 'dory-capital/about-us/pr-video_ih7dg6',
-            'fluid': true,
-            'controls': true,
-            'hide_context_menu': true,
-            'show_logo': false,
-            'source_types': ['mp4']
-        }
+
+    constructor(private cloudinary: Cloudinary) {}
+
+    showVideoPlayer(): void {
+        this.videoPlayerVisible = true;
+        this.playVideo = true;
+        this.videoElement.nativeElement.play();
     }
 
-    constructor(private cloudinary: Cloudinary) {
-        const { url, params } = this.cloudinaryPlayer;
-        const encodedParams = Object.entries(params)
-            .map(([param, value]) =>
-                Array.isArray(value) ? encodeURIComponent(`${param}[0]`) + `=${value}` : `${param}=${value}`
-            ).join('&')
-
-        this.iframeSrc = `${url}${encodedParams}`;
+    hideVideoPlayer(): void {
+        this.playVideo = false;
     }
 
     togglePlayVideo(): void {
         this.playVideo = !this.playVideo;
+        this.playVideo ?
+            this.videoElement.nativeElement.play() :
+            this.videoElement.nativeElement.pause();
+    }
+
+    imgSrc(imageId: string): string {
+        return this.cloudinary.url(imageId, { transformation: [{ fetch_format: "auto" }] });
+    }
+
+    get playIconUrl() {
+        return this.imgSrc(this.playIconId);
     }
 
     get thumbnailUrl() {
-        return this.cloudinary.url(this.thumbnailId, { transformation: [{ fetch_format: "auto" }] });
+        return this.imgSrc(this.thumbnailId);
     }
 }

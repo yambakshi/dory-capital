@@ -38,9 +38,22 @@
                 width: 100%;
             }
 
-            > iframe {
-                width: 85%;
-                height: 85%;
+            > .video-player-container {
+                width: 288px;
+    
+                > .video-overlay {
+                    -webkit-box-shadow: inset 0 0 20px 24px #0f49db;
+                    -moz-box-shadow: inset 0 0 20px 24px #0f49db;
+                    box-shadow: inset 0 0 20px 24px #0f49db;
+                }
+    
+                > .play-pause-button-container {
+                    > .play-pause-button {
+                        > img {
+                            height: 50px;
+                        }
+                    }
+                }
             }
         }
     }
