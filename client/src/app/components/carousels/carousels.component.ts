@@ -55,7 +55,7 @@ export class CarouselsComponent implements OnInit, AfterViewInit {
         [
             { name: 'Autonomous Mobility Solutions', id: 'autonomous-mobility-solutions_rl91h5' },
             { name: 'Drones Robotics', id: 'drones-robotics_lq0t5n' },
-            { name: 'Medical Histotripsy and Synthetic Biology', id: 'medical-histotripsy-and-synthetic-biology_mpa3zo' },
+            { name: 'Noninvasive Medical Equipment', id: 'medical-histotripsy-and-synthetic-biology_mpa3zo' },
             { name: 'RF Networks', id: 'rf-networks_f92wcn' },
             { name: 'Ultimate Online Privacy', id: 'ultimate-online-privacy_sbb2dh' },
         ]

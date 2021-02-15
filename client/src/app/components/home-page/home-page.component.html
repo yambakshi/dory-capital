@@ -2,7 +2,7 @@
     <main-header *ngIf="isLoggedIn" class="main-header-component"></main-header>
     <intro-section class="intro-section-component" [ngClass]="isLoggedIn ? 'logged-in' : ''"></intro-section>
     <section class="sections-container">
-        <div class="container-fluid" id="scope">
+        <div class="container-fluid sections-margin" id="scope">
             <scope-section [data]="pageData.sections[0]"></scope-section>
         </div>
         <div class="container-fluid sections-margin" id="about">
