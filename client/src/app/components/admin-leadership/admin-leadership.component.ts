@@ -1,7 +1,7 @@
 import { SelectionModel } from '@angular/cdk/collections';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { Component, HostListener, Inject, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
+import { Component, HostListener, Inject, Input, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { ApproveDialog } from '@components/approve-dialog/approve.dialog';
@@ -9,8 +9,6 @@ import { MemberDialog } from '@components/member-dialog/member.dialog';
 import { Skill } from '@models/skill';
 import { WindowRefService } from '@services/window-ref.service';
 import { isPlatformBrowser } from '@angular/common';
-import { PageData } from '@models/page-data';
-import { ApiService } from '@services/api.service';
 import { Section } from '@models/section';
 import { Member } from '@models/member';
 
@@ -31,34 +29,33 @@ export class AdminLeadershipComponent implements OnInit {
   @ViewChild(MatTable, { static: true }) table: MatTable<any>;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
+  @Input() section: Section;
+  @Input() skills: Skill[];
+  @Input() members: Member[];
   displayedColumns: string[] = ['select', 'name', 'skills', 'link', 'actions'];
   dialogsSizes = { approve: {}, members: {} };
   selection = new SelectionModel<MemberRow>(true, []);
   dataSource: MatTableDataSource<MemberRow>;
-  section: Section;
-  members: MemberRow[];
-  skills: Skill[];
+  membersRows: MemberRow[];
 
   constructor(
     public dialog: MatDialog,
-    private apiService: ApiService,
     @Inject(PLATFORM_ID) private platformId: any,
     private windowRefService: WindowRefService) {
     this.dataSource = new MatTableDataSource([]);
-    this.apiService.getPageDataObservable().subscribe((pageData: PageData) => {
-      this.section = pageData.sections[3];
-      this.skills = pageData.skills;
-      this.members = pageData.members.map((member: MemberRow, i) => {
-        member.index = i;
-        return member;
-      });
-
-      this.dataSource.data = this.members;
-    });
   }
 
   get noRowsSelected() {
     return this.selection.selected.length === 0;
+  }
+
+  ngOnChanges(): void {
+    this.membersRows = this.members.map((member: MemberRow, i) => {
+      member.index = i;
+      return member;
+    });
+
+    this.dataSource.data = this.membersRows;
   }
 
   ngOnInit(): void {
@@ -81,8 +78,8 @@ export class AdminLeadershipComponent implements OnInit {
   addMember(): void {
     const dialogCallback = member => {
       if (!member) return;
-      this.members.push(member);
-      this.dataSource.data = this.members;
+      this.membersRows.push(member);
+      this.dataSource.data = this.membersRows;
     }
 
     const dialogData = {
@@ -98,17 +95,17 @@ export class AdminLeadershipComponent implements OnInit {
     $event.stopPropagation();
     const dialogCallback = updatedMember => {
       if (!updatedMember) return;
-      for (let i = 0, length = this.members.length; i < length; i++) {
-        if (this.members[i]._id == updatedMember._id) {
-          this.members[i].name = updatedMember.name;
-          this.members[i].link = updatedMember.link;
-          this.members[i].skills = updatedMember.skills;
-          this.members[i].imageId = updatedMember.imageId;
+      for (let i = 0, length = this.membersRows.length; i < length; i++) {
+        if (this.membersRows[i]._id == updatedMember._id) {
+          this.membersRows[i].name = updatedMember.name;
+          this.membersRows[i].link = updatedMember.link;
+          this.membersRows[i].skills = updatedMember.skills;
+          this.membersRows[i].imageId = updatedMember.imageId;
           break;
         }
       }
 
-      this.dataSource.data = this.members;
+      this.dataSource.data = this.membersRows;
     }
 
     const dialogData = { editMode: true, member, skills: this.skills };
@@ -153,12 +150,12 @@ export class AdminLeadershipComponent implements OnInit {
     dialogRef.afterClosed().subscribe(removedMembersIds => {
       if (!removedMembersIds) return;
       removedMembersIds.forEach(removedId => {
-        const index = this.members.findIndex(({ _id }) => removedId === _id);
-        const removedMembers = this.members.splice(index, 1);
+        const index = this.membersRows.findIndex(({ _id }) => removedId === _id);
+        const removedMembers = this.membersRows.splice(index, 1);
         this.selection.deselect(removedMembers[0]);
       });
 
-      this.dataSource.data = this.members;
+      this.dataSource.data = this.membersRows;
     });
   }
 

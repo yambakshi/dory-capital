@@ -32,8 +32,12 @@ export class AdminFormComponent {
 
     get f() { return this.formElement.controls; }
 
-    get showParagraphTitle() {
+    get showParagraphTitle(): boolean {
         return !this.isSection(this.data) && this.type == 'title';
+    }
+
+    get isTextDisabled(): boolean {
+        return !this.isSection(this.data) && (this.data.disabled && this.type == 'text');
     }
 
     isSection(data: Section | Paragraph): data is Section {
@@ -90,9 +94,5 @@ export class AdminFormComponent {
     reset(): void {
         this.data[this.type] = this.inputBackup;
         this.disableButtons = true;
-    }
-
-    get isTextDisabled(): boolean {
-        return !this.isSection(this.data) && (this.data.disabled && this.type == 'text');
     }
 }
