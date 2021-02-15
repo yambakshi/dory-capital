@@ -5,9 +5,8 @@
     </div>
     <p class="about-section-paragraph">{{data.paragraphs[0].text}}</p>
     <div class="about-section-player-container">
-        <div class="about-section-thumbnail-container" [ngClass]="videoPlayerVisible ? 'show-player' : ''"
-            (click)="showVideoPlayer()">
-            <img [src]="thumbnailUrl" alt="video-thumbnail" />
+        <div class="about-section-thumbnail-container" [ngClass]="videoPlayerVisible ? 'show-player' : ''">
+            <img [src]="thumbnailUrl" alt="video-thumbnail" (click)="showVideoPlayer()" />
         </div>
         <div class="video-player-container" [ngClass]="videoPlayerVisible ? 'show-player' : ''">
             <div class="video-overlay"></div>

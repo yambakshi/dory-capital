@@ -65,13 +65,12 @@
 
         .about-section-thumbnail-container {
             display: flex;
-            width: 85%;
-            height: auto;
+            height: 100%;
             z-index: 1;
+            justify-content: center;
 
             > img {
                 cursor: pointer;
-                width: 100%;
             }
 
             &.show-player {
