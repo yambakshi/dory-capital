@@ -25,10 +25,10 @@
             <contact-section [data]="pageData.sections[6]"></contact-section>
         </div>
     </section>
-    <div #pageNavigator class="circle-menu mx-auto col-md-4 py-3 page-navigator-container"
+    <div #pageNavigator class="page-navigator-container"
         (mouseleave)="mouseLeavePageNavigator()">
-        <div class="box mt-2 page-navigator" (mouseenter)="mouseHoverPageNavigation()">
-            <img [src]="imgSrc(navigatorIcons.idle)" alt="faq" class="img-fluid mt-0" /><br />
+        <div class="page-navigator" (mouseenter)="mouseHoverPageNavigation()">
+            <img [src]="imgSrc(navigatorIcons.idle)" alt="page-navigator" />
             <a href="#contact" class="menu faq1">Contact</a>
             <a href="#faq" class="menu faq2">FAQ</a>
             <a href="#process" class="menu faq3">Process</a>

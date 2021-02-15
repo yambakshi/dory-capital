@@ -19,12 +19,15 @@
             </div>
         </div>
     </div>
-    <div class="leadership-icons">
-        <div #skillsTypes class="skills-grid-container">
-            <div *ngFor="let skill of skills; let i = index" class="skill-grid-item">
-                <img [src]="imgSrc(skill.imageId, false)" [alt]="skill.name"
-                    [width]="skill.width || defaultWidths.skill" />
-                <div [style.color]="skill.color">{{skill.name}}</div>
+    <div class="leadership-skills-icons-container">
+        <h4>Expertise</h4>
+        <div class="leadership-skills-icons">
+            <div #skillsTypes class="skills-grid-container">
+                <div *ngFor="let skill of skills; let i = index" class="skill-grid-item">
+                    <img [src]="imgSrc(skill.imageId, false)" [alt]="skill.name"
+                        [width]="skill.width || defaultWidths.skill" />
+                    <div [style.color]="skill.color">{{skill.name}}</div>
+                </div>
             </div>
         </div>
     </div>

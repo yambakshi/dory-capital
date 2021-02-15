@@ -69,20 +69,14 @@ export class HomePageComponent implements OnInit {
     let pageNavigatorElement = this.pageNavigator.nativeElement;
     let innerDivElement = pageNavigatorElement.firstElementChild;
     let innerImgElement = innerDivElement.firstElementChild;
-
-    innerDivElement.classList.add("box-hover");
     innerImgElement.setAttribute('src', this.imgSrc(this.navigatorIcons.active));
-    pageNavigatorElement.style.bottom = '0';
   }
 
   mouseLeavePageNavigator(): void {
     let pageNavigatorElement = this.pageNavigator.nativeElement;
     let innerDivElement = pageNavigatorElement.firstElementChild;
     let innerImgElement = innerDivElement.firstElementChild;
-
-    innerDivElement.classList.remove("box-hover");
     innerImgElement.setAttribute('src', this.imgSrc(this.navigatorIcons.idle));
-    pageNavigatorElement.style.bottom = '-50px';
   }
 
   imgSrc(imageId: string) {

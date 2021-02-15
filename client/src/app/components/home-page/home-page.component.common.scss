@@ -31,7 +31,43 @@
     }
 
     > .page-navigator-container {
+        display: flex;
+        justify-content: center;
+        bottom: -15px;
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1000;
+        transition: all 0.5s;
+
+        &:hover {
+            bottom: 15px;
+
+            > .page-navigator {
+                border-color: #5a89e5;
+
+                & a {
+                    visibility: visible;
+                }
+            }
+        }
+
         > .page-navigator {
+            width: 120px;
+            height: 120px;
+            border: 1px solid transparent;
+            border-radius: 50%;
+            position: relative;
+
+            > img {
+                max-width: 100%;
+                height: auto;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
             > .menu:hover {
                 color: #ffffff;
                 text-decoration: none;
