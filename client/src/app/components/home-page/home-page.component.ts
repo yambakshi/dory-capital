@@ -1,5 +1,5 @@
-import { Component, ElementRef, OnInit, ViewChild, PLATFORM_ID, Inject } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { Component, ElementRef, OnInit, ViewChild, PLATFORM_ID, Inject, HostListener, Renderer2, AfterViewInit } from '@angular/core';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { ApiService } from '@services/api.service';
 import { SocketIoService } from '@services/socket-io.service';
 import { ActivatedRoute } from '@angular/router';
@@ -16,18 +16,21 @@ import { Cloudinary } from '@cloudinary/angular-5.x';
     './home-page.component.desktop.scss',
     './home-page.component.mobile.scss']
 })
-export class HomePageComponent implements OnInit {
+export class HomePageComponent implements OnInit, AfterViewInit {
   @ViewChild('pageNavigator') pageNavigator: ElementRef;
+  @ViewChild('scrollToTopButton') scrollToTopButton: ElementRef;
   pageData: PageData;
   isLoggedIn: boolean = false;
   navigatorIcons = { idle: 'navigator_iztduy', active: 'navigator-active_dgqg6y' };
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
+    @Inject(DOCUMENT) private document: Document,
     private apiService: ApiService,
     private route: ActivatedRoute,
     private loginService: LoginService,
     private socketIoService: SocketIoService,
+    private renderer: Renderer2,
     private cloudinary: Cloudinary) {
     this.route.data.subscribe(data => {
       if (!data['pageData']) {
@@ -50,6 +53,12 @@ export class HomePageComponent implements OnInit {
       this.socketIoService.listen('page-data-changed').subscribe(() => {
         this.apiService.getPageData().subscribe(() => { });
       })
+    }
+  }
+
+  ngAfterViewInit(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      this.showScrollToTop();
     }
   }
 
@@ -77,6 +86,25 @@ export class HomePageComponent implements OnInit {
     let innerDivElement = pageNavigatorElement.firstElementChild;
     let innerImgElement = innerDivElement.firstElementChild;
     innerImgElement.setAttribute('src', this.imgSrc(this.navigatorIcons.idle));
+  }
+
+  scrollToTop(): void {
+    this.document.body.scrollTop = 0;
+    this.document.documentElement.scrollTop = 0;
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  onScroll(event) {
+    this.showScrollToTop();
+  }
+
+  showScrollToTop(): void {
+    let display = 'none';
+    if (this.document.body.scrollTop > 20 || this.document.documentElement.scrollTop > 20) {
+      display = 'flex';
+    }
+
+    this.renderer.setStyle(this.scrollToTopButton.nativeElement, 'display', display);
   }
 
   imgSrc(imageId: string) {
