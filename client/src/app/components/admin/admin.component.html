@@ -10,13 +10,13 @@
         </div>
     </div>
     <div #sections class="management-platform">
-        <admin-section [section]="pageData.sections['Scope']"></admin-section>
-        <admin-section [section]="pageData.sections['About Us']"></admin-section>
-        <admin-section [section]="pageData.sections['Why Us']"></admin-section>
-        <admin-leadership [section]="pageData.sections['Leadership']" [members]="pageData.members" [skills]="pageData.skills">
+        <admin-section [section]="pageData.sections[0]"></admin-section>
+        <admin-section [section]="pageData.sections[1]"></admin-section>
+        <admin-section [section]="pageData.sections[2]"></admin-section>
+        <admin-leadership [section]="pageData.sections[3]" [members]="pageData.members" [skills]="pageData.skills">
         </admin-leadership>
-        <admin-section [section]="pageData.sections['Process']"></admin-section>
-        <admin-section [section]="pageData.sections['FAQ']"></admin-section>
-        <admin-section [section]="pageData.sections['Contact Us']"></admin-section>
+        <admin-section [section]="pageData.sections[4]"></admin-section>
+        <admin-section [section]="pageData.sections[5]"></admin-section>
+        <admin-section [section]="pageData.sections[6]"></admin-section>
     </div>
 </div>

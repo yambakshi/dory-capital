@@ -11,13 +11,15 @@ export async function queryPageData() {
             let: { "paragraphs": "$paragraphs" },
             pipeline: [
                 { $match: { $expr: { $in: ["$_id", "$$paragraphs"] } } },
+                { $sort: { _id: 1 } }
             ],
             as: "paragraphs"
         }
-    }];
+    },
+    { $sort: { _id: 1 } }];
 
     const cursor = await mongoDb.aggregate(env.mongodb.dbName, 'sections', lookup);
-    const sections = (await cursor.toArray()).reduce((acc, section) => ({ ...acc, [section.name]: section }), {});;
+    const sections = await cursor.toArray();
     const skills = await querySkills([]);
     const members = await queryMembers([]);
 

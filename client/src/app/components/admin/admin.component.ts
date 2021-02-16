@@ -18,15 +18,7 @@ export class AdminComponent implements AfterViewInit {
   @ViewChild('sections') sections: ElementRef;
   selectedTab: number = 0;
   pageData: PageData;
-  sectionsTabs: string[] = [
-    'Scope',
-    'About Us',
-    'Why Us',
-    'Leadership',
-    'Process',
-    'FAQ',
-    'Contact Us'
-  ];
+  sectionsTabs: string[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -40,6 +32,13 @@ export class AdminComponent implements AfterViewInit {
 
     this.apiService.getPageDataObservable().subscribe((pageData: PageData) => {
       this.pageData = pageData;
+      this.initSectionsHeader();
+    });
+  }
+
+  initSectionsHeader(): void {
+    this.pageData.sections.forEach(({ name }) => {
+      this.sectionsTabs.push(name);
     });
   }
 

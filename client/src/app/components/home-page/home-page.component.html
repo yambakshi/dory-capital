@@ -3,26 +3,26 @@
     <intro-section class="intro-section-component" [ngClass]="isLoggedIn ? 'logged-in' : ''"></intro-section>
     <section class="sections-container">
         <div class="container-fluid sections-margin" id="scope">
-            <scope-section [data]="pageData.sections['Scope']"></scope-section>
+            <scope-section [data]="pageData.sections[0]"></scope-section>
         </div>
         <div class="container-fluid sections-margin" id="about">
-            <about-us-section [data]="pageData.sections['About Us']"></about-us-section>
+            <about-us-section [data]="pageData.sections[1]"></about-us-section>
         </div>
         <div class="container-fluid sections-margin" id="whyus">
-            <why-us-section [data]="pageData.sections['Why Us']"></why-us-section>
+            <why-us-section [data]="pageData.sections[2]"></why-us-section>
         </div>
         <div class="container-fluid sections-margin" id="leadership">
-            <leadership-section [data]="pageData.sections['Leadership']" [members]="pageData.members" [skills]="pageData.skills">
+            <leadership-section [data]="pageData.sections[3]" [members]="pageData.members" [skills]="pageData.skills">
             </leadership-section>
         </div>
         <div class="container-fluid sections-margin process-section-padding" id="process">
-            <process-section [data]="pageData.sections['Process']"></process-section>
+            <process-section [data]="pageData.sections[4]"></process-section>
         </div>
         <div class="container-fluid sections-margin" id="faq">
-            <faq-section [data]="pageData.sections['FAQ']"></faq-section>
+            <faq-section [data]="pageData.sections[5]"></faq-section>
         </div>
         <div class="container-fluid sections-margin" id="contact">
-            <contact-section [data]="pageData.sections['Contact Us']"></contact-section>
+            <contact-section [data]="pageData.sections[6]"></contact-section>
         </div>
     </section>
     <div #pageNavigator class="page-navigator-container"

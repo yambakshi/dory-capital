@@ -4,7 +4,7 @@ import { Skill } from "./skill";
 
 export class PageData {
     _id: string;
-    sections: { [key: string]: Section };
+    sections: Section[];
     skills: Skill[];
     members: Member[];
 }
