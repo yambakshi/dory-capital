@@ -84,9 +84,21 @@
                 overflow: hidden;
 
                 > a {
+                    position: relative;
+                    margin-bottom: 10px;
+
+                    > .profile-image-overlay {
+                        z-index: 1;
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        -webkit-box-shadow: inset 0 0 20px 20px #0f49db;
+                        -moz-box-shadow: inset 0 0 20px 20px #0f49db;
+                        box-shadow: inset 0 0 20px 20px #0f49db;
+                    }
+
                     > .profile-image-container {
                         height: 150px;
-                        margin-bottom: 10px;
                         position: relative;
                         display: flex;
                         justify-content: center;
@@ -94,15 +106,6 @@
                         > img {
                             height: 100%;
                             width: auto;
-                        }
-
-                        > .profile-image-overlay {
-                            width: 168px;
-                            height: 100%;
-                            position: absolute;
-                            -webkit-box-shadow: inset 0 0 20px 20px #0f49db;
-                            -moz-box-shadow: inset 0 0 20px 20px #0f49db;
-                            box-shadow: inset 0 0 20px 20px #0f49db;
                         }
                     }
                 }
