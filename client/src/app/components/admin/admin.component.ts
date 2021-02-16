@@ -16,9 +16,17 @@ export class AdminComponent implements AfterViewInit {
   @ViewChild('headerTabs') headerTabs: ElementRef;
   @ViewChild('tabsLine') tabsLine: ElementRef;
   @ViewChild('sections') sections: ElementRef;
-  sectionsTabs: string[] = [];
   selectedTab: number = 0;
   pageData: PageData;
+  sectionsTabs: string[] = [
+    'Scope',
+    'About Us',
+    'Why Us',
+    'Leadership',
+    'Process',
+    'FAQ',
+    'Contact Us'
+  ];
 
   constructor(
     private route: ActivatedRoute,
@@ -31,10 +39,7 @@ export class AdminComponent implements AfterViewInit {
     });
 
     this.apiService.getPageDataObservable().subscribe((pageData: PageData) => {
-      pageData.sections[4].paragraphs[0].disabled = true;
-      pageData.sections[5].paragraphs[1].disabled = true;
       this.pageData = pageData;
-      this.initSectionsHeader();
     });
   }
 
@@ -50,12 +55,6 @@ export class AdminComponent implements AfterViewInit {
     const tabLeft = selectedTab.offsetLeft;
     this.renderer.setStyle(this.tabsLine.nativeElement, 'left', `${tabLeft}px`);
     this.renderer.setStyle(this.tabsLine.nativeElement, 'width', `${tabWidth}px`);
-  }
-
-  initSectionsHeader(): void {
-    this.pageData.sections.forEach(({ name }) => {
-      this.sectionsTabs.push(name);
-    });
   }
 
   selectTab(i: number) {

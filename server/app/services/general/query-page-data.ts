@@ -17,7 +17,7 @@ export async function queryPageData() {
     }];
 
     const cursor = await mongoDb.aggregate(env.mongodb.dbName, 'sections', lookup);
-    const sections = await cursor.toArray();
+    const sections = (await cursor.toArray()).reduce((acc, section) => ({ ...acc, [section.name]: section }), {});;
     const skills = await querySkills([]);
     const members = await queryMembers([]);
 
