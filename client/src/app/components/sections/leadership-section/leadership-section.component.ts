@@ -19,7 +19,7 @@ export class LeadershipSectionComponent {
     @Input() data: Section;
     @Input() members: Member[];
     @Input() skills: Skill[];
-    readonly defaultWidths = { member: 150, skill: 36 };
+    readonly defaultWidths = { skill: 36 };
 
     constructor(private cloudinary: Cloudinary) { }
 
