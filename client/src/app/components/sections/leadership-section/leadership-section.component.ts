@@ -1,8 +1,8 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { Cloudinary } from '@cloudinary/angular-5.x';
-import { Section } from '@models/section';
 import { Member } from '@models/member';
 import { Skill } from '@models/skill';
+import { LeadershipSection } from '@models/section';
 
 @Component({
     selector: 'leadership-section',
@@ -16,7 +16,7 @@ import { Skill } from '@models/skill';
 export class LeadershipSectionComponent {
     @ViewChild('membersContainer') membersContainer: ElementRef;
     @ViewChild('skillsTypes') skillsTypes: ElementRef;
-    @Input() data: Section;
+    @Input() data: LeadershipSection;
     @Input() members: Member[];
     @Input() skills: Skill[];
     readonly defaultWidths = { skill: 36 };
@@ -25,6 +25,8 @@ export class LeadershipSectionComponent {
 
     ngOnChanges(): void {
         this.members = this.members.filter(({ hidden }) => !hidden);
+        const membersMap = this.members.reduce((acc, member) => ({ ...acc, [member._id]: member }), {});
+        this.members = this.data.members.map((_id: string, i): Member => membersMap[_id]);
     }
 
     imgSrc(imageId: string, autoFormat: boolean = true) {

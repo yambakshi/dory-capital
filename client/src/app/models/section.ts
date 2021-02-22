@@ -6,3 +6,7 @@ export class Section {
     title: string;
     paragraphs: Paragraph[];
 }
+
+export interface LeadershipSection extends Section {
+    members: string[];
+}

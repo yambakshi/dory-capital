@@ -9,11 +9,12 @@ import { MemberDialog } from '@components/member-dialog/member.dialog';
 import { Skill } from '@models/skill';
 import { WindowRefService } from '@services/window-ref.service';
 import { isPlatformBrowser } from '@angular/common';
-import { Section } from '@models/section';
+import { LeadershipSection } from '@models/section';
 import { Member } from '@models/member';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { ApiService } from '@services/api.service';
 
-export interface MemberRow extends Member {
+interface MemberRow extends Member {
   index: number;
 }
 
@@ -30,7 +31,7 @@ export class AdminLeadershipComponent implements OnInit {
   @ViewChild(MatTable, { static: true }) table: MatTable<any>;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
-  @Input() section: Section;
+  @Input() section: LeadershipSection;
   @Input() skills: Skill[];
   @Input() members: Member[];
   displayedColumns: string[] = ['select', 'name', 'skills', 'link', 'actions'];
@@ -42,7 +43,8 @@ export class AdminLeadershipComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     @Inject(PLATFORM_ID) private platformId: any,
-    private windowRefService: WindowRefService) {
+    private windowRefService: WindowRefService,
+    private apiService: ApiService) {
     this.dataSource = new MatTableDataSource([]);
   }
 
@@ -51,9 +53,10 @@ export class AdminLeadershipComponent implements OnInit {
   }
 
   ngOnChanges(): void {
-    this.membersRows = this.members.map((member: MemberRow, i) => {
-      member.index = i;
-      return member;
+    const membersMap = this.members.reduce((acc, member) => ({ ...acc, [member._id]: member }), {});
+    this.membersRows = this.section.members.map((_id: string, i): MemberRow => {
+      const memberRow: MemberRow = { index: i, ...membersMap[_id] };
+      return memberRow;
     });
 
     this.dataSource.data = this.membersRows;
@@ -70,6 +73,10 @@ export class AdminLeadershipComponent implements OnInit {
   onListDrop(event: CdkDragDrop<MemberRow[]>) {
     moveItemInArray(this.membersRows, event.previousIndex, event.currentIndex);
     this.dataSource.data = this.membersRows;
+    const membersIds = this.membersRows.map(({ _id }) => _id);
+    this.apiService.reorderMembers(this.section._id, membersIds).subscribe(
+      res => { },
+      err => { console.log(err) });
   }
 
   applyFilter(event: Event) {

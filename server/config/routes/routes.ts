@@ -3,7 +3,7 @@ import passport from 'passport';
 import {
     register, login, logout, getLoginStatus,
     getPageData,
-    createMemberProfile, updateMemberProfile, deleteMembersProfiles,
+    createMemberProfile, updateMemberProfile, deleteMembersProfiles, reorderMembersProfiles,
     updateParagraph,
     createSections, updateSectionTitle,
     createSkills, getSkills
@@ -49,6 +49,11 @@ router.route('/api/members')
     .delete(
         passport.authenticate('jwt', { session: false }),
         deleteMembersProfiles);
+
+router.route('/api/reorder-members')
+    .post(
+        passport.authenticate('jwt', { session: false }),
+        reorderMembersProfiles)
 
 // Paragraphs
 
