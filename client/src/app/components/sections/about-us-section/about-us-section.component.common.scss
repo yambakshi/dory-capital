@@ -70,9 +70,12 @@
             height: 100%;
             z-index: 1;
             justify-content: center;
+            position: absolute;
 
             > img {
                 cursor: pointer;
+                width: 647.67px;
+                height: 432px;
             }
 
             &.show-player {
