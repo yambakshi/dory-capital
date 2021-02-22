@@ -23,6 +23,10 @@ export class LeadershipSectionComponent {
 
     constructor(private cloudinary: Cloudinary) { }
 
+    ngOnChanges(): void {
+        this.members = this.members.filter(({ hidden }) => !hidden);
+    }
+
     imgSrc(imageId: string, autoFormat: boolean = true) {
         return autoFormat ?
             this.cloudinary.url(imageId, { transformation: [{ fetch_format: "auto" }] }) :

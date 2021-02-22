@@ -14,7 +14,8 @@ const memberProfileUpdateSchema = {
             maxItems: 12,
             items: { type: "string", format: 'non-empty-string' }
         },
-        profilePictureFile: {}
+        profilePictureFile: {},
+        hidden: { type: "string", format: 'boolean-string' }
     }
 };
 

@@ -9,7 +9,8 @@ import { querySkills } from '../skills';
 export async function updateMember(rawMember: Member) {
     const memberChanges: any = {
         ...rawMember.name && { name: rawMember.name },
-        ...rawMember.link && { link: rawMember.link }
+        ...rawMember.link && { link: rawMember.link },
+        ...rawMember.hidden && { hidden: (typeof rawMember.hidden == 'string' && rawMember.hidden == 'true') }
     };
 
     if (rawMember.profilePictureFile) {
