@@ -11,10 +11,11 @@ const memberProfileUpdateSchema = {
         skills: {
             type: 'array',
             minItems: 1,
-            maxItems: 8,
+            maxItems: 12,
             items: { type: "string", format: 'non-empty-string' }
         },
-        profilePictureFile: {}
+        profilePictureFile: {},
+        hidden: { type: "string", format: 'boolean-string' }
     }
 };
 

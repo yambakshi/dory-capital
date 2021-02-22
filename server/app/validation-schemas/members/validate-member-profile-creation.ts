@@ -1,7 +1,7 @@
 import { ajv } from '../../../config';
 
 const memberProfileCreationSchema = {
-    required: ['name', 'link', 'sectionId', 'skills', 'profilePictureFile'],
+    required: ['name', 'link', 'sectionId', 'skills', 'profilePictureFile', 'hidden'],
     title: 'member-profile-creation',
     type: 'object',
     properties: {
@@ -11,10 +11,11 @@ const memberProfileCreationSchema = {
         skills: {
             type: 'array',
             minItems: 1,
-            maxItems: 8,
+            maxItems: 12,
             items: { type: "string", format: 'non-empty-string' }
         },
-        profilePictureFile: {}
+        profilePictureFile: {},
+        hidden: { type: "string", format: 'boolean-string' }
     }
 };
 

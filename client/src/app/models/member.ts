@@ -8,7 +8,7 @@ export class Member {
     skills: Skill[];
     imageId: string;
     profilePictureFile?: File;
-    width?: number;
+    hidden: boolean;
 
     constructor({ _id, sectionId }: { _id?: string, sectionId?: string }) {
         this._id = _id || undefined;

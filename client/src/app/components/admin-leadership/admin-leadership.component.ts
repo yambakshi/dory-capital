@@ -107,6 +107,7 @@ export class AdminLeadershipComponent implements OnInit {
           this.membersRows[i].link = updatedMember.link;
           this.membersRows[i].skills = updatedMember.skills;
           this.membersRows[i].imageId = updatedMember.imageId;
+          this.membersRows[i].hidden = updatedMember.hidden;
           break;
         }
       }

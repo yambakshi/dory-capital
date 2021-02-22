@@ -99,8 +99,7 @@ export class ApiService {
                     formKey = property;
                 }
 
-                // if the property is an object, but not a File,
-                // use recursivity.
+                // if the property is an object, but not a File, use recursivity.
                 if (typeof obj[property] === 'object' && !(obj[property] instanceof File) && !(obj[property] instanceof Date)) {
                     fd = this.objectToFormData(obj[property], fd, formKey);
                 } else if (obj[property] instanceof Date) {
