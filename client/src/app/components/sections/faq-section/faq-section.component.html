@@ -23,7 +23,12 @@
                         <div [attr.id]="'collapse' + i"
                             [ngClass]="i == 0 ? 'panel-collapse collapse in show' : 'panel-collapse collapse'"
                             role="tabpanel" [attr.aria-labelledby]="'heading' + i">
-                            <div class="panel-body">{{paragraph.text}}</div>
+                            <div *ngIf="i != 1; else elseBlock" class="panel-body">{{paragraph.text}}</div>
+                            <ng-template #elseBlock>
+                                <div class="panel-body">Click <a href="#process">here</a> to go back and read the
+                                    brief instructions in the “Process” page, hereinabove, as well as emailing us
+                                    your one-page teaser to <em>dealflow@dory.capital</em>.</div>
+                            </ng-template>
                         </div>
                     </div>
                     <!-- <div class="panel panel-default">

@@ -2,7 +2,6 @@ import 'zone.js/dist/zone-node';
 
 import { ngExpressEngine } from '@nguniversal/express-engine';
 import * as express from 'express';
-import * as proxy from 'http-proxy-middleware'
 import { join } from 'path';
 
 import { AppServerModule } from './src/main.server';

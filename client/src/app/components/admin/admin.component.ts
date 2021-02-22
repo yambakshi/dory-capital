@@ -16,9 +16,9 @@ export class AdminComponent implements AfterViewInit {
   @ViewChild('headerTabs') headerTabs: ElementRef;
   @ViewChild('tabsLine') tabsLine: ElementRef;
   @ViewChild('sections') sections: ElementRef;
-  sectionsTabs: string[] = [];
   selectedTab: number = 0;
   pageData: PageData;
+  sectionsTabs: string[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -36,6 +36,12 @@ export class AdminComponent implements AfterViewInit {
     });
   }
 
+  initSectionsHeader(): void {
+    this.pageData.sections.forEach(({ name }) => {
+      this.sectionsTabs.push(name);
+    });
+  }
+
   ngAfterViewInit(): void {
     this.setTabsLine(this.selectedTab);
     const selectedElement = this.sections.nativeElement.children[this.selectedTab];
@@ -48,12 +54,6 @@ export class AdminComponent implements AfterViewInit {
     const tabLeft = selectedTab.offsetLeft;
     this.renderer.setStyle(this.tabsLine.nativeElement, 'left', `${tabLeft}px`);
     this.renderer.setStyle(this.tabsLine.nativeElement, 'width', `${tabWidth}px`);
-  }
-
-  initSectionsHeader(): void {
-    this.pageData.sections.forEach(({ name }) => {
-      this.sectionsTabs.push(name);
-    });
   }
 
   selectTab(i: number) {

@@ -5,9 +5,8 @@
     </div>
     <p class="about-section-paragraph">{{data.paragraphs[0].text}}</p>
     <div class="about-section-player-container">
-        <div class="about-section-thumbnail-container" [ngClass]="videoPlayerVisible ? 'show-player' : ''"
-            (click)="showVideoPlayer()">
-            <img [src]="thumbnailUrl" alt="video-thumbnail" />
+        <div class="about-section-thumbnail-container" [ngClass]="videoPlayerVisible ? 'show-player' : ''">
+            <img [src]="thumbnailUrl" alt="video-thumbnail" (click)="showVideoPlayer()" />
         </div>
         <div class="video-player-container" [ngClass]="videoPlayerVisible ? 'show-player' : ''">
             <div class="video-overlay"></div>
@@ -22,5 +21,6 @@
     </div>
     <p class="about-section-paragraph align-justify-paragraph">{{data.paragraphs[1].text}}</p>
     <p class="about-section-quote">“And, when you want something, all the universe conspires in helping you to achieve
-        it (Paulo Coelho)”.</p>
+        it” 
+        <br />(Paulo Coelho)</p>
 </div>

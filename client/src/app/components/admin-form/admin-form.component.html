@@ -1,6 +1,7 @@
 <form #formElement class="form-container" (ngSubmit)="onSubmit()">
     <h4 *ngIf="showParagraphTitle">{{data[type]}}</h4>
-    <textarea class="form-field" name="value" rows="2" [(ngModel)]="data[type]" (input)="inputChanged()" required></textarea>
+    <textarea class="form-field" name="value" rows="2" [(ngModel)]="data[type]" (input)="inputChanged()"
+        [disabled]="isTextDisabled" required></textarea>
     <div *ngIf="submitted && f.value.errors" class="invalid-feedback">
         <div *ngIf="f.value.errors.required">Field is required</div>
     </div>

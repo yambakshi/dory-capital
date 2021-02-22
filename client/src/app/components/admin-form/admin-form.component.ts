@@ -32,8 +32,12 @@ export class AdminFormComponent {
 
     get f() { return this.formElement.controls; }
 
-    get showParagraphTitle() {
+    get showParagraphTitle(): boolean {
         return !this.isSection(this.data) && this.type == 'title';
+    }
+
+    get isTextDisabled(): boolean {
+        return !this.isSection(this.data) && (this.data.disabled && this.type == 'text');
     }
 
     isSection(data: Section | Paragraph): data is Section {
@@ -47,7 +51,7 @@ export class AdminFormComponent {
     async onSubmit(): Promise<void> {
         this.submitted = true;
 
-        if (this.formElement.invalid) {
+        if (this.formElement.invalid || this.isTextDisabled) {
             return;
         }
 
@@ -80,6 +84,10 @@ export class AdminFormComponent {
     }
 
     inputChanged(): void {
+        if (this.isTextDisabled) {
+            return;
+        }
+
         this.disableButtons = this.data[this.type] == this.inputBackup;
     }
 

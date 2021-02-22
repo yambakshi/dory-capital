@@ -50,33 +50,39 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        width: 100%;
 
         > img {
             max-width: 100px;
+            margin-bottom: 20px;
+        }
+
+        > h1 {
+            font-family: "Merriweather";
+            font-style: normal;
+            font-weight: normal;
+            font-size: 48px;
+            line-height: 80px;
+            text-align: center;
+            color: #ffffff;
+            margin-bottom: 8px;
         }
 
         > .intro-section-paragraph {
             font-family: Roboto;
             font-style: normal;
             font-weight: normal;
-            font-size: 17px;
+            font-size: 16px;
             line-height: 32px;
             text-align: center;
             color: #ffffff;
 
             &:first-of-type {
-                margin-bottom: 30px;
+                margin-bottom: 20px;
             }
 
-            > h1 {
-                font-family: "Merriweather";
-                font-style: normal;
-                font-weight: normal;
-                font-size: 48px;
-                line-height: 80px;
-                text-align: center;
-                color: #ffffff;
-                margin-bottom: 8px;
+            > h2 {
+                font-size: 24px;
             }
         }
 
@@ -86,7 +92,7 @@
 
             > a {
                 width: 122px;
-                height: 51px;
+                height: 52px;
                 background-color: #0e1a32;
                 box-shadow: 0px 1px 1px rgb(255 255 255 / 20%), 0px 4px 16px rgb(255 255 255 / 40%),
                     inset 0px 2px 8px rgb(0 0 0 / 20%);
@@ -95,7 +101,7 @@
                 font-style: normal;
                 font-weight: bold;
                 font-size: 16px;
-                line-height: 19px;
+                line-height: 18px;
                 text-align: center;
                 color: #ffffff;
                 transition: all 0.5s ease-in-out;

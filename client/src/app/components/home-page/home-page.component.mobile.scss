@@ -3,7 +3,7 @@
 @include media("screen", "<mobile") {
     .home-page-container {
         > .sections-container {
-            padding-bottom: 80px;
+            padding-bottom: 76px;
         }
 
         > .page-navigator-container {
@@ -22,17 +22,17 @@
                     top: 12px;
                     right: 114px;
                 }
-    
+
                 > .faq1:after {
                     top: 4px;
                     right: -15px;
                 }
-    
+
                 > .faq2 {
                     top: 62px;
                     right: 128px;
                 }
-    
+
                 > .faq2:after {
                     top: 4px;
                     right: -16px;

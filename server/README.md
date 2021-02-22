@@ -23,6 +23,6 @@ WinSCP `out` and `package.json` to `~/server` on CentOS 8 machine.
 `mv ~/server/* /var/www/html/dory-capital/server`
 `cd /var/www/html/dory-capital/server`
 `sudo touch nohup.out`
-`sudo chmod 777 nohup.out`
+`sudo chmod 777 tmp nohup.out`
 `sudo chown -R root:root ./*`
 `nohup node out/main.js > nohup.out 2>&1 &`
