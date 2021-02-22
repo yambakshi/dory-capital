@@ -11,6 +11,7 @@ import { WindowRefService } from '@services/window-ref.service';
 import { isPlatformBrowser } from '@angular/common';
 import { Section } from '@models/section';
 import { Member } from '@models/member';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 export interface MemberRow extends Member {
   index: number;
@@ -64,6 +65,11 @@ export class AdminLeadershipComponent implements OnInit {
     if (isPlatformBrowser(this.platformId)) {
       this.calcDialogsSizes();
     }
+  }
+
+  onListDrop(event: CdkDragDrop<MemberRow[]>) {
+    moveItemInArray(this.membersRows, event.previousIndex, event.currentIndex);
+    this.dataSource.data = this.membersRows;
   }
 
   applyFilter(event: Event) {
