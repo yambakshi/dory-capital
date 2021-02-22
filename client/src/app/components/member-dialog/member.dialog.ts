@@ -1,6 +1,6 @@
 import { Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '@services/api.service';
 import { Member, } from '@models/member';
 import { ProfilePictureFile } from '@models/profile-picture-file';
@@ -32,8 +32,8 @@ export class MemberDialog implements OnInit {
     profilePicture: ProfilePictureFile = { path: '', dataUrl: '', file: null };
     fileUploadError: string = '';
     diffValidator:
-        { name: boolean, link: boolean, skills: boolean, profilePicture: boolean } =
-        { name: false, link: false, skills: false, profilePicture: false };
+        { name: boolean, link: boolean, skills: boolean, profilePicture: boolean, hidden: boolean } =
+        { name: false, link: false, skills: false, profilePicture: false, hidden: false };
     diff: boolean = false;
     showLoader: boolean = false;
     maxSkillsExceeded: boolean = false;
@@ -56,27 +56,29 @@ export class MemberDialog implements OnInit {
         const { member } = this.data;
         const name = member.name || '';
         const link = member.link || '';
+        const hidden = member.hidden || false;
         const skillsIds = member.skills ? member.skills.map(({ _id }) => _id) : [];
         const fileInputValidators = this.data.editMode ? [] : [Validators.required];
         this.memberForm = this.formBuilder.group({
             name: [name, [Validators.required]],
             link: [link, [Validators.required]],
-            skills: [skillsIds, [Validators.required, this.maxOptionsValidator()]],
-            profilePicture: ['', fileInputValidators]
+            skills: [skillsIds, [Validators.required]],
+            profilePicture: ['', fileInputValidators],
+            hidden: [hidden, Validators.required]
         });
     }
 
-    maxOptionsValidator() {
-        return (control: AbstractControl): { [key: string]: boolean } | null => {
-            if (control.value.length > this.maxSelectedSkills) {
-                this.maxSkillsExceeded = true;
-                return { 'maxOptionsValidator': true }
-            }
+    // maxOptionsValidator() {
+    //     return (control: AbstractControl): { [key: string]: boolean } | null => {
+    //         if (control.value.length > this.maxSelectedSkills) {
+    //             this.maxSkillsExceeded = true;
+    //             return { 'maxOptionsValidator': true }
+    //         }
 
-            this.maxSkillsExceeded = false;
-            return null;
-        };
-    }
+    //         this.maxSkillsExceeded = false;
+    //         return null;
+    //     };
+    // }
 
     onFileSelected(): void {
         const fileInput = this.fileInput.nativeElement;

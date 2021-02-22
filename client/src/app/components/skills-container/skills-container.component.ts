@@ -10,14 +10,14 @@ import { Skill } from '@models/skill';
 export class SkillsContainerComponent implements AfterViewInit {
     @ViewChild('skillsContainer') skillsContainer: ElementRef;
     @Input() skills: Skill[];
-    maxSkillsPerRow: number = 4;
-    iconSize: number = 20;
+    maxSkillsPerRow: number = 6;
+    iconSize: number = 18;
     margin: number;
 
     constructor(
         private cloudinary: Cloudinary,
         private renderer: Renderer2) {
-        this.margin = (168 - (4 * this.iconSize)) / 5;
+        this.margin = (168 - (this.maxSkillsPerRow * this.iconSize)) / (this.maxSkillsPerRow + 1);
     }
 
     ngAfterViewInit(): void {
@@ -26,7 +26,7 @@ export class SkillsContainerComponent implements AfterViewInit {
             const { name, imageId } = this.skills[i];
             const imageSource = this.imgSrc(imageId);
 
-            if (i < 4) {
+            if (i < this.maxSkillsPerRow) {
                 const div = this.renderer.createElement('div');
                 this.renderer.addClass(div, 'skill-icon');
                 const img = this.renderer.createElement('img');
