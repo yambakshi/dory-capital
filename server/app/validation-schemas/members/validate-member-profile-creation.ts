@@ -11,7 +11,7 @@ const memberProfileCreationSchema = {
         skills: {
             type: 'array',
             minItems: 1,
-            maxItems: 8,
+            maxItems: 12,
             items: { type: "string", format: 'non-empty-string' }
         },
         profilePictureFile: {}

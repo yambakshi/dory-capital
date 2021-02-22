@@ -9,7 +9,7 @@
         <input class="submit-button" type="submit" value="Submit" [disabled]="disableButtons"
             [ngClass]="disableButtons ? 'disabled' : ''">
         <button class="reset-button" (click)="reset()" [disabled]="disableButtons"
-            [ngClass]="disableButtons ? 'disabled' : ''">Reset</button>
+            [ngClass]="disableButtons ? 'disabled' : ''">Undo</button>
         <div *ngIf="showLoader" class="loader-container">
             <spinning-loader></spinning-loader>
         </div>
