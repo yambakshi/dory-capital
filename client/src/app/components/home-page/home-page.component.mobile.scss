@@ -4,6 +4,10 @@
     .home-page-container {
         > .sections-container {
             padding-bottom: 76px;
+
+            > .leadership-section-margin {
+                margin-top: 150px;
+            }
         }
 
         > .page-navigator-container {
@@ -29,18 +33,18 @@
                 }
 
                 > .faq2 {
-                    top: 62px;
-                    right: 128px;
+                    top: 50px;
+                    right: 130px;
                 }
 
                 > .faq2:after {
-                    top: 4px;
+                    top: 5px;
                     right: -16px;
                 }
 
                 > .faq3 {
-                    top: 102px;
-                    right: 96px;
+                    top: 90px;
+                    right: 112px;
                 }
 
                 > .faq3:after {
@@ -49,41 +53,51 @@
                 }
 
                 > .faq4 {
-                    top: 102px;
-                    right: -46px;
+                    top: 124px;
+                    right: 24px;
                 }
 
                 > .faq4:after {
-                    top: 4px;
-                    right: 72px;
+                    top: -10px;
+                    right: 30px;
                 }
 
                 > .faq5 {
-                    top: 62px;
-                    right: -52px;
+                    top: 90px;
+                    right: -40px;
                 }
 
                 > .faq5:after {
                     top: 4px;
-                    right: 48px;
+                    right: 50px;
                 }
 
                 > .faq6 {
-                    top: 12px;
-                    right: -50px;
+                    top: 50px;
+                    right: -56px;
                 }
 
                 > .faq6:after {
-                    top: 4px;
-                    right: 58px;
+                    top: 3px;
+                    right: 50px;
                 }
 
                 > .faq7 {
+                    top: 10px;
+                    right: -48px;
+                }
+
+                > .faq7:after {
+                    top: 3px;
+                    right: 58px;
+                }
+
+                > .faq8 {
                     top: -25px;
                     right: 40px;
                 }
 
-                > .faq7:after {
+                > .faq8:after {
                     top: 20px;
                     right: 14px;
                 }

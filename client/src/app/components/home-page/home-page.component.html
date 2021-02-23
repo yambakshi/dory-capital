@@ -11,12 +11,12 @@
         <div class="container-fluid sections-margin" id="whyus">
             <why-us-section [data]="pageData.sections[2]"></why-us-section>
         </div>
-        <div class="container-fluid sections-margin" id="leadership">
-            <leadership-section [data]="pageData.sections[3]" [members]="pageData.members" [skills]="pageData.skills">
-            </leadership-section>
-        </div>
         <div class="container-fluid sections-margin process-section-padding" id="process">
             <process-section [data]="pageData.sections[4]"></process-section>
+        </div>
+        <div class="container-fluid leadership-section-margin" id="leadership">
+            <leadership-section [data]="pageData.sections[3]" [members]="pageData.members" [skills]="pageData.skills">
+            </leadership-section>
         </div>
         <div class="container-fluid sections-margin" id="faq">
             <faq-section [data]="pageData.sections[5]"></faq-section>
@@ -30,12 +30,13 @@
         <div class="page-navigator" (mouseenter)="mouseHoverPageNavigation()">
             <img [src]="imgSrc(navigatorIcons.idle)" alt="page-navigator" />
             <a href="#contact" class="menu faq1">Contact</a>
-            <a href="#faq" class="menu faq2">FAQ</a>
-            <a href="#process" class="menu faq3">Process</a>
+            <a href="" class="menu faq2">Investors</a>
+            <a href="#faq" class="menu faq3">FAQ</a>
             <a href="#leadership" class="menu faq4">Leadership</a>
-            <a href="#whyus" class="menu faq5">Why us</a>
-            <a href="#about" class="menu faq6">About us</a>
-            <a href="#scope" class="menu faq7">Scope</a>
+            <a href="#process" class="menu faq5">Process</a>
+            <a href="#whyus" class="menu faq6">Why us</a>
+            <a href="#about" class="menu faq7">About us</a>
+            <a href="#scope" class="menu faq8">Scope</a>
         </div>
     </div>
     <div #scrollToTopButton class="scroll-to-top-container" (click)="scrollToTop()">
