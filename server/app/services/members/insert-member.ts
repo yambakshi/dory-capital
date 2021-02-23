@@ -11,7 +11,7 @@ export async function insertMember(rawMember: Member) {
         sectionId: new ObjectID(rawMember.sectionId),
         name: rawMember.name,
         link: rawMember.link,
-        hidden: (typeof rawMember.hidden == 'string' && rawMember.hidden == 'true')
+        hidden: (typeof rawMember.hidden === 'string' && rawMember.hidden === 'true')
     };
 
     // Upload image to cloudinary

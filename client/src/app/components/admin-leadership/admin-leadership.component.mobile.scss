@@ -42,4 +42,23 @@
             }
         }
     }
+
+    .cdk-drag-preview {
+        overflow: hidden;
+
+        td.mat-column-name {
+            flex: 0 0 150px;
+            width: 150px;
+        }
+
+        td.mat-column-skills {
+            flex: 0 0 416px;
+            width: 416px;
+        }
+
+        td.mat-column-link {
+            flex: 0 0 200px;
+            width: 200px;
+        }
+    }
 }

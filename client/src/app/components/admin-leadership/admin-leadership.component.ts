@@ -71,6 +71,10 @@ export class AdminLeadershipComponent implements OnInit {
   }
 
   onListDrop(event: CdkDragDrop<MemberRow[]>) {
+    if (event.previousIndex == event.currentIndex) {
+      return;
+    }
+
     moveItemInArray(this.membersRows, event.previousIndex, event.currentIndex);
     this.dataSource.data = this.membersRows;
     const membersIds = this.membersRows.map(({ _id }) => _id);

@@ -68,10 +68,6 @@
 
             .mat-row {
                 cursor: pointer;
-
-                &:active {
-                    cursor: grabbing;
-                }
             }
 
             td.mat-column-select,
@@ -158,6 +154,7 @@
     align-items: center;
 }
 
+/* Sort Arrow */
 // :host ::ng-deep .mat-sort-header-arrow {
 //     color: white;
 // }
@@ -184,6 +181,60 @@
     border-radius: 4px;
     box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14),
         0 3px 14px 2px rgba(0, 0, 0, 0.12);
+    display: flex;
+
+    ::ng-deep .mat-checkbox.mat-accent .mat-checkbox-layout {
+        margin-bottom: -2px !important;
+    }
+
+    td.mat-column-select {
+        display: flex;
+        align-items: center;
+        padding-right: 16px;
+        padding-left: 16px;
+        flex: 0 0 52px;
+        width: 52px;
+        height: 100%;
+    }
+
+    td.mat-column-name {
+        display: flex;
+        align-items: center;
+
+        // let widthIn1920 = 200
+        // let widthIn901 = 118
+        // 0.08 = Math.abs(widthIn1920 - widthIn901) / (1920 - 901)
+        width: calc(200px - (0.08 * (1920px - 100vw)));
+        height: 100%;
+    }
+
+    td.mat-column-skills {
+        display: flex;
+        align-items: center;
+
+        // let widthIn1920 = 700
+        // let widthIn901 = 271
+        // 0.421 = Math.abs(widthIn1920 - widthIn901) / (1920 - 901)
+        width: calc(700px - (0.421 * (1920px - 100vw)));
+        height: 100%;
+    }
+
+    td.mat-column-link {
+        display: flex;
+        align-items: center;
+        flex: 1;
+        height: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    td.mat-column-actions {
+        display: flex;
+        align-items: center;
+        flex: 0 0 40px;
+        width: 40px;
+        height: 100%;
+    }
 }
 
 .cdk-drag-placeholder {
