@@ -5,7 +5,10 @@
         padding-top: 25px;
 
         > .leadership-section-background-video {
-            top: calc(-225px + (0.238 * (900px - 100vw)));
+            // let topIn900 = -235px
+            // let topIn375 = -10px
+            // 0.196 = Math.abs(topIn900 - topIn375) / (900 - 375)
+            top: calc(-235px + (0.466 * (900px - 100vw)));
         }
 
         > .section-header {
