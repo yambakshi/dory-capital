@@ -6,7 +6,7 @@ export const ajv = new Ajv({
             validate: value => !!value
         },
         'boolean-string': {
-            validate: value => value == 'true' || value == 'false'
+            validate: value => value === 'true' || value === 'false'
         }
     }
 });

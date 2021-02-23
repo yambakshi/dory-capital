@@ -352,6 +352,38 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "reorder-members",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"sectionId\": \"a\",\r\n    \"membersIds\": [\"d\", \"a\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:9356/api/reorder-members",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9356",
+							"path": [
+								"api",
+								"reorder-members"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},

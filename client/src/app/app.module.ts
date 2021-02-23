@@ -38,6 +38,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+
 
 import { CloudinaryModule } from '@cloudinary/angular-5.x';
 import { Cloudinary } from 'cloudinary-core';
@@ -93,7 +95,8 @@ import { IntroSectionComponent } from '@components/intro-section/intro-section.c
     MatIconModule,
     MatMenuModule,
     MatDialogModule,
-    MatSelectModule
+    MatSelectModule,
+    DragDropModule
   ],
   providers: [APP_PROVIDERS],
   bootstrap: [AppComponent]

@@ -34,7 +34,8 @@
             </mat-form-field>
         </div>
         <div class="table-inner-container">
-            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort cdkDropList
+                (cdkDropListDropped)="onListDrop($event)">
 
                 <!-- Checkbox Column -->
                 <ng-container matColumnDef="select" sticky>
@@ -98,7 +99,7 @@
 
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)"
-                    (dblclick)="editMember($event, row)">
+                    (dblclick)="editMember($event, row)" cdkDrag>
                 </tr>
             </table>
         </div>
