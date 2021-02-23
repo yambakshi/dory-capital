@@ -24,9 +24,18 @@ export class LeadershipSectionComponent {
     constructor(private cloudinary: Cloudinary) { }
 
     ngOnChanges(): void {
-        this.members = this.members.filter(({ hidden }) => !hidden);
         const membersMap = this.members.reduce((acc, member) => ({ ...acc, [member._id]: member }), {});
-        this.members = this.data.members.map((_id: string, i): Member => membersMap[_id]);
+        const members = [];
+        for (let i = 0, length = this.data.members.length; i < length; i++) {
+            const _id = this.data.members[i];
+            if (membersMap[_id].hidden) {
+                continue;
+            }
+
+            members.push(membersMap[_id]);
+        }
+
+        this.members = members;
     }
 
     imgSrc(imageId: string, autoFormat: boolean = true) {
