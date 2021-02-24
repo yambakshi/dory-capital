@@ -37,17 +37,24 @@
     > .page-navigator-container {
         display: flex;
         justify-content: center;
-        bottom: -15px;
+        align-items: center;
+        bottom: 0px;
         position: fixed;
         left: 50%;
         transform: translateX(-50%);
         z-index: 1000;
         transition: all 0.5s;
+        height: 56px;
+        margin-bottom: 18px;
+        
 
         &:hover {
-            bottom: 30px;
+            height: 170px;
+            width: 250px;
 
             > .page-navigator {
+                width: 120px;
+                height: 120px;
                 border-color: #5a89e5;
 
                 & a {
@@ -57,8 +64,7 @@
         }
 
         > .page-navigator {
-            width: 120px;
-            height: 120px;
+            width: 56px;
             border: 1px solid transparent;
             border-radius: 50%;
             position: relative;
@@ -108,12 +114,12 @@
                 }
 
                 > .faq4 {
-                    top: 124px;
+                    top: 126px;
                     right: 20px;
                 }
 
                 > .faq4:after {
-                    top: -10px;
+                    top: -12px;
                     right: 34px;
                 }
 
@@ -148,12 +154,12 @@
                 }
 
                 > .faq8 {
-                    top: -25px;
+                    top: -27px;
                     right: 36px;
                 }
 
                 > .faq8:after {
-                    top: 20px;
+                    top: 22px;
                     right: 18px;
                 }
         }
