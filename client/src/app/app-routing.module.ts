@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { HomePageComponent } from '@components/home-page/home-page.component';
 import { AdminComponent } from '@components/admin/admin.component';
 import { LoginPageComponent } from '@components/login-page/login-page.component';
@@ -16,7 +16,9 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
-    initialNavigation: 'enabled'
+    initialNavigation: 'enabled',
+    useHash: false,
+    preloadingStrategy: PreloadAllModules
   })],
   exports: [RouterModule]
 })

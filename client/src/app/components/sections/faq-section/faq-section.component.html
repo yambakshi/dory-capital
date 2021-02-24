@@ -25,7 +25,7 @@
                             role="tabpanel" [attr.aria-labelledby]="'heading' + i">
                             <div *ngIf="i != 1; else elseBlock" class="panel-body">{{paragraph.text}}</div>
                             <ng-template #elseBlock>
-                                <div class="panel-body">Click <a href="#process">here</a> to go back and read the
+                                <div class="panel-body">Click <a href="#process" rel="noopener">here</a> to go back and read the
                                     brief instructions in the “Process” page, hereinabove, as well as emailing us
                                     your one-page teaser to <em>dealflow@dory.capital</em>.</div>
                             </ng-template>
