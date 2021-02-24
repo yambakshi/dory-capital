@@ -50,6 +50,11 @@
                 > .form-field-container {
                     margin-bottom: 1rem;
 
+                    > textarea:focus,
+                    input:focus {
+                        outline: none;
+                    }
+
                     > label {
                         font-family: Merriweather;
                         font-style: normal;
@@ -74,6 +79,10 @@
                         background-color: #ffffff;
                         border-radius: 8px;
                         transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+                        &::-webkit-input-placeholder {
+                            color: #cbcbcb;
+                        }
                     }
 
                     > textarea {
@@ -93,6 +102,10 @@
                         overflow: auto;
                         resize: vertical;
                         margin: 0;
+
+                        &::-webkit-input-placeholder {
+                            color: #cbcbcb;
+                        }
                     }
                 }
 
@@ -129,6 +142,8 @@
                             border: 1px solid transparent;
 
                             > mat-icon {
+                                display: flex;
+                                align-items: center;
                                 margin-right: 8px;
                                 font-weight: 600;
                             }

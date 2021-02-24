@@ -19,13 +19,10 @@
     }
 
     > .sections-container {
-        padding-bottom: 0px;
-
         > .section-container {
             position: relative;
             width: 100%;
-            padding-right: 15px;
-            padding-left: 15px;
+            padding: 0 15px;
             margin-right: auto;
             margin-left: auto;
             margin-top: 130px;
@@ -61,6 +58,21 @@
 
         > .process-section-padding {
             padding: 0;
+        }
+    }
+
+    > .home-page-footer-container {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 18px;
+        font-family: Roboto;
+        font-style: normal;
+        color: #fff;
+        padding: 100px 0 90px;
+        text-align: center;
+
+        > .copyright {
+            margin-bottom: 10px;
         }
     }
 
@@ -107,9 +119,39 @@
                 transform: translate(-50%, -50%);
             }
 
-            > .menu:hover {
-                color: #ffffff;
-                text-decoration: none;
+            > a {
+                position: absolute;
+                display: block;
+                font-family: "Merriweather";
+                font-style: normal;
+                font-weight: bold;
+                font-size: 14px;
+                line-height: 18px;
+                text-align: center;
+                color: #5a89e5;
+                visibility: hidden;
+
+                &:hover {
+                    color: #ffffff;
+                    text-decoration: none;
+                }
+
+                &::after {
+                    position: absolute;
+                    content: "";
+                    width: 10px;
+                    height: 10px;
+                    background-color: #5a89e5;
+                    border-radius: 10px;
+                }
+
+                &.active {
+                    color: #ffffff;
+                }
+
+                &.active::after {
+                    background-color: #fff;
+                }
             }
 
             > .faq1 {

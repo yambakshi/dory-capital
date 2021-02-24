@@ -23,15 +23,11 @@
         > .contact-section-body {
             z-index: 1;
 
-            > .under-copyright {
-                padding: 8px 0 15px;
-            }
-
             > .contact-form-container {
                 > .contact-form {
                     width: 340px;
 
-                    > .form-group:nth-child(3) {
+                    > .form-field-container:nth-child(3) {
                         > label {
                             margin-bottom: 14px;
                         }
@@ -42,6 +38,11 @@
                                 border-radius: 8px;
                                 font-weight: 500;
                                 font-size: 14px;
+
+                                > mat-icon {
+                                    margin-right: 5px;
+                                    font-size: 20px;
+                                }
                             }
                         }
                     }
