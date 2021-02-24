@@ -2,26 +2,26 @@
     <main-header *ngIf="isLoggedIn" class="main-header-component"></main-header>
     <intro-section class="intro-section-component" [ngClass]="isLoggedIn ? 'logged-in' : ''"></intro-section>
     <section class="sections-container">
-        <div class="container-fluid sections-margin" id="scope">
+        <div class="section-container" id="scope">
             <scope-section [data]="pageData.sections[0]"></scope-section>
         </div>
-        <div class="container-fluid sections-margin" id="about">
+        <div class="section-container" id="about">
             <about-us-section [data]="pageData.sections[1]"></about-us-section>
         </div>
-        <div class="container-fluid sections-margin" id="whyus">
+        <div class="section-container" id="whyus">
             <why-us-section [data]="pageData.sections[2]"></why-us-section>
         </div>
-        <div class="container-fluid sections-margin process-section-padding" id="process">
+        <div class="section-container process-section-padding" id="process">
             <process-section [data]="pageData.sections[4]"></process-section>
         </div>
-        <div class="container-fluid leadership-section-margin" id="leadership">
+        <div class="section-container leadership-section-margin" id="leadership">
             <leadership-section [data]="pageData.sections[3]" [members]="pageData.members" [skills]="pageData.skills">
             </leadership-section>
         </div>
-        <div class="container-fluid sections-margin" id="faq">
+        <div class="section-container" id="faq">
             <faq-section [data]="pageData.sections[5]"></faq-section>
         </div>
-        <div class="container-fluid sections-margin" id="contact">
+        <div class="section-container" id="contact">
             <contact-section [data]="pageData.sections[6]"></contact-section>
         </div>
     </section>

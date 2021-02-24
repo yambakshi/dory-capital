@@ -21,8 +21,38 @@
     > .sections-container {
         padding-bottom: 0px;
 
-        > .sections-margin {
+        > .section-container {
+            position: relative;
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
             margin-top: 130px;
+        }
+
+        > #scope {
+            z-index: 6;
+        }
+
+        > #about {
+            z-index: 5;
+        }
+
+        > #whyus {
+            z-index: 4;
+        }
+
+        > #process {
+            z-index: 3;
+        }
+
+        > #leadership {
+            z-index: 2;
+        }
+
+        > #faq {
+            z-index: 1;
         }
 
         > .leadership-section-margin {
@@ -46,7 +76,6 @@
         transition: all 0.5s;
         height: 56px;
         margin-bottom: 18px;
-        
 
         &:hover {
             height: 170px;
@@ -84,84 +113,84 @@
             }
 
             > .faq1 {
-                    top: 12px;
-                    right: 114px;
-                }
+                top: 12px;
+                right: 114px;
+            }
 
-                > .faq1:after {
-                    top: 4px;
-                    right: -15px;
-                }
+            > .faq1:after {
+                top: 4px;
+                right: -15px;
+            }
 
-                > .faq2 {
-                    top: 50px;
-                    right: 130px;
-                }
+            > .faq2 {
+                top: 50px;
+                right: 130px;
+            }
 
-                > .faq2:after {
-                    top: 5px;
-                    right: -16px;
-                }
+            > .faq2:after {
+                top: 5px;
+                right: -16px;
+            }
 
-                > .faq3 {
-                    top: 90px;
-                    right: 112px;
-                }
+            > .faq3 {
+                top: 90px;
+                right: 112px;
+            }
 
-                > .faq3:after {
-                    top: 4px;
-                    right: -15px;
-                }
+            > .faq3:after {
+                top: 4px;
+                right: -15px;
+            }
 
-                > .faq4 {
-                    top: 126px;
-                    right: 20px;
-                }
+            > .faq4 {
+                top: 126px;
+                right: 20px;
+            }
 
-                > .faq4:after {
-                    top: -12px;
-                    right: 34px;
-                }
+            > .faq4:after {
+                top: -12px;
+                right: 34px;
+            }
 
-                > .faq5 {
-                    top: 90px;
-                    right: -48px;
-                }
+            > .faq5 {
+                top: 90px;
+                right: -48px;
+            }
 
-                > .faq5:after {
-                    top: 4px;
-                    right: 58px;
-                }
+            > .faq5:after {
+                top: 4px;
+                right: 58px;
+            }
 
-                > .faq6 {
-                    top: 50px;
-                    right: -64px;
-                }
+            > .faq6 {
+                top: 50px;
+                right: -64px;
+            }
 
-                > .faq6:after {
-                    top: 3px;
-                    right: 58px;
-                }
+            > .faq6:after {
+                top: 3px;
+                right: 58px;
+            }
 
-                > .faq7 {
-                    top: 10px;
-                    right: -56px;
-                }
+            > .faq7 {
+                top: 10px;
+                right: -56px;
+            }
 
-                > .faq7:after {
-                    top: 3px;
-                    right: 66px;
-                }
+            > .faq7:after {
+                top: 3px;
+                right: 66px;
+            }
 
-                > .faq8 {
-                    top: -27px;
-                    right: 36px;
-                }
+            > .faq8 {
+                top: -27px;
+                right: 36px;
+            }
 
-                > .faq8:after {
-                    top: 22px;
-                    right: 18px;
-                }
+            > .faq8:after {
+                top: 22px;
+                right: 18px;
+            }
         }
     }
 

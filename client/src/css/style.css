@@ -163,10 +163,10 @@ body {
 
 /* Scope Section */
 
-.send-email:hover {
+/* .send-email:hover {
 	color: #ffffff;
 	text-decoration: none;
-}
+} */
 
 /* About Section */
 
@@ -322,7 +322,7 @@ body {
 	margin-top: 85px;
 }
 
-.fair-approch span {
+/* .fair-approch span {
 	font-family: Roboto;
 	font-style: normal;
 	font-weight: bold;
@@ -354,7 +354,7 @@ body {
 	font-size: 16px;
 	line-height: 24px;
 	color: #ffffff;
-}
+} */
 
 .process {
 	font: 400 48px/72px Merriweather, "Helvetica Neue", sans-serif !important;
@@ -884,197 +884,3 @@ body {
 	transition: all 0.5s;
 	width: 250px;
 }
-
-video::-webkit-media-controls {
-	opacity: 0;
-}
-
-@media (min-width: 576px) {
-	#video-popup .modal-dialog {
-		max-width: 640px;
-		margin: 1.75rem auto;
-	}
-	.opn-video {
-		width: 600px;
-		margin: 0 auto;
-		display: block;
-	}
-}
-
-.modal-backdrop.show {
-	display: none;
-}
-
-#video-popup .modal-dialog .close {
-	position: absolute;
-	right: -17px;
-	background: #ffffff;
-	width: 35px;
-	height: 35px;
-	text-align: center;
-	display: block;
-	border: 2px solid #5a89e5;
-	padding: 0px;
-	border-radius: 50px;
-	opacity: 1;
-	top: -17px;
-}
-
-.close {
-	display: flex !important;
-	justify-content: center;
-	align-items: center;
-}
-
-.close > i {
-	font-size: 17px;
-}
-
-#video-popup .modal-dialog .modal-content {
-	border: 0;
-	min-height: 20px;
-	background: transparent;
-}
-
-video-popup video:focus {
-	outline: none;
-}
-
-#video-popup .modal-dialog {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	width: 90%;
-	margin: 0;
-}
-
-.modal-open .modal {
-	overflow-x: hidden;
-	overflow-y: auto;
-	background: rgba(0, 0, 0, 0.3);
-}
-
-#contact::after {
-	content: "";
-	background-position: center;
-	background-size: cover;
-	background-repeat: no-repeat;
-	mix-blend-mode: lighten;
-	position: absolute;
-	top: 20px;
-	width: 1315px;
-	height: 719px;
-	left: 50%;
-	transform: translateX(-50%);
-}
-
-#scope {
-	z-index: 6;
-}
-
-#about {
-	z-index: 5;
-}
-
-#whyus {
-	z-index: 4;
-}
-
-#process {
-	z-index: 3;
-}
-
-#leadership {
-	z-index: 2;
-}
-
-#faq {
-	z-index: 1;
-}
-
-#scope,
-#about,
-#faq,
-#whyus,
-#leadership,
-#process,
-#contact {
-	position: relative;
-}
-
-#about::after {
-	content: "";
-	background-position: center;
-	background-size: contain;
-	background-repeat: no-repeat;
-	mix-blend-mode: lighten;
-	position: absolute;
-	top: 20px;
-	width: 50%;
-	height: 50%;
-	left: 50%;
-	transform: translateX(-50%);
-}
-
-#faq::after {
-	content: "";
-	background-position: center;
-	background-size: cover;
-	background-repeat: no-repeat;
-	mix-blend-mode: lighten;
-	position: absolute;
-	top: 20px;
-	width: 1315px;
-	height: 719px;
-	left: 50%;
-	transform: translateX(-50%);
-	pointer-events: none;
-}
-
-#whyus::after {
-	content: "";
-	background-position: center;
-	background-size: cover;
-	background-repeat: no-repeat;
-	mix-blend-mode: lighten;
-	position: absolute;
-	top: 20px;
-	width: 50%;
-	height: 50%;
-	left: 50%;
-	transform: translateX(-50%);
-}
-
-.step1::after {
-	content: "";
-	mix-blend-mode: lighten;
-	opacity: 0.7;
-	background-position: right;
-	background-repeat: no-repeat;
-	position: absolute;
-	top: -100px;
-	right: 0;
-	width: 1675px;
-	height: 1048px;
-	pointer-events: none;
-}
-
-.step3::after {
-	content: "";
-	mix-blend-mode: lighten;
-	opacity: 0.7;
-	background-position: left center;
-	background-repeat: no-repeat;
-	position: absolute;
-	top: 800px;
-	left: 0;
-	width: 1675px;
-	height: 1048px;
-}
-
-/* .logo {
-	width: 100px;
-	margin: 0 auto;
-	display: block;
-} */

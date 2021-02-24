@@ -33,7 +33,7 @@ export class CarouselsComponent implements OnInit, AfterViewInit {
         ],
         [
             { name: 'Artificial Intelligence', id: 'artificial-intelligence_vorcg6' },
-            { name: 'Augmented/Virtual Reality', id: 'ar-vr_cpwall' },
+            { name: 'Augmented & Virtual Reality', id: 'ar-vr_cpwall' },
             { name: 'Face Recognition', id: 'face-recognition_nynool' },
             { name: 'NLP', id: 'nlp_zopdqy' },
             { name: 'Profiling', id: 'profiling_wzvl5s' }
