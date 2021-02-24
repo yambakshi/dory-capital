@@ -29,6 +29,8 @@
 
             > .contact-form-container {
                 > .contact-form {
+                    width: 340px;
+
                     > .form-group:nth-child(3) {
                         > label {
                             margin-bottom: 14px;
@@ -40,10 +42,6 @@
                                 border-radius: 8px;
                                 font-weight: 500;
                                 font-size: 14px;
-
-                                > i[class^="icon-plus"] {
-                                    margin-right: 8px;
-                                }
                             }
                         }
                     }
