@@ -5,22 +5,17 @@
         padding-top: 25px;
 
         > .process-section-background-video-1 {
-            position: absolute;
-            width: 100%;
-            z-index: 0;
-            right: -50%;
-            // let topIn900 = -100
-            // let topIn375 = 100
-            // 0.196 = Math.abs(topIn900 - topIn375) / (900 - 375)
-            // top: calc(-100px + (0.196 * (1920px - 100vw)));
+            // let topIn900 = 0
+            // let topIn375 = 175
+            // 0.333 = Math.abs(topIn900 - topIn375) / (900 - 375)
+            top: calc(0px + (0.333 * (900px - 100vw)));
         }
 
         > .process-section-background-video-2 {
-            position: absolute;
-            width: 100%;
-            z-index: 0;
-            left: -50%;
-            top: 1200px;
+            // let topIn900 = 825
+            // let topIn375 = 1400
+            // 1.095 = Math.abs(topIn900 - topIn375) / (900 - 375)
+            top: calc(825px + (1.095 * (900px - 100vw)));
         }
 
         > .section-header {
