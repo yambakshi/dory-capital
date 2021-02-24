@@ -4,13 +4,13 @@
         <div class="section-title">Got a Question?</div>
         <h1>FAQ</h1>
     </div>
-    <div class="container container-set">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                    <div class="panel panel-default" *ngFor="let paragraph of data.paragraphs; let i = index">
-                        <div class="panel-heading" role="tab" [attr.id]="'heading' + i">
-                            <h4 class="panel-title">
+    <div class="faq-section-body">
+        <div class="faq-section-accordion-container">
+            <div class="faq-section-accordion-inner-container">
+                <div id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="faq-item-container" *ngFor="let paragraph of data.paragraphs; let i = index">
+                        <div class="faq-item-question-container" role="tab" [attr.id]="'heading' + i">
+                            <h4 class="faq-item-question">
                                 <a [ngClass]="i == 0 ? null : 'collapsed'" data-toggle="collapse"
                                     data-parent="#accordion" [attr.href]="'#collapse' + i"
                                     [attr.aria-expanded]="i == 0 ? true : false" [attr.aria-controls]="'collapse' + i">
@@ -20,12 +20,12 @@
                                 </a>
                             </h4>
                         </div>
-                        <div [attr.id]="'collapse' + i"
+                        <div class="faq-item-answer-container" [attr.id]="'collapse' + i"
                             [ngClass]="i == 0 ? 'panel-collapse collapse in show' : 'panel-collapse collapse'"
                             role="tabpanel" [attr.aria-labelledby]="'heading' + i">
-                            <div *ngIf="i != 1; else elseBlock" class="panel-body">{{paragraph.text}}</div>
+                            <div *ngIf="i != 1; else elseBlock" class="faq-item-answer">{{paragraph.text}}</div>
                             <ng-template #elseBlock>
-                                <div class="panel-body">Click <a href="#process" rel="noopener">here</a> to go back and
+                                <div class="faq-item-answer">Click <a href="#process" rel="noopener">here</a> to go back and
                                     read the
                                     brief instructions in the “Process” page, hereinabove, as well as emailing us
                                     your one-page teaser to <em>dealflow@dory.capital</em>.</div>
