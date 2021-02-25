@@ -45,76 +45,71 @@
         > .faq-section-accordion-container {
             margin: 0 -15px;
 
-            > .faq-section-accordion-inner-container {
+            > .faq-section-accordion {
                 padding: 0 15px;
 
-                > #accordion {
-                    > .faq-item-container {
-                        border-bottom: 1px solid #3f6de2;
+                > .accordion-item-container {
+                    border-bottom: 1px solid #3f6de2;
 
-                        > .faq-item-question-container {
-                            > .faq-item-question {
-                                margin: 0px !important;
+                    > .accordion-item-question {
+                        cursor: pointer;
+                        display: flex;
+                        padding: 24px 0;
+                        transition: 0.4s;
+                        color: #fff;
+                        background-color: transparent;
+                        align-items: center;
+
+                        > .accordion-item-question-text {
+                            font-family: Merriweather;
+                            font-style: normal;
+                            font-weight: bold;
+                            font-size: 16px;
+                            line-height: 20px;
+                            flex: 1;
+                            z-index: -1;
+                        }
+
+                        > .accordion-item-icons {
+                            z-index: -1;
+                            margin-left: 10px;
+
+                            > .collapse-accordion-icon {
+                                display: none;
+                            }
+
+                            > .expand-accordion-icon {
                                 display: flex;
-                                align-items: center;
-
-                                & > a {
-                                    display: flex;
-                                    align-items: center;
-                                    font-family: Merriweather;
-                                    font-style: normal;
-                                    font-weight: bold;
-                                    font-size: 16px;
-                                    line-height: 20px;
-                                    color: #ffffff;
-                                    padding: 24px 0;
-                                    flex: 1;
-                                }
-
-                                & > a > .accordion-title {
-                                    flex: 1;
-                                }
-
-                                & > a > mat-icon {
-                                    margin-left: 10px;
-                                }
-
-                                & > a > .collapse-accordion-icon {
-                                    display: flex;
-                                }
-
-                                & > a.collapsed > .collapse-accordion-icon {
-                                    display: none;
-                                }
-
-                                & > a > .expand-accordion-icon {
-                                    display: none;
-                                }
-
-                                & > a.collapsed > .expand-accordion-icon {
-                                    display: flex;
-                                }
-
-                                & > a:hover,
-                                & > a:active,
-                                & > a:focus {
-                                    text-decoration: none;
-                                    color: #ffffff;
-                                }
                             }
                         }
 
-                        > .faq-item-answer-container {
-                            > .faq-item-answer {
-                                font-family: Roboto;
-                                font-style: normal;
-                                font-weight: normal;
-                                font-size: 14px;
-                                line-height: 20px;
-                                color: #ffffff;
-                                padding-bottom: 15px;
-                                padding-top: 0;
+                        &.active {
+                            > .accordion-item-icons {
+                                > .collapse-accordion-icon {
+                                    display: flex;
+                                }
+
+                                > .expand-accordion-icon {
+                                    display: none;
+                                }
                             }
+                        }
+                    }
+
+                    > .accordion-item-answer {
+                        max-height: 0;
+                        overflow: hidden;
+                        transition: max-height 0.2s ease-out;
+                        color: #fff;
+                        background-color: transparent;
+
+                        > .accordion-item-answer-text {
+                            font-family: Roboto;
+                            font-style: normal;
+                            font-weight: normal;
+                            font-size: 14px;
+                            line-height: 20px;
+                            padding-bottom: 15px;
                         }
                     }
                 }

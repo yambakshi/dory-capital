@@ -23,20 +23,16 @@
         > .faq-section-body {
             > .faq-section-accordion-container {
                 > .faq-section-accordion-inner-container {
-                    > #accordion {
-                        > .faq-item-container {
-                            > .faq-item-question-container {
-                                > .faq-item-question {
-                                    & > a > .accordion-title {
-                                        font-size: 12px;
-                                    }
-                                }
+                    > .accordion-item-container {
+                        > .accordion-item-question {
+                            > .accordion-item-question-text {
+                                font-size: 12px;
                             }
+                        }
 
-                            > .faq-item-answer-container {
-                                > .faq-item-answer {
-                                    font-size: 10px;
-                                }
+                        > .accordion-item-answer {
+                            > .accordion-item-answer-text {
+                                font-size: 10px;
                             }
                         }
                     }

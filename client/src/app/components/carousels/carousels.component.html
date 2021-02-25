@@ -10,14 +10,15 @@
     </div>
     <div #carsouels class="tech-carousels">
         <div class="tech-carousel-rotator-container" (click)="rotateCarousel()">
-            <img class="tech-carousel-rotator-icon" [src]="imgSrc(rotateIconId, false)" alt="rotate-icon" />
+            <img class="tech-carousel-rotator-icon" [src]="imgSrc(rotateIconId, false)" alt="rotate-icon"
+                loading="lazy" />
             <div class="tech-carousel-rotator-text">Click to rotate</div>
         </div>
         <div *ngFor="let carouselImgs of carouselsImgs; let i = index" class="tech-carousel"
             [ngClass]="selectedTab === i ? 'show-carousel' : ''">
             <div *ngFor="let img of carouselImgs; let j = index" class="tech-carousel-item"
                 [ngClass]="carouselsIndices[selectedTab] === j ? 'active' : ''" (click)="selectCarouselItem(j)">
-                <img [src]="carouselImg(i + 1, img.id)" [alt]="img.name" />
+                <img [src]="carouselImg(i + 1, img.id)" [alt]="img.name" loading="lazy" />
                 <div class="tech-carousel-item-text">{{img.name}}</div>
             </div>
         </div>

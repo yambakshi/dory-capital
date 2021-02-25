@@ -6,31 +6,22 @@
     </div>
     <div class="faq-section-body">
         <div class="faq-section-accordion-container">
-            <div class="faq-section-accordion-inner-container">
-                <div id="accordion" role="tablist" aria-multiselectable="true">
-                    <div class="faq-item-container" *ngFor="let paragraph of data.paragraphs; let i = index">
-                        <div class="faq-item-question-container" role="tab" [attr.id]="'heading' + i">
-                            <h4 class="faq-item-question">
-                                <a [ngClass]="i == 0 ? null : 'collapsed'" data-toggle="collapse"
-                                    data-parent="#accordion" [attr.href]="'#collapse' + i"
-                                    [attr.aria-expanded]="i == 0 ? true : false" [attr.aria-controls]="'collapse' + i">
-                                    <div class="accordion-title">{{paragraph.title}}</div>
-                                    <mat-icon class="collapse-accordion-icon">remove_circle_outline</mat-icon>
-                                    <mat-icon class="expand-accordion-icon">add_circle_outline</mat-icon>
-                                </a>
-                            </h4>
+            <div #accordion class="faq-section-accordion">
+                <div class="accordion-item-container" *ngFor="let paragraph of data.paragraphs; let i = index">
+                    <div class="accordion-item-question" (click)="onAccordionClick($event)">
+                        <div class="accordion-item-question-text">{{paragraph.title}}</div>
+                        <div class="accordion-item-icons">
+                            <mat-icon class="collapse-accordion-icon">remove_circle_outline</mat-icon>
+                            <mat-icon class="expand-accordion-icon">add_circle_outline</mat-icon>
                         </div>
-                        <div class="faq-item-answer-container" [attr.id]="'collapse' + i"
-                            [ngClass]="i == 0 ? 'panel-collapse collapse in show' : 'panel-collapse collapse'"
-                            role="tabpanel" [attr.aria-labelledby]="'heading' + i">
-                            <div *ngIf="i != 1; else elseBlock" class="faq-item-answer">{{paragraph.text}}</div>
-                            <ng-template #elseBlock>
-                                <div class="faq-item-answer">Click <a href="#process" rel="noopener">here</a> to go back and
-                                    read the
-                                    brief instructions in the “Process” page, hereinabove, as well as emailing us
-                                    your one-page teaser to <em>dealflow@dory.capital</em>.</div>
-                            </ng-template>
-                        </div>
+                    </div>
+                    <div class="accordion-item-answer">
+                        <div *ngIf="i != 1; else elseBlock" class="accordion-item-answer-text">{{paragraph.text}}</div>
+                        <ng-template #elseBlock>
+                            <div class="accordion-item-answer-text">Click <a href="#process" rel="noopener">here</a> to
+                                go back and read the brief instructions in the “Process” page, hereinabove, as well as
+                                emailing us your one-page teaser to <em>dealflow@dory.capital</em>.</div>
+                        </ng-template>
                     </div>
                 </div>
             </div>
