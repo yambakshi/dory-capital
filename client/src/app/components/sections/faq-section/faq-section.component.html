@@ -16,11 +16,26 @@
                         </div>
                     </div>
                     <div class="accordion-item-answer">
-                        <div *ngIf="i != 1; else elseBlock" class="accordion-item-answer-text">{{paragraph.text}}</div>
-                        <ng-template #elseBlock>
-                            <div class="accordion-item-answer-text">Click <a href="#process" rel="noopener">here</a> to
-                                go back and read the brief instructions in the “Process” page, hereinabove, as well as
-                                emailing us your one-page teaser to <em>dealflow@dory.capital</em>.</div>
+                        <div *ngIf="i === 1; else elseBlock1" class="accordion-item-answer-text">
+                            Click <a href="#process" rel="noopener">here</a> to go back and read the brief
+                            instructions in the “Process” page, hereinabove, as well as emailing us your one-page
+                            teaser to <em>dealflow@dory.capital</em>.
+
+                        </div>
+                        <ng-template #elseBlock1>
+                            <div *ngIf="i === 5; else elseBlock2" class="accordion-item-answer-text">
+                                Of course you should! Dory Capital welcomes any groundbreaking first to market ideas and
+                                technologies. The fields featured on our website are a mere general idea of topics that
+                                we are familiar with, and have the right network to enable and support. In short, if you
+                                believe you have something brilliant and you wish to present it to us, by all means go
+                                ahead and do so – <a href="mailto:dealflow@dory.capital" class="send-email">contact
+                                    us</a>.
+                            </div>
+                        </ng-template>
+                        <ng-template #elseBlock2>
+                            <div class="accordion-item-answer-text">
+                                {{paragraph.text}}
+                            </div>
                         </ng-template>
                     </div>
                 </div>
