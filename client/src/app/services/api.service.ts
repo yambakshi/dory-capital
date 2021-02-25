@@ -1,10 +1,12 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { Member } from '@models/member';
 import { Paragraph } from '@models/paragraph';
 import { PageData } from '@models/page-data';
+import { SocketIoService } from './socket-io.service';
+import { isPlatformBrowser } from '@angular/common';
 
 @Injectable()
 export class ApiService {
@@ -14,8 +16,18 @@ export class ApiService {
         responseType: 'json'
     }
 
-    constructor(private http: HttpClient) {
+    constructor(
+        private http: HttpClient,
+        @Inject(PLATFORM_ID) private platformId: any,
+        private socketIoService: SocketIoService) {
         this.pageDataSubject = new BehaviorSubject<PageData>(new PageData());
+
+        if (isPlatformBrowser(this.platformId)) {
+            this.socketIoService.connect();
+            this.socketIoService.listen('page-data-changed').subscribe(() => {
+                this.getPageData().subscribe(() => { });
+            })
+        }
     }
 
     getPageDataObservable(): Observable<PageData> {
