@@ -33,7 +33,6 @@ export class AdminLeadershipComponent implements OnInit {
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @Input() section: LeadershipSection;
   @Input() skills: Skill[];
-  @Input() members: Member[];
   displayedColumns: string[] = ['select', 'name', 'skills', 'link', 'actions'];
   dialogsSizes = { approve: {}, members: {} };
   selection = new SelectionModel<MemberRow>(true, []);
@@ -53,12 +52,7 @@ export class AdminLeadershipComponent implements OnInit {
   }
 
   ngOnChanges(): void {
-    const membersMap = this.members.reduce((acc, member) => ({ ...acc, [member._id]: member }), {});
-    this.membersRows = this.section.members.map((_id: string, i): MemberRow => {
-      const memberRow: MemberRow = { index: i, ...membersMap[_id] };
-      return memberRow;
-    });
-
+    this.membersRows = this.section.members.map((member: Member, i): MemberRow => ({ index: i, ...member }));
     this.dataSource.data = this.membersRows;
   }
 

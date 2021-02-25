@@ -1,6 +1,5 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { Cloudinary } from '@cloudinary/angular-5.x';
-import { Member } from '@models/member';
 import { Skill } from '@models/skill';
 import { LeadershipSection } from '@models/section';
 
@@ -17,25 +16,13 @@ export class LeadershipSectionComponent {
     @ViewChild('membersContainer') membersContainer: ElementRef;
     @ViewChild('skillsTypes') skillsTypes: ElementRef;
     @Input() data: LeadershipSection;
-    @Input() members: Member[];
     @Input() skills: Skill[];
     readonly defaultWidths = { skill: 36 };
 
     constructor(private cloudinary: Cloudinary) { }
 
     ngOnChanges(): void {
-        const membersMap = this.members.reduce((acc, member) => ({ ...acc, [member._id]: member }), {});
-        const members = [];
-        for (let i = 0, length = this.data.members.length; i < length; i++) {
-            const _id = this.data.members[i];
-            if (membersMap[_id].hidden) {
-                continue;
-            }
-
-            members.push(membersMap[_id]);
-        }
-
-        this.members = members;
+        this.data.members = this.data.members.filter(({ hidden }) => !hidden);
     }
 
     imgSrc(imageId: string, autoFormat: boolean = true) {
