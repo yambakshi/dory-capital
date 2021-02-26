@@ -7,7 +7,6 @@ import { Section } from '@models/section';
     templateUrl: './about-us-section.component.html',
     styleUrls: [
         './about-us-section.component.common.scss',
-        './about-us-section.component.desktop.scss',
         './about-us-section.component.mobile.scss'
     ]
 })

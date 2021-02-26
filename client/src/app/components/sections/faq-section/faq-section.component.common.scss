@@ -110,6 +110,16 @@
                             font-size: 14px;
                             line-height: 20px;
                             padding-bottom: 15px;
+
+                            > a {
+                                color: #007bff;
+                                text-decoration: none;
+                                background-color: transparent;
+
+                                &:hover {
+                                    color: #fff;
+                                }
+                            }
                         }
                     }
                 }

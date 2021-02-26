@@ -72,7 +72,7 @@
         text-align: center;
 
         > .copyright {
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
     }
 
@@ -130,10 +130,10 @@
                 text-align: center;
                 color: #5a89e5;
                 visibility: hidden;
+                text-decoration: none;
 
                 &:hover {
                     color: #ffffff;
-                    text-decoration: none;
                 }
 
                 &::after {

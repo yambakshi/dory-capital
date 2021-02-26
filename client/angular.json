@@ -29,15 +29,9 @@
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/styles.scss",
-              "src/css/bootstrap.min.css",
-              "src/css/style.css",
-              "src/css/media.css"
+              "src/styles.scss"
             ],
-            "scripts": [
-              "src/js/jquery-3.5.1.min.js",
-              "src/js/bootstrap.bundle.js"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {

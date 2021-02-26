@@ -6,7 +6,6 @@ import { Component, ElementRef, HostListener, Inject, PLATFORM_ID, Renderer2, Vi
     templateUrl: './intro-section.component.html',
     styleUrls: [
         './intro-section.component.common.scss',
-        './intro-section.component.desktop.scss',
         './intro-section.component.mobile.scss'
     ]
 })

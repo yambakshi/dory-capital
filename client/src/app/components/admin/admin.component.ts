@@ -8,7 +8,6 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './admin.component.html',
   styleUrls: [
     './admin.component.common.scss',
-    './admin.component.desktop.scss',
     './admin.component.mobile.scss'
   ]
 })

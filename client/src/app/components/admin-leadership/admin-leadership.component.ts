@@ -23,7 +23,6 @@ interface MemberRow extends Member {
   templateUrl: './admin-leadership.component.html',
   styleUrls: [
     './admin-leadership.component.common.scss',
-    './admin-leadership.component.desktop.scss',
     './admin-leadership.component.mobile.scss'
   ]
 })

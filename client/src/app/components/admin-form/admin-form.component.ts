@@ -9,7 +9,6 @@ import { ApiService } from '@services/api.service';
     templateUrl: './admin-form.component.html',
     styleUrls: [
         './admin-form.component.common.scss',
-        './admin-form.component.desktop.scss',
         './admin-form.component.mobile.scss'
     ]
 })

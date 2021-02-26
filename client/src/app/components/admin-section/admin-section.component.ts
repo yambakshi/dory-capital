@@ -6,7 +6,6 @@ import { Section } from '@models/section';
     templateUrl: './admin-section.component.html',
     styleUrls: [
         './admin-section.component.common.scss',
-        './admin-section.component.desktop.scss',
         './admin-section.component.mobile.scss'
     ]
 })

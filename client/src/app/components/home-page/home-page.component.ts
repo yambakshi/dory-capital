@@ -12,7 +12,6 @@ import { Cloudinary } from '@cloudinary/angular-5.x';
   templateUrl: './home-page.component.html',
   styleUrls: [
     './home-page.component.common.scss',
-    './home-page.component.desktop.scss',
     './home-page.component.mobile.scss']
 })
 export class HomePageComponent implements AfterViewInit {

@@ -7,7 +7,6 @@ import { LoginService } from '@services/login.service';
     templateUrl: './main-header.component.html',
     styleUrls: [
         './main-header.component.common.scss',
-        './main-header.component.desktop.scss',
         './main-header.component.mobile.scss'
     ]
 })

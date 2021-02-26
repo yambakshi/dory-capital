@@ -43,16 +43,6 @@
                     border-left: 1px dashed hsla(0, 0%, 100%, 0.4);
 
                     &:before {
-                        position: absolute;
-                        content: " ";
-                        width: 10px;
-                        height: 10px;
-                        background-color: #fff;
-                        top: 3px;
-                        left: -5px;
-                    }
-
-                    &:after {
                         content: none;
                     }
 
@@ -69,12 +59,20 @@
 
                             & a {
                                 > button {
-                                    padding: 8px 12px;
-                                    font-size: 14px;
+                                    padding: 8.3px 12px;
+                                    font-size: 12px;
                                     font-weight: 500;
                                     border-radius: 8px;
                                 }
                             }
+                        }
+
+                        > .process-section-step-1-subtitle {
+                            font-size: 14px;
+                        }
+
+                        > ul {
+                            font-size: 12px;
                         }
                     }
                 }
@@ -89,22 +87,23 @@
                     max-width: none;
                     width: 100%;
                     border-left: 1px dashed hsla(0, 0%, 100%, 0.4);
+                    margin: 2px 0 0;
                     padding-top: 35px;
-                    padding-bottom: 1.5rem !important;
-                    margin-bottom: 0 !important;
 
                     > .process-section-step-2 {
                         margin-top: 0;
 
-                        > span {
-                            &:before {
-                                top: 39px;
-                            }
-                        }
-
                         > h1 {
                             font-size: 20px;
                             line-height: 35px;
+                        }
+
+                        > .process-section-step-2-subtitle {
+                            font-size: 14px;
+                        }
+
+                        > ul {
+                            font-size: 12px;
                         }
                     }
                 }
@@ -120,13 +119,10 @@
                     max-width: none;
                     width: 100%;
                     border-left: 1px dashed hsla(0, 0%, 100%, 0.4);
+                    padding-top: 35px;
 
                     &:before {
                         content: none;
-                    }
-
-                    &:after {
-                        top: 3px;
                     }
 
                     > .process-section-step-3 {
@@ -135,6 +131,22 @@
                         > h1 {
                             font-size: 20px;
                             line-height: 35px;
+                        }
+
+                        > .process-section-step-3-bullet-container {
+                            > .process-section-step-3-bullet {
+                                > h6 {
+                                    font-size: 14px !important;
+                                }
+        
+                                > p {
+                                    font-size: 12px !important;
+                                }
+        
+                                > ul {
+                                    font-size: 12px;
+                                }
+                            }
                         }
                     }
                 }

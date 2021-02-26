@@ -35,3 +35,9 @@ button.active:focus {
 	outline: none !important;
 	outline-style: none !important;
 }
+
+*,
+:after,
+:before {
+	box-sizing: border-box;
+}

@@ -8,7 +8,6 @@ import { WindowRefService } from '@services/window-ref.service';
     templateUrl: './carousels.component.html',
     styleUrls: [
         './carousels.component.common.scss',
-        './carousels.component.desktop.scss',
         './carousels.component.mobile.scss'
     ]
 })

@@ -8,7 +8,6 @@ import { LeadershipSection } from '@models/section';
     templateUrl: './leadership-section.component.html',
     styleUrls: [
         './leadership-section.component.common.scss',
-        './leadership-section.component.desktop.scss',
         './leadership-section.component.mobile.scss'
     ]
 })

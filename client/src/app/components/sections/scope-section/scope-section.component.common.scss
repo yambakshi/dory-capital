@@ -48,10 +48,17 @@
         font-size: 16px;
         line-height: 32px;
         color: #fff;
+        text-align: center;
 
-        > a:hover {
-            color: #ffffff;
+        > a {
+            color: #007bff;
             text-decoration: none;
+            background-color: transparent;
+
+            &:hover {
+                color: #ffffff;
+                text-decoration: none;
+            }
         }
     }
 }

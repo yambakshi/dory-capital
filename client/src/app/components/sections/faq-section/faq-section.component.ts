@@ -6,7 +6,6 @@ import { Section } from '@models/section';
     templateUrl: './faq-section.component.html',
     styleUrls: [
         './faq-section.component.common.scss',
-        './faq-section.component.desktop.scss',
         './faq-section.component.mobile.scss'
     ]
 })
