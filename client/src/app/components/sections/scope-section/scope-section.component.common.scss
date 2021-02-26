@@ -50,14 +50,16 @@
         color: #fff;
         text-align: center;
 
-        > a {
-            color: #007bff;
-            text-decoration: none;
-            background-color: transparent;
-
-            &:hover {
-                color: #ffffff;
+        > p {
+            > a {
+                color: #007bff;
                 text-decoration: none;
+                background-color: transparent;
+    
+                &:hover {
+                    color: #ffffff;
+                    text-decoration: none;
+                }
             }
         }
     }
