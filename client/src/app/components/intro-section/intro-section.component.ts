@@ -1,5 +1,5 @@
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
-import { Component, ElementRef, HostListener, Inject, PLATFORM_ID, Renderer2, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, Inject, PLATFORM_ID, Renderer2, ViewChild } from '@angular/core';
 
 @Component({
     selector: 'intro-section',
@@ -9,8 +9,8 @@ import { Component, ElementRef, HostListener, Inject, PLATFORM_ID, Renderer2, Vi
         './intro-section.component.mobile.scss'
     ]
 })
-export class IntroSectionComponent {
-    @ViewChild('videoIframe') videoIframe: ElementRef;
+export class IntroSectionComponent implements AfterViewInit {
+    @ViewChild('videoIframeContainer') videoIframeContainer: ElementRef;
     isLoggedIn: boolean = false;
     iframeSrc: any = '';
     cloudinaryPlayer = {
@@ -45,8 +45,22 @@ export class IntroSectionComponent {
 
     ngAfterViewInit(): void {
         if (isPlatformBrowser(this.platformId)) {
+            const iframe = this.renderer.createElement('iframe');
+            this.renderer.setAttribute(iframe, 'src', this.iframeSrc)
+            this.renderer.setAttribute(iframe, 'scrolling', 'no');
+            this.renderer.setAttribute(iframe, 'frameborder', '0');
+            this.renderer.setAttribute(iframe, 'title', 'intro-section-background-video');
+            this.renderer.setAttribute(iframe, 'loading', 'lazy');
+            this.renderer.setAttribute(iframe, 'hidden', 'true');
+            this.renderer.listen(iframe, 'load', this.iframeLoaded.bind(this));
+            this.renderer.appendChild(this.videoIframeContainer.nativeElement, iframe);
+
             this.calcPlayerSize();
         }
+    }
+
+    iframeLoaded(): void {
+        this.renderer.removeAttribute(this.videoIframeContainer.nativeElement.firstChild, 'hidden');
     }
 
     calcPlayerSize(): void {
@@ -59,8 +73,9 @@ export class IntroSectionComponent {
             width = height * ratio;
         }
 
-        this.renderer.setStyle(this.videoIframe.nativeElement, 'width', `${width}px`);
-        this.renderer.setStyle(this.videoIframe.nativeElement, 'height', `${height}px`);
+        const iframeElement = this.videoIframeContainer.nativeElement.firstChild;
+        this.renderer.setStyle(iframeElement, 'width', `${width}px`);
+        this.renderer.setStyle(iframeElement, 'height', `${height}px`);
     }
 
     @HostListener('window:resize', ['$event'])
