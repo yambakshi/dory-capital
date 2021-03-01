@@ -1,0 +1,32 @@
+.investors-section-container {
+    > .investors-section-video-container {
+        position: relative;
+        cursor: pointer;
+
+        > video {
+            width: 100%;
+            height: 740px;
+            mix-blend-mode: lighten;
+        }
+
+        img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        > .investors-zone-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 16px;
+            text-align: center;
+            color: #ffffff;
+        }
+    }
+}

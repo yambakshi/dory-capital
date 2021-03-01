@@ -20,6 +20,9 @@
         <div class="section-container" id="faq">
             <faq-section [data]="pageData.sections[5]"></faq-section>
         </div>
+        <div class="section-container" id="investors">
+            <investors-section></investors-section>
+        </div>
         <div class="section-container" id="contact">
             <contact-section [data]="pageData.sections[6]"></contact-section>
         </div>
@@ -32,7 +35,7 @@
         <div class="page-navigator" (mouseenter)="mouseHoverPageNavigation()">
             <img [src]="imgSrc(navigatorIcons.idle)" alt="page-navigator" />
             <a href="#contact" rel="noopener" class="faq1">Contact</a>
-            <a href="" rel="noopener" class="faq2">Investors</a>
+            <a href="#investors" rel="noopener" class="faq2">Investors</a>
             <a href="#faq" rel="noopener" class="faq3">FAQ</a>
             <a href="#leadership" rel="noopener" class="faq4">Leadership</a>
             <a href="#process" rel="noopener" class="faq5">Process</a>
