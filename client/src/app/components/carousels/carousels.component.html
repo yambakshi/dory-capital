@@ -10,6 +10,7 @@
     </div>
     <div #carsouels class="tech-carousels">
         <div class="tech-carousel-rotator-container" (click)="rotateCarousel()">
+            <img class="tech-carousel-grid" [src]="imgSrc(gridId, false)" alt="grid-icon" loading="lazy" />
             <img class="tech-carousel-rotator-icon" [src]="imgSrc(rotateIconId, false)" alt="rotate-icon"
                 loading="lazy" />
             <div class="tech-carousel-rotator-text">Click to rotate</div>

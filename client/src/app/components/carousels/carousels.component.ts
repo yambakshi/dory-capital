@@ -21,7 +21,8 @@ export class CarouselsComponent implements OnInit, AfterViewInit {
     radiusLength: number;
     carouselsTabs: string[] = ['I', 'II', 'III', 'IV', 'V'];
     labelHeight: number = 24;
-    rotateIconId: string = 'dory-capital/scope/rotate_sdc32r';
+    rotateIconId: string = 'dory-capital/scope/rotate_c9wbpb';
+    gridId: string = 'dory-capital/scope/grid_dncnuq';
     carouselsImgs = [
         [
             { name: 'Big Data', id: 'big-data_enwda7' },
