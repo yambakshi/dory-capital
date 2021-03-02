@@ -8,7 +8,9 @@ import { PageData } from '@models/page-data';
 import { SocketIoService } from './socket-io.service';
 import { isPlatformBrowser } from '@angular/common';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class ApiService {
     private pageDataSubject: BehaviorSubject<PageData>;
     httpOptions: any = {

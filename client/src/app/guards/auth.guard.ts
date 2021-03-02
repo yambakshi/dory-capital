@@ -1,32 +1,44 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { LoginService } from '@services/login.service';
-import { catchError, map } from 'rxjs/operators';
 
-@Injectable()
+
+@Injectable({
+    providedIn: 'root'
+})
 export class AuthGuard implements CanActivate {
+    private bypassGuard: boolean = false;
+    private isLoggedIn: boolean = false;
 
     constructor(
         private loginService: LoginService,
-        private router: Router) { }
+        private router: Router) {
+        this.loginService.getLoginStatusObservable().subscribe((status: boolean) => {
+            this.isLoggedIn = status;
+        });
+    }
 
-    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
-        return this.loginService.getLoginStatus().pipe(map((res: any) => {
-            const routes = {
-                'admin': loggedIn => [loggedIn, !loggedIn && '/login'],
-                'login': loggedIn => [!loggedIn, loggedIn && '/admin']
-            }
+    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | boolean {
+        if (this.bypassGuard) {
+            this.bypassGuard = false;
+            return true;
+        }
 
-            const [activationStatus, newPath] = routes[route.url[0].path](res.status);
-            if (newPath) {
-                this.router.navigate([newPath]);
-            }
+        const routes = {
+            '': loggedIn => [loggedIn, !loggedIn && 'login'],
+            'login': loggedIn => [!loggedIn, loggedIn && '']
+        }
 
-            return activationStatus;
-        }), catchError(err => {
-            this.router.navigate(['']);
-            return of(err);
-        }));
+        const path = route.url.length > 0 ? route.url[0].path : '';
+        const [allowNavigation, newPath] = routes[path](this.isLoggedIn);
+        if (newPath) {
+            const parentUrl = route.parent.url[0].path;
+            this.bypassGuard = true;
+            this.router.navigate([`${parentUrl}/${newPath}`]);
+
+        }
+
+        return allowNavigation;
     }
 }

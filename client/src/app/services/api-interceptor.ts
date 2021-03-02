@@ -3,9 +3,13 @@ import { Observable } from 'rxjs';
 import { environment } from "@environments/environment";
 import { CookiesService } from './cookies.service';
 import { COOKIES } from './constants';
+import { Injectable } from '@angular/core';
 
 
-export class HttpErrorInterceptor implements HttpInterceptor {
+@Injectable({
+    providedIn: 'root'
+})
+export class ApiHttpInterceptor implements HttpInterceptor {
     constructor(private cookiesStorageService: CookiesService) { }
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {

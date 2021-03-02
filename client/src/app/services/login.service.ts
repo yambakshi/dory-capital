@@ -6,7 +6,10 @@ import { CookiesService } from './cookies.service';
 import { COOKIES } from './constants';
 import { Router } from '@angular/router';
 
-@Injectable()
+
+@Injectable({
+    providedIn: 'root'
+})
 export class LoginService {
     private loginSubject: BehaviorSubject<boolean>;
     httpOptions: any = {
@@ -33,7 +36,7 @@ export class LoginService {
     }
 
     logout(): any {
-        return this.http.get('/api/auth/logout', this.httpOptions).pipe(map(res => res),
+        return this.http.post('/api/auth/logout', {}, this.httpOptions).pipe(map(res => res),
             finalize(() => {
                 this.router.navigate(['']);
                 this.setLoginStatus(false);
