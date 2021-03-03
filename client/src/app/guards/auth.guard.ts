@@ -32,7 +32,7 @@ export class AuthGuard implements CanActivate {
 
         const path = route.url.length > 0 ? route.url[0].path : '';
         const [allowNavigation, newPath] = routes[path](this.isLoggedIn);
-        if (newPath) {
+        if (newPath !== false) {
             const parentUrl = route.parent.url[0].path;
             this.bypassGuard = true;
             this.router.navigate([`${parentUrl}/${newPath}`]);

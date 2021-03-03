@@ -9,6 +9,7 @@ import { ApiHttpInterceptor } from '@services/api-interceptor';
 import { CookiesService } from '@services/cookies.service';
 import { PageDataResolver } from '@resolvers/page-data.resolver';
 import { BrowserStateInterceptor } from '@services/browser-state-interceptor';
+import { CookiesInterceptor } from '@services/cookies-interceptor';
 
 @NgModule({})
 export class SingletonServicesModule {
@@ -39,6 +40,11 @@ export class SingletonServicesModule {
                     provide: HTTP_INTERCEPTORS,
                     useClass: ApiHttpInterceptor,
                     deps: [CookiesService],
+                    multi: true
+                },
+                {
+                    provide: HTTP_INTERCEPTORS,
+                    useClass: CookiesInterceptor,
                     multi: true
                 },
             ],
