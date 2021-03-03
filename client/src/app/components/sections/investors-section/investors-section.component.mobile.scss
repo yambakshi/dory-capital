@@ -1,4 +1,11 @@
 @import "../../../../scss/global/index.scss";
 
 @include media("screen", "<mobile") {
+    .investors-section-container {
+        > .investors-section-video-container {
+            > video {
+                height: 170px;
+            }
+        }
+    }
 }

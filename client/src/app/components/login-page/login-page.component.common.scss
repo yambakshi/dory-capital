@@ -43,14 +43,19 @@
                 display: flex;
                 flex-direction: column;
 
+                > input {
+                    font-family: Roboto, "Helvetica Neue", sans-serif;
+                    font-size: 34px;
+                }
+
                 &:not(:last-of-type) {
                     margin-bottom: 10px;
                 }
 
-                > .input-title {
-                    flex: 1;
-                    margin-right: 10px;
-                    user-select: none;
+                > .invalid-feedback {
+                    margin-top: 10px;
+                    font-size: 80%;
+                    color: #dc3545;
                 }
             }
         }
@@ -88,6 +93,8 @@
                     background-color: rgba(15, 73, 219, 1);
                     cursor: pointer;
                     user-select: none;
+                    line-height: 20px;
+                    font-family: Roboto, "Helvetica Neue", sans-serif;
 
                     &.disabled {
                         color: rgba(16, 16, 16, 0.4);

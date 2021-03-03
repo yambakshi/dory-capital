@@ -1,7 +1,6 @@
 .investors-section-container {
     > .investors-section-video-container {
         position: relative;
-        cursor: pointer;
 
         > video {
             width: 100%;
@@ -10,6 +9,7 @@
         }
 
         img {
+            cursor: pointer;
             position: absolute;
             top: 50%;
             left: 50%;
@@ -17,6 +17,8 @@
         }
 
         > .investors-zone-text {
+            cursor: pointer;
+            user-select: none;
             position: absolute;
             top: 50%;
             left: 50%;
