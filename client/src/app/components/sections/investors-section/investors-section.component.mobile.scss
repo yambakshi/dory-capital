@@ -2,9 +2,26 @@
 
 @include media("screen", "<mobile") {
     .investors-section-container {
-        > .investors-section-video-container {
-            > video {
-                height: 170px;
+        > .investors-section {
+            > .investors-section-video-container {
+                > .investors-section-video {
+                    justify-content: center;
+                    overflow: hidden;
+
+                    > video {
+                        width: 600px;
+                        height: 100%;
+                    }
+                }
+            }
+
+            > img {
+                width: 180px;
+            }
+
+            > .investors-zone-text {
+                font-size: 12px;
+                line-height: 15px;
             }
         }
     }

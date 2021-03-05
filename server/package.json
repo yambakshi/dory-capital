@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Server-side of Dory Capital",
   "main": "server.ts",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:yambakshi/dory-capital.git"
+  },
   "dependencies": {
     "ajv": "^6.12.3",
     "bcrypt": "^5.0.0",
