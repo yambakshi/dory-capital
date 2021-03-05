@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: '', component: HomePageComponent, resolve: { pageData: PageDataResolver } },
   {
     path: 'admin',
-    loadChildren: () => import('@modules/admin.module').then(m => m.AdminModule)
+    loadChildren: () => import('@modules/admin/admin.module').then(m => m.AdminModule)
   },
   { path: "**", redirectTo: "" }
 ];

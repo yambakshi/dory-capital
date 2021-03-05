@@ -6,6 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { MainHeaderComponent } from '@components/main-header/main-header.component';
 import { MatButtonModule } from '@angular/material/button';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { MatButtonModule } from '@angular/material/button';
         MatIconModule,
         MatFormFieldModule,
         MatButtonModule,
-        HttpClientModule
+        HttpClientModule,
+        RouterModule
     ],
     exports: [
         CommonModule,

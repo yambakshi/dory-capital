@@ -10,8 +10,8 @@ import { Cloudinary } from 'cloudinary-core';
 import { CLODUINARY_CONFIG } from '@services/constants';
 
 import { HOME_PAGE_DECLARATIONS } from './declarations/home-page.declarations';
-import { SingletonServicesModule } from '@modules/singleton-services.module';
-import { SharedModule } from '@modules/shared.module';
+import { SingletonServicesModule } from '@modules/singleton-services/singleton-services.module';
+import { SharedModule } from '@modules/shared/shared.module';
 
 
 @NgModule({

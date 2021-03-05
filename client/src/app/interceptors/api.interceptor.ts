@@ -1,8 +1,8 @@
 import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from "@environments/environment";
-import { CookiesService } from './cookies.service';
-import { COOKIES } from './constants';
+import { CookiesService } from '@services/cookies.service';
+import { COOKIES } from '@services/constants';
 import { Injectable } from '@angular/core';
 
 

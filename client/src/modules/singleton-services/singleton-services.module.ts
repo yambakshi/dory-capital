@@ -5,11 +5,11 @@ import { WindowRefService } from '@services/window-ref.service';
 import { ApiService } from '@services/api.service';
 import { SocketIoService } from '@services/socket-io.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { ApiHttpInterceptor } from '@services/api-interceptor';
 import { CookiesService } from '@services/cookies.service';
 import { PageDataResolver } from '@resolvers/page-data.resolver';
-import { BrowserStateInterceptor } from '@services/browser-state-interceptor';
-import { CookiesInterceptor } from '@services/cookies-interceptor';
+import { ApiHttpInterceptor } from '@interceptors/api.interceptor';
+import { BrowserStateInterceptor } from '@interceptors/browser-state.interceptor';
+import { CookiesInterceptor } from '@interceptors/ssr-cookies.interceptor';
 
 @NgModule({})
 export class SingletonServicesModule {

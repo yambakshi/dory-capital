@@ -29,11 +29,6 @@ export class MainHeaderComponent {
         this.showOutsideMenu = this.showMenu;
     }
 
-    goTo($event, path: string): void {
-        $event.stopPropagation();
-        this.router.navigate([path]);
-    }
-
     logout($event): void {
         $event.stopPropagation();
         this.loginService.logout();

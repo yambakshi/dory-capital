@@ -1,7 +1,7 @@
 import { HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Inject, Injectable, Optional } from '@angular/core';
 import { REQUEST } from '@nguniversal/express-engine/tokens';
-import { COOKIES } from './constants';
+import { COOKIES } from '@services/constants';
 
 @Injectable({
     providedIn: 'root'
