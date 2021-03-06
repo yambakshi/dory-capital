@@ -15,13 +15,15 @@
                 }
             }
 
-            > img {
-                width: 180px;
-            }
+            > .investors-section-button {
+                > img {
+                    width: 180px;
+                }
 
-            > .investors-zone-text {
-                font-size: 12px;
-                line-height: 15px;
+                > .investors-zone-text {
+                    font-size: 12px;
+                    line-height: 15px;
+                }
             }
         }
     }

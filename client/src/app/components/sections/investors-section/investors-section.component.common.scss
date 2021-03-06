@@ -14,27 +14,29 @@
             }
         }
 
-        > img {
+        > .investors-section-button {
             cursor: pointer;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
 
-        > .investors-zone-text {
-            cursor: pointer;
-            user-select: none;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-family: Roboto;
-            font-style: normal;
-            font-weight: normal;
-            font-size: 16px;
-            text-align: center;
-            color: #ffffff;
+            > img {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            > .investors-zone-text {
+                user-select: none;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-family: Roboto;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 16px;
+                text-align: center;
+                color: #ffffff;
+            }
         }
     }
 }
