@@ -10,57 +10,18 @@ import { AfterViewInit, Component, ElementRef, HostListener, Inject, PLATFORM_ID
     ]
 })
 export class IntroSectionComponent implements AfterViewInit {
-    @ViewChild('videoIframeContainer') videoIframeContainer: ElementRef;
+    @ViewChild('videoElement') videoElement: ElementRef;
     isLoggedIn: boolean = false;
-    iframeSrc: any = '';
-    cloudinaryPlayer = {
-        url: 'https://player.cloudinary.com/embed/?',
-        params: {
-            'cloud_name': 'dory-capital',
-            'public_id': 'dory-capital/bg-video_fvwmqy',
-            'fluid': true,
-            'controls': false,
-            'autoplay': true,
-            'autoplayMode': 'always',
-            'muted': true,
-            'loop': true,
-            'source_types': ['mp4']
-        }
-    }
-
+    videoSrc: string = 'https://res.cloudinary.com/dory-capital/video/upload/f_auto,q_auto/v1612139147/dory-capital/bg-video_fvwmqy.mov';
     constructor(
         @Inject(DOCUMENT) private document: Document,
         @Inject(PLATFORM_ID) private platformId: any,
-        private renderer: Renderer2) {
-        const { url, params } = this.cloudinaryPlayer;
-        const encodedParams = Object.entries(params)
-            .map(([param, value]) =>
-                Array.isArray(value) ?
-                    encodeURIComponent(`${param}[0]`) + `=${value}` :
-                    `${param}=${value}`
-            ).join('&')
-
-        this.iframeSrc = `${url}${encodedParams}`;
-    }
+        private renderer: Renderer2) { }
 
     ngAfterViewInit(): void {
         if (isPlatformBrowser(this.platformId)) {
-            const iframe = this.renderer.createElement('iframe');
-            this.renderer.setAttribute(iframe, 'src', this.iframeSrc)
-            this.renderer.setAttribute(iframe, 'scrolling', 'no');
-            this.renderer.setAttribute(iframe, 'frameborder', '0');
-            this.renderer.setAttribute(iframe, 'title', 'intro-section-background-video');
-            this.renderer.setAttribute(iframe, 'loading', 'lazy');
-            this.renderer.setAttribute(iframe, 'hidden', 'true');
-            this.renderer.listen(iframe, 'load', this.iframeLoaded.bind(this));
-            this.renderer.appendChild(this.videoIframeContainer.nativeElement, iframe);
-
             this.calcPlayerSize();
         }
-    }
-
-    iframeLoaded(): void {
-        this.renderer.removeAttribute(this.videoIframeContainer.nativeElement.firstChild, 'hidden');
     }
 
     calcPlayerSize(): void {
@@ -73,9 +34,9 @@ export class IntroSectionComponent implements AfterViewInit {
             width = height * ratio;
         }
 
-        const iframeElement = this.videoIframeContainer.nativeElement.firstChild;
-        this.renderer.setStyle(iframeElement, 'width', `${width}px`);
-        this.renderer.setStyle(iframeElement, 'height', `${height}px`);
+        const videoElement = this.videoElement.nativeElement;
+        this.renderer.setStyle(videoElement, 'width', `${width}px`);
+        this.renderer.setStyle(videoElement, 'height', `${height}px`);
     }
 
     @HostListener('window:resize', ['$event'])

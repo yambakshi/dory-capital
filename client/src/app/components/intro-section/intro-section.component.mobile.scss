@@ -2,6 +2,13 @@
 
 @include media("screen", "<mobile") {
     .intro-section-container {
+        > .intro-section-video-container {
+            > video {
+                width: auto;
+                height: 100vh;
+            }
+        }
+
         > .intro-section {
             width: 100%;
             padding: 0 10px;

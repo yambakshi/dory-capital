@@ -1,5 +1,7 @@
 <section class="intro-section-container">
-    <div #videoIframeContainer class="intro-section-video-container">
+    <div class="intro-section-video-container">
+        <video #videoElement [src]="videoSrc | safe" loading="lazy"  oncanplay="this.play()" onloadedmetadata="this.muted = true" autoplay muted
+            loop></video>
     </div>
     <div class="intro-section">
         <img src="assets/media/logo.png" alt="logo" />
