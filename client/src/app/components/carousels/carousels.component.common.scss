@@ -142,15 +142,16 @@
                 }
 
                 > img {
+                    margin-bottom: 20px;
                     width: 200px;
                 }
 
                 > .tech-carousel-item-text {
+                    white-space: nowrap;
                     font-size: 16px;
                     font-family: Merriweather;
                     color: #fff;
                     text-align: center;
-                    width: 80%;
                 }
             }
         }
