@@ -8,21 +8,18 @@
                 <mat-icon>more_vert</mat-icon>
             </button>
             <div *ngIf="showMenu" class="header-menu">
-                <div *ngIf="router.url == '/admin'; else elseBlock" class="header-menu-go-to"
-                    (click)="goTo($event, '/')">
+                <a *ngIf="router.url == '/admin'; else elseBlock" routerLink="/">
                     <mat-icon>home</mat-icon>
                     <mat-label>Home Page</mat-label>
-                </div>
+                </a>
                 <ng-template #elseBlock>
-                    <div class="header-menu-go-to" (click)="goTo($event, '/admin')">
-                        <div class="go-to-admin">
-                            <i class="icon-person"></i>
-                            <div class="go-to-admin-text">Admin Page</div>
-                        </div>
-                    </div>
+                    <a routerLink="/admin">
+                        <mat-icon>person</mat-icon>
+                        <mat-label>Admin Page</mat-label>
+                    </a>
                 </ng-template>
                 <div class="header-menu-logout" (click)="logout($event)">
-                    <i class="icon-exit"></i>
+                    <mat-icon>logout</mat-icon>
                     <mat-label>Logout</mat-label>
                 </div>
             </div>

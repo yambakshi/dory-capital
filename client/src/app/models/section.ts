@@ -1,3 +1,4 @@
+import { Member } from "./member";
 import { Paragraph } from "./paragraph";
 
 export class Section {
@@ -8,5 +9,5 @@ export class Section {
 }
 
 export interface LeadershipSection extends Section {
-    members: string[];
+    members: Member[];
 }

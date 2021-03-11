@@ -4,96 +4,105 @@
     <div class="section-header">
         <h1>{{data.title}}</h1>
     </div>
-    <div class="container container-set process-body">
-        <div class="row step1 process-section-step-1">
-            <div class="col-md-6  border-set">
-                <div class="step">
+    <div class="process-section-body">
+        <div class="process-section-row-container">
+            <div class="process-section-step-1-container">
+                <div class="process-section-step-1">
                     <span>STEP 1</span>
                     <h1>{{data.paragraphs[0].title}}</h1>
-                    <!-- TODO: Ask about italic email: Want email italic or want to be able to edit text? -->
-                    <p class="one-pager">Please send us a one-pager teaser to <em>dealflow@dory.capital</em></p>
-                    <!-- <p class="one-pager">{{data.paragraphs[0].text}}</p> -->
-                    <p class="make"><small></small> Make sure you also introduce your team, and not just your
-                        technology.</p>
-                    <p class="make"><small></small> Please, also, send us any and all materials and/or brochures
-                        you may already have (e.g. technical, marketing, others).</p>
-                    <p class="make"><small></small> Last but not least, don’t forget to add your full contact
-                        details.</p>
+                    <p class="process-section-step-1-subtitle">Please send us a one-pager teaser
+                        to <em>dealflow@dory.capital</em></p>
+                    <ul>
+                        <li>Make sure you also introduce your team, and
+                            not just your technology.</li>
+                        <li>Please, also, send us any and all materials
+                            and/or brochures
+                            you may already have (e.g. technical, marketing, others).</li>
+                        <li>Last but not least, don’t forget to add your full
+                            contact details.</li>
+                    </ul>
                     <div class="one-page-example-container">
-                        <a [href]="pdfSrc()"
-                            target="_blank">
+                        <a [href]="pdfSrc()" target="_blank" rel="noopener">
                             <button class="btn" type="button">One-pager example</button>
                         </a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6"></div>
+            <div class="process-section-step-1-space"></div>
         </div>
-        <div class="row">
-            <div class="col-md-6 border-left-set"></div>
-            <div class="col-md-6 mb-md-4 border-m-set dep-set">
-                <div class="step step-2">
-                    <span class="stp-squre">STEP 2</span>
+        <div class="process-section-row-container">
+            <div class="process-section-step-2-space"></div>
+            <div class="process-section-step-2-container">
+                <div class="process-section-step-2">
+                    <span>STEP 2</span>
                     <h1>{{data.paragraphs[1].title}}</h1>
-                    <p class="one-pager">{{data.paragraphs[1].text}}</p>
-                    <p class="make"><small></small>Explain and detail your ground-breaking technology and added
-                        value.</p>
-                    <p class="make"><small></small>Detail your relevant experience, and your motivation for this
-                        project.</p>
-                    <p class="make"><small></small>Detail your Value Proposition, Addressable Markets and GTM.
-                    </p>
-                    <p class="make"><small></small>Detail the competitive landscape and key differentiators
-                        <br />that sets you apart from the competition.
-                    </p>
-                    <p class="make"><small></small>Detail your IP and R&D plans.</p>
+                    <p class="process-section-step-2-subtitle">{{data.paragraphs[1].text}}</p>
+                    <ul>
+                        <li>Explain and detail your ground-breaking technology and added value.</li>
+                        <li>Detail your relevant experience, and your motivation for this project.</li>
+                        <li>Detail your Value Proposition, Addressable Markets and GTM.</li>
+                        <li>Detail the competitive landscape and key differentiators <br />that sets you apart from the
+                            competition.</li>
+                        <li>Detail your IP and R&D plans.</li>
+                    </ul>
                 </div>
             </div>
         </div>
-        <div class="row step3 process-section-step-3">
-            <div class="col-md-6 border-step-left">
-                <div class="step">
+        <div class="process-section-row-container">
+            <div class="process-section-step-3-container">
+                <div class="process-section-step-3">
                     <span>STEP 3</span>
                     <h1>{{data.paragraphs[2].title}}</h1>
-                    <div class="media mb-4">
-                        <img [src]="imgSrc('team')" alt="team" class="img-fluid co-founding-img" />
-                        <div class="media-body">
-                            <h6 class="co-founding">{{data.paragraphs[2].text}}</h6>
+                    <div class="process-section-step-3-bullet-container">
+                        <div class="process-section-step-3-img-container">
+                            <img [src]="imgSrc('team')" alt="team" />
+                        </div>
+                        <div class="process-section-step-3-bullet">
+                            <h6>{{data.paragraphs[2].text}}</h6>
                         </div>
                     </div>
-                    <div class="media">
-                        <img [src]="imgSrc('group')" alt="group" class="img-fluid co-founding-img" />
-                        <div class="media-body ml-4">
-                            <h6 class="co-founding-ml-0">Preliminary technical assessment</h6>
-                            <p class="make">The preliminary technical assessment will examine your technology
+                    <div class="process-section-step-3-bullet-container">
+                        <div class="process-section-step-3-img-container">
+                            <img [src]="imgSrc('group')" alt="group" />
+                        </div>
+                        <div class="process-section-step-3-bullet">
+                            <h6>Preliminary technical assessment</h6>
+                            <p>The preliminary technical assessment will examine your technology
                                 knowhow, R&D capabilities, IP and a general technical team assessment.</p>
                         </div>
                     </div>
-                    <div class="media">
-                        <img [src]="imgSrc('dd')" alt="dd" class="img-fluid co-founding-img" />
-                        <div class="media-body ml-4">
-                            <h6 class="co-founding-ml-0">An indicative due diligence</h6>
-                            <p class="make">A detailed and thorough due diligence will include, among others,
+                    <div class="process-section-step-3-bullet-container">
+                        <div class="process-section-step-3-img-container">
+                            <img [src]="imgSrc('dd')" alt="dd" />
+                        </div>
+                        <div class="process-section-step-3-bullet">
+                            <h6>An indicative due diligence</h6>
+                            <p> A detailed and thorough due diligence will include, among others,
                                 the following:</p>
-                            <p class="make"><small></small>A vetting process of the entire team; and,</p>
-                            <p class="make"><small></small>Assessment of key elements, such as business, legal
-                                and financial aspects; and,</p>
-                            <p class="make"><small></small> Commercial viability, business potential and
-                                proposed modus operandi.</p>
+                            <ul>
+                                <li>A vetting process of the entire team; and,</li>
+                                <li>Assessment of key elements, such as business, legal and financial aspects; and,</li>
+                                <li>Commercial viability, business potential and proposed modus operandi.</li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="media">
-                        <img [src]="imgSrc('approval')" alt="approval" class="img-fluid co-founding-img" />
-                        <div class="media-body ml-4">
-                            <h6 class="co-founding-ml-0">Final approval</h6>
-                            <p class="make">Post due diligence, your full R&D and GTM program is presented
+                    <div class="process-section-step-3-bullet-container">
+                        <div class="process-section-step-3-img-container">
+                            <img [src]="imgSrc('approval')" alt="approval" />
+                        </div>
+                        <div class="process-section-step-3-bullet">
+                            <h6>Final approval</h6>
+                            <p>Post due diligence, your full R&D and GTM program is presented
                                 internally for final approval.</p>
                         </div>
                     </div>
-                    <div class="media">
-                        <img [src]="imgSrc('work')" alt="work" class="img-fluid co-founding-img" />
-                        <div class="media-body ml-2">
-                            <h6 class="co-founding-ml-0">To work</h6>
-                            <p class="make">Signing an investment/cooperation agreement and getting to work.</p>
+                    <div class="process-section-step-3-bullet-container">
+                        <div class="process-section-step-3-img-container">
+                            <img [src]="imgSrc('work')" alt="work" />
+                        </div>
+                        <div class="process-section-step-3-bullet">
+                            <h6>To work</h6>
+                            <p>Signing an investment/cooperation agreement and getting to work.</p>
                         </div>
                     </div>
                 </div>

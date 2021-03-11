@@ -6,7 +6,6 @@ import { Section } from '@models/section';
     templateUrl: './contact-section.component.html',
     styleUrls: [
         './contact-section.component.common.scss',
-        './contact-section.component.desktop.scss',
         './contact-section.component.mobile.scss'
     ]
 })

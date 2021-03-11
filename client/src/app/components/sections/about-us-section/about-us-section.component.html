@@ -6,21 +6,21 @@
     <p class="about-section-paragraph">{{data.paragraphs[0].text}}</p>
     <div class="about-section-player-container">
         <div class="about-section-thumbnail-container" [ngClass]="videoPlayerVisible ? 'show-player' : ''">
-            <img [src]="thumbnailUrl" alt="video-thumbnail" (click)="showVideoPlayer()" />
+            <img [src]="thumbnailUrl" alt="video-thumbnail" (click)="showVideoPlayer()" loading="lazy" />
         </div>
         <div class="video-player-container" [ngClass]="videoPlayerVisible ? 'show-player' : ''">
             <div class="video-overlay"></div>
-            <video #videoElement [src]="videoSrc" type="video/mp4" (ended)="hideVideoPlayer()">
-            </video>
-            <div class="play-pause-button-container"  (click)="togglePlayVideo()">
+            <video #videoElement [src]="videoSrc" type="video/mp4" (ended)="hideVideoPlayer()" loading="lazy"></video>
+            <div class="play-pause-button-container" (click)="togglePlayVideo()">
                 <div *ngIf="!playVideo" class="play-pause-button">
-                    <img [src]="playIconUrl" alt="play-pause" />
+                    <img [src]="playIconUrl" alt="play-pause" loading="lazy" />
                 </div>
             </div>
         </div>
     </div>
     <p class="about-section-paragraph align-justify-paragraph">{{data.paragraphs[1].text}}</p>
     <p class="about-section-quote">“And, when you want something, all the universe conspires in helping you to achieve
-        it” 
-        <br />(Paulo Coelho)</p>
+        it”
+        <br />(Paulo Coelho)
+    </p>
 </div>

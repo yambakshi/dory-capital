@@ -2,41 +2,46 @@
     <main-header *ngIf="isLoggedIn" class="main-header-component"></main-header>
     <intro-section class="intro-section-component" [ngClass]="isLoggedIn ? 'logged-in' : ''"></intro-section>
     <section class="sections-container">
-        <div class="container-fluid sections-margin" id="scope">
+        <div class="section-container" id="scope">
             <scope-section [data]="pageData.sections[0]"></scope-section>
         </div>
-        <div class="container-fluid sections-margin" id="about">
+        <div class="section-container" id="about">
             <about-us-section [data]="pageData.sections[1]"></about-us-section>
         </div>
-        <div class="container-fluid sections-margin" id="whyus">
+        <div class="section-container" id="whyus">
             <why-us-section [data]="pageData.sections[2]"></why-us-section>
         </div>
-        <div class="container-fluid sections-margin process-section-padding" id="process">
+        <div class="section-container process-section-padding" id="process">
             <process-section [data]="pageData.sections[4]"></process-section>
         </div>
-        <div class="container-fluid leadership-section-margin" id="leadership">
-            <leadership-section [data]="pageData.sections[3]" [members]="pageData.members" [skills]="pageData.skills">
-            </leadership-section>
+        <div class="section-container leadership-section-margin" id="leadership">
+            <leadership-section [data]="pageData.sections[3]" [skills]="pageData.skills"></leadership-section>
         </div>
-        <div class="container-fluid sections-margin" id="faq">
+        <div class="section-container" id="faq">
             <faq-section [data]="pageData.sections[5]"></faq-section>
         </div>
-        <div class="container-fluid sections-margin" id="contact">
+        <div class="section-container" id="investors">
+            <investors-section></investors-section>
+        </div>
+        <div class="section-container" id="contact">
             <contact-section [data]="pageData.sections[6]"></contact-section>
         </div>
     </section>
-    <div #pageNavigator class="page-navigator-container"
-        (mouseleave)="mouseLeavePageNavigator()">
+    <div class="home-page-footer-container">
+        <div class="copyright">© Copyright 2021 Dory Capital - All Rights Reserved</div>
+        <div class="cambridge">Cambridge, UK.</div>
+    </div>
+    <div #pageNavigator class="page-navigator-container" (mouseleave)="mouseLeavePageNavigator()">
         <div class="page-navigator" (mouseenter)="mouseHoverPageNavigation()">
             <img [src]="imgSrc(navigatorIcons.idle)" alt="page-navigator" />
-            <a href="#contact" class="menu faq1">Contact</a>
-            <a href="" class="menu faq2">Investors</a>
-            <a href="#faq" class="menu faq3">FAQ</a>
-            <a href="#leadership" class="menu faq4">Leadership</a>
-            <a href="#process" class="menu faq5">Process</a>
-            <a href="#whyus" class="menu faq6">Why us</a>
-            <a href="#about" class="menu faq7">About us</a>
-            <a href="#scope" class="menu faq8">Scope</a>
+            <a href="#contact" rel="noopener" class="faq1">Contact</a>
+            <a href="#investors" rel="noopener" class="faq2">Investors</a>
+            <a href="#faq" rel="noopener" class="faq3">FAQ</a>
+            <a href="#leadership" rel="noopener" class="faq4">Leadership</a>
+            <a href="#process" rel="noopener" class="faq5">Process</a>
+            <a href="#whyus" rel="noopener" class="faq6">Why us</a>
+            <a href="#about" rel="noopener" class="faq7">About us</a>
+            <a href="#scope" rel="noopener" class="faq8">Scope</a>
         </div>
     </div>
     <div #scrollToTopButton class="scroll-to-top-container" (click)="scrollToTop()">

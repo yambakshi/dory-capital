@@ -23,5 +23,16 @@ export async function queryPageData() {
     const skills = await querySkills([]);
     const members = await queryMembers([]);
 
-    return { sections, skills, members };
+    // Resolve and order members
+    const membersMap = members.reduce((acc, member) => ({ ...acc, [member._id]: member }), {});
+    const resolvedMembers = [];
+    const membersIds = sections[3].members;
+    for (let i = 0, length = membersIds.length; i < length; i++) {
+        const _id = membersIds[i];
+        resolvedMembers.push(membersMap[_id]);
+    }
+
+    sections[3].members = resolvedMembers;
+
+    return { sections, skills };
 }

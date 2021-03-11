@@ -1,48 +1,22 @@
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
-import { Component, ElementRef, HostListener, Inject, PLATFORM_ID, Renderer2, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, Inject, PLATFORM_ID, Renderer2, ViewChild } from '@angular/core';
 
 @Component({
     selector: 'intro-section',
     templateUrl: './intro-section.component.html',
     styleUrls: [
         './intro-section.component.common.scss',
-        './intro-section.component.desktop.scss',
         './intro-section.component.mobile.scss'
     ]
 })
-export class IntroSectionComponent {
-    @ViewChild('videoIframe') videoIframe: ElementRef;
+export class IntroSectionComponent implements AfterViewInit {
+    @ViewChild('videoElement') videoElement: ElementRef;
     isLoggedIn: boolean = false;
-    iframeSrc: any = '';
-    cloudinaryPlayer = {
-        url: 'https://player.cloudinary.com/embed/?',
-        params: {
-            'cloud_name': 'dory-capital',
-            'public_id': 'dory-capital/bg-video_fvwmqy',
-            'fluid': true,
-            'controls': false,
-            'autoplay': true,
-            'autoplayMode': 'always',
-            'muted': true,
-            'loop': true,
-            'source_types': ['mp4']
-        }
-    }
-
+    videoSrc: string = 'https://res.cloudinary.com/dory-capital/video/upload/f_auto,q_auto/v1612139147/dory-capital/bg-video_fvwmqy.mov';
     constructor(
         @Inject(DOCUMENT) private document: Document,
         @Inject(PLATFORM_ID) private platformId: any,
-        private renderer: Renderer2) {
-        const { url, params } = this.cloudinaryPlayer;
-        const encodedParams = Object.entries(params)
-            .map(([param, value]) =>
-                Array.isArray(value) ?
-                    encodeURIComponent(`${param}[0]`) + `=${value}` :
-                    `${param}=${value}`
-            ).join('&')
-
-        this.iframeSrc = `${url}${encodedParams}`;
-    }
+        private renderer: Renderer2) { }
 
     ngAfterViewInit(): void {
         if (isPlatformBrowser(this.platformId)) {
@@ -60,8 +34,9 @@ export class IntroSectionComponent {
             width = height * ratio;
         }
 
-        this.renderer.setStyle(this.videoIframe.nativeElement, 'width', `${width}px`);
-        this.renderer.setStyle(this.videoIframe.nativeElement, 'height', `${height}px`);
+        const videoElement = this.videoElement.nativeElement;
+        this.renderer.setStyle(videoElement, 'width', `${width}px`);
+        this.renderer.setStyle(videoElement, 'height', `${height}px`);
     }
 
     @HostListener('window:resize', ['$event'])
