@@ -31,7 +31,7 @@ In the output of the `pm2` installation you might see warnings about missing dep
 Make sure to install them globally as well.
 
 ### Manual Deployment
-Run `npm run build:ssr` to build the project in SSR mode.  
+Run `npm run build:ssr` to build the project in SSR mode on local machine.  
 WinSCP `dist/dory-capital/*` to `~/client` on CentOS 8 machine.
 ```
 cd /var/www/html/dory-capital
