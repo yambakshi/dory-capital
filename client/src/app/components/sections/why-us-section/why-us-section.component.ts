@@ -6,7 +6,6 @@ import { Section } from '@models/section';
     templateUrl: './why-us-section.component.html',
     styleUrls: [
         './why-us-section.component.common.scss',
-        './why-us-section.component.desktop.scss',
         './why-us-section.component.mobile.scss'
     ]
 })

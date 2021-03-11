@@ -26,9 +26,9 @@ router.route('/api/auth/login')
     .post(loginMiddleware, login);
 
 router.route('/api/auth/logout')
-    .get(logoutMiddleware, logout);
+    .post(logoutMiddleware, logout);
 
-// Genetal
+// General
 
 router.route('/api/general')
     .get(getPageData);

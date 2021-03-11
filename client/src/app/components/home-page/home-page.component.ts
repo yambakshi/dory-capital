@@ -1,7 +1,6 @@
-import { Component, ElementRef, OnInit, ViewChild, PLATFORM_ID, Inject, HostListener, Renderer2, AfterViewInit } from '@angular/core';
+import { Component, ElementRef, ViewChild, PLATFORM_ID, Inject, HostListener, Renderer2, AfterViewInit } from '@angular/core';
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { ApiService } from '@services/api.service';
-import { SocketIoService } from '@services/socket-io.service';
 import { ActivatedRoute } from '@angular/router';
 import { LoginService } from '@services/login.service';
 import { PageData } from '@models/page-data';
@@ -13,10 +12,9 @@ import { Cloudinary } from '@cloudinary/angular-5.x';
   templateUrl: './home-page.component.html',
   styleUrls: [
     './home-page.component.common.scss',
-    './home-page.component.desktop.scss',
     './home-page.component.mobile.scss']
 })
-export class HomePageComponent implements OnInit, AfterViewInit {
+export class HomePageComponent implements AfterViewInit {
   @ViewChild('pageNavigator') pageNavigator: ElementRef;
   @ViewChild('scrollToTopButton') scrollToTopButton: ElementRef;
   pageData: PageData;
@@ -29,7 +27,6 @@ export class HomePageComponent implements OnInit, AfterViewInit {
     private apiService: ApiService,
     private route: ActivatedRoute,
     private loginService: LoginService,
-    private socketIoService: SocketIoService,
     private renderer: Renderer2,
     private cloudinary: Cloudinary) {
     this.route.data.subscribe(data => {
@@ -45,15 +42,6 @@ export class HomePageComponent implements OnInit, AfterViewInit {
     this.apiService.getPageDataObservable().subscribe((pageData: PageData) => {
       this.pageData = pageData;
     });
-  }
-
-  ngOnInit(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      this.socketIoService.connect();
-      this.socketIoService.listen('page-data-changed').subscribe(() => {
-        this.apiService.getPageData().subscribe(() => { });
-      })
-    }
   }
 
   ngAfterViewInit(): void {

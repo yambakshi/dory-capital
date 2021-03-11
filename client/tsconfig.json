@@ -21,6 +21,12 @@
       "@providers/*": ["app/providers/*"],
       "@resolvers/*": ["app/resolvers/*"],
       "@models/*": ["app/models/*"],
+      "@guards/*": ["app/guards/*"],
+      "@pipes/*": ["app/pipes/*"],
+      "@interceptors/*": ["app/interceptors/*"],
+      "@declarations/*": ["app/declarations/*"],
+      "@imports/*": ["app/imports/*"],
+      "@modules/*": ["modules/*"],
       "@environments/*": ["environments/*"]
     }
   },

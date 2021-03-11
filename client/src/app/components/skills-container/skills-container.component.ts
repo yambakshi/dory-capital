@@ -26,25 +26,21 @@ export class SkillsContainerComponent implements AfterViewInit {
             const { name, imageId } = this.skills[i];
             const imageSource = this.imgSrc(imageId);
 
+            const div = this.renderer.createElement('div');
+            this.renderer.addClass(div, 'skill-icon');
+            const img = this.renderer.createElement('img');
+            this.renderer.setAttribute(img, 'src', imageSource)
+            this.renderer.setAttribute(img, 'alt', name);
+            this.renderer.setAttribute(img, 'loading', 'lazy');
+            this.renderer.appendChild(div, img);
+
             if (i < this.maxSkillsPerRow) {
-                const div = this.renderer.createElement('div');
-                this.renderer.addClass(div, 'skill-icon');
-                const img = this.renderer.createElement('img');
-                this.renderer.setAttribute(img, 'src', imageSource)
-                this.renderer.setAttribute(img, 'alt', name);
-                this.renderer.appendChild(div, img);
                 this.renderer.appendChild(skillsRows[0], div);
             } else {
-                const div = this.renderer.createElement('div');
-                this.renderer.addClass(div, 'skill-icon');
                 const left = this.margin + ((i % this.maxSkillsPerRow) * (this.iconSize + this.margin));
                 const top = 0;
                 this.renderer.setStyle(div, 'top', `${top}px`);
                 this.renderer.setStyle(div, 'left', `${left}px`);
-                const img = this.renderer.createElement('img');
-                this.renderer.setAttribute(img, 'src', imageSource)
-                this.renderer.setAttribute(img, 'alt', name);
-                this.renderer.appendChild(div, img);
                 this.renderer.appendChild(skillsRows[1], div);
             }
         }

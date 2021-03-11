@@ -24,7 +24,7 @@
         > .section-title {
             font-family: Roboto;
             font-style: normal;
-            font-weight: bold;
+            font-weight: normal;
             font-size: 14px;
             line-height: 16px;
             text-align: center;
@@ -58,5 +58,61 @@
         color: #ffffff;
         margin-bottom: 40px;
         max-width: 900px;
+    }
+
+    > .why-us-paragraphs-container {
+        max-width: 1000px;
+
+        > .why-us-paragraphs {
+            display: flex;
+            flex-wrap: wrap;
+
+            > .why-us-paragraph-container {
+                margin-bottom: 3rem;
+
+                flex: 0 0 50%;
+                max-width: 50%;
+
+                position: relative;
+                padding-right: 15px;
+                padding-left: 15px;
+
+                > .why-us-paragraph {
+                    > span {
+                        font-family: Roboto;
+                        font-style: normal;
+                        font-weight: bold;
+                        font-size: 14px;
+                        line-height: 16px;
+                        text-align: center;
+                        letter-spacing: 0.5em;
+                        text-transform: uppercase;
+                        color: #ffffff;
+                    }
+
+                    > h4 {
+                        font-family: Merriweather;
+                        font-style: normal;
+                        font-weight: normal;
+                        font-size: 24px;
+                        line-height: 30px;
+                        color: #ffffff;
+                        padding: 16px 0;
+                        margin: 0;
+                    }
+
+                    > p {
+                        text-align: justify;
+                        width: 381px;
+                        font-family: Roboto;
+                        font-style: normal;
+                        font-weight: normal;
+                        font-size: 16px;
+                        line-height: 24px;
+                        color: #ffffff;
+                    }
+                }
+            }
+        }
     }
 }

@@ -8,7 +8,6 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './admin.component.html',
   styleUrls: [
     './admin.component.common.scss',
-    './admin.component.desktop.scss',
     './admin.component.mobile.scss'
   ]
 })
@@ -18,7 +17,7 @@ export class AdminComponent implements AfterViewInit {
   @ViewChild('sections') sections: ElementRef;
   selectedTab: number = 0;
   pageData: PageData;
-  sectionsTabs: string[] = [];
+  sectionsTabs: string[];
 
   constructor(
     private route: ActivatedRoute,
@@ -37,6 +36,7 @@ export class AdminComponent implements AfterViewInit {
   }
 
   initSectionsHeader(): void {
+    this.sectionsTabs = [];
     this.pageData.sections.forEach(({ name }) => {
       this.sectionsTabs.push(name);
     });

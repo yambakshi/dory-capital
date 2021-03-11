@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 
 
 @Component({
@@ -10,9 +10,7 @@ import { Component, ElementRef, Input, ViewChild } from '@angular/core';
     ]
 })
 export class VideoElementComponent {
-    @ViewChild('videoIframe') videoIframe: ElementRef;
-    @Input() fullSize: boolean = true;
-    iframeSrc: any = '';
+    iframeSrc: string = '';
     cloudinaryPlayer = {
         url: 'https://player.cloudinary.com/embed/?',
         params: {

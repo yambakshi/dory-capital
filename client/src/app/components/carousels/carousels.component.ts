@@ -8,7 +8,6 @@ import { WindowRefService } from '@services/window-ref.service';
     templateUrl: './carousels.component.html',
     styleUrls: [
         './carousels.component.common.scss',
-        './carousels.component.desktop.scss',
         './carousels.component.mobile.scss'
     ]
 })
@@ -22,7 +21,8 @@ export class CarouselsComponent implements OnInit, AfterViewInit {
     radiusLength: number;
     carouselsTabs: string[] = ['I', 'II', 'III', 'IV', 'V'];
     labelHeight: number = 24;
-    rotateIconId: string = 'dory-capital/scope/rotate_sdc32r';
+    rotateIconId: string = 'dory-capital/scope/rotate_c9wbpb';
+    gridId: string = 'dory-capital/scope/grid_dncnuq';
     carouselsImgs = [
         [
             { name: 'Big Data', id: 'big-data_enwda7' },
@@ -33,7 +33,7 @@ export class CarouselsComponent implements OnInit, AfterViewInit {
         ],
         [
             { name: 'Artificial Intelligence', id: 'artificial-intelligence_vorcg6' },
-            { name: 'Augmented/Virtual Reality', id: 'ar-vr_cpwall' },
+            { name: 'Augmented & Virtual Reality', id: 'ar-vr_cpwall' },
             { name: 'Face Recognition', id: 'face-recognition_nynool' },
             { name: 'NLP', id: 'nlp_zopdqy' },
             { name: 'Profiling', id: 'profiling_wzvl5s' }

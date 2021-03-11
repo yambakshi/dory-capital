@@ -3,10 +3,23 @@
 @include media("screen", "<mobile") {
     .home-page-container {
         > .sections-container {
-            padding-bottom: 76px;
-
             > .leadership-section-margin {
                 margin-top: 150px;
+            }
+
+            #contact {
+                margin-top: 130px;
+            }
+        }
+
+        > .home-page-footer-container {
+            color: #fff;
+            padding: 50px 0 90px;
+            text-align: center;
+            font-size: 12px;
+
+            > .copyright {
+                margin-bottom: 0px;
             }
         }
 

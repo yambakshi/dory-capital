@@ -1,4 +1,3 @@
-import { timeStamp } from 'console';
 import { createLogger, format, transports } from 'winston';
 
 const customFormat = format.printf(({ level, message, label, timestamp }) => {

@@ -17,6 +17,13 @@
 
             > .login-inputs {
                 margin-bottom: 15px;
+
+                > .input-container {
+                    > input {
+                        font-size: 18px;
+                        line-height: 20px;
+                    }
+                }
             }
 
             // > .forgot-my-password-container {

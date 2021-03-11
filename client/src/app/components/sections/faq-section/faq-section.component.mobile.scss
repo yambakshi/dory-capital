@@ -19,5 +19,25 @@
                 line-height: 38px;
             }
         }
+
+        > .faq-section-body {
+            > .faq-section-accordion-container {
+                > .faq-section-accordion {
+                    > .accordion-item-container {
+                        > .accordion-item-question {
+                            > .accordion-item-question-text {
+                                font-size: 12px;
+                            }
+                        }
+
+                        > .accordion-item-answer {
+                            > .accordion-item-answer-text {
+                                font-size: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }

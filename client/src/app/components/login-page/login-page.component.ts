@@ -8,7 +8,6 @@ import { LoginService } from '@services/login.service';
     templateUrl: './login-page.component.html',
     styleUrls: [
         './login-page.component.common.scss',
-        './login-page.component.desktop.scss',
         './login-page.component.mobile.scss'
     ]
 })

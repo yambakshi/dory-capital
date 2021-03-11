@@ -6,17 +6,22 @@
     font-style: italic;
   }
 
-  > .form-field {
+  > textarea {
     margin-bottom: 10px;
+    overflow: auto;
+    resize: vertical;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 14px;
+    line-height: 20px;
   }
 
-  & .invalid-feedback {
+  > .invalid-feedback {
     display: flex;
-    font-size: 18px;
     margin: 0px 0px 10px;
+    color: #dc3545;
   }
 
-  & .form-buttons {
+  > .form-buttons {
     display: flex;
 
     > .submit-button,
@@ -28,7 +33,9 @@
       color: white;
       background-color: rgba(15, 73, 219, 1);
       cursor: pointer;
+      font-family: Roboto, "Helvetica Neue", sans-serif;
       font-size: 16px;
+      line-height: 20px;
       user-select: none;
       margin-right: 10px;
 

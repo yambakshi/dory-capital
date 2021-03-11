@@ -7,7 +7,6 @@ import { Section } from '@models/section';
     templateUrl: './process-section.component.html',
     styleUrls: [
         './process-section.component.common.scss',
-        './process-section.component.desktop.scss',
         './process-section.component.mobile.scss'
     ]
 })

@@ -24,5 +24,29 @@
             max-width: 400px;
             font-size: 12px;
         }
+
+        > .why-us-paragraphs-container {
+            max-width: 350px;
+
+            > .why-us-paragraphs {
+                > .why-us-paragraph-container {
+                    flex: none;
+                    width: 100%;
+                    max-width: none;
+
+                    > .why-us-paragraph {
+                        > h4 {
+                            font-size: 16px;
+                        }
+
+                        > p {
+                            width: auto;
+                            font-size: 12px;
+                            line-height: 20px;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

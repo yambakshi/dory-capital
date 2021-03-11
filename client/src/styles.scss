@@ -1,6 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import "./assets/scss/style.scss";
-@import "./assets/css/icomoon/icomoon.css";
+
+html {
+	scroll-behavior: smooth;
+	-webkit-tap-highlight-color: transparent;
+}
 
 html,
 body {
@@ -31,4 +35,10 @@ button:active:focus,
 button.active:focus {
 	outline: none !important;
 	outline-style: none !important;
+}
+
+*,
+:after,
+:before {
+	box-sizing: border-box;
 }

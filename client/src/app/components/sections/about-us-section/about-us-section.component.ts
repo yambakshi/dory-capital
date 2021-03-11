@@ -7,7 +7,6 @@ import { Section } from '@models/section';
     templateUrl: './about-us-section.component.html',
     styleUrls: [
         './about-us-section.component.common.scss',
-        './about-us-section.component.desktop.scss',
         './about-us-section.component.mobile.scss'
     ]
 })
@@ -16,11 +15,11 @@ export class AboutUsSectionComponent {
     @ViewChild('videoElement') videoElement: any;
     playVideo: boolean = false;
     videoPlayerVisible: boolean = false;
-    videoSrc: string = 'https://res.cloudinary.com/dory-capital/video/upload/v1612457064/dory-capital/about-us/pr-video_ih7dg6.mp4';
+    videoSrc: string = 'https://res.cloudinary.com/dory-capital/video/upload/f_auto,q_auto/v1612457064/dory-capital/about-us/pr-video_ih7dg6.mp4';
     playIconId: string = 'dory-capital/about-us/play_qojytb';
     thumbnailId: string = 'dory-capital/about-us/pr-video-thumbnail_lsenx5';
 
-    constructor(private cloudinary: Cloudinary) {}
+    constructor(private cloudinary: Cloudinary) { }
 
     showVideoPlayer(): void {
         this.videoPlayerVisible = true;

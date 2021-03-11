@@ -5,7 +5,7 @@ function getWindow(): any {
 }
 
 @Injectable({
-    providedIn: 'root',
+    providedIn: 'root'
 })
 export class WindowRefService {
     constructor() { }
