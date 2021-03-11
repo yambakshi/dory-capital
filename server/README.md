@@ -32,8 +32,8 @@ In the output of the `pm2` installation you might see warnings about missing dep
 Make sure to install them globally as well.
 
 ### Manual Deployment
-Run `npm run build` to build the server on local machine.  
-WinSCP `out` and `package.json` into `~/server` on CentOS 8 machine.  
+Run `npm run build` to build the server on local machine.
+WinSCP `out` and `package.json` into `~/server` on CentOS 8 machine.
 ```
 cd /var/www/html/dory-capital
 mkdir server
@@ -49,7 +49,7 @@ sudo chmod 777 log tmp
 pm2 start out/main.js
 ```
 
-Check server status  
+Check server status
 ```
 pm2 list
 ```
