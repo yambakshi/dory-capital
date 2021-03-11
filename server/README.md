@@ -24,7 +24,7 @@ mkdir /var/www/html/dory-capital
 npm install pm2 -g
 ```
 
-**NOTE**
+**NOTE**  
 In the output of the `pm2` installation you might see warnings about missing dependencies:
 - bufferutil
 - utf-8-validate
@@ -32,13 +32,13 @@ In the output of the `pm2` installation you might see warnings about missing dep
 Make sure to install them globally as well.
 
 ### Manual Deployment
-Run `npm run build` to build the server on local machine.
+Run `npm run build` to build the server on local machine.  
 WinSCP `out` and `package.json` into `~/server` on CentOS 8 machine.
 ```
 cd /var/www/html/dory-capital
 mkdir server
 mv ~/server/* /var/www/html/dory-capital/server
-cd ~/server
+cd server
 npm i
 mkdir log tmp
 sudo chmod 777 log tmp

@@ -1,4 +1,4 @@
-# DoryCapital
+# Dory Capital Client
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.4.
 
@@ -16,14 +16,55 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## Deploy
 
-Run `npm run build:ssr` to build the project in SSR mode.
+### Prerequisites
+```
+mkdir ~/client
+mkdir /var/www/html/dory-capital
+npm install pm2 -g
+```
+
+**NOTE**  
+In the output of the `pm2` installation you might see warnings about missing dependencies:
+- bufferutil
+- utf-8-validate
+
+Make sure to install them globally as well.
+
+### Manual Deployment
+Run `npm run build:ssr` to build the project in SSR mode.  
 WinSCP `dist/dory-capital/*` to `~/client` on CentOS 8 machine.
-`sudo mv ~/client/* /var/www/html/dory-capital/client/dist/dory-capital`
-`cd /var/www/html/dory-capital/client`
-`sudo touch nohup.out`
-`sudo chmod 777 nohup.out`
-`sudo chown -R root:root ./*`
-`nohup node dist/dory-capital/server/main.js > nohup.out 2>&1 &`
+```
+cd /var/www/html/dory-capital
+mkdir client/dist/dory-capital
+sudo mv ~/client/* /var/www/html/dory-capital/client/dist/dory-capital
+cd client
+```
+
+### Run Client
+```
+pm2 start dist/dory-capital/server/main.js
+```
+
+Check client status
+```
+pm2 list
+```
+
+Stop client
+```
+pm2 stop 1
+```
+
+pm2 logs folder
+```
+ll ~/.pm2/logs
+```
+
+### Enable Startup
+```
+pm2 startup
+pm2 save
+```
 
 ## Running unit tests
 
