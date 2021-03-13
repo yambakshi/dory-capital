@@ -3,11 +3,11 @@ import { Cloudinary } from '@cloudinary/angular-5.x';
 import { Skill } from '@models/skill';
 
 @Component({
-    selector: 'skills-container',
-    templateUrl: './skills-container.component.html',
-    styleUrls: ['./skills-container.component.scss']
+    selector: 'member-skills',
+    templateUrl: './member-skills.component.html',
+    styleUrls: ['./member-skills.component.scss']
 })
-export class SkillsContainerComponent implements AfterViewInit {
+export class MemberSkillsComponent implements AfterViewInit {
     @ViewChild('skillsContainer') skillsContainer: ElementRef;
     @Input() skills: Skill[];
     maxSkillsPerRow: number = 6;
@@ -38,8 +38,7 @@ export class SkillsContainerComponent implements AfterViewInit {
                 this.renderer.appendChild(skillsRows[0], div);
             } else {
                 const left = this.margin + ((i % this.maxSkillsPerRow) * (this.iconSize + this.margin));
-                const top = 0;
-                this.renderer.setStyle(div, 'top', `${top}px`);
+                this.renderer.setStyle(div, 'top', '0px');
                 this.renderer.setStyle(div, 'left', `${left}px`);
                 this.renderer.appendChild(skillsRows[1], div);
             }
