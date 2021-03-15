@@ -6,6 +6,10 @@ import { logger } from '../../../config/logger';
 
 
 async function processMemberProfileUpdate(update: any) {
+    if (typeof update.skills === 'string') {
+        update.skills = JSON.parse(update.skills);
+    }
+
     const validationErrors = validateMemberProfileUpdate(update);
     if (validationErrors) {
         const firstErr = validationErrors[0];

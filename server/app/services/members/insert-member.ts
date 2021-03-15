@@ -18,7 +18,7 @@ export async function insertMember(rawMember: Member) {
     member.imageId = (await uploadImage(profilePictureFile.path)).public_id;
 
     // Map skills to MongoDB ObjectIds
-    member.skills = rawMember.skills.map((_id) => new ObjectID(_id.toString()));
+    member.skills = rawMember.skills ? rawMember.skills.map((_id) => new ObjectID(_id.toString())) : [];
 
     // Insert member into 'members' collection
     const { ops } = await mongoDb.insertOne(env.mongodb.dbName, 'members', member);
@@ -31,7 +31,9 @@ export async function insertMember(rawMember: Member) {
     member._id = memberId;
 
     // Resolve member's skills
-    member.skills = await querySkills(member.skills);
+    if (member.skills.length > 0) {
+        member.skills = await querySkills(member.skills);
+    }
 
     return member;
 }
