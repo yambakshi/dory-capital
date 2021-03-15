@@ -153,6 +153,50 @@
                     color: #fff;
                     text-align: center;
                 }
+
+                &.fintech img {
+                    margin-left: 23px;
+                }
+
+                &.data-sciences img {
+                    margin-right: 20px;
+                }
+
+                &.big-data img {
+                    margin-right: 20px;
+                }
+
+                &.natural-language-processing-nlp img {
+                    margin-left: 23px;
+                }
+
+                &.facial-recognition img {
+                    margin-right: 40px;
+                }
+
+                &.blockchain-acceleration img {
+                    margin-left: 20px;
+                }
+
+                &.quantum-cryptography img {
+                    margin-left: 20px;
+                }
+
+                &.blockchain-scalability img {
+                    margin-right: 20px;
+                }
+
+                &.machine-learning img {
+                    margin-right: 20px;
+                }
+
+                &.energy-sourcing img {
+                    margin-left: 20px;
+                }
+
+                &.rf-networks img {
+                    margin-left: 10px;
+                }
             }
         }
     }

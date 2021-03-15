@@ -34,7 +34,7 @@ export class CarouselsComponent implements OnInit, AfterViewInit {
         [
             { name: 'Artificial Intelligence (AI)', id: 'artificial-intelligence_vorcg6' },
             { name: 'Augmented & Virtual Reality', id: 'ar-vr_cpwall' },
-            { name: 'Face Recognition', id: 'face-recognition_nynool' },
+            { name: 'Facial Recognition', id: 'face-recognition_nynool' },
             { name: 'Natural Language Processing (NLP)', id: 'nlp_zopdqy' },
             { name: 'Profiling', id: 'profiling_wzvl5s' }
         ],
@@ -156,5 +156,9 @@ export class CarouselsComponent implements OnInit, AfterViewInit {
             this.renderer.setStyle(carouselItem, 'top', `${this.containerCenter.top + top + this.labelHeight}px`);
             this.renderer.setStyle(carouselItem, 'left', `${this.containerCenter.left + left}px`);
         }
+    }
+
+    toClassName(name: string) {
+        return name.toLowerCase().replace(/\s/g, '-').replace(/\(|\)/g, '');
     }
 }
