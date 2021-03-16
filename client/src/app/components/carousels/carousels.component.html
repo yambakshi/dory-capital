@@ -17,7 +17,7 @@
         </div>
         <div *ngFor="let carouselImgs of carouselsImgs; let i = index" class="tech-carousel"
             [ngClass]="selectedTab === i ? 'show-carousel' : ''">
-            <div *ngFor="let img of carouselImgs; let j = index" class="tech-carousel-item"
+            <div *ngFor="let img of carouselImgs; let j = index" [class]="'tech-carousel-item ' + toClassName(img.name)"
                 [ngClass]="carouselsIndices[selectedTab] === j ? 'active' : ''" (click)="selectCarouselItem(j)">
                 <img [src]="carouselImg(i + 1, img.id)" [alt]="img.name" loading="lazy" />
                 <div class="tech-carousel-item-text">{{img.name}}</div>

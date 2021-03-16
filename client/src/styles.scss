@@ -42,3 +42,9 @@ button.active:focus {
 :before {
 	box-sizing: border-box;
 }
+
+.custom-dialog-container .mat-dialog-container {
+	background-color: transparent;
+	padding: 0px;
+	border-radius: 12px;
+}

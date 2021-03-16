@@ -32,10 +32,10 @@ export class CarouselsComponent implements OnInit, AfterViewInit {
             { name: 'Smart City Tech', id: 'smart-city-tech_d6thry' }
         ],
         [
-            { name: 'Artificial Intelligence', id: 'artificial-intelligence_vorcg6' },
+            { name: 'Artificial Intelligence (AI)', id: 'artificial-intelligence_vorcg6' },
             { name: 'Augmented & Virtual Reality', id: 'ar-vr_cpwall' },
-            { name: 'Face Recognition', id: 'face-recognition_nynool' },
-            { name: 'NLP', id: 'nlp_zopdqy' },
+            { name: 'Facial Recognition', id: 'face-recognition_nynool' },
+            { name: 'Natural Language Processing (NLP)', id: 'nlp_zopdqy' },
             { name: 'Profiling', id: 'profiling_wzvl5s' }
         ],
         [
@@ -54,7 +54,7 @@ export class CarouselsComponent implements OnInit, AfterViewInit {
         ],
         [
             { name: 'Autonomous Mobility Solutions', id: 'autonomous-mobility-solutions_rl91h5' },
-            { name: 'Drones Robotics', id: 'drones-robotics_lq0t5n' },
+            { name: 'Drones & Robotics', id: 'drones-robotics_lq0t5n' },
             { name: 'Noninvasive Medical Equipment', id: 'medical-histotripsy-and-synthetic-biology_mpa3zo' },
             { name: 'RF Networks', id: 'rf-networks_f92wcn' },
             { name: 'Ultimate Online Privacy', id: 'ultimate-online-privacy_sbb2dh' },
@@ -156,5 +156,9 @@ export class CarouselsComponent implements OnInit, AfterViewInit {
             this.renderer.setStyle(carouselItem, 'top', `${this.containerCenter.top + top + this.labelHeight}px`);
             this.renderer.setStyle(carouselItem, 'left', `${this.containerCenter.left + left}px`);
         }
+    }
+
+    toClassName(name: string) {
+        return name.toLowerCase().replace(/\s/g, '-').replace(/\(|\)/g, '');
     }
 }

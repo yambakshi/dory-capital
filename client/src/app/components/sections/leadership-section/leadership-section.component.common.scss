@@ -16,7 +16,11 @@
         position: absolute;
         z-index: -1;
         width: 100%;
-        top: calc(-500px + (0.245 * (1920px - 100vw)));
+
+        // let widthIn1920 = -600
+        // let widthIn901 = -140
+        // 0.451 = Math.abs(widthIn1920 - widthIn901) / (1920 - 901)
+        top: calc(-600px + (0.451 * (1920px - 100vw)));
     }
 
     > .section-header {
@@ -29,6 +33,7 @@
             text-align: center;
             color: #ffffff;
             white-space: pre-wrap;
+            margin-bottom: 6px;
         }
     }
 

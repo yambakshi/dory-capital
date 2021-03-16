@@ -50,18 +50,6 @@ export class HomePageComponent implements AfterViewInit {
     }
   }
 
-  parseData(data: any): any {
-    if (typeof data == 'object') {
-      return Object.entries(data).reduce((acc, [key, value]) => {
-        return { ...acc, [key]: this.parseData(value) };
-      }, {})
-    } else if (Array.isArray(data)) {
-      return data.map(dataItem => this.parseData(dataItem));
-    } else if (typeof data === 'string') {
-      return data.replace('\n', '<br>');
-    }
-  }
-
   mouseHoverPageNavigation(): void {
     let pageNavigatorElement = this.pageNavigator.nativeElement;
     let innerDivElement = pageNavigatorElement.firstElementChild;

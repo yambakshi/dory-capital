@@ -12,6 +12,7 @@ import { CarouselsComponent } from '@components/carousels/carousels.component';
 import { IntroSectionComponent } from '@components/sections/intro-section/intro-section.component';
 import { SafePipe } from '@pipes/safe.pipe';
 import { InvestorsComponent } from '@components/sections/investors-section/investors-section.component';
+import { InvestorsLoginDialog } from '@components/investors-login-dialog/investors-login.dialog';
 
 export const HOME_PAGE_DECLARATIONS = [
     HomePageComponent,
@@ -27,5 +28,6 @@ export const HOME_PAGE_DECLARATIONS = [
     CarouselsComponent,
     IntroSectionComponent,
     InvestorsComponent,
-    SafePipe
+    SafePipe,
+    InvestorsLoginDialog
 ]
