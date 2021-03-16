@@ -91,6 +91,10 @@
                     position: relative;
                     margin-bottom: 10px;
 
+                    &.disabled {
+                        pointer-events: none;
+                    }
+
                     > .profile-image-overlay {
                         z-index: 1;
                         width: 100%;

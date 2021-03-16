@@ -1,6 +1,5 @@
 import { Request, Response } from 'express';
 import { insertSkills } from '../../services';
-import { socket } from '../../../config/socket';
 import { validateSkillsCreation } from '../../validation-schemas';
 import { logger } from '../../../config/logger';
 
@@ -20,7 +19,6 @@ export async function createSkills(req: Request, res: Response) {
     try {
         logger.info({ message: "Received 'createSkills' request", label: 'createSkills' });
         const output = await processSkillsCreation(req.body.skills);
-        socket.nsp.emit('page-data-changed');
         res.send(output);
     } catch (error) {
         logger.error({ message: error.message, label: 'createSkills' });

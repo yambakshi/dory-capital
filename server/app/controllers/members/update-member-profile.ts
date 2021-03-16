@@ -1,6 +1,5 @@
 import { Request, Response } from 'express';
 import { updateMember } from '../../services';
-import { socket } from '../../../config/socket';
 import { validateMemberProfileUpdate } from '../../validation-schemas';
 import { logger } from '../../../config/logger';
 
@@ -24,7 +23,6 @@ export async function updateMemberProfile(req: Request, res: Response) {
     try {
         logger.info({ message: "Received 'updateMemberProfile' request", label: 'updateMemberProfile' });
         const output = await processMemberProfileUpdate(req.body);
-        socket.nsp.emit('page-data-changed');
         res.send(output);
     } catch (error) {
         logger.error({ message: error.message, label: 'updateMemberProfile' });

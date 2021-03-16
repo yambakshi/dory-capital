@@ -1,6 +1,5 @@
 import { Request, Response } from 'express';
 import { insertSections } from '../../services';
-import { socket } from '../../../config/socket';
 import { validateSectionsCreation } from '../../validation-schemas';
 import { logger } from '../../../config/logger';
 
@@ -20,7 +19,6 @@ export async function createSections(req: Request, res: Response) {
     try {
         logger.info({ message: "Received 'createSections' request", label: 'createSections' });
         const output = await processSectionCreation(req.body.sections);
-        socket.nsp.emit('page-data-changed');
         res.send(output);
     } catch (error) {
         logger.error({ message: error.message, label: 'createSections' });

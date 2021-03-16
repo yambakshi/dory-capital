@@ -1,5 +1,5 @@
 export { env } from './env';
-export { socket } from './socket';
+export { socketIo } from './socket-io';
 export { ajv } from './ajv';
 export { configApp } from './express';
 export { configPassport } from './passport';
