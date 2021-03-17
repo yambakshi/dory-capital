@@ -16,7 +16,7 @@
             }
 
             > .login-inputs {
-                margin-bottom: 15px;
+                margin-bottom: 5px;
 
                 > .input-container {
                     > input {
@@ -26,11 +26,13 @@
                 }
             }
 
-            // > .forgot-my-password-container {
-            //     > .forgot-my-password {
-            //         font-size: 12px;
-            //     }
-            // }
+            > .forgot-my-password-container {
+                margin-bottom: 10px;
+
+                > .forgot-my-password {
+                    font-size: 12px;
+                }
+            }
 
             > .login-button-container {
                 margin-bottom: 6px;

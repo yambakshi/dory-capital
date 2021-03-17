@@ -15,17 +15,14 @@
             <mat-label class="upload-field-recomendation">{{fileUploadRecommendation}}</mat-label>
         </div>
         <div class="member-text-fields-container">
-            <p>Name</p>
             <mat-form-field class="member-field-container">
                 <mat-label>Name</mat-label>
-                <input matInput formControlName="name" (input)="onInput('name')">
+                <input matInput formControlName="name" placeholder="Asher Dory" (input)="onInput('name')">
             </mat-form-field>
-            <p>Link</p>
             <mat-form-field class="member-field-container">
                 <mat-label>Link</mat-label>
-                <input matInput formControlName="link" (input)="onInput('link')">
+                <input matInput formControlName="link" placeholder="https://www.linkedin.com" (input)="onInput('link')">
             </mat-form-field>
-            <p>Skills</p>
             <mat-form-field class="member-skills-field-container" appearance="fill">
                 <mat-label>Skills</mat-label>
                 <mat-select formControlName="skills" multiple (selectionChange)="onSelectChange()">

@@ -1,5 +1,9 @@
 .approve-dialog-container {
     .approve-actions-container {
+        margin-bottom: 0;
+        min-height: unset;
+        padding: 0;
+
         > .loader-container {
             margin-left: 8px;
         }
