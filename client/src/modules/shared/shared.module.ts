@@ -7,7 +7,6 @@ import { FormsModule } from '@angular/forms';
 import { MainHeaderComponent } from '@components/main-header/main-header.component';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
-import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -20,16 +19,14 @@ import { MatDialogModule } from '@angular/material/dialog';
         MatFormFieldModule,
         MatButtonModule,
         HttpClientModule,
-        RouterModule,
-        MatDialogModule
+        RouterModule
     ],
     exports: [
         CommonModule,
         MatIconModule,
         FormsModule,
         MatButtonModule,
-        MainHeaderComponent,
-        MatDialogModule
+        MainHeaderComponent
     ]
 })
 export class SharedModule { }
