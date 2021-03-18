@@ -1,6 +1,5 @@
 import { Component } from "@angular/core";
 import { Cloudinary } from "@cloudinary/angular-5.x";
-// import { InvestorsLoginDialog } from "@components/investors-login-dialog/investors-login.dialog";
 
 @Component({
     selector: 'investors-section',
