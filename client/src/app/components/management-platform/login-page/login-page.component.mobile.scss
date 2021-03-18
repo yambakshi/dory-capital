@@ -7,6 +7,7 @@
         > .login-form {
             width: 300px;
             padding: 10px;
+            border-radius: 15px;
 
             > .login-title-container {
                 > .login-title {
@@ -16,23 +17,27 @@
             }
 
             > .login-inputs {
-                margin-bottom: 5px;
+                margin-bottom: 15px;
 
                 > .input-container {
                     > input {
                         font-size: 18px;
                         line-height: 20px;
                     }
+
+                    &:not(:last-of-type) {
+                        margin-bottom: 6px;
+                    }
                 }
             }
 
-            > .forgot-my-password-container {
-                margin-bottom: 10px;
+            // > .forgot-my-password-container {
+            //     margin-bottom: 10px;
 
-                > .forgot-my-password {
-                    font-size: 12px;
-                }
-            }
+            //     > .forgot-my-password {
+            //         font-size: 12px;
+            //     }
+            // }
 
             > .login-button-container {
                 margin-bottom: 6px;
@@ -41,6 +46,7 @@
                     > .login-button {
                         padding: 6px;
                         font-size: 18px;
+                        border-radius: 7px;
                     }
                 }
             }

@@ -37,7 +37,7 @@
         }
 
         > .login-inputs {
-            margin-bottom: 5px;
+            margin-bottom: 20px;
 
             > .input-container {
                 display: flex;
@@ -60,18 +60,18 @@
             }
         }
 
-        > .forgot-my-password-container {
-            display: flex;
-            justify-content: flex-end;
-            margin-bottom: 20px;
+        // > .forgot-my-password-container {
+        //     display: flex;
+        //     justify-content: flex-end;
+        //     margin-bottom: 20px;
 
-            > .forgot-my-password {
-                cursor: pointer;
-                text-decoration: underline;
-                font-size: 16px;
-                user-select: none;
-            }
-        }
+        //     > .forgot-my-password {
+        //         cursor: pointer;
+        //         text-decoration: underline;
+        //         font-size: 16px;
+        //         user-select: none;
+        //     }
+        // }
 
         > .login-button-container {
             display: flex;
