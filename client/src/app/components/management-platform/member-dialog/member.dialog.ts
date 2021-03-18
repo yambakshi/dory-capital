@@ -60,9 +60,9 @@ export class MemberDialog implements OnInit {
         const skillsIds = member.skills ? member.skills.map(({ _id }) => _id) : [];
         const fileInputValidators = this.data.editMode ? [] : [Validators.required];
         this.memberForm = this.formBuilder.group({
-            name: [name, [Validators.required]],
-            link: [link, [Validators.required]],
-            skills: [skillsIds, [Validators.required]],
+            name: [name, []],
+            link: [link, []],
+            skills: [skillsIds, []],
             profilePicture: ['', fileInputValidators],
             hidden: [hidden, Validators.required]
         });
@@ -168,7 +168,6 @@ export class MemberDialog implements OnInit {
         }
 
         this.showLoader = true;
-        await this.timeout(500);
         this.data.editMode ? this.submitEdit() : this.submitAdd();
     }
 
@@ -180,6 +179,9 @@ export class MemberDialog implements OnInit {
             if (field === 'profilePicture') {
                 member.imageId = this.data.member.imageId;
                 member.profilePictureFile = this.profilePicture.file;
+            } else if (field === 'skills') { // If skills array is empty it's omitted from FormData
+                const fieldValue = this.memberForm.controls[field].value;
+                member[field] = fieldValue.length > 0 ? fieldValue : '[]';
             } else {
                 member[field] = this.memberForm.controls[field].value
             }

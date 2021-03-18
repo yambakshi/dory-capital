@@ -13,7 +13,8 @@ import { isPlatformBrowser } from '@angular/common';
 })
 export class ApiService {
     private pageDataSubject: BehaviorSubject<PageData>;
-    httpOptions: any = {
+    private readonly eventName: string = 'page-data-changed';
+    private httpOptions: any = {
         headers: {},
         responseType: 'json'
     }
@@ -26,7 +27,7 @@ export class ApiService {
 
         if (isPlatformBrowser(this.platformId)) {
             this.socketIoService.connect();
-            this.socketIoService.listen('page-data-changed').subscribe(() => {
+            this.socketIoService.listen(this.eventName).subscribe(() => {
                 this.getPageData().subscribe(() => { });
             })
         }
@@ -52,12 +53,16 @@ export class ApiService {
 
     updateSectionTitle(update: { _id: string, title: string }): any {
         return this.http.post('/api/sections', update, this.httpOptions)
-            .pipe(catchError(this.handleError));
+            .pipe(
+                map(this.handleResponse.bind(this)),
+                catchError(this.handleError));
     }
 
     updateParagraph(paragraph: Paragraph): any {
         return this.http.post('/api/paragraphs', paragraph, this.httpOptions)
-            .pipe(catchError(this.handleError));
+            .pipe(
+                map(this.handleResponse.bind(this)),
+                catchError(this.handleError));
     }
 
     getSkills(): any {
@@ -68,26 +73,39 @@ export class ApiService {
     addMember(member: Member): any {
         const formData = this.objectToFormData(member);
         return this.http.put('/api/members', formData, this.httpOptions)
-            .pipe(catchError(this.handleError));
+            .pipe(
+                map(this.handleResponse.bind(this)),
+                catchError(this.handleError));
     }
 
     updateMember(member: Member): any {
         const formData = this.objectToFormData(member);
         return this.http.post('/api/members', formData, this.httpOptions)
-            .pipe(catchError(this.handleError));
+            .pipe(
+                map(this.handleResponse.bind(this)),
+                catchError(this.handleError));
     }
 
     removeMembers(sectionId: string, members: { _id: string, imageId: string }[]): any {
         const body = { sectionId, members };
         const options = { ...this.httpOptions, body };
         return this.http.delete('/api/members', options)
-            .pipe(catchError(this.handleError));
+            .pipe(
+                map(this.handleResponse.bind(this)),
+                catchError(this.handleError));
     }
 
     reorderMembers(sectionId: string, membersIds: string[]): any {
         const body = { sectionId, membersIds };
         return this.http.post('/api/reorder-members', body, this.httpOptions)
-            .pipe(catchError(this.handleError));
+            .pipe(
+                map(this.handleResponse.bind(this)),
+                catchError(this.handleError));
+    }
+
+    private handleResponse(res: any): any {
+        this.socketIoService.emit(this.eventName);
+        return res;
     }
 
     private handleError(error: HttpErrorResponse) {

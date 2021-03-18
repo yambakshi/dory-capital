@@ -1,12 +1,12 @@
 import { ajv } from '../../../config';
 
 const memberProfileCreationSchema = {
-    required: ['name', 'link', 'sectionId', 'skills', 'profilePictureFile', 'hidden'],
+    required: ['sectionId', 'profilePictureFile', 'hidden'],
     title: 'member-profile-creation',
     type: 'object',
     properties: {
-        name: { type: 'string', format: 'non-empty-string' },
-        link: { type: 'string', format: 'non-empty-string' },
+        name: { type: 'string' },
+        link: { type: 'string' },
         sectionId: { type: 'string', format: 'non-empty-string' },
         skills: {
             type: 'array',

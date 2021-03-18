@@ -1,6 +1,7 @@
 .member-dialog-container {
     .member-dialog-fields-container {
         display: flex;
+        margin-bottom: 20px;
 
         > .file-upload-field-container {
             display: flex;
@@ -55,6 +56,10 @@
     }
 
     .member-actions-container {
+        margin-bottom: 0;
+        min-height: unset;
+        padding: 0;
+
         > .loader-container {
             margin-left: 8px;
         }

@@ -7,6 +7,7 @@
         > .login-form {
             width: 300px;
             padding: 10px;
+            border-radius: 15px;
 
             > .login-title-container {
                 > .login-title {
@@ -23,10 +24,16 @@
                         font-size: 18px;
                         line-height: 20px;
                     }
+
+                    &:not(:last-of-type) {
+                        margin-bottom: 6px;
+                    }
                 }
             }
 
             // > .forgot-my-password-container {
+            //     margin-bottom: 10px;
+
             //     > .forgot-my-password {
             //         font-size: 12px;
             //     }
@@ -39,6 +46,7 @@
                     > .login-button {
                         padding: 6px;
                         font-size: 18px;
+                        border-radius: 7px;
                     }
                 }
             }

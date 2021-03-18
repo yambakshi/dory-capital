@@ -1,6 +1,5 @@
 import { Request, Response } from 'express';
 import { deleteMembers } from '../../services';
-import { socket } from '../../../config/socket';
 import { validateMembersProfilesDeletion } from '../../validation-schemas';
 import { logger } from '../../../config/logger';
 
@@ -20,7 +19,6 @@ export async function deleteMembersProfiles(req: Request, res: Response) {
     try {
         logger.info({ message: "Received 'deleteMembersProfiles' request", label: 'deleteMembersProfiles' });
         const output = await processMembersProfilesDeletion(req.body);
-        socket.nsp.emit('page-data-changed');
         res.send(output);
     } catch (error) {
         logger.error({ message: error.message, label: 'deleteMembersProfiles' });

@@ -7,7 +7,7 @@
     <div class="leadership-grid">
         <div #membersContainer class="members-grid-container">
             <div *ngFor="let member of data.members; let i = index" class="members-grid-item">
-                <a [href]="member.link" target="_blank" rel="noopener">
+                <a [href]="member.link" target="_blank" rel="noopener" [ngClass]="!!member.link ? '' : 'disabled'">
                     <div class="profile-image-overlay"></div>
                     <div class="profile-image-container">
                         <img [src]="imgSrc(member.imageId)" [alt]="member.name" loading="lazy" />

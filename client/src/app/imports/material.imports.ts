@@ -7,6 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 export const MATERIAL_IMPORTS = [
@@ -18,5 +19,6 @@ export const MATERIAL_IMPORTS = [
     MatInputModule,
     MatMenuModule,
     MatSelectModule,
-    DragDropModule
+    DragDropModule,
+    MatDialogModule
 ]

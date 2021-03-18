@@ -9,6 +9,12 @@ export const logger = createLogger({
     format: format.combine(format.timestamp(), customFormat),
     transports: [
         new transports.Console({ level: 'info' }),
-        new transports.File({ filename: './log/dory-capital.log', level: 'info' }),
+        new transports.File({
+            filename: './log/dory-capital.log',
+            level: 'info',
+            maxsize: 1000000,
+            maxFiles: 5,
+            zippedArchive: true
+        }),
     ],
 });
