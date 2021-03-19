@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from '@services/login.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 
 @Component({
     selector: 'login-page',
@@ -21,7 +23,8 @@ export class LoginPageComponent implements OnInit {
     constructor(
         private loginService: LoginService,
         private formBuilder: FormBuilder,
-        private router: Router) { }
+        private router: Router,
+        private snackBar: MatSnackBar) { }
 
     ngOnInit(): void {
         this.loginForm = this.formBuilder.group({
@@ -48,22 +51,30 @@ export class LoginPageComponent implements OnInit {
         this.loginService.login({
             email: this.loginForm.controls.email.value,
             password: this.loginForm.controls.password.value
-        }).subscribe(
-            ({ success, message }: any) => {
-                if (success) {
-                    this.router.navigate(['/admin']);
-                } else {
-                    this.showLoader = false;
-                    this.authError = message;
-                }
-            },
-            err => {
+        }).subscribe((response: { success: boolean, message: string }) => {
+            if (response.success) {
+                this.router.navigate(['/admin']);
+            } else {
                 this.showLoader = false;
-                this.authError = err;
-            });
+                this.showSnackBar(response);
+            }
+        }, err => {
+            this.showLoader = false;
+            this.authError = err;
+        });
     }
 
-    inputChanged(): void {
-        this.authError = '';
+    showSnackBar({ message }) {
+        const config = {
+            duration: 5000,
+            panelClass: ['custom-snackbar', 'fail-snackbar']
+        }
+
+        // config.panelClass.push(`${success ? 'success' : 'fail'}-snackbar`);
+        this.snackBar.open(message, 'Dismiss', config);
     }
+
+    // inputChanged(): void {
+    //     this.authError = '';
+    // }
 }
