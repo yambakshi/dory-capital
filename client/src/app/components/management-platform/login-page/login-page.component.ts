@@ -70,11 +70,6 @@ export class LoginPageComponent implements OnInit {
             panelClass: ['custom-snackbar', 'fail-snackbar']
         }
 
-        // config.panelClass.push(`${success ? 'success' : 'fail'}-snackbar`);
         this.snackBar.open(message, 'Dismiss', config);
     }
-
-    // inputChanged(): void {
-    //     this.authError = '';
-    // }
 }
