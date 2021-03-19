@@ -1,7 +1,7 @@
 import { Router } from "express";
 import passport from 'passport';
 import {
-    register, login, logout, getLoginStatus,
+    register, login, logout, getLoginStatus, changePassword,
     getPageData,
     createMemberProfile, updateMemberProfile, deleteMembersProfiles, reorderMembersProfiles,
     updateParagraph,
@@ -9,7 +9,7 @@ import {
     createSkills, getSkills
 } from '../../app/controllers';
 import {
-    loginMiddleware, loginStatusMiddleware, logoutMiddleware,
+    loginMiddleware, loginStatusMiddleware, authMiddleware,
     memberFormatterMiddleware, uploadProfilePictureMiddleware
 } from "../middlewares";
 
@@ -26,7 +26,10 @@ router.route('/api/auth/login')
     .post(loginMiddleware, login);
 
 router.route('/api/auth/logout')
-    .post(logoutMiddleware, logout);
+    .post(authMiddleware, logout);
+
+router.route('/api/auth/change-password')
+    .post(authMiddleware, changePassword);
 
 // General
 

@@ -6,6 +6,7 @@ import { SpinningLoaderComponent } from '@components/management-platform/spinnin
 import { MemberDialog } from '@components/management-platform/member-dialog/member.dialog';
 import { ApproveDialog } from '@components/management-platform/approve-dialog/approve.dialog';
 import { LoginPageComponent } from '@components/management-platform/login-page/login-page.component';
+import { ChangePasswordComponent } from '@components/management-platform/change-password/change-password.component';
 
 
 export const ADMIN_DECLARATIONS = [
@@ -17,4 +18,5 @@ export const ADMIN_DECLARATIONS = [
     LoginPageComponent,
     ApproveDialog,
     MemberDialog,
+    ChangePasswordComponent
 ]

@@ -66,9 +66,4 @@ export class LoginPageComponent implements OnInit {
     inputChanged(): void {
         this.authError = '';
     }
-
-    onReset() {
-        this.submitted = false;
-        this.loginForm.reset();
-    }
 }

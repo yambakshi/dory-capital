@@ -27,6 +27,7 @@ export class AuthGuard implements CanActivate {
 
         const routes = {
             '': loggedIn => [loggedIn, !loggedIn && 'login'],
+            'change-password': loggedIn => [loggedIn, !loggedIn && 'login'],
             'login': loggedIn => [!loggedIn, loggedIn && '']
         }
 

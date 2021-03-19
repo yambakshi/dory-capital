@@ -8,5 +8,6 @@ export async function reorderMembers({ sectionId, membersIds }: { sectionId: str
     const filter = { _id: { $eq: new ObjectID(sectionId) } };
     const data = { members: objectIds };
     const output = await mongoDb.updateOne(env.mongodb.dbName, 'sections', filter, data);
+
     return output;
 }

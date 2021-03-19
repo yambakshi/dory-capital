@@ -36,13 +36,16 @@ export class LoginService {
     }
 
     logout(): any {
-        return this.http.post('/api/auth/logout', {}, this.httpOptions).pipe(map(res => res),
-            finalize(() => {
-                this.router.navigate(['']);
-                this.setLoginStatus(false);
-            }), catchError(this.handleError)).subscribe(res => {
-                this.cookiesService.remove(COOKIES.TOKEN_KEY);
-            });
+        return this.http.post('/api/auth/logout', {}, this.httpOptions)
+            .pipe(
+                map(res => res),
+                finalize(() => {
+                    this.router.navigate(['']);
+                    this.setLoginStatus(false);
+                }),
+                catchError(this.handleError)).subscribe(res => {
+                    this.cookiesService.remove(COOKIES.TOKEN_KEY);
+                });
     }
 
     getLoginStatus(): any {
@@ -51,14 +54,20 @@ export class LoginService {
     }
 
     login(creds: { email: string, password: string }): any {
-        return this.http.post('/api/auth/login', creds, this.httpOptions).pipe(map(
-            (res: any) => {
-                const status = res.success;
-                this.setLoginStatus(status);
-                status && this.cookiesService.set(COOKIES.TOKEN_KEY, res.token);
-                return res;
-            }),
-            catchError(this.handleError));
+        return this.http.post('/api/auth/login', creds, this.httpOptions)
+            .pipe(
+                map((res: any) => {
+                    const status = res.success;
+                    this.setLoginStatus(status);
+                    status && this.cookiesService.set(COOKIES.TOKEN_KEY, res.token);
+                    return res;
+                }),
+                catchError(this.handleError));
+    }
+
+    changePassword(password: string): any {
+        return this.http.post('/api/auth/change-password', { password }, this.httpOptions)
+            .pipe(catchError(this.handleError));
     }
 
     private handleError(error: HttpErrorResponse) {
