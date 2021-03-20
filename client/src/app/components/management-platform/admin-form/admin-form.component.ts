@@ -3,6 +3,8 @@ import { NgForm } from '@angular/forms';
 import { Paragraph } from '@models/paragraph';
 import { Section } from '@models/section';
 import { ApiService } from '@services/api.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ApiResponse } from '@models/responses';
 
 @Component({
     selector: 'admin-form',
@@ -22,10 +24,16 @@ export class AdminFormComponent {
     inputBackup: Section | Paragraph = null;
     submitCallback: Function;
 
-    constructor(private apiService: ApiService) {
-        this.submitCallback = (res: any) => {
-            this.inputBackup = this.data[this.type];
+    constructor(
+        private apiService: ApiService,
+        private snackBar: MatSnackBar) {
+        this.submitCallback = (res: ApiResponse) => {
+            res.success ?
+                this.inputBackup = this.data[this.type] :
+                this.reset();
+
             this.showLoader = false;
+            this.showSnackBar(res);
         }
     }
 
@@ -54,11 +62,8 @@ export class AdminFormComponent {
             return;
         }
 
-
         this.disableButtons = true;
         this.showLoader = true;
-
-        await this.timeout(500);
 
         const update: any = { _id: this.data._id };
         switch (this.type) {
@@ -78,10 +83,6 @@ export class AdminFormComponent {
         }
     }
 
-    timeout(ms: number) {
-        return new Promise(resolve => setTimeout(resolve, ms));
-    }
-
     inputChanged(): void {
         if (this.isTextDisabled) {
             return;
@@ -93,5 +94,15 @@ export class AdminFormComponent {
     reset(): void {
         this.data[this.type] = this.inputBackup;
         this.disableButtons = true;
+    }
+
+    showSnackBar({ success, message }) {
+        const config = {
+            duration: 5000,
+            panelClass: ['custom-snackbar']
+        }
+
+        config.panelClass.push(`${success ? 'success' : 'fail'}-snackbar`);
+        this.snackBar.open(message, 'Dismiss', config);
     }
 }

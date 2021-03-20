@@ -13,6 +13,8 @@ import { LeadershipSection } from '@models/section';
 import { Member } from '@models/member';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { ApiService } from '@services/api.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ApiResponse } from '@models/responses';
 
 interface MemberRow extends Member {
   index: number;
@@ -42,7 +44,8 @@ export class AdminLeadershipComponent implements OnInit {
     public dialog: MatDialog,
     @Inject(PLATFORM_ID) private platformId: any,
     private windowRefService: WindowRefService,
-    private apiService: ApiService) {
+    private apiService: ApiService,
+    private snackBar: MatSnackBar) {
     this.dataSource = new MatTableDataSource([]);
   }
 
@@ -72,8 +75,8 @@ export class AdminLeadershipComponent implements OnInit {
     this.dataSource.data = this.membersRows;
     const membersIds = this.membersRows.map(({ _id }) => _id);
     this.apiService.reorderMembers(this.section._id, membersIds).subscribe(
-      res => { },
-      err => { console.log(err) });
+      ({ success, message }: ApiResponse) => { this.showSnackBar(success, message) },
+      err => { this.showSnackBar(false, err.message) });
   }
 
   applyFilter(event: Event) {
@@ -86,10 +89,18 @@ export class AdminLeadershipComponent implements OnInit {
   }
 
   addMember(): void {
-    const dialogCallback = member => {
-      if (!member) return;
-      this.membersRows.push(member);
+    const dialogCallback = (res: ApiResponse) => {
+      if (!res) return;
+
+      const { success, message, data: member } = res;
+      if (!member) {
+        this.showSnackBar(success, message);
+        return;
+      }
+
+      this.membersRows.push(member as MemberRow);
       this.dataSource.data = this.membersRows;
+      this.showSnackBar(success, message);
     }
 
     const dialogData = {
@@ -103,8 +114,15 @@ export class AdminLeadershipComponent implements OnInit {
 
   editMember($event, member): void {
     $event.stopPropagation();
-    const dialogCallback = updatedMember => {
-      if (!updatedMember) return;
+    const dialogCallback = (res: ApiResponse) => {
+      if (!res) return;
+
+      const { success, message, data: updatedMember } = res;
+      if (!updatedMember) {
+        this.showSnackBar(success, message);
+        return;
+      }
+
       for (let i = 0, length = this.membersRows.length; i < length; i++) {
         if (this.membersRows[i]._id == updatedMember._id) {
           this.membersRows[i].name = updatedMember.name;
@@ -117,6 +135,7 @@ export class AdminLeadershipComponent implements OnInit {
       }
 
       this.dataSource.data = this.membersRows;
+      this.showSnackBar(success, message);
     }
 
     const dialogData = { editMode: true, member, skills: this.skills };
@@ -158,8 +177,15 @@ export class AdminLeadershipComponent implements OnInit {
       data
     });
 
-    dialogRef.afterClosed().subscribe(removedMembersIds => {
-      if (!removedMembersIds) return;
+    dialogRef.afterClosed().subscribe((res: ApiResponse) => {
+      if (!res) return;
+
+      const { success, message, data: removedMembersIds } = res;
+      if (!removedMembersIds) {
+        this.showSnackBar(success, message);
+        return;
+      }
+
       removedMembersIds.forEach(removedId => {
         const index = this.membersRows.findIndex(({ _id }) => removedId === _id);
         const removedMembers = this.membersRows.splice(index, 1);
@@ -167,6 +193,7 @@ export class AdminLeadershipComponent implements OnInit {
       });
 
       this.dataSource.data = this.membersRows;
+      this.showSnackBar(success, message);
     });
   }
 
@@ -183,13 +210,13 @@ export class AdminLeadershipComponent implements OnInit {
     return skills.map(({ name }) => name).join(', ');
   }
 
-  isAllSelected() {
+  isAllSelected(): boolean {
     const numSelected = this.selection.selected.length;
     const numRows = this.dataSource.data.length;
     return numSelected === numRows;
   }
 
-  masterToggle() {
+  masterToggle(): void {
     this.isAllSelected() ?
       this.selection.clear() :
       this.dataSource.data.forEach(row => this.selection.select(row));
@@ -201,5 +228,15 @@ export class AdminLeadershipComponent implements OnInit {
     }
 
     return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.index + 1}`;
+  }
+
+  showSnackBar(success: boolean, message: string): void {
+    const config = {
+      duration: 5000,
+      panelClass: ['custom-snackbar']
+    }
+
+    config.panelClass.push(`${success ? 'success' : 'fail'}-snackbar`);
+    this.snackBar.open(message, 'Dismiss', config);
   }
 }

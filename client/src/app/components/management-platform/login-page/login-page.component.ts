@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { LoginService } from '@services/login.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
-
 @Component({
     selector: 'login-page',
     templateUrl: './login-page.component.html',

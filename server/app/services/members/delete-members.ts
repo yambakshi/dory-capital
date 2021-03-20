@@ -24,5 +24,9 @@ export async function deleteMembers({ sectionId, members }: { sectionId: string,
         await mongoDb.updateOne(env.mongodb.dbName, 'sections', filter, data);
     }
 
-    return members.map(({ _id }) => _id);
+    return {
+        success: true,
+        message: 'Successfully removed members',
+        data: members.map(({ _id }) => _id)
+    };
 }

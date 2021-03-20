@@ -156,10 +156,6 @@ export class MemberDialog implements OnInit {
         this.diff = inputChanged;
     }
 
-    timeout(ms: number) {
-        return new Promise(resolve => setTimeout(resolve, ms));
-    }
-
     async onSubmit() {
         this.submitted = true;
 
@@ -175,6 +171,7 @@ export class MemberDialog implements OnInit {
         const { _id } = this.data.member;
         const member = new Member({ _id });
         const modifiedFields = Object.keys(this.diffValidator).filter(key => this.diffValidator[key]);
+
         modifiedFields.forEach(field => {
             if (field === 'profilePicture') {
                 member.imageId = this.data.member.imageId;
@@ -195,6 +192,7 @@ export class MemberDialog implements OnInit {
     submitAdd(): void {
         const { sectionId } = this.data.member;
         const member = new Member({ sectionId });
+
         for (const field in this.memberForm.controls) {
             if (field === 'profilePicture') {
                 member.profilePictureFile = this.profilePicture.file;

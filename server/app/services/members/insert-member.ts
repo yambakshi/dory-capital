@@ -35,5 +35,9 @@ export async function insertMember(rawMember: Member) {
         member.skills = await querySkills(member.skills);
     }
 
-    return member;
+    return {
+        success: true,
+        message: 'Successfully added member',
+        data: member
+    };
 }

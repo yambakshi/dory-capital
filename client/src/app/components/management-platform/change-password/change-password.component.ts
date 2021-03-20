@@ -3,7 +3,7 @@ import { FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Valida
 import { ErrorStateMatcher } from '@angular/material/core';
 import { LoginService } from '@services/login.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
+import { ApiResponse } from '@models/responses';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
     isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -26,7 +26,6 @@ export class ChangePasswordComponent implements OnInit {
     changePasswordForm: FormGroup;
     submitted: boolean = false;
     passwordMinLength: number = 6;
-    passwordsMatch: boolean = false;
     showLoader: boolean = false;
     matcher = new MyErrorStateMatcher();
 
@@ -60,10 +59,10 @@ export class ChangePasswordComponent implements OnInit {
         this.showLoader = true;
         const password = this.changePasswordForm.controls.password.value;
         this.loginService.changePassword(password)
-            .subscribe((response: { success: boolean, message: string }) => {
+            .subscribe((res: ApiResponse) => {
                 this.showLoader = false;
                 this.submitted = false;
-                this.showSnackBar(response);
+                this.showSnackBar(res);
                 this.changePasswordForm.reset();
             }, err => {
                 this.showLoader = false;

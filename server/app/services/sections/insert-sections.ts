@@ -51,5 +51,8 @@ export async function insertSections(sections: Section[]) {
         await mongoDb.push(env.mongodb.dbName, 'sections', filter, data);
     }
 
-    return { message: "Successfully created sections" };
+    return {
+        success: true,
+        message: 'Successfully created sections'
+    };
 }

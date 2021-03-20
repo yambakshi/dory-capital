@@ -9,5 +9,9 @@ export async function reorderMembers({ sectionId, membersIds }: { sectionId: str
     const data = { members: objectIds };
     const output = await mongoDb.updateOne(env.mongodb.dbName, 'sections', filter, data);
 
-    return output;
+    return {
+        success: true,
+        message: 'Succesfully reordered members',
+        data: output
+    };
 }
