@@ -11,8 +11,8 @@ import { AfterViewInit, Component, ElementRef, HostListener, Inject, PLATFORM_ID
 })
 export class IntroSectionComponent implements AfterViewInit {
     @ViewChild('videoElement') videoElement: ElementRef;
-    isLoggedIn: boolean = false;
     videoSrc: string = 'https://res.cloudinary.com/dory-capital/video/upload/f_auto,q_auto/v1612139147/dory-capital/bg-video_fvwmqy.mov';
+
     constructor(
         @Inject(DOCUMENT) private document: Document,
         @Inject(PLATFORM_ID) private platformId: any,
