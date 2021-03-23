@@ -5,12 +5,12 @@ import { PageDataResolver } from '@resolvers/page-data.resolver';
 
 
 const routes: Routes = [
-  { path: '', component: HomePageComponent, resolve: { pageData: PageDataResolver } },
+  { path: 'beta', component: HomePageComponent, resolve: { pageData: PageDataResolver } },
   {
     path: 'admin',
     loadChildren: () => import('@modules/admin/admin.module').then(m => m.AdminModule)
   },
-  { path: "**", redirectTo: "" }
+  { path: "**", redirectTo: "beta" }
 ];
 
 @NgModule({

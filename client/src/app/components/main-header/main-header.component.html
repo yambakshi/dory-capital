@@ -8,17 +8,10 @@
                 <mat-icon>more_vert</mat-icon>
             </button>
             <div *ngIf="showMenu" class="header-menu">
-                <a *ngIf="router.url !== '/'" routerLink="/">
-                    <mat-icon>home</mat-icon>
-                    <mat-label>Home Page</mat-label>
-                </a>
-                <a *ngIf="router.url !== '/admin'" routerLink="/admin">
-                    <mat-icon>person</mat-icon>
-                    <mat-label>Admin Page</mat-label>
-                </a>
-                <a *ngIf="router.url !== '/admin/change-password'" routerLink="/admin/change-password">
-                    <mat-icon>password</mat-icon>
-                    <mat-label>Change Password</mat-label>
+                <a *ngFor="let item of menuItems" [routerLink]="item.link"
+                    [ngClass]="isSelected(item.link) ? 'selected' : ''">
+                    <mat-icon>{{item.icon}}</mat-icon>
+                    <mat-label>{{item.label}}</mat-label>
                 </a>
                 <div class="header-menu-logout" (click)="logout($event)">
                     <mat-icon>logout</mat-icon>

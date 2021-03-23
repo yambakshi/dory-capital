@@ -2,28 +2,28 @@
     <main-header *ngIf="isLoggedIn" class="main-header-component"></main-header>
     <intro-section class="intro-section-component" [ngClass]="isLoggedIn ? 'logged-in' : ''"></intro-section>
     <section class="sections-container">
-        <div class="section-container" id="scope">
+        <div #scope id="scope" class="section-container">
             <scope-section [data]="pageData.sections[0]"></scope-section>
         </div>
-        <div class="section-container" id="about">
+        <div #aboutus id="about-us" class="section-container">
             <about-us-section [data]="pageData.sections[1]"></about-us-section>
         </div>
-        <div class="section-container" id="whyus">
+        <div #whyus id="why-us" class="section-container">
             <why-us-section [data]="pageData.sections[2]"></why-us-section>
         </div>
-        <div class="section-container process-section-padding" id="process">
+        <div #process id="process" class="section-container process-section-padding">
             <process-section [data]="pageData.sections[4]"></process-section>
         </div>
-        <div class="section-container leadership-section-margin" id="leadership">
+        <div #leadership id="leadership" class="section-container leadership-section-margin">
             <leadership-section [data]="pageData.sections[3]" [skills]="pageData.skills"></leadership-section>
         </div>
-        <div class="section-container" id="faq">
+        <div #faq id="faq" class="section-container">
             <faq-section [data]="pageData.sections[5]"></faq-section>
         </div>
-        <div class="section-container" id="investors">
+        <div #investors id="investors" class="section-container">
             <investors-section></investors-section>
         </div>
-        <div class="section-container" id="contact">
+        <div #contactus id="contact-us" class="section-container">
             <contact-section [data]="pageData.sections[6]"></contact-section>
         </div>
     </section>
@@ -34,14 +34,14 @@
     <div #pageNavigator class="page-navigator-container" (mouseleave)="mouseLeavePageNavigator()">
         <div class="page-navigator" (mouseenter)="mouseHoverPageNavigation()">
             <img [src]="imgSrc(navigatorIcons.idle)" alt="page-navigator" />
-            <a href="#contact" rel="noopener" class="faq1">Contact</a>
-            <a href="#investors" rel="noopener" class="faq2">Investors</a>
-            <a href="#faq" rel="noopener" class="faq3">FAQ</a>
-            <a href="#leadership" rel="noopener" class="faq4">Leadership</a>
-            <a href="#process" rel="noopener" class="faq5">Process</a>
-            <a href="#whyus" rel="noopener" class="faq6">Why us</a>
-            <a href="#about" rel="noopener" class="faq7">About us</a>
-            <a href="#scope" rel="noopener" class="faq8">Scope</a>
+            <div class="contact-us" (click)="scrollTo(contactus)">Contact Us</div>
+            <div class="investors" (click)="scrollTo(investors)">Investors</div>
+            <div class="faq" (click)="scrollTo(faq)">FAQ</div>
+            <div class="leadership" (click)="scrollTo(leadership)">Leadership</div>
+            <div class="process" (click)="scrollTo(process)">Process</div>
+            <div class="why-us" (click)="scrollTo(whyus)">Why Us</div>
+            <div class="about-us" (click)="scrollTo(aboutus)">About Us</div>
+            <div class="scope" (click)="scrollTo(scope)">Scope</div>
         </div>
     </div>
     <div #scrollToTopButton class="scroll-to-top-container" (click)="scrollToTop()">

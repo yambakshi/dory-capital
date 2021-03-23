@@ -13,6 +13,21 @@ import { LoginService } from '@services/login.service';
 export class MainHeaderComponent {
     showMenu: boolean = false;
     showOutsideMenu: boolean = false;
+    menuItems = [{
+        link: '/beta',
+        icon: 'home',
+        label: 'Home Page'
+    },
+    {
+        link: '/admin',
+        icon: 'person',
+        label: 'Admin Page'
+    },
+    {
+        link: '/admin/change-password',
+        icon: 'password',
+        label: 'Change Password'
+    }]
 
     constructor(
         private loginService: LoginService,
@@ -22,6 +37,10 @@ export class MainHeaderComponent {
         $event.stopPropagation();
         this.showMenu = false;
         this.showOutsideMenu = false;
+    }
+
+    isSelected(option: string): boolean {
+        return this.router.url === option;
     }
 
     openMenu(): void {
