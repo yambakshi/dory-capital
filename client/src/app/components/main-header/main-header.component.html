@@ -8,16 +8,11 @@
                 <mat-icon>more_vert</mat-icon>
             </button>
             <div *ngIf="showMenu" class="header-menu">
-                <a *ngIf="router.url == '/admin'; else elseBlock" routerLink="/">
-                    <mat-icon>home</mat-icon>
-                    <mat-label>Home Page</mat-label>
+                <a *ngFor="let item of menuItems" [routerLink]="item.link"
+                    [ngClass]="isSelected(item.link) ? 'selected' : ''">
+                    <mat-icon>{{item.icon}}</mat-icon>
+                    <mat-label>{{item.label}}</mat-label>
                 </a>
-                <ng-template #elseBlock>
-                    <a routerLink="/admin">
-                        <mat-icon>person</mat-icon>
-                        <mat-label>Admin Page</mat-label>
-                    </a>
-                </ng-template>
                 <div class="header-menu-logout" (click)="logout($event)">
                     <mat-icon>logout</mat-icon>
                     <mat-label>Logout</mat-label>

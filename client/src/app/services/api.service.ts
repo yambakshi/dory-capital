@@ -7,6 +7,7 @@ import { Paragraph } from '@models/paragraph';
 import { PageData } from '@models/page-data';
 import { SocketIoService } from './socket-io.service';
 import { isPlatformBrowser } from '@angular/common';
+import { ApiResponse } from '@models/responses';
 
 @Injectable({
     providedIn: 'root'
@@ -103,8 +104,8 @@ export class ApiService {
                 catchError(this.handleError));
     }
 
-    private handleResponse(res: any): any {
-        this.socketIoService.emit(this.eventName);
+    private handleResponse(res: ApiResponse): ApiResponse {
+        res.success && this.socketIoService.emit(this.eventName);
         return res;
     }
 
@@ -119,9 +120,9 @@ export class ApiService {
                 `Backend returned code ${error.status}, ` +
                 `body was: ${error.error}`);
         }
+
         // Return an observable with a user-facing error message.
-        return throwError(
-            'Something bad happened; please try again later.');
+        return throwError('Something bad happened; please try again later.');
     }
 
     private objectToFormData(obj: any, form?: FormData, namespace?: string): FormData {

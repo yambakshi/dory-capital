@@ -1,6 +1,6 @@
 import passport from 'passport';
 
-export function logoutMiddleware(req, res, next) {
+export function authMiddleware(req, res, next) {
     passport.authenticate('jwt', { session: false }, (err, user, info) => {
         if (err) {
             return next(err)

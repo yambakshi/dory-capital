@@ -1,3 +1,3 @@
 export { loginMiddleware } from './login.middleware';
-export { logoutMiddleware } from './logout.middleware';
+export { authMiddleware } from './auth.middleware';
 export { loginStatusMiddleware } from './login-status.middleware';

@@ -32,11 +32,11 @@
             z-index: 6;
         }
 
-        > #about {
+        > #about-us {
             z-index: 5;
         }
 
-        > #whyus {
+        > #why-us {
             z-index: 4;
         }
 
@@ -52,7 +52,7 @@
             z-index: 1;
         }
 
-        #contact {
+        > #contact-us {
             margin-top: 300px;
         }
 
@@ -102,7 +102,7 @@
                 height: 120px;
                 border-color: #5a89e5;
 
-                & a {
+                & div {
                     visibility: visible;
                 }
             }
@@ -123,7 +123,8 @@
                 transform: translate(-50%, -50%);
             }
 
-            > a {
+            > div {
+                cursor: pointer;
                 position: absolute;
                 display: block;
                 font-family: "Merriweather";
@@ -135,6 +136,8 @@
                 color: #5a89e5;
                 visibility: hidden;
                 text-decoration: none;
+                white-space: nowrap;
+                user-select: none;
 
                 &:hover {
                     color: #ffffff;
@@ -158,84 +161,84 @@
                 }
             }
 
-            > .faq1 {
+            > .contact-us {
                 top: 12px;
                 right: 114px;
             }
 
-            > .faq1:after {
+            > .contact-us:after {
                 top: 4px;
                 right: -15px;
             }
 
-            > .faq2 {
+            > .investors {
                 top: 50px;
                 right: 130px;
             }
 
-            > .faq2:after {
+            > .investors:after {
                 top: 5px;
                 right: -16px;
             }
 
-            > .faq3 {
+            > .faq {
                 top: 90px;
                 right: 112px;
             }
 
-            > .faq3:after {
+            > .faq:after {
                 top: 4px;
                 right: -15px;
             }
 
-            > .faq4 {
+            > .leadership {
                 top: 126px;
                 right: 20px;
             }
 
-            > .faq4:after {
+            > .leadership:after {
                 top: -12px;
                 right: 34px;
             }
 
-            > .faq5 {
+            > .process {
                 top: 90px;
                 right: -48px;
             }
 
-            > .faq5:after {
+            > .process:after {
                 top: 4px;
                 right: 58px;
             }
 
-            > .faq6 {
+            > .why-us {
                 top: 50px;
                 right: -64px;
             }
 
-            > .faq6:after {
+            > .why-us:after {
                 top: 3px;
                 right: 58px;
             }
 
-            > .faq7 {
+            > .about-us {
                 top: 10px;
-                right: -56px;
+                right: -58px;
             }
 
-            > .faq7:after {
+            > .about-us:after {
                 top: 3px;
-                right: 66px;
+                right: 68px;
             }
 
-            > .faq8 {
+            > .scope {
                 top: -27px;
-                right: 36px;
+                right: 38px;
             }
 
-            > .faq8:after {
+            > .scope:after {
                 top: 22px;
-                right: 18px;
+                right: 16px;
             }
         }
     }

@@ -32,5 +32,9 @@ export async function updateMember(rawMember: Member) {
         member.skills = await querySkills(value.skills);
     }
 
-    return member;
+    return {
+        success: true,
+        message: 'Successfully edited member',
+        data: member
+    };
 }

@@ -83,6 +83,10 @@ export class HomePageComponent implements AfterViewInit {
     this.renderer.setStyle(this.scrollToTopButton.nativeElement, 'display', display);
   }
 
+  scrollTo(el: HTMLElement) {
+    el.scrollIntoView();
+  }
+
   imgSrc(imageId: string) {
     const url = `dory-capital/${imageId}`;
     return this.cloudinary.url(url, { transformation: [{ fetch_format: "auto" }] });
