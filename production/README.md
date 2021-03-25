@@ -1,13 +1,12 @@
 # Dory Capital - Production
-## Create Remote Machine
-### Create VM Instance
+## Create VM Instance
 1. Go to Google Cloud console.
 2. Go to `Compute Engine` -> `VM Instances` and select `CREATE INSTANCE`.
 3. Select an `f1-micro` machine under `N1`.
 4. Select `CentOS 7` OS Image.
 5. Select `europe-west1-b` zone.
 
-### SSH to Remote Machine
+## SSH to Remote Machine
 1. Install `MobaXtrem` and `WinSCP` on local machine.
 2. Open `WinSCP` and go to `Tools -> Run PuTTYGen`.
 3. Generate a private + public key pair.
@@ -21,20 +20,40 @@ cat /etc/centos-release
 >>> CentOS Linux release 7.9.2009 (Core)
 ```
 
-### Configure Remote Machine
-**YUM Repository**
+## GoDaddy
+1. Login to you `GoDaddy` account.
+2. Go to `My Domains` and select the website's domain.
+3. Go to `DNS` -> `Manage Zones` and find your domain name.
+4. Set the A Record value to your machine's IP.
+
+## Configure Remote Machine
+### YUM Repository
 ```
 sudo yum update
 ```
 
-**Folders**
+### Folders
 ```
 mkdir ~/server ~/client
 mkdir /var/www/html/dory-capital/server
 mkdir /var/www/html/dory-capital/client
 ```
 
-**Environment Variables**  
+### SELinux
+Check SELinux status:
+```
+getenforce
+>>> Enforced
+```
+```
+vi /etc/selinux/config
+...
+SELINUX=permissive
+...
+```
+Then reset machine.
+
+### Environment Variables
 Add the following environment variables to the end of `~/.bashrc`:
 ```
 export NODE_ENV=production
@@ -54,13 +73,14 @@ Then run:
 source ~/.bashrc
 ```
 
+### NodeJS
 **NVM**
 ```
 curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
 source ~/.bashrc
 ```
 
-**NodeJS**
+**NodeJS & NPM**
 ```
 nvm install 10.15.3
 node --version # Verify NodeJS installation (10.15.3)
@@ -68,7 +88,7 @@ npm --version # Verify NPM installation (6.4.1)
 ```
 You can also verify it using `nvm` by running `nvm list` and see that 10.15.3 is selected.
 
-**Nginx**
+### Nginx
 ```
 sudo yum install epel-release
 sudo yum install nginx
@@ -76,17 +96,17 @@ sudo systemctl start nginx # Start Nginx service
 sudo systemctl status nginx # Verify Nginx service is started
 sudo systemctl enable nginx # Configure Nginx to start on boot
 ```
-Verify `Nginx` installation by navigating to your machine's IP using the browser.
-Configure `nginx`:
+Verify `Nginx` installation by navigating to your machine's IP using the browser.  
+Configure `Nginx`:
 ```
 sudo vi /etc/nginx/nginx.conf
 ```
-Edit the following lines in the server block:
+Add/edit the following lines in the server block:
 ```
-server_name    www.dory.capital dory.capital
+server_name    www.dory.capital;
 ```
 ```
-root    /var/www/html/dory-capital/dist/dory-capital/browser;
+root    /var/www/html/dory-capital/client/dist/dory-capital/browser;
 ```
 ```
 gzip on;
@@ -125,7 +145,7 @@ location /dory-capital/socket.io {
 }
 ```
 
-**PM2**
+### PM2
 ```
 npm install pm2 -g
 ```
@@ -137,22 +157,8 @@ In the output of the `pm2` installation you might see warnings about missing dep
 
 > Make sure to install them globally as well.
 
-**SELinux**  
-Check SELinux status:
-```
-getenforce
->>> Enforced
-```
-```
-vi /etc/selinux/config
-...
-SELINUX=permissive
-...
-```
-Then reset machine.
-
-**CertBot**  
-Install Snap
+### CertBot
+**Snap**
 ```
 sudo yum install epel-release
 sudo yum install snapd
@@ -160,7 +166,8 @@ sudo systemctl enable --now snapd.socket
 sudo ln -s /var/lib/snapd/snap /snap
 ```
 Either log out and back in again or restart your system to ensure snap’s paths are updated correctly.
-Install CertBot:
+
+**CertBot**
 ```
 sudo snap install core; sudo snap refresh core # ensure that you have the latest version of snapd
 sudo yum remove certbot # Install any previos version of CertBot
