@@ -89,6 +89,7 @@ npm --version # Verify NPM installation (6.4.1)
 You can also verify it using `nvm` by running `nvm list` and see that 10.15.3 is selected.
 
 ### Nginx
+**Installation**
 ```
 sudo yum install epel-release
 sudo yum install nginx
@@ -97,7 +98,8 @@ sudo systemctl status nginx # Verify Nginx service is started
 sudo systemctl enable nginx # Configure Nginx to start on boot
 ```
 Verify `Nginx` installation by navigating to your machine's IP using the browser.  
-Configure `Nginx`:
+
+**Configuration**
 ```
 sudo vi /etc/nginx/nginx.conf
 ```
