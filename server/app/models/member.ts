@@ -8,6 +8,7 @@ export class Member {
     skills: Skill[];
     imageId: string;
     profilePictureFile?: any;
+    hidden: boolean = false;
 
     constructor(member?: Member) {
         if (!member) return;
@@ -16,5 +17,6 @@ export class Member {
         this.skills = member.skills;
         this.imageId = member.imageId;
         this.profilePictureFile = member.profilePictureFile;
+        this.hidden = member.hidden;
     }
 }

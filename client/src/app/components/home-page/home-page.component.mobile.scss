@@ -3,87 +3,115 @@
 @include media("screen", "<mobile") {
     .home-page-container {
         > .sections-container {
-            padding-bottom: 80px;
+            > .leadership-section-margin {
+                margin-top: 150px;
+            }
+
+            #contact-us {
+                margin-top: 130px;
+            }
+        }
+
+        > .home-page-footer-container {
+            color: #fff;
+            padding: 50px 0 90px;
+            text-align: center;
+            font-size: 12px;
+
+            > .copyright {
+                margin-bottom: 0px;
+            }
         }
 
         > .page-navigator-container {
             > .page-navigator {
-                > .faq1,
-                .faq2,
-                .faq3,
-                .faq4,
-                .faq5,
-                .faq6,
-                .faq7 {
+                > .contact-us,
+                .investors,
+                .faq,
+                .leadership,
+                .process,
+                .why-us,
+                .about-us,
+                .scope {
                     font-size: 12px;
                 }
 
-                > .faq1 {
+                > .contact-us {
                     top: 12px;
                     right: 114px;
                 }
-    
-                > .faq1:after {
+
+                > .contact-us:after {
                     top: 4px;
                     right: -15px;
                 }
-    
-                > .faq2 {
-                    top: 62px;
-                    right: 128px;
+
+                > .investors {
+                    top: 50px;
+                    right: 130px;
                 }
-    
-                > .faq2:after {
-                    top: 4px;
+
+                > .investors:after {
+                    top: 5px;
                     right: -16px;
                 }
 
-                > .faq3 {
-                    top: 102px;
-                    right: 96px;
+                > .faq {
+                    top: 90px;
+                    right: 112px;
                 }
 
-                > .faq3:after {
+                > .faq:after {
                     top: 4px;
                     right: -15px;
                 }
 
-                > .faq4 {
-                    top: 102px;
-                    right: -46px;
+                > .leadership {
+                    top: 126px;
+                    right: 24px;
                 }
 
-                > .faq4:after {
+                > .leadership:after {
+                    top: -12px;
+                    right: 30px;
+                }
+
+                > .process {
+                    top: 90px;
+                    right: -40px;
+                }
+
+                > .process:after {
                     top: 4px;
-                    right: 72px;
+                    right: 50px;
                 }
 
-                > .faq5 {
-                    top: 62px;
-                    right: -52px;
+                > .why-us {
+                    top: 50px;
+                    right: -56px;
                 }
 
-                > .faq5:after {
-                    top: 4px;
-                    right: 48px;
+                > .why-us:after {
+                    top: 3px;
+                    right: 50px;
                 }
 
-                > .faq6 {
-                    top: 12px;
-                    right: -50px;
+                > .about-us {
+                    top: 10px;
+                    right: -48px;
                 }
 
-                > .faq6:after {
-                    top: 4px;
+                > .about-us:after {
+                    top: 3px;
                     right: 58px;
                 }
 
-                > .faq7 {
+                > .scope {
                     top: -25px;
                     right: 40px;
                 }
 
-                > .faq7:after {
+                > .scope:after {
                     top: 20px;
                     right: 14px;
                 }

@@ -4,204 +4,40 @@
         <div class="section-title">Got a Question?</div>
         <h1>FAQ</h1>
     </div>
-    <div class="container container-set">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                    <div class="panel panel-default" *ngFor="let paragraph of data.paragraphs; let i = index">
-                        <div class="panel-heading" role="tab" [attr.id]="'heading' + i">
-                            <h4 class="panel-title">
-                                <a [ngClass]="i == 0 ? null : 'collapsed'" data-toggle="collapse"
-                                    data-parent="#accordion" [attr.href]="'#collapse' + i"
-                                    [attr.aria-expanded]="i == 0 ? true : false" [attr.aria-controls]="'collapse' + i">
-                                    <div class="accordion-title">{{paragraph.title}}</div>
-                                    <mat-icon class="collapse-accordion-icon">remove_circle_outline</mat-icon>
-                                    <mat-icon class="expand-accordion-icon">add_circle_outline</mat-icon>
-                                </a>
-                            </h4>
-                        </div>
-                        <div [attr.id]="'collapse' + i"
-                            [ngClass]="i == 0 ? 'panel-collapse collapse in show' : 'panel-collapse collapse'"
-                            role="tabpanel" [attr.aria-labelledby]="'heading' + i">
-                            <div class="panel-body">{{paragraph.text}}</div>
+    <div class="faq-section-body">
+        <div class="faq-section-accordion-container">
+            <div #accordion class="faq-section-accordion">
+                <div class="accordion-item-container" *ngFor="let paragraph of data.paragraphs; let i = index">
+                    <div class="accordion-item-question" (click)="onAccordionClick($event)">
+                        <div class="accordion-item-question-text">{{paragraph.title}}</div>
+                        <div class="accordion-item-icons">
+                            <mat-icon class="collapse-accordion-icon">remove_circle_outline</mat-icon>
+                            <mat-icon class="expand-accordion-icon">add_circle_outline</mat-icon>
                         </div>
                     </div>
-                    <!-- <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="headingOne">
-                                <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
-                                        aria-expanded="true" aria-controls="collapseOne">
-                                        I don’t have a team or a company but I have a brilliant idea, will Dory
-                                        Capital be willing to help me build the company and develop it?
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapseOne" class="panel-collapse collapse in show" role="tabpanel"
-                                aria-labelledby="headingOne">
-                                <div class="panel-body">YES, we would! We empower, enable and invest in companies
-                                    with an outstanding team and breakthrough technology, but we are also open to
-                                    help you build and support your breakthrough technology/idea.</div>
-                            </div>
+                    <div class="accordion-item-answer">
+                        <div *ngIf="i === 1; else elseBlock1" class="accordion-item-answer-text">
+                            Click <a href="#process" rel="noopener">here</a> to go back and read the brief
+                            instructions in the “Process” page, hereinabove, as well as emailing us your one-page
+                            teaser to <em>dealflow@dory.capital</em>.
+
                         </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="headingTwo">
-                                <h4 class="panel-title">
-                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
-                                        href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        We would like Dory Capital to consider us. What should we do?
-                                    </a>
-                                </h4>
+                        <ng-template #elseBlock1>
+                            <div *ngIf="i === 5; else elseBlock2" class="accordion-item-answer-text">
+                                Of course you should! Dory Capital welcomes any groundbreaking first to market ideas and
+                                technologies. The fields featured on our website are a mere general idea of topics that
+                                we are familiar with, and have the right network to enable and support. In short, if you
+                                believe you have something brilliant and you wish to present it to us, by all means go
+                                ahead and do so – <a href="mailto:dealflow@dory.capital" class="send-email">contact
+                                    us</a>.
                             </div>
-                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel"
-                                aria-labelledby="headingTwo">
-                                <div class="panel-body">Click <a href="#process">here</a> to go back and read the
-                                    brief instructions in the “Process” page, hereinabove, as well as emailing us
-                                    your one-page teaser to <em>dealflow@dory.capital</em></div>
+                        </ng-template>
+                        <ng-template #elseBlock2>
+                            <div class="accordion-item-answer-text">
+                                {{paragraph.text}}
                             </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="headingThree">
-                                <h4 class="panel-title">
-                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
-                                        href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                        We are a self-founded Pre-Seed start-up; will Dory Capital consider us?
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel"
-                                aria-labelledby="headingThree">
-                                <div class="panel-body">Of course! In actual fact, we are very interested in
-                                    Pre-Seed entrepreneurs, especially because it is usually very difficult to raise
-                                    money and attract investments and/or investors at such an early stage. We
-                                    sincerely believe in the enablement of such early stages, Per-Seed, ventures and
-                                    also trust our Modus Operandi and international network will truly make it into
-                                    a Win-Win for both parties.</div>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="headingThree">
-                                <h4 class="panel-title">
-                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
-                                        href="#collapsefour" aria-expanded="false" aria-controls="collapsefour">
-                                        Does Dory Capital have a screening process, and if so, how do you screen
-                                        applications?
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapsefour" class="panel-collapse collapse" role="tabpanel"
-                                aria-labelledby="headingfour">
-                                <div class="panel-body">We have a clear screening process and applications are
-                                    subject to a discretionally filtering and pre-examination process of both the
-                                    team and the proposed technology. We are not obligated to any third party,
-                                    company or entrepreneurs that approaches us.</div>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="headingfive">
-                                <h4 class="panel-title">
-                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
-                                        href="#collapsefive" aria-expanded="false" aria-controls="collapsefive">
-                                        Can anyone approach Dory Capital or must it be a warm introduction through a
-                                        3rd party?
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapsefive" class="panel-collapse collapse" role="tabpanel"
-                                aria-labelledby="headingfive">
-                                <div class="panel-body">No prior acquaintance is required and warm introduction will
-                                    neither be an advantage nor a disadvantage. The way we see it, anyone and
-                                    everyone can apply as it is all about Bit2Atom groundbreaking technology, led by
-                                    a strong team.</div>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="headingsix">
-                                <h4 class="panel-title">
-                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
-                                        href="#collapsesix" aria-expanded="false" aria-controls="collapsesix">
-                                        We believe our technology is a truly brilliant, but it is no on your list of
-                                        preferred ventures and we were, as such, wondering <br /> if we should
-                                        apply?
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapsesix" class="panel-collapse collapse" role="tabpanel"
-                                aria-labelledby="headingsix">
-                                <div class="panel-body">Of course you should! Dory Capital welcomes any
-                                    groundbreaking first to market ideas and technologies. The fields featured on
-                                    our website are a mere general idea of topics that we are familiar with, and
-                                    have the right network to enable and support. In short, if you believe you have
-                                    something brilliant and you wish to present it to us, by all means go ahead and
-                                    do so – <a href="mailto:dealflow@dory.capital" class="send-email">contact
-                                        us</a>.</div>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="headingseven">
-                                <h4 class="panel-title">
-                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
-                                        href="#collapseseven" aria-expanded="false" aria-controls="collapseseven">
-                                        Is there a timeline from the time we present ourselves, and if so, how long
-                                        does it take to receive an answer from Dory Capital?
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapseseven" class="panel-collapse collapse" role="tabpanel"
-                                aria-labelledby="headingseven">
-                                <div class="panel-body">There isn’t a timeline protocol, however, we do provide an
-                                    initial Go/No-go response within a few days to a fortnight. In the event of a
-                                    GO, the schedule will be agreed upon with the entrepreneurial team and/or the
-                                    company.</div>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="headingeight">
-                                <h4 class="panel-title">
-                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
-                                        href="#collapseeight" aria-expanded="false" aria-controls="collapseeight">
-                                        Can capital be raised from additional investors besides Dory Capital?
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapseeight" class="panel-collapse collapse" role="tabpanel"
-                                aria-labelledby="headingeight">
-                                <div class="panel-body">Of course. We encourage our portfolio companies to raise
-                                    additional capital and support them in their efforts by connecting them to
-                                    potential investors and partners within our international network.</div>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="headingnine">
-                                <h4 class="panel-title">
-                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
-                                        href="#collapsenine" aria-expanded="false" aria-controls="collapsenine">
-                                        Will Dory Capital disclose the list of companies it invests in?
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapsenine" class="panel-collapse collapse" role="tabpanel"
-                                aria-labelledby="headingnine">
-                                <div class="panel-body">Not officially as we are a privately held fund which is
-                                    fully committed to confidentiality and mutual discretion.</div>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="headingten">
-                                <h4 class="panel-title">
-                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
-                                        href="#collapseten" aria-expanded="false" aria-controls="collapseten">
-                                        What is the scope of a contract with Dory Capital?
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapseten" class="panel-collapse collapse" role="tabpanel"
-                                aria-labelledby="headingten">
-                                <div class="panel-body">Post TS, a clear and simple Shareholders Purchasing
-                                    Agreement will be singed between us, and our partners, in which we both will
-                                    define the stages of the investment based on your R&D plan and detailed budget.
-                                </div>
-                            </div>
-                        </div> -->
+                        </ng-template>
+                    </div>
                 </div>
             </div>
         </div>

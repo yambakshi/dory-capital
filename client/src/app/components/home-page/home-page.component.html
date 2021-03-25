@@ -2,40 +2,49 @@
     <main-header *ngIf="isLoggedIn" class="main-header-component"></main-header>
     <intro-section class="intro-section-component" [ngClass]="isLoggedIn ? 'logged-in' : ''"></intro-section>
     <section class="sections-container">
-        <div class="container-fluid" id="scope">
+        <div #scope id="scope" class="section-container">
             <scope-section [data]="pageData.sections[0]"></scope-section>
         </div>
-        <div class="container-fluid sections-margin" id="about">
+        <div #aboutus id="about-us" class="section-container">
             <about-us-section [data]="pageData.sections[1]"></about-us-section>
         </div>
-        <div class="container-fluid sections-margin" id="whyus">
+        <div #whyus id="why-us" class="section-container">
             <why-us-section [data]="pageData.sections[2]"></why-us-section>
         </div>
-        <div class="container-fluid sections-margin" id="leadership">
-            <leadership-section [data]="pageData.sections[3]" [members]="pageData.members" [skills]="pageData.skills">
-            </leadership-section>
-        </div>
-        <div class="container-fluid sections-margin process-section-padding" id="process">
+        <div #process id="process" class="section-container process-section-padding">
             <process-section [data]="pageData.sections[4]"></process-section>
         </div>
-        <div class="container-fluid sections-margin" id="faq">
+        <div #leadership id="leadership" class="section-container leadership-section-margin">
+            <leadership-section [data]="pageData.sections[3]" [skills]="pageData.skills"></leadership-section>
+        </div>
+        <div #faq id="faq" class="section-container">
             <faq-section [data]="pageData.sections[5]"></faq-section>
         </div>
-        <div class="container-fluid sections-margin" id="contact">
+        <div #investors id="investors" class="section-container">
+            <investors-section></investors-section>
+        </div>
+        <div #contactus id="contact-us" class="section-container">
             <contact-section [data]="pageData.sections[6]"></contact-section>
         </div>
     </section>
-    <div #pageNavigator class="circle-menu mx-auto col-md-4 py-3 page-navigator-container"
-        (mouseleave)="mouseLeavePageNavigator()">
-        <div class="box mt-2 page-navigator" (mouseenter)="mouseHoverPageNavigation()">
-            <img [src]="imgSrc(navigatorIcons.idle)" alt="faq" class="img-fluid mt-0" /><br />
-            <a href="#contact" class="menu faq1">Contact</a>
-            <a href="#faq" class="menu faq2">FAQ</a>
-            <a href="#process" class="menu faq3">Process</a>
-            <a href="#leadership" class="menu faq4">Leadership</a>
-            <a href="#whyus" class="menu faq5">Why us</a>
-            <a href="#about" class="menu faq6">About us</a>
-            <a href="#scope" class="menu faq7">Scope</a>
+    <div class="home-page-footer-container">
+        <div class="copyright">© Copyright 2021 Dory Capital - All Rights Reserved</div>
+        <div class="cambridge">Cambridge, UK.</div>
+    </div>
+    <div #pageNavigator class="page-navigator-container" (mouseleave)="mouseLeavePageNavigator()">
+        <div class="page-navigator" (mouseenter)="mouseHoverPageNavigation()">
+            <img [src]="imgSrc(navigatorIcons.idle)" alt="page-navigator" />
+            <div class="contact-us" (click)="scrollTo(contactus)">Contact Us</div>
+            <div class="investors" (click)="scrollTo(investors)">Investors</div>
+            <div class="faq" (click)="scrollTo(faq)">FAQ</div>
+            <div class="leadership" (click)="scrollTo(leadership)">Leadership</div>
+            <div class="process" (click)="scrollTo(process)">Process</div>
+            <div class="why-us" (click)="scrollTo(whyus)">Why Us</div>
+            <div class="about-us" (click)="scrollTo(aboutus)">About Us</div>
+            <div class="scope" (click)="scrollTo(scope)">Scope</div>
         </div>
+    </div>
+    <div #scrollToTopButton class="scroll-to-top-container" (click)="scrollToTop()">
+        <mat-icon>arrow_upward</mat-icon>
     </div>
 </div>

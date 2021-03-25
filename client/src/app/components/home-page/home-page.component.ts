@@ -1,7 +1,6 @@
-import { Component, ElementRef, OnInit, ViewChild, PLATFORM_ID, Inject } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { Component, ElementRef, ViewChild, PLATFORM_ID, Inject, HostListener, Renderer2, AfterViewInit } from '@angular/core';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { ApiService } from '@services/api.service';
-import { SocketIoService } from '@services/socket-io.service';
 import { ActivatedRoute } from '@angular/router';
 import { LoginService } from '@services/login.service';
 import { PageData } from '@models/page-data';
@@ -13,21 +12,22 @@ import { Cloudinary } from '@cloudinary/angular-5.x';
   templateUrl: './home-page.component.html',
   styleUrls: [
     './home-page.component.common.scss',
-    './home-page.component.desktop.scss',
     './home-page.component.mobile.scss']
 })
-export class HomePageComponent implements OnInit {
+export class HomePageComponent implements AfterViewInit {
   @ViewChild('pageNavigator') pageNavigator: ElementRef;
+  @ViewChild('scrollToTopButton') scrollToTopButton: ElementRef;
   pageData: PageData;
   isLoggedIn: boolean = false;
   navigatorIcons = { idle: 'navigator_iztduy', active: 'navigator-active_dgqg6y' };
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
+    @Inject(DOCUMENT) private document: Document,
     private apiService: ApiService,
     private route: ActivatedRoute,
     private loginService: LoginService,
-    private socketIoService: SocketIoService,
+    private renderer: Renderer2,
     private cloudinary: Cloudinary) {
     this.route.data.subscribe(data => {
       if (!data['pageData']) {
@@ -44,24 +44,9 @@ export class HomePageComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {
-      this.socketIoService.connect();
-      this.socketIoService.listen('page-data-changed').subscribe(() => {
-        this.apiService.getPageData().subscribe(() => { });
-      })
-    }
-  }
-
-  parseData(data: any): any {
-    if (typeof data == 'object') {
-      return Object.entries(data).reduce((acc, [key, value]) => {
-        return { ...acc, [key]: this.parseData(value) };
-      }, {})
-    } else if (Array.isArray(data)) {
-      return data.map(dataItem => this.parseData(dataItem));
-    } else if (typeof data === 'string') {
-      return data.replace('\n', '<br>');
+      this.showScrollToTop();
     }
   }
 
@@ -69,20 +54,37 @@ export class HomePageComponent implements OnInit {
     let pageNavigatorElement = this.pageNavigator.nativeElement;
     let innerDivElement = pageNavigatorElement.firstElementChild;
     let innerImgElement = innerDivElement.firstElementChild;
-
-    innerDivElement.classList.add("box-hover");
     innerImgElement.setAttribute('src', this.imgSrc(this.navigatorIcons.active));
-    pageNavigatorElement.style.bottom = '0';
   }
 
   mouseLeavePageNavigator(): void {
     let pageNavigatorElement = this.pageNavigator.nativeElement;
     let innerDivElement = pageNavigatorElement.firstElementChild;
     let innerImgElement = innerDivElement.firstElementChild;
-
-    innerDivElement.classList.remove("box-hover");
     innerImgElement.setAttribute('src', this.imgSrc(this.navigatorIcons.idle));
-    pageNavigatorElement.style.bottom = '-50px';
+  }
+
+  scrollToTop(): void {
+    this.document.body.scrollTop = 0;
+    this.document.documentElement.scrollTop = 0;
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  onScroll(event) {
+    this.showScrollToTop();
+  }
+
+  showScrollToTop(): void {
+    let display = 'none';
+    if (this.document.body.scrollTop > 20 || this.document.documentElement.scrollTop > 20) {
+      display = 'flex';
+    }
+
+    this.renderer.setStyle(this.scrollToTopButton.nativeElement, 'display', display);
+  }
+
+  scrollTo(el: HTMLElement) {
+    el.scrollIntoView();
   }
 
   imgSrc(imageId: string) {

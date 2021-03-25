@@ -8,7 +8,6 @@ import { WindowRefService } from '@services/window-ref.service';
     templateUrl: './carousels.component.html',
     styleUrls: [
         './carousels.component.common.scss',
-        './carousels.component.desktop.scss',
         './carousels.component.mobile.scss'
     ]
 })
@@ -22,7 +21,8 @@ export class CarouselsComponent implements OnInit, AfterViewInit {
     radiusLength: number;
     carouselsTabs: string[] = ['I', 'II', 'III', 'IV', 'V'];
     labelHeight: number = 24;
-    rotateIconId: string = 'dory-capital/scope/rotate_sdc32r';
+    rotateIconId: string = 'dory-capital/scope/rotate_c9wbpb';
+    gridId: string = 'dory-capital/scope/grid_dncnuq';
     carouselsImgs = [
         [
             { name: 'Big Data', id: 'big-data_enwda7' },
@@ -32,10 +32,10 @@ export class CarouselsComponent implements OnInit, AfterViewInit {
             { name: 'Smart City Tech', id: 'smart-city-tech_d6thry' }
         ],
         [
-            { name: 'Artificial Intelligence', id: 'artificial-intelligence_vorcg6' },
-            { name: 'AR VR', id: 'ar-vr_cpwall' },
-            { name: 'Face Recognition', id: 'face-recognition_nynool' },
-            { name: 'NLP', id: 'nlp_zopdqy' },
+            { name: 'Artificial Intelligence (AI)', id: 'artificial-intelligence_vorcg6' },
+            { name: 'Augmented & Virtual Reality', id: 'ar-vr_cpwall' },
+            { name: 'Facial Recognition', id: 'face-recognition_nynool' },
+            { name: 'Natural Language Processing (NLP)', id: 'nlp_zopdqy' },
             { name: 'Profiling', id: 'profiling_wzvl5s' }
         ],
         [
@@ -54,8 +54,8 @@ export class CarouselsComponent implements OnInit, AfterViewInit {
         ],
         [
             { name: 'Autonomous Mobility Solutions', id: 'autonomous-mobility-solutions_rl91h5' },
-            { name: 'Drones Robotics', id: 'drones-robotics_lq0t5n' },
-            { name: 'Medical Histotripsy and Synthetic Biology', id: 'medical-histotripsy-and-synthetic-biology_mpa3zo' },
+            { name: 'Drones & Robotics', id: 'drones-robotics_lq0t5n' },
+            { name: 'Noninvasive Medical Equipment', id: 'medical-histotripsy-and-synthetic-biology_mpa3zo' },
             { name: 'RF Networks', id: 'rf-networks_f92wcn' },
             { name: 'Ultimate Online Privacy', id: 'ultimate-online-privacy_sbb2dh' },
         ]
@@ -156,5 +156,9 @@ export class CarouselsComponent implements OnInit, AfterViewInit {
             this.renderer.setStyle(carouselItem, 'top', `${this.containerCenter.top + top + this.labelHeight}px`);
             this.renderer.setStyle(carouselItem, 'left', `${this.containerCenter.left + left}px`);
         }
+    }
+
+    toClassName(name: string) {
+        return name.toLowerCase().replace(/\s/g, '-').replace(/\(|\)/g, '');
     }
 }

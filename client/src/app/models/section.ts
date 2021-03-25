@@ -1,3 +1,4 @@
+import { Member } from "./member";
 import { Paragraph } from "./paragraph";
 
 export class Section {
@@ -5,4 +6,8 @@ export class Section {
     name: string;
     title: string;
     paragraphs: Paragraph[];
+}
+
+export interface LeadershipSection extends Section {
+    members: Member[];
 }

@@ -1,0 +1,55 @@
+@import "../../../../scss/global/index.scss";
+
+@include media("screen", "<mobile") {
+    .intro-section-container {
+        > .intro-section-video-container {
+            > video {
+                width: auto;
+                height: 100vh;
+            }
+        }
+
+        > .intro-section {
+            width: 100%;
+            padding: 0 10px;
+
+            > img {
+                max-width: 85px;
+                margin-bottom: 10px;
+            }
+
+            > h1 {
+                font-size: 22px;
+                line-height: 48px;
+                color: #ffffff;
+                margin-bottom: 8px;
+            }
+
+            > .intro-section-paragraph {
+                font-size: 12px;
+                line-height: 22px;
+
+                &:first-of-type {
+                    margin-bottom: 10px;
+                }
+
+                > h2 {
+                    font-size: 16px;
+                    margin-bottom: 10px;
+                    line-height: 24px;
+                }
+            }
+
+            > .intro-section-buttons-container {
+                margin-bottom: 15px;
+
+                > a {
+                    font-size: 12px;
+                    width: 86px;
+                    height: 37px;
+                    border-radius: 8px;
+                }
+            }
+        }
+    }
+}

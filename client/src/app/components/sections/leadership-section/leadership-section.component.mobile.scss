@@ -5,7 +5,10 @@
         padding-top: 25px;
 
         > .leadership-section-background-video {
-            top: calc(-125px + (0.238 * (900px - 100vw)));
+            // let topIn900 = -235px
+            // let topIn375 = -10px
+            // 0.196 = Math.abs(topIn900 - topIn375) / (900 - 375)
+            top: calc(-235px + (0.466 * (900px - 100vw)));
         }
 
         > .section-header {
@@ -18,6 +21,12 @@
         > .leadership-section-subtitle {
             font-size: 12px;
             line-height: 26px;
+        }
+
+        > .leadership-skills-icons-container {
+            > h4 {
+                font-size: 18px;
+            }
         }
     }
 }

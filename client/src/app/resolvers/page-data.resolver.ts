@@ -5,7 +5,9 @@ import { catchError } from 'rxjs/operators';
 import { PageData } from '@models/page-data';
 import { ApiService } from '@services/api.service';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class PageDataResolver implements Resolve<PageData> {
   constructor(
     private apiService: ApiService,

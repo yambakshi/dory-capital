@@ -5,22 +5,17 @@
         padding-top: 25px;
 
         > .process-section-background-video-1 {
-            position: absolute;
-            width: 100%;
-            z-index: 0;
-            right: -50%;
-            // let topIn900 = -100
-            // let topIn375 = 100
-            // 0.196 = Math.abs(topIn900 - topIn375) / (900 - 375)
-            // top: calc(-100px + (0.196 * (1920px - 100vw)));
+            // let topIn900 = 0
+            // let topIn375 = 175
+            // 0.333 = Math.abs(topIn900 - topIn375) / (900 - 375)
+            top: calc(0px + (0.333 * (900px - 100vw)));
         }
 
         > .process-section-background-video-2 {
-            position: absolute;
-            width: 100%;
-            z-index: 0;
-            left: -50%;
-            top: 1200px;
+            // let topIn900 = 825
+            // let topIn375 = 1400
+            // 1.095 = Math.abs(topIn900 - topIn375) / (900 - 375)
+            top: calc(825px + (1.095 * (900px - 100vw)));
         }
 
         > .section-header {
@@ -35,20 +30,126 @@
             }
         }
 
-        > .process-body {
-            padding-right: 28px;
-            padding-left: 28px;
+        > .process-section-body {
+            padding: 0 28px;
+            margin: 0;
 
-            > .process-section-step-1 {
-                > div > div > .one-page-example-container {
-                    margin: 5px 0 15px;
+            > .process-section-row-container {
+                > .process-section-step-1-container {
+                    flex: none;
+                    max-width: none;
+                    width: 100%;
+                    border: none;
+                    border-left: 1px dashed hsla(0, 0%, 100%, 0.4);
 
-                    & a {
-                        > button {
-                            padding: 8px 12px;
+                    &:before {
+                        content: none;
+                    }
+
+                    > .process-section-step-1 {
+                        margin: 0;
+
+                        > h1 {
+                            font-size: 20px;
+                            line-height: 35px;
+                        }
+
+                        > .one-page-example-container {
+                            margin: 5px 0 15px;
+
+                            & a {
+                                > button {
+                                    padding: 8.3px 12px;
+                                    font-size: 12px;
+                                    font-weight: normal;
+                                    border-radius: 8px;
+                                }
+                            }
+                        }
+
+                        > .process-section-step-1-subtitle {
+                            white-space: normal;
                             font-size: 14px;
-                            font-weight: 500;
-                            border-radius: 8px;
+                        }
+
+                        > ul {
+                            font-size: 12px;
+                        }
+                    }
+                }
+
+                > .process-section-step-1-space {
+                    flex: none;
+                    max-width: none;
+                }
+
+                > .process-section-step-2-container {
+                    flex: none;
+                    max-width: none;
+                    width: 100%;
+                    border-left: 1px dashed hsla(0, 0%, 100%, 0.4);
+                    margin: 0px;
+                    padding-top: 35px;
+
+                    > .process-section-step-2 {
+                        margin-top: 0;
+
+                        > h1 {
+                            font-size: 20px;
+                            line-height: 35px;
+                        }
+
+                        > .process-section-step-2-subtitle {
+                            white-space: normal;
+                            font-size: 14px;
+                        }
+
+                        > ul {
+                            font-size: 12px;
+                        }
+                    }
+                }
+
+                > .process-section-step-2-space {
+                    border: none;
+                    flex: none;
+                    max-width: none;
+                }
+
+                > .process-section-step-3-container {
+                    flex: none;
+                    max-width: none;
+                    width: 100%;
+                    border-left: 1px dashed hsla(0, 0%, 100%, 0.4);
+                    padding-top: 35px;
+
+                    &:before {
+                        content: none;
+                    }
+
+                    > .process-section-step-3 {
+                        margin: 0;
+
+                        > h1 {
+                            font-size: 20px;
+                            line-height: 35px;
+                        }
+
+                        > .process-section-step-3-bullet-container {
+                            > .process-section-step-3-bullet {
+                                > h6 {
+                                    white-space: normal;
+                                    font-size: 14px;
+                                }
+        
+                                > p {
+                                    font-size: 12px;
+                                }
+        
+                                > ul {
+                                    font-size: 12px;
+                                }
+                            }
                         }
                     }
                 }

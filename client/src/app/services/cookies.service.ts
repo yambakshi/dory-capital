@@ -3,7 +3,9 @@ import { CookieService } from 'ngx-cookie-service';
 import { COOKIES } from './constants';
 
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class CookiesService {
     constructor(private cookieService: CookieService) { }
 

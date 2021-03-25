@@ -8,8 +8,9 @@ import { querySkills } from '../skills';
 
 export async function updateMember(rawMember: Member) {
     const memberChanges: any = {
-        ...rawMember.name && { name: rawMember.name },
-        ...rawMember.link && { link: rawMember.link }
+        ...rawMember.name !== undefined && { name: rawMember.name },
+        ...rawMember.link !== undefined && { link: rawMember.link },
+        ...rawMember.hidden && { hidden: (typeof rawMember.hidden === 'string' && rawMember.hidden === 'true') }
     };
 
     if (rawMember.profilePictureFile) {
@@ -25,7 +26,15 @@ export async function updateMember(rawMember: Member) {
     const filter = { _id: { $eq: new ObjectID(rawMember._id) } };
     const { value } = await mongoDb.findAndModify(env.mongodb.dbName, 'members', filter, memberChanges);
     const member = value;
-    member.skills = await querySkills(value.skills);
 
-    return member;
+    // Resolve member's skills
+    if (member.skills.length > 0) {
+        member.skills = await querySkills(value.skills);
+    }
+
+    return {
+        success: true,
+        message: 'Successfully edited member',
+        data: member
+    };
 }

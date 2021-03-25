@@ -5,16 +5,17 @@ const memberProfileUpdateSchema = {
     title: 'member-profile-update',
     type: 'object',
     properties: {
-        name: { type: 'string', format: 'non-empty-string' },
-        link: { type: 'string', format: 'non-empty-string' },
+        name: { type: 'string' },
+        link: { type: 'string' },
         sectionId: { type: 'string', format: 'non-empty-string' },
         skills: {
             type: 'array',
-            minItems: 1,
-            maxItems: 8,
+            minItems: 0,
+            maxItems: 12,
             items: { type: "string", format: 'non-empty-string' }
         },
-        profilePictureFile: {}
+        profilePictureFile: {},
+        hidden: { type: "string", format: 'boolean-string' }
     }
 };
 

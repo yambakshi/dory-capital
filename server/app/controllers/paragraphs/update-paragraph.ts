@@ -1,6 +1,5 @@
 import { Request, Response } from 'express';
 import { updateText } from '../../services';
-import { socket } from '../../../config/socket';
 import { validateParagraphUpdate } from '../../validation-schemas';
 import { logger } from '../../../config/logger';
 
@@ -20,7 +19,6 @@ export async function updateParagraph(req: Request, res: Response) {
     try {
         logger.info({ message: "Received 'updateParagraph' request", label: 'updateParagraph' });
         const output = await processParagraphUpdate(req.body);
-        socket.nsp.emit('page-data-changed');
         res.send(output);
     } catch (error) {
         logger.error({ message: error.message, label: 'updateParagraph' });

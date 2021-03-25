@@ -1,7 +1,7 @@
 import { CloudinaryConfiguration } from '@cloudinary/angular-5.x';
 
 export const COOKIES = {
-    PREFIX: 'dory_dapital_',
+    PREFIX: 'dory_capital_',
     TOKEN_KEY: 'token'
 };
 

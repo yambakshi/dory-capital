@@ -7,9 +7,10 @@ import { environment } from "@environments/environment";
     providedIn: 'root'
 })
 export class SocketIoService {
-    socket;
-    readonly uri: string = `${environment.apiUrl}/page-data`;
-    readonly path: string = '/dory-capital/socket.io';
+    private socket;
+    private readonly uri: string = `${environment.apiUrl}/page-data`;
+    private readonly path: string = '/dory-capital/socket.io';
+
     constructor() { }
 
     connect() {
@@ -24,7 +25,7 @@ export class SocketIoService {
         })
     }
 
-    emit(eventName: string, data: any) {
+    emit(eventName: string, data?: any) {
         this.socket.emit(eventName, data);
     }
 }

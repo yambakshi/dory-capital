@@ -6,25 +6,27 @@
     <h6 class="leadership-section-subtitle">{{data.paragraphs[0].text}}</h6>
     <div class="leadership-grid">
         <div #membersContainer class="members-grid-container">
-            <div *ngFor="let member of members; let i = index" class="members-grid-item">
-                <a [href]="member.link" target="_blank">
+            <div *ngFor="let member of data.members; let i = index" class="members-grid-item">
+                <a [href]="member.link" target="_blank" rel="noopener" [ngClass]="!!member.link ? '' : 'disabled'">
+                    <div class="profile-image-overlay"></div>
                     <div class="profile-image-container">
-                        <div class="profile-image-overlay"></div>
-                        <img [src]="imgSrc(member.imageId)" [alt]="member.name" />
+                        <img [src]="imgSrc(member.imageId)" [alt]="member.name" loading="lazy" />
                     </div>
                 </a>
                 <div class="member-name">{{member.name}}</div>
-                <skills-container class="member-skills-container" [skills]="member.skills">
-                </skills-container>
+                <member-skills class="member-skills-container" [skills]="member.skills"></member-skills>
             </div>
         </div>
     </div>
-    <div class="leadership-icons">
-        <div #skillsTypes class="skills-grid-container">
-            <div *ngFor="let skill of skills; let i = index" class="skill-grid-item">
-                <img [src]="imgSrc(skill.imageId, false)" [alt]="skill.name"
-                    [width]="skill.width || defaultWidths.skill" />
-                <div [style.color]="skill.color">{{skill.name}}</div>
+    <div class="leadership-skills-icons-container">
+        <h4>Skills & Expertise</h4>
+        <div class="leadership-skills-icons">
+            <div #skillsTypes class="skills-grid-container">
+                <div *ngFor="let skill of skills; let i = index" class="skill-grid-item">
+                    <img [src]="imgSrc(skill.imageId, false)" [alt]="skill.name"
+                        [width]="skill.width || defaultWidths.skill" loading="lazy" />
+                    <div [style.color]="skill.color">{{skill.name}}</div>
+                </div>
             </div>
         </div>
     </div>

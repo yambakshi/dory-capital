@@ -1,7 +1,7 @@
 import express from "express";
 import http from "http";
 import { mongoDb } from './app/dal';
-import { configApp, configPassport, socket, env } from './config';
+import { configApp, configPassport, socketIo, env } from './config';
 import './config/cloudinary';
 import { logger } from "./config/logger";
 
@@ -11,14 +11,14 @@ const app = express();
 const server = http.createServer(app);
 
 // Init socket
-socket.initSocket(server, '/dory-capital/socket.io');
-socket.configNsp('/page-data');
+socketIo.initSocket(server, '/dory-capital/socket.io');
+socketIo.configNsp('/page-data');
 
 // Config passport
 configPassport();
 
 // Config app
-configApp(app, port, socket.io);
+configApp(app, port, socketIo.io);
 
 mongoDb.connect().then(() => {
     server.listen(port);

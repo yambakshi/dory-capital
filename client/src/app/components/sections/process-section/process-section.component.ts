@@ -7,12 +7,13 @@ import { Section } from '@models/section';
     templateUrl: './process-section.component.html',
     styleUrls: [
         './process-section.component.common.scss',
-        './process-section.component.desktop.scss',
         './process-section.component.mobile.scss'
     ]
 })
 export class ProcessSectionComponent {
     @Input() data: Section;
+    cloudinaryFolder: string = 'dory-capital/process/';
+    onePagerExampleId: string = 'one-pager-example_vlohka';
     iconsIds = {
         work: 'work_ojgkpg',
         approval: 'approval_vb4gd9',
@@ -24,7 +25,12 @@ export class ProcessSectionComponent {
     constructor(private cloudinary: Cloudinary) { }
 
     imgSrc(key: string) {
-        const url = `dory-capital/process/${this.iconsIds[key]}`;
+        const url = `${this.cloudinaryFolder}${this.iconsIds[key]}`;
         return this.cloudinary.url(url, { transformation: [{ fetch_format: "auto" }] });
+    }
+
+    pdfSrc(): string {
+        const url = `${this.cloudinaryFolder}${this.onePagerExampleId}`
+        return this.cloudinary.url(url);
     }
 }

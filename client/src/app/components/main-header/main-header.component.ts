@@ -7,13 +7,27 @@ import { LoginService } from '@services/login.service';
     templateUrl: './main-header.component.html',
     styleUrls: [
         './main-header.component.common.scss',
-        './main-header.component.desktop.scss',
         './main-header.component.mobile.scss'
     ]
 })
 export class MainHeaderComponent {
     showMenu: boolean = false;
     showOutsideMenu: boolean = false;
+    menuItems = [{
+        link: '/beta',
+        icon: 'home',
+        label: 'Home Page'
+    },
+    {
+        link: '/admin',
+        icon: 'person',
+        label: 'Admin Page'
+    },
+    {
+        link: '/admin/change-password',
+        icon: 'password',
+        label: 'Change Password'
+    }]
 
     constructor(
         private loginService: LoginService,
@@ -25,14 +39,13 @@ export class MainHeaderComponent {
         this.showOutsideMenu = false;
     }
 
+    isSelected(option: string): boolean {
+        return this.router.url === option;
+    }
+
     openMenu(): void {
         this.showMenu = !this.showMenu;
         this.showOutsideMenu = this.showMenu;
-    }
-
-    goTo($event, path: string): void {
-        $event.stopPropagation();
-        this.router.navigate([path]);
     }
 
     logout($event): void {
