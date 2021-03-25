@@ -148,6 +148,7 @@ location /dory-capital/socket.io {
 ```
 
 ### PM2
+**Installation**
 ```
 npm install pm2 -g
 ```
@@ -158,6 +159,16 @@ In the output of the `pm2` installation you might see warnings about missing dep
 - utf-8-validate
 
 > Make sure to install them globally as well.
+
+**Commands & Logs**
+```
+pm2 list # Check Server Status
+pm2 stop 0 # Stop server
+pm2 stop 1 # Stop client
+pm2 startup # Configure PM2 to start website on boot
+pm2 save # Save current configuration
+ll ~/.pm2/logs # Logs folder
+```
 
 ### CertBot
 **Snap**

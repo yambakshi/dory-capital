@@ -16,54 +16,13 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## Deploy
 
-### Prerequisites
-```
-mkdir ~/client
-mkdir /var/www/html/dory-capital
-npm install pm2 -g
-```
-
-**NOTE**  
-In the output of the `pm2` installation you might see warnings about missing dependencies:
-- bufferutil
-- utf-8-validate
-
-Make sure to install them globally as well.
-
-### Manual Deployment
 Run `npm run build:ssr` to build the project in SSR mode on local machine.  
 WinSCP `dist/dory-capital/*` to `~/client` on CentOS 8 machine.
 ```
-cd /var/www/html/dory-capital
-mkdir client/dist/dory-capital
-sudo mv ~/client/* /var/www/html/dory-capital/client/dist/dory-capital
-cd client
-```
-
-### Run Client
-```
+cd /var/www/html/dory-capital/client
+mkdir dist/dory-capital
+sudo mv ~/client/* dist/dory-capital
 pm2 start dist/dory-capital/server/main.js
-```
-
-Check client status
-```
-pm2 list
-```
-
-Stop client
-```
-pm2 stop 1
-```
-
-pm2 logs folder
-```
-ll ~/.pm2/logs
-```
-
-### Enable Startup
-```
-pm2 startup
-pm2 save
 ```
 
 ## Running unit tests
