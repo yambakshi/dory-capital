@@ -1,21 +1,23 @@
 # Dory Capital - Server
 ## MongoDB
-### Initial Login URI
-`mongodb://127.0.0.1:27017`
+```
+# Initial login URI
+mongodb://127.0.0.1:27017
 
-### Create DB
-`use dory-capital`
+# Create DB
+use dory-capital
 
-### Create Collection
-`db.createCollection("paragraphs")`
+# Create collection
+db.createCollection("paragraphs")
 
-### Create 'dbAdmin' User
-`db.createUser({ user: "yambakshi", pwd: "1234", roles: [{ role: "dbAdmin", db: "dory-capital" }]})`
+# Create 'dbAdmin' user
+db.createUser({ user: "yambakshi", pwd: "1234", roles: [{ role: "dbAdmin", db: "dory-capital" }]})
 
-### Drop user
-`db.dropUser("yambakshi")`
+# Drop user
+db.dropUser("yambakshi")
+```
 
-## Deployment
+## Deploy
 
 Run `npm run build` to build the server on local machine.  
 WinSCP `out` and `package.json` into `~/server` on CentOS 8 machine.
