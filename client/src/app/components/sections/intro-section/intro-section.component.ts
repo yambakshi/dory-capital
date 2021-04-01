@@ -1,5 +1,5 @@
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
-import { AfterViewInit, Component, ElementRef, HostListener, Inject, PLATFORM_ID, Renderer2, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, HostListener, Inject, Output, PLATFORM_ID, Renderer2, ViewChild } from '@angular/core';
 
 @Component({
     selector: 'intro-section',
@@ -11,6 +11,7 @@ import { AfterViewInit, Component, ElementRef, HostListener, Inject, PLATFORM_ID
 })
 export class IntroSectionComponent implements AfterViewInit {
     @ViewChild('videoElement') videoElement: ElementRef;
+    @Output() navigationEmitter = new EventEmitter<string>();
     videoSrc: string = 'https://res.cloudinary.com/dory-capital/video/upload/f_auto,q_auto/v1612139147/dory-capital/bg-video_fvwmqy.mov';
 
     constructor(
@@ -42,5 +43,9 @@ export class IntroSectionComponent implements AfterViewInit {
     @HostListener('window:resize', ['$event'])
     onResize(event?) {
         this.calcPlayerSize();
+    }
+
+    scrollToSection(name: string): void {
+        this.navigationEmitter.emit(name);
     }
 }

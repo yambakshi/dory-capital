@@ -17,6 +17,10 @@ import { Cloudinary } from '@cloudinary/angular-5.x';
 export class HomePageComponent implements AfterViewInit {
   @ViewChild('pageNavigator') pageNavigator: ElementRef;
   @ViewChild('scrollToTopButton') scrollToTopButton: ElementRef;
+  @ViewChild('scope') scope: ElementRef;
+  @ViewChild('process') process: ElementRef;
+  @ViewChild('contactus') contactus: ElementRef;
+  sectionsElements: { [key: string]: ElementRef };
   pageData: PageData;
   isLoggedIn: boolean = false;
   navigatorIcons = { idle: 'navigator_iztduy', active: 'navigator-active_dgqg6y' };
@@ -46,7 +50,16 @@ export class HomePageComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {
+      this.initSectionsElements();
       this.showScrollToTop();
+    }
+  }
+
+  initSectionsElements(): void {
+    this.sectionsElements = {
+      'scope': this.scope,
+      'process': this.process,
+      'contactus': this.contactus
     }
   }
 
@@ -83,7 +96,12 @@ export class HomePageComponent implements AfterViewInit {
     this.renderer.setStyle(this.scrollToTopButton.nativeElement, 'display', display);
   }
 
-  scrollTo(el: HTMLElement) {
+  scrollToSection(name: string): void {
+    const sectionElement = this.sectionsElements[name].nativeElement;
+    this.scrollTo(sectionElement);
+  }
+
+  scrollTo(el: HTMLElement): void {
     el.scrollIntoView();
   }
 

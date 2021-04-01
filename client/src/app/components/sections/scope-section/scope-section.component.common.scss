@@ -52,7 +52,11 @@
         text-align: center;
 
         > p {
-            > a {
+            > span {
+                cursor: pointer;
+            }
+
+            > a, span {
                 color: #61cb00;
                 text-decoration: none;
                 background-color: transparent;

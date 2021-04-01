@@ -1,3 +1,4 @@
+import { EventEmitter, Output } from '@angular/core';
 import { AfterViewInit, Component, ElementRef, Input, Renderer2, ViewChild } from '@angular/core';
 import { Section } from '@models/section';
 
@@ -11,6 +12,7 @@ import { Section } from '@models/section';
 })
 export class FaqSectionComponent implements AfterViewInit {
     @Input() data: Section;
+    @Output() navigationEmitter = new EventEmitter<string>();
     @ViewChild('accordion') accordion: ElementRef;
 
     constructor(private renderer: Renderer2) { }
@@ -31,5 +33,9 @@ export class FaqSectionComponent implements AfterViewInit {
         const answerElement = questionElement.nextElementSibling;
         const maxHeight = answerElement.style.maxHeight ? null : `${answerElement.scrollHeight}px`;
         this.renderer.setStyle(answerElement, 'maxHeight', maxHeight);
+    }
+
+    scrollToSection(name: string): void {
+        this.navigationEmitter.emit(name);
     }
 }

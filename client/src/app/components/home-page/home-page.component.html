@@ -1,9 +1,10 @@
 <div class="home-page-container">
     <main-header *ngIf="isLoggedIn" class="main-header-component"></main-header>
-    <intro-section class="intro-section-component" [ngClass]="isLoggedIn ? 'logged-in' : ''"></intro-section>
+    <intro-section class="intro-section-component" [ngClass]="isLoggedIn ? 'logged-in' : ''"
+        (navigationEmitter)="scrollToSection($event)"></intro-section>
     <section class="sections-container">
         <div #scope id="scope" class="section-container">
-            <scope-section [data]="pageData.sections[0]"></scope-section>
+            <scope-section [data]="pageData.sections[0]" (navigationEmitter)="scrollToSection($event)"></scope-section>
         </div>
         <div #aboutus id="about-us" class="section-container">
             <about-us-section [data]="pageData.sections[1]"></about-us-section>
@@ -18,7 +19,7 @@
             <leadership-section [data]="pageData.sections[3]" [skills]="pageData.skills"></leadership-section>
         </div>
         <div #faq id="faq" class="section-container">
-            <faq-section [data]="pageData.sections[5]"></faq-section>
+            <faq-section [data]="pageData.sections[5]" (navigationEmitter)="scrollToSection($event)"></faq-section>
         </div>
         <div #investors id="investors" class="section-container">
             <investors-section></investors-section>
