@@ -12,7 +12,7 @@ import { AfterViewInit, Component, ElementRef, EventEmitter, HostListener, Injec
 export class IntroSectionComponent implements AfterViewInit {
     @ViewChild('videoElement') videoElement: ElementRef;
     @Output() navigationEmitter = new EventEmitter<string>();
-    videoSrc: string = '';
+    videoSrc: string = 'https://res.cloudinary.com/dory-capital/video/upload/f_auto,q_auto/v1612139147/dory-capital/bg-video_fvwmqy.mov';
 
     constructor(
         @Inject(DOCUMENT) private document: Document,
