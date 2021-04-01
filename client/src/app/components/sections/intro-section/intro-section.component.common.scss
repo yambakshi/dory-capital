@@ -92,7 +92,8 @@
             display: flex;
             margin-bottom: 38px;
 
-            > a {
+            > .scope-button, .contact-us-button {
+                cursor: pointer;
                 width: 116px;
                 height: 46px;
                 background-color: #0e1a32;

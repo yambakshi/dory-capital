@@ -17,7 +17,7 @@
                     </div>
                     <div class="accordion-item-answer">
                         <div *ngIf="i === 1; else elseBlock1" class="accordion-item-answer-text">
-                            Click <a href="#process" rel="noopener">here</a> to go back and read the brief
+                            Click <span class="scope-button" (click)="scrollToSection('process')">here</span> to go back and read the brief
                             instructions in the “Process” page, hereinabove, as well as emailing us your one-page
                             teaser to <em>dealflow@dory.capital</em>.
 
