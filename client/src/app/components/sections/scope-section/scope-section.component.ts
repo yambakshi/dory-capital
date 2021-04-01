@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Section } from '@models/section';
 
 @Component({
@@ -11,6 +11,11 @@ import { Section } from '@models/section';
 })
 export class ScopeSectionComponent {
     @Input() data: Section;
+    @Output() navigationEmitter = new EventEmitter<string>();
 
     constructor() { }
+
+    scrollToSection(name: string): void {
+        this.navigationEmitter.emit(name);
+    }
 }

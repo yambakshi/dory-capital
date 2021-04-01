@@ -1,7 +1,7 @@
 <section class="intro-section-container">
     <div class="intro-section-video-container">
-        <video #videoElement [src]="videoSrc | safe" loading="lazy"  oncanplay="this.play()" onloadedmetadata="this.muted = true" autoplay muted
-            loop></video>
+        <video #videoElement [src]="videoSrc | safe" loading="lazy" oncanplay="this.play()"
+            onloadedmetadata="this.muted = true" autoplay muted loop></video>
     </div>
     <div class="intro-section">
         <img src="assets/media/logo.png" alt="logo" />
@@ -15,8 +15,8 @@
             </p>
         </div>
         <div class="intro-section-buttons-container">
-            <a href="#scope" rel="noopener">Our Scope</a>
-            <a href="#contact" rel="noopener">Contact us</a>
+            <div class="scope-button" (click)="scrollToSection('scope')">Our Scope</div>
+            <div class="contact-us-button" (click)="scrollToSection('contactus')">Contact us</div>
         </div>
         <div class="intro-section-paragraph">
             <p>If you have a burning desire to succeed, and you believe in your vision,
