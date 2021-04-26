@@ -187,7 +187,13 @@ sudo yum remove certbot # Install any previos version of CertBot
 sudo snap install --classic certbot
 sudo ln -s /snap/bin/certbot /usr/bin/certbot
 ```
-Issue certificates:
+Issue certificates for both `www` and `non-www` domains:
 ```
 sudo certbot --nginx
+```
+Add `www` to the following `if` statement in the nginx config `server` clause:
+```
+if ($host = dory.capital) {
+    return 301 https://www.$host$request_uri;
+} # managed by Certbot
 ```
