@@ -6,10 +6,14 @@
             > .investors-section-video {
                 display: flex;
 
-                > ::ng-deep cl-video > video {
-                    width: 100%;
-                    height: 85vh;
-                    mix-blend-mode: lighten;
+                > ::ng-deep cl-video {
+                    display: flex;
+
+                    > video {
+                        width: 100%;
+                        height: 85vh;
+                        mix-blend-mode: lighten;
+                    }
                 }
             }
         }
@@ -18,6 +22,7 @@
             cursor: pointer;
 
             > cl-image {
+                display: flex;
                 position: absolute;
                 top: 50%;
                 left: 50%;

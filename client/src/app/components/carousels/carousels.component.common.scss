@@ -89,11 +89,16 @@
             user-select: none;
             flex-direction: column;
 
-            > ::ng-deep cl-image[class="tech-carousel-grid"] > img {
-                width: 255px;
+            > ::ng-deep cl-image[class="tech-carousel-grid"] {
+                display: flex;
+
+                > img {
+                    width: 255px;
+                }
             }
 
             > ::ng-deep cl-image[class="tech-carousel-rotator-icon"] {
+                display: flex;
                 position: absolute;
                 top: 50px;
             }
@@ -142,6 +147,7 @@
                 }
 
                 > ::ng-deep cl-image {
+                    display: flex;
                     margin-bottom: 20px;
 
                     > img {
@@ -157,47 +163,47 @@
                     text-align: center;
                 }
 
-                &.fintech img {
+                &.fintech cl-image {
                     margin-left: 23px;
                 }
 
-                &.data-sciences img {
+                &.data-sciences cl-image {
                     margin-right: 20px;
                 }
 
-                &.big-data img {
+                &.big-data cl-image {
                     margin-right: 20px;
                 }
 
-                &.natural-language-processing-nlp img {
+                &.natural-language-processing-nlp cl-image {
                     margin-left: 23px;
                 }
 
-                &.facial-recognition img {
+                &.facial-recognition cl-image {
                     margin-right: 40px;
                 }
 
-                &.blockchain-acceleration img {
+                &.blockchain-acceleration cl-image {
                     margin-left: 20px;
                 }
 
-                &.quantum-cryptography img {
+                &.quantum-cryptography cl-image {
                     margin-left: 20px;
                 }
 
-                &.blockchain-scalability img {
+                &.blockchain-scalability cl-image {
                     margin-right: 20px;
                 }
 
-                &.machine-learning img {
+                &.machine-learning cl-image {
                     margin-right: 20px;
                 }
 
-                &.energy-sourcing img {
+                &.energy-sourcing cl-image {
                     margin-left: 20px;
                 }
 
-                &.rf-networks img {
+                &.rf-networks cl-image {
                     margin-left: 10px;
                 }
             }

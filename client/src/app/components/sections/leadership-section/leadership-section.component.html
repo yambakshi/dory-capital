@@ -25,7 +25,7 @@
         <div class="leadership-skills-icons">
             <div #skillsTypes class="skills-grid-container">
                 <div *ngFor="let skill of skills; let i = index" class="skill-grid-item">
-                    <cl-image [public-id]="skill.imageId" secure="true" [width]="skill.width || defaultWidths.skill"
+                    <cl-image [public-id]="skill.imageId" secure="true" [attr.width]="skill.width || defaultWidths.skill"
                         loading="lazy" [attr.alt]="skill.name"></cl-image>
                     <div [style.color]="skill.color">{{skill.name}}</div>
                 </div>
