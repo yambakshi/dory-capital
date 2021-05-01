@@ -1,7 +1,10 @@
 <div class="bg-video-outer-container">
     <div class="bg-video-inner-container">
         <div class="bg-video">
-            <iframe [src]="iframeSrc | safe" scrolling="no" frameborder="0" title="background-video" loading="lazy"></iframe>
+            <cl-video [public-id]="bgVideoId" loading="lazy" oncanplay="this.play()"
+                onloadedmetadata="this.muted = true" secure="true" autoplay muted loop>
+                <cl-transformation fetch-format="auto"></cl-transformation>
+            </cl-video>
         </div>
     </div>
 </div>

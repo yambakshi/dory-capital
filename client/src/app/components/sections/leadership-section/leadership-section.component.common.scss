@@ -112,9 +112,14 @@
                         display: flex;
                         justify-content: center;
 
-                        > img {
+                        > ::ng-deep cl-image {
                             height: 100%;
                             width: auto;
+
+                            > img {
+                                height: 100%;
+                                width: auto;
+                            }
                         }
                     }
                 }
@@ -180,7 +185,7 @@
                     flex-direction: column;
                     align-items: center;
 
-                    > img {
+                    > cl-image {
                         margin-bottom: 10px;
                     }
 

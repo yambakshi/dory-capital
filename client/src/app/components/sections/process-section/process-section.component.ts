@@ -24,9 +24,8 @@ export class ProcessSectionComponent {
 
     constructor(private cloudinary: Cloudinary) { }
 
-    imgSrc(key: string) {
-        const url = `${this.cloudinaryFolder}${this.iconsIds[key]}`;
-        return this.cloudinary.url(url, { transformation: [{ fetch_format: "auto" }] });
+    publicId(key: string): string {
+        return `${this.cloudinaryFolder}${this.iconsIds[key]}`;
     }
 
     pdfSrc(): string {

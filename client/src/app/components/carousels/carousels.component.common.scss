@@ -89,11 +89,11 @@
             user-select: none;
             flex-direction: column;
 
-            > .tech-carousel-grid {
+            > ::ng-deep cl-image[class="tech-carousel-grid"] > img {
                 width: 255px;
             }
 
-            > .tech-carousel-rotator-icon {
+            > ::ng-deep cl-image[class="tech-carousel-rotator-icon"] {
                 position: absolute;
                 top: 50px;
             }
@@ -141,9 +141,12 @@
                     opacity: 1;
                 }
 
-                > img {
+                > ::ng-deep cl-image {
                     margin-bottom: 20px;
-                    width: 200px;
+
+                    > img {
+                        width: 200px;
+                    }
                 }
 
                 > .tech-carousel-item-text {
