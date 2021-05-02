@@ -1,5 +1,6 @@
-import { AfterViewInit, Component, ElementRef, Input, Renderer2, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Inject, Input, PLATFORM_ID, Renderer2, ViewChild } from '@angular/core';
 import { Cloudinary } from '@cloudinary/angular-5.x';
+import { isPlatformBrowser } from '@angular/common';
 import { Skill } from '@models/skill';
 
 @Component({
@@ -15,24 +16,30 @@ export class MemberSkillsComponent implements AfterViewInit {
     margin: number;
 
     constructor(
+        @Inject(PLATFORM_ID) private platformId: any,
         private cloudinary: Cloudinary,
         private renderer: Renderer2) {
         this.margin = (168 - (this.maxSkillsPerRow * this.iconSize)) / (this.maxSkillsPerRow + 1);
     }
 
     ngAfterViewInit(): void {
+        if (!isPlatformBrowser(this.platformId)) return;
+
         const skillsRows = this.skillsContainer.nativeElement.children;
+        const stringToHTML = (str) => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(str, 'text/html');
+            return doc.body;
+        };
+
         for (let i = 0, length = this.skills.length; i < length; i++) {
             const { name, imageId } = this.skills[i];
-            const imageSource = this.imgSrc(imageId);
-
             const div = this.renderer.createElement('div');
+            const imgElementStr = this.cloudinary.imageTag(imageId, { secure: true, alt: name, loading: 'lazy' }).toHtml();
+            var imgElement = stringToHTML(imgElementStr).firstChild;
+
             this.renderer.addClass(div, 'skill-icon');
-            const img = this.renderer.createElement('img');
-            this.renderer.setAttribute(img, 'src', imageSource)
-            this.renderer.setAttribute(img, 'alt', name);
-            this.renderer.setAttribute(img, 'loading', 'lazy');
-            this.renderer.appendChild(div, img);
+            this.renderer.appendChild(div, imgElement);
 
             if (i < this.maxSkillsPerRow) {
                 this.renderer.appendChild(skillsRows[0], div);
@@ -43,9 +50,5 @@ export class MemberSkillsComponent implements AfterViewInit {
                 this.renderer.appendChild(skillsRows[1], div);
             }
         }
-    }
-
-    imgSrc(imageId: string) {
-        return this.cloudinary.url(imageId);
     }
 }
