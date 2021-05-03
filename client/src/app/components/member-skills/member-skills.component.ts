@@ -26,17 +26,10 @@ export class MemberSkillsComponent implements AfterViewInit {
         if (!isPlatformBrowser(this.platformId)) return;
 
         const skillsRows = this.skillsContainer.nativeElement.children;
-        const stringToHTML = (str) => {
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(str, 'text/html');
-            return doc.body;
-        };
-
         for (let i = 0, length = this.skills.length; i < length; i++) {
             const { name, imageId } = this.skills[i];
             const div = this.renderer.createElement('div');
-            const imgElementStr = this.cloudinary.imageTag(imageId, { secure: true, alt: name, loading: 'lazy' }).toHtml();
-            var imgElement = stringToHTML(imgElementStr).firstChild;
+            const imgElement = this.cloudinary.cloudinaryInstance.image(imageId, { secure: true, alt: name, loading: 'lazy' });
 
             this.renderer.addClass(div, 'skill-icon');
             this.renderer.appendChild(div, imgElement);
