@@ -35,7 +35,7 @@
             height: calc(360px * 0.6);
 
             .about-section-thumbnail-container {
-                > img {
+                > ::ng-deep cl-image > img {
                     width: 323.83px;
                     max-width: 323.83px;
                     height: 216px;
@@ -54,7 +54,7 @@
 
                 > .play-pause-button-container {
                     > .play-pause-button {
-                        > img {
+                        > ::ng-deep cl-image > img {
                             height: 50px;
                         }
                     }

@@ -10,7 +10,9 @@
                 <a [href]="member.link" target="_blank" rel="noopener" [ngClass]="!!member.link ? '' : 'disabled'">
                     <div class="profile-image-overlay"></div>
                     <div class="profile-image-container">
-                        <img [src]="imgSrc(member.imageId)" [alt]="member.name" loading="lazy" />
+                        <cl-image [public-id]="member.imageId" secure="true" loading="lazy" [attr.alt]="member.name">
+                            <cl-transformation fetch-format="auto"></cl-transformation>
+                        </cl-image>
                     </div>
                 </a>
                 <div class="member-name">{{member.name}}</div>
@@ -23,8 +25,8 @@
         <div class="leadership-skills-icons">
             <div #skillsTypes class="skills-grid-container">
                 <div *ngFor="let skill of skills; let i = index" class="skill-grid-item">
-                    <img [src]="imgSrc(skill.imageId, false)" [alt]="skill.name"
-                        [width]="skill.width || defaultWidths.skill" loading="lazy" />
+                    <cl-image [public-id]="skill.imageId" secure="true" [attr.width]="skill.width || defaultWidths.skill"
+                        loading="lazy" [attr.alt]="skill.name"></cl-image>
                     <div [style.color]="skill.color">{{skill.name}}</div>
                 </div>
             </div>

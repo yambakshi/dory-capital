@@ -1,5 +1,4 @@
 import { Component, Input, ViewChild } from '@angular/core';
-import { Cloudinary } from '@cloudinary/angular-5.x';
 import { Section } from '@models/section';
 
 @Component({
@@ -19,7 +18,7 @@ export class AboutUsSectionComponent {
     playIconId: string = 'dory-capital/about-us/play_qojytb';
     thumbnailId: string = 'dory-capital/about-us/pr-video-thumbnail_lsenx5';
 
-    constructor(private cloudinary: Cloudinary) { }
+    constructor() { }
 
     showVideoPlayer(): void {
         this.videoPlayerVisible = true;
@@ -36,17 +35,5 @@ export class AboutUsSectionComponent {
         this.playVideo ?
             this.videoElement.nativeElement.play() :
             this.videoElement.nativeElement.pause();
-    }
-
-    imgSrc(imageId: string): string {
-        return this.cloudinary.url(imageId, { transformation: [{ fetch_format: "auto" }] });
-    }
-
-    get playIconUrl() {
-        return this.imgSrc(this.playIconId);
-    }
-
-    get thumbnailUrl() {
-        return this.imgSrc(this.thumbnailId);
     }
 }

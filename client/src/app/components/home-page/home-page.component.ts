@@ -4,8 +4,12 @@ import { ApiService } from '@services/api.service';
 import { ActivatedRoute } from '@angular/router';
 import { LoginService } from '@services/login.service';
 import { PageData } from '@models/page-data';
-import { Cloudinary } from '@cloudinary/angular-5.x';
 
+
+enum NavigatorIcons {
+  Idle = 'navigator_iztduy',
+  Active = 'navigator-active_dgqg6y'
+}
 
 @Component({
   selector: 'home-page',
@@ -15,7 +19,6 @@ import { Cloudinary } from '@cloudinary/angular-5.x';
     './home-page.component.mobile.scss']
 })
 export class HomePageComponent implements AfterViewInit {
-  @ViewChild('pageNavigator') pageNavigator: ElementRef;
   @ViewChild('scrollToTopButton') scrollToTopButton: ElementRef;
   @ViewChild('scope') scope: ElementRef;
   @ViewChild('process') process: ElementRef;
@@ -23,7 +26,7 @@ export class HomePageComponent implements AfterViewInit {
   sectionsElements: { [key: string]: ElementRef };
   pageData: PageData;
   isLoggedIn: boolean = false;
-  navigatorIcons = { idle: 'navigator_iztduy', active: 'navigator-active_dgqg6y' };
+  navigatorIconId: NavigatorIcons = NavigatorIcons.Idle;
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
@@ -31,8 +34,7 @@ export class HomePageComponent implements AfterViewInit {
     private apiService: ApiService,
     private route: ActivatedRoute,
     private loginService: LoginService,
-    private renderer: Renderer2,
-    private cloudinary: Cloudinary) {
+    private renderer: Renderer2) {
     this.route.data.subscribe(data => {
       if (!data['pageData']) {
         return;
@@ -46,6 +48,10 @@ export class HomePageComponent implements AfterViewInit {
     this.apiService.getPageDataObservable().subscribe((pageData: PageData) => {
       this.pageData = pageData;
     });
+  }
+
+  get publicId() {
+    return `dory-capital/${this.navigatorIconId}`;
   }
 
   ngAfterViewInit(): void {
@@ -64,17 +70,11 @@ export class HomePageComponent implements AfterViewInit {
   }
 
   mouseHoverPageNavigation(): void {
-    let pageNavigatorElement = this.pageNavigator.nativeElement;
-    let innerDivElement = pageNavigatorElement.firstElementChild;
-    let innerImgElement = innerDivElement.firstElementChild;
-    innerImgElement.setAttribute('src', this.imgSrc(this.navigatorIcons.active));
+    this.navigatorIconId = NavigatorIcons.Active;
   }
 
   mouseLeavePageNavigator(): void {
-    let pageNavigatorElement = this.pageNavigator.nativeElement;
-    let innerDivElement = pageNavigatorElement.firstElementChild;
-    let innerImgElement = innerDivElement.firstElementChild;
-    innerImgElement.setAttribute('src', this.imgSrc(this.navigatorIcons.idle));
+    this.navigatorIconId = NavigatorIcons.Idle;
   }
 
   scrollToTop(): void {
@@ -103,10 +103,5 @@ export class HomePageComponent implements AfterViewInit {
 
   scrollTo(el: HTMLElement): void {
     el.scrollIntoView();
-  }
-
-  imgSrc(imageId: string) {
-    const url = `dory-capital/${imageId}`;
-    return this.cloudinary.url(url, { transformation: [{ fetch_format: "auto" }] });
   }
 }

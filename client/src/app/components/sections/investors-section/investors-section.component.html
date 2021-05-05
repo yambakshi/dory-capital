@@ -2,12 +2,14 @@
     <div class="investors-section">
         <div class="investors-section-video-container">
             <div class="investors-section-video">
-                <video [src]="videoSrc | safe" loading="lazy" muted autoplay loop oncanplay="this.play()"
-                    onloadedmetadata="this.muted = true"></video>
+                <cl-video [public-id]="videoId" loading="lazy" oncanplay="this.play()"
+                    onloadedmetadata="this.muted = true" secure="true" autoplay muted loop>
+                    <cl-transformation fetch-format="auto"></cl-transformation>
+                </cl-video>
             </div>
         </div>
         <div class="investors-section-button">
-            <img [src]="imgSrc(gridId, false)" alt="grid-icon" loading="lazy" />
+            <cl-image [public-id]="gridId" secure="true" alt="grid-icon"></cl-image>
             <div class="investors-zone-text">Investors<br />Zone</div>
         </div>
     </div>

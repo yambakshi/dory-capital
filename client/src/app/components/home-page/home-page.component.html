@@ -34,7 +34,9 @@
     </div>
     <div #pageNavigator class="page-navigator-container" (mouseleave)="mouseLeavePageNavigator()">
         <div class="page-navigator" (mouseenter)="mouseHoverPageNavigation()">
-            <img [src]="imgSrc(navigatorIcons.idle)" alt="page-navigator" />
+            <cl-image [public-id]="publicId" secure="true" alt="page-navigator">
+                <cl-transformation fetch-format="auto"></cl-transformation>
+            </cl-image>
             <div class="contact-us" (click)="scrollTo(contactus)">Contact Us</div>
             <div class="investors" (click)="scrollTo(investors)">Investors</div>
             <div class="faq" (click)="scrollTo(faq)">FAQ</div>

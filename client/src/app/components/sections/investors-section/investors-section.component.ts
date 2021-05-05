@@ -1,5 +1,4 @@
 import { Component } from "@angular/core";
-import { Cloudinary } from "@cloudinary/angular-5.x";
 
 @Component({
     selector: 'investors-section',
@@ -11,15 +10,9 @@ import { Cloudinary } from "@cloudinary/angular-5.x";
 })
 export class InvestorsComponent {
     gridId: string = 'dory-capital/scope/grid_dncnuq';
-    videoSrc: string = 'https://res.cloudinary.com/dory-capital/video/upload/v1614558112/dory-capital/investors/investors-video_d11806.mov';
+    videoId: string = 'dory-capital/investors/investors-video_d11806';
 
-    constructor(private cloudinary: Cloudinary) { }
-
-    imgSrc(imageId: string, autoFormat: boolean = true): string {
-        return autoFormat ?
-            this.cloudinary.url(imageId, { transformation: [{ fetch_format: "auto" }] }) :
-            this.cloudinary.url(imageId);
-    }
+    constructor() { }
 
     showLogin(): void {
         // const dialogRef = this.dialog.open(InvestorsLoginDialog, {
