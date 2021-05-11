@@ -1,5 +1,5 @@
 .investors-login-dialog-container {
-    img {
+    ::ng-deep cl-image > img {
         width: 100%;
     }
 }

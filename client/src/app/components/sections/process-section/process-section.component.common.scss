@@ -302,7 +302,7 @@
                         > .process-section-step-3-img-container {
                             width: 64px;
 
-                            > img {
+                            ::ng-deep cl-image > img {
                                 height: 32px;
                                 max-width: 100%;
                                 vertical-align: middle;

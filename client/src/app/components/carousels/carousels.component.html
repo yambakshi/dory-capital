@@ -10,16 +10,19 @@
     </div>
     <div #carsouels class="tech-carousels">
         <div class="tech-carousel-rotator-container" (click)="rotateCarousel()">
-            <img class="tech-carousel-grid" [src]="imgSrc(gridId, false)" alt="grid-icon" loading="lazy" />
-            <img class="tech-carousel-rotator-icon" [src]="imgSrc(rotateIconId, false)" alt="rotate-icon"
-                loading="lazy" />
+            <cl-image class="tech-carousel-grid" [public-id]="gridId" secure="true" loading="lazy" alt="grid-icon">
+            </cl-image>
+            <cl-image class="tech-carousel-rotator-icon" [public-id]="rotateIconId" secure="true" loading="lazy"
+                alt="rotate-icon"></cl-image>
             <div class="tech-carousel-rotator-text">Click to rotate</div>
         </div>
         <div *ngFor="let carouselImgs of carouselsImgs; let i = index" class="tech-carousel"
             [ngClass]="selectedTab === i ? 'show-carousel' : ''">
             <div *ngFor="let img of carouselImgs; let j = index" [class]="'tech-carousel-item ' + toClassName(img.name)"
                 [ngClass]="carouselsIndices[selectedTab] === j ? 'active' : ''" (click)="selectCarouselItem(j)">
-                <img [src]="carouselImg(i + 1, img.id)" [alt]="img.name" loading="lazy" />
+                <cl-image [public-id]="carouselImg(i + 1, img.id)" secure="true" loading="lazy" [attr.alt]="img.name">
+                    <cl-transformation fetch-format="auto"></cl-transformation>
+                </cl-image>
                 <div class="tech-carousel-item-text">{{img.name}}</div>
             </div>
         </div>

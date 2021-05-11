@@ -8,7 +8,7 @@
                     justify-content: center;
                     overflow: hidden;
 
-                    > video {
+                    > ::ng-deep cl-video > video {
                         width: 600px;
                         height: 100%;
                     }
@@ -16,7 +16,7 @@
             }
 
             > .investors-section-button {
-                > img {
+                > ::ng-deep cl-image > img {
                     width: 180px;
                 }
 

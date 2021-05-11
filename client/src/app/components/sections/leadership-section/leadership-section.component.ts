@@ -1,5 +1,4 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
-import { Cloudinary } from '@cloudinary/angular-5.x';
 import { Skill } from '@models/skill';
 import { LeadershipSection } from '@models/section';
 
@@ -18,15 +17,9 @@ export class LeadershipSectionComponent {
     @Input() skills: Skill[];
     readonly defaultWidths = { skill: 36 };
 
-    constructor(private cloudinary: Cloudinary) { }
+    constructor() { }
 
     ngOnChanges(): void {
         this.data.members = this.data.members.filter(({ hidden }) => !hidden);
-    }
-
-    imgSrc(imageId: string, autoFormat: boolean = true) {
-        return autoFormat ?
-            this.cloudinary.url(imageId, { transformation: [{ fetch_format: "auto" }] }) :
-            this.cloudinary.url(imageId);
     }
 }

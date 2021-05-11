@@ -1,6 +1,5 @@
 import { isPlatformBrowser } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, HostListener, Inject, OnInit, PLATFORM_ID, Renderer2, ViewChild } from '@angular/core';
-import { Cloudinary } from '@cloudinary/angular-5.x';
 import { WindowRefService } from '@services/window-ref.service';
 
 @Component({
@@ -64,9 +63,7 @@ export class CarouselsComponent implements OnInit, AfterViewInit {
     constructor(
         @Inject(PLATFORM_ID) private platformId: any,
         private windowRefService: WindowRefService,
-        private renderer: Renderer2,
-        private cloudinary: Cloudinary
-    ) { }
+        private renderer: Renderer2) { }
 
     ngOnInit(): void {
         if (isPlatformBrowser(this.platformId)) {
@@ -81,13 +78,7 @@ export class CarouselsComponent implements OnInit, AfterViewInit {
 
     carouselImg(i: number, id: string) {
         const imageId = `dory-capital/scope/${i}/${id}`;
-        return this.imgSrc(imageId);
-    }
-
-    imgSrc(imageId: string, autoFormat: boolean = true) {
-        return autoFormat ?
-            this.cloudinary.url(imageId, { transformation: [{ fetch_format: "auto" }] }) :
-            this.cloudinary.url(imageId);
+        return imageId;
     }
 
     ngAfterViewInit(): void {

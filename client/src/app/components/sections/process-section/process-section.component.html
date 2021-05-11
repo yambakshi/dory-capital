@@ -55,7 +55,9 @@
                     <h1>{{data.paragraphs[2].title}}</h1>
                     <div class="process-section-step-3-bullet-container">
                         <div class="process-section-step-3-img-container">
-                            <img [src]="imgSrc('team')" alt="team" />
+                            <cl-image [public-id]="publicId('team')" secure="true" loading="lazy" alt="team">
+                                <cl-transformation fetch-format="auto"></cl-transformation>
+                            </cl-image>
                         </div>
                         <div class="process-section-step-3-bullet">
                             <h6>{{data.paragraphs[2].text}}</h6>
@@ -63,7 +65,9 @@
                     </div>
                     <div class="process-section-step-3-bullet-container">
                         <div class="process-section-step-3-img-container">
-                            <img [src]="imgSrc('group')" alt="group" />
+                            <cl-image [public-id]="publicId('group')" secure="true" loading="lazy" alt="group">
+                                <cl-transformation fetch-format="auto"></cl-transformation>
+                            </cl-image>
                         </div>
                         <div class="process-section-step-3-bullet">
                             <h6>Preliminary technical assessment</h6>
@@ -73,7 +77,9 @@
                     </div>
                     <div class="process-section-step-3-bullet-container">
                         <div class="process-section-step-3-img-container">
-                            <img [src]="imgSrc('dd')" alt="dd" />
+                            <cl-image [public-id]="publicId('dd')" secure="true" loading="lazy" alt="dd">
+                                <cl-transformation fetch-format="auto"></cl-transformation>
+                            </cl-image>
                         </div>
                         <div class="process-section-step-3-bullet">
                             <h6>An indicative due diligence</h6>
@@ -88,7 +94,9 @@
                     </div>
                     <div class="process-section-step-3-bullet-container">
                         <div class="process-section-step-3-img-container">
-                            <img [src]="imgSrc('approval')" alt="approval" />
+                            <cl-image [public-id]="publicId('approval')" secure="true" loading="lazy" alt="approval">
+                                <cl-transformation fetch-format="auto"></cl-transformation>
+                            </cl-image>
                         </div>
                         <div class="process-section-step-3-bullet">
                             <h6>Final approval</h6>
@@ -98,7 +106,9 @@
                     </div>
                     <div class="process-section-step-3-bullet-container">
                         <div class="process-section-step-3-img-container">
-                            <img [src]="imgSrc('work')" alt="work" />
+                            <cl-image [public-id]="publicId('work')" secure="true" loading="lazy" alt="work">
+                                <cl-transformation fetch-format="auto"></cl-transformation>
+                            </cl-image>
                         </div>
                         <div class="process-section-step-3-bullet">
                             <h6>To work</h6>
